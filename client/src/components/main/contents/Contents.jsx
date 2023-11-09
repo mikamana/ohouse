@@ -6,8 +6,8 @@ export default function Contents({ children }) {
   return (
 
     <>
-      <main className="main_contents inner">
-        {children}
+      <main className="main_contents">
+        {/* {children} */}
         가나
       </main>
     </>
