@@ -3,7 +3,7 @@ import Header from "./header/Header";
 import Footer from "./footer/Footer";
 import Contents from "./contents/Contents";
 import Banner from "./banner/Banner";
-
+import MainVisual from "../../pages/main/visual/components/MainVisual";
 
 export default function Main() {
 
@@ -14,7 +14,7 @@ export default function Main() {
       <Header>
       </Header>
       <Contents>
-
+        <MainVisual />
       </Contents>
       <Footer>
 
