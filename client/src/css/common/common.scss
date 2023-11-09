@@ -1,0 +1,41 @@
+@use "../common/mixin.scss" as m;
+
+.inner {
+  width: 1256px;
+  margin: 0 auto;
+}
+
+body {
+  color: #424242;
+  font-family:
+    "Pretendard Variable",
+    Pretendard,
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    Roboto,
+    "Helvetica Neue",
+    "Segoe UI",
+    "Apple SD Gothic Neo",
+    "Noto Sans KR",
+    "Malgun Gothic",
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    sans-serif;
+}
+
+:root {
+  --sky: #35c5f0;
+  --darkSky: #009fce;
+  --lightSky: #9ee3f8;
+  --titleColor: #2f3438;
+  --titleHover: #97999b;
+  --red: #f77;
+  --gray: #ededed;
+  --darkGray: #757575;
+  --lightGray: #f7f9fa;
+  --blackGray: #2f3438;
+  --borderColor: #dadde0;
+  --headerBorder: #eaedef;
+}

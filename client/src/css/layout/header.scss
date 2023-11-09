@@ -1,0 +1,10 @@
+@use "../common/mixin.scss" as m;
+
+header.main_header {
+  height: 133px;
+  border: 1px solid gray;
+  div.main_header_layout {
+    height: 100%;
+    border: 1px solid gray;
+  }
+}
