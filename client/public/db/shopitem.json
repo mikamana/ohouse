@@ -1,0 +1,62 @@
+[
+  {
+  "shopimg":"https://image.ohou.se/i/bucketplace-v2-development/uploads/deals/167583759146918748.jpg?gif=1&w=360&h=360&c=c&q=0.8&webp=1",
+  "title_company":"상도가구",
+  "title_text":"[원데이특가]수납 팬트리 모음전! 술장/다용도실/창고/주방 외 다용도 맞춤 선반",
+  "price_sale":"33",
+  "price_cost":"19,900",
+  "price_another":true,
+  "rating_avg":"5.0",
+  "rating_review":"100,000",
+  "delivery_type":"todayDelivery",
+  "tag_free":false,
+  "tag_hotprice":true,
+  "coupon_sale":true,
+  "coupon_percent":"7"
+  },
+  {
+  "shopimg":"https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/169950570345994715.jpg?gif=1&w=360&h=360&c=c&q=0.8&webp=1",
+  "title_company":"센스큐",
+  "title_text":"[단하루 31,875원] 버터컬러 입고! 올케이 실링&컷팅 올케이 휴지통 29L+봉투1롤",
+  "price_sale":"53",
+  "price_cost":"1,000,000",
+  "price_another":false,
+  "rating_avg":"3.5",
+  "rating_review":"4,000",
+  "delivery_type":"furnitureDelivery",
+  "tag_free":true,
+  "tag_hotprice":false,
+  "coupon_sale":false,
+  "coupon_percent":"7"
+  },
+  {
+  "shopimg":"https://image.ohou.se/i/bucketplace-v2-development/uploads/deals/169957885513323142.jpg?gif=1&w=360&h=360&c=c&q=0.8&webp=1",
+  "title_company":"라벨라코",
+  "title_text":"[단하루!장바구니쿠폰] 층간소음방지 실내화/거실화 특가전",
+  "price_sale":"31",
+  "price_cost":"8,900",
+  "price_another":false,
+  "rating_avg":"4.0",
+  "rating_review":"6,000",
+  "delivery_type":"ohouseDelivery",
+  "tag_free":true,
+  "tag_hotprice":true,
+  "coupon_sale":true,
+  "coupon_percent":"7"
+  },
+  {
+  "shopimg":"https://image.ohou.se/i/bucketplace-v2-development/uploads/deals/169957874017429433.jpg?gif=1&w=360&h=360&c=c&q=0.8&webp=1",
+  "title_company":"모던하우스",
+  "title_text":"[오늘만 20% 추가할인] 모던하우스 크리스마스&BEST 100",
+  "price_sale":"7",
+  "price_cost":"11,900",
+  "price_another":true,
+  "rating_avg":"4.5",
+  "rating_review":"12,000",
+  "delivery_type":"ohouseDelivery",
+  "tag_free":true,
+  "tag_hotprice":false,
+  "coupon_sale":false,
+  "coupon_percent":"5"
+  }
+]
