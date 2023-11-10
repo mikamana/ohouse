@@ -17,12 +17,13 @@ import "./css/main/userimg/userimg.css";
 import "./css/main/visual/visual.css";
 import Main from "./components/main/Main";
 
-
 const router = createBrowserRouter([
 
   {
+
     path: "/",
     element: <Main />
+
   }
 
   // {
@@ -35,11 +36,12 @@ const router = createBrowserRouter([
 
 ])
 
-
 function App() {
+
   return (
     <RouterProvider router={router} />
   );
+
 }
 
 export default App;

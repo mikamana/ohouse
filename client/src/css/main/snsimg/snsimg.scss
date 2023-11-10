@@ -1,0 +1,79 @@
+section.snsimg_wrap {
+  margin: 40px 0px;
+  div.snsimg_inner {
+    div.snsimg_title_wrap {
+      padding: 20px 0px;
+      box-sizing: border-box;
+      p.snsimg_title_text {
+        strong.snsimg_title_text {
+          font-weight: 700;
+          font-size: 20px;
+          color: rgb(47, 52, 56);
+          line-height: 28px;
+        }
+      }
+      p.snsimg_title_text_bold {
+        span.snsimg_title_info {
+          display: inline-block;
+          font-size: 14px;
+          color: rgb(47, 52, 56);
+          letter-spacing: -0.3px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          font-weight: 400;
+          line-height: 28px;
+        }
+      } //title_info
+    }
+    div.swiper-slide {
+      display: flex;
+      div.snsimg_img_list_div {
+        width: calc((100% - 100px) / 6);
+        margin-right: 20px;
+        flex-shrink: 0;
+        border-radius: 5px;
+        fieldset.snsimg_img_fieldset {
+          position: relative;
+          .snsimg_img_list_link {
+            img {
+              width: 100%;
+              border-radius: 5px;
+            }
+            p.snsimg_img_list_user {
+              position: absolute;
+              left: 10px;
+              bottom: 15px;
+              display: flex;
+              align-items: center;
+              span.snsimg_img_list_user_img {
+                display: block;
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                margin-right: 7px;
+                img {
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 50%;
+                }
+              }
+              span.snsimg_img_list_user_text {
+                color: #fff;
+                font-weight: bold;
+                font-size: 14px;
+                margin-right: 65px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.swiper-button-prev.swiper-button-disabled {
+  opacity: 0 !important;
+}
+.swiper-button-next.swiper-button-disabled {
+  opacity: 0 !important;
+}

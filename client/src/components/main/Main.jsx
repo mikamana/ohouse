@@ -4,6 +4,7 @@ import Footer from "./footer/Footer";
 import Contents from "./contents/Contents";
 import Banner from "./banner/Banner";
 import MainVisual from "../../pages/main/visual/components/MainVisual";
+import SnsImg from "../../pages/main/snsimg/components/SnsImg";
 
 export default function Main() {
 
@@ -15,6 +16,7 @@ export default function Main() {
       </Header>
       <Contents>
         <MainVisual />
+        <SnsImg />
       </Contents>
       <Footer>
 
