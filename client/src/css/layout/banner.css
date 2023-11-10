@@ -1,5 +1,5 @@
 div.banner_wrap {
-  display: flex;
+  display: none;
   width: 100%;
   height: 50px;
 }
