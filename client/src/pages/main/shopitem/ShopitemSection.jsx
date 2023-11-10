@@ -13,7 +13,7 @@ export default function ShopitemSection(){
     .then(data=>setShopArray(data))
   },[])
   return(
-    <div className="shopitem_section inner">
+    <div key="shopitem_section" className="shopitem_section inner">
       <Swiper
               slidesPerView={4}
               slidesPerGroup={4}
@@ -26,8 +26,8 @@ export default function ShopitemSection(){
               className="mySwiper"
       >
         {
-          shopArray.map((list)=>
-        <SwiperSlide>
+          shopArray.map((list,i)=>
+        <SwiperSlide key={i}>
           <ShopitemContents
           shopitemList={list}
           />
