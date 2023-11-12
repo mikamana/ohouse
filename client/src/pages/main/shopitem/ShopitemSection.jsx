@@ -5,6 +5,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import ShopitemContents from './ShopitemContents';
 import React, { useEffect, useState } from 'react'
+import ShopitemMore from './ShopitemMore';
 export default function ShopitemSection(){
   const [shopArray,setShopArray] = useState([]);
   useEffect(()=>{
@@ -35,11 +36,11 @@ export default function ShopitemSection(){
           )
         }
         <SwiperSlide>
-          <div>button</div>
+          <ShopitemMore/>
         </SwiperSlide>
       </Swiper>
-      <button className="prev_btn"></button>
-      <button className="next_btn"></button>
+      <button className="prev_btn prev_style_opactiy"></button>
+      <button className="next_btn next_style_opactiy"></button>
     </div>
   );
 }

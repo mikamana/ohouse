@@ -5,17 +5,107 @@ div.shopitem_section {
 }
 div.shopitem_section .prev_btn {
   position: absolute;
-  left: 52px;
-  top: 40%;
-  background-color: #424242;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  background: #fff;
+  border-radius: 100%;
+  box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  top: 50%;
+  transform: translateX(50%);
   z-index: 10;
+  left: 10px;
+  top: 40%;
+  border: none;
+}
+div.shopitem_section .prev_btn::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+div.shopitem_section .prev_btn:hover {
+  background: var(--lightGray);
+}
+div.shopitem_section .prev_btn::before {
+  content: "\f053";
 }
 div.shopitem_section .next_btn {
   position: absolute;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  background: #fff;
+  border-radius: 100%;
+  box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  top: 50%;
+  transform: translateX(50%);
+  z-index: 10;
   right: 52px;
   top: 40%;
-  background-color: #424242;
+  border: none;
+}
+div.shopitem_section .next_btn::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+div.shopitem_section .next_btn:hover {
+  background: var(--lightGray);
+}
+div.shopitem_section .next_btn::before {
+  content: "\f054";
+}
+
+.shopitem_more_wrap {
+  position: relative;
+  width: 269px;
+  height: 269px;
+}
+
+.shopitem_more_button {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  background: rgb(234, 237, 239);
+  border-radius: 100%;
+  box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transform: translateX(50%);
   z-index: 10;
+  top: 65%;
+  left: 30%;
+}
+.shopitem_more_button::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+.shopitem_more_button:hover {
+  background: rgb(218, 221, 224);
+}
+.shopitem_more_button::before {
+  content: "\f061";
+}
+
+.shopitem_more_text {
+  position: absolute;
+  font-size: 13px;
+  top: 50px;
 }
 
 div.shopitem_contents:hover {
@@ -107,6 +197,7 @@ div.shopitem_price {
 
 .shopitem_price_cost {
   margin-right: 2px;
+  color: #000;
 }
 
 .shopitem_rating_p {
