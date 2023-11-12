@@ -7,7 +7,6 @@ import Contents from "./contents/Contents";
 import Banner from "./banner/Banner";
 import { Outlet } from 'react-router-dom';
 
-
 export default function Main() {
 
   return (
