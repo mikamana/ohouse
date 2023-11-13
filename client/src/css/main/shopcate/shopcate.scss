@@ -1,0 +1,67 @@
+@use "../../common/mixin.scss" as m;
+
+div.shopcate_section{
+  display: block;
+  position: relative;
+  height: 675px;
+  .prev_btn2{
+    @include m.swiper_btn;
+    border: none;
+    left: -40px;
+    top: -10px;
+    &::before {
+      content: "\f053";
+      
+    }
+  }
+  .next_btn2{
+    @include m.swiper_btn;
+    border: none;
+    right:0;
+    top: -10px;
+    &::before {
+      content: "\f054";
+    }
+  }
+
+  .prev_btn2.swiper-button-disabled{
+    opacity: 0 !important;
+  }
+
+  .next_btn2.swiper-button-disabled{
+    opacity: 0 !important;
+  }
+}
+.shopcate_category{
+  position: relative;
+  // margin: 0px;
+  // padding: 0px;
+  // overflow: hidden;
+
+}
+// .shopcate_category_item_container{
+//   width: 100%;
+//   padding: 0px;
+//   flex-shrink: 0;
+//   scroll-snap-align: start;
+// }
+.shopcate_category_item_wrap{
+  display: inline-block;
+  position: relative;
+  height: 32px;
+  border-radius: 16px;
+  padding-left: 12px;
+  padding-right: 12px;
+  line-height: 0;
+  color: rgb(47, 52, 56);
+  background-color: rgb(247, 249, 250);
+  cursor: pointer;
+}
+
+.shopcate_category_item_text{
+  font-size: 14px;
+  line-height: 32px;
+  vertical-align: middle;
+  white-space: nowrap;
+  cursor: inherit;
+}

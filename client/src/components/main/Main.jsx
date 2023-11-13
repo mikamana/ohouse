@@ -4,6 +4,7 @@ import Footer from "./footer/Footer";
 import Contents from "./contents/Contents";
 import Banner from "./banner/Banner";
 import ShopitemSection from "../../pages/main/shopitem/ShopitemSection";
+import ShopcateSection from "../../pages/main/shopcate/ShopcateSection";
 // merge하기 전 Main 컴포넌트 지우거나 정리하고 하기
 
 export default function Main() {
@@ -17,6 +18,7 @@ export default function Main() {
       </Header>
       <Contents>
       <ShopitemSection/>
+      <ShopcateSection/>
       </Contents>
       <Footer>
 

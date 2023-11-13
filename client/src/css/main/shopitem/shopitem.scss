@@ -24,6 +24,13 @@ div.shopitem_section{
       content: "\f054";
     }
   }
+  .prev_btn.swiper-button-disabled{
+    opacity: 0 !important;
+  }
+
+  .next_btn.swiper-button-disabled{
+    opacity: 0 !important;
+  }
 }
 
 .shopitem_more_wrap{
@@ -157,9 +164,6 @@ div.shopitem_price{
 }
 //shopitem_price
 
-div.shopitem_rating{
-
-}
 .shopitem_rating_p{
   font-size: 12px;
   line-height: 16px;
@@ -236,14 +240,5 @@ div.shopitem_coupon{
     overflow: hidden;
   
   }
-}
-.shopitem_section{
-    .prev_btn.swiper-button-disabled{
-      opacity: 0 !important;
-    }
-
-    .next_btn.swiper-button-disabled{
-      opacity: 0 !important;
-    }
 }
 
