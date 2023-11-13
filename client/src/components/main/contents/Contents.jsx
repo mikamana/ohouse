@@ -1,6 +1,5 @@
 import React, { Children } from "react";
 
-
 export default function Contents({ children }) {
 
   return (
