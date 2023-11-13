@@ -21,7 +21,7 @@ div.shopcate_section .prev_btn2 {
   transform: translateX(50%);
   z-index: 10;
   border: none;
-  left: -40px;
+  left: -48px;
   top: -10px;
 }
 div.shopcate_section .prev_btn2::before {
@@ -74,6 +74,15 @@ div.shopcate_section .next_btn2.swiper-button-disabled {
 
 .shopcate_category {
   position: relative;
+  margin: 0px;
+  padding: 0px;
+}
+
+.shopcate_category_item_container {
+  width: 100%;
+  padding: 0px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
 }
 
 .shopcate_category_item_wrap {

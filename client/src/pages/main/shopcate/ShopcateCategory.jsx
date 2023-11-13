@@ -1,7 +1,7 @@
 import ShopcateCategoryAll from "./components/category/ShopcateCategoryAll";
 import ShopcateCategoryItem from "./components/category/ShopcateCategoryItem";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -15,11 +15,11 @@ export default function ShopcateCategory(){
   },[])
   return(
     <>
-    <div className="shopcate_category inner">
+    <div className="shopcate_category">
       <Swiper
-                slidesPerView={11}
+                slidesPerView={'auto'}
                 slidesPerGroup={11}
-                spaceBetween={0}
+                spaceBetween={5}
                 navigation={{
                   prevEl: ".prev_btn2",
                   nextEl: ".next_btn2",
@@ -27,12 +27,12 @@ export default function ShopcateCategory(){
                 modules={[Navigation]}
                 className="mySwiper2"
         >
-        <SwiperSlide>
+        <SwiperSlide style={{ width: 'auto' }}>
           <ShopcateCategoryAll/>
         </SwiperSlide>
         {
           catelist.map((list)=>
-        {return <SwiperSlide>
+        {return <SwiperSlide style={{ width: 'auto' }}>
           <ShopcateCategoryItem
           category_name={list.category_name}
           />
@@ -40,9 +40,9 @@ export default function ShopcateCategory(){
           )
         }
         </Swiper>
-      </div>
         <button className="prev_btn2"></button>
         <button className="next_btn2"></button>
+      </div>
     </>
   );
 }

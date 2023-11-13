@@ -7,7 +7,7 @@ div.shopcate_section{
   .prev_btn2{
     @include m.swiper_btn;
     border: none;
-    left: -40px;
+    left: -48px;
     top: -10px;
     &::before {
       content: "\f053";
@@ -34,17 +34,17 @@ div.shopcate_section{
 }
 .shopcate_category{
   position: relative;
-  // margin: 0px;
-  // padding: 0px;
+  margin: 0px;
+  padding: 0px;
   // overflow: hidden;
 
 }
-// .shopcate_category_item_container{
-//   width: 100%;
-//   padding: 0px;
-//   flex-shrink: 0;
-//   scroll-snap-align: start;
-// }
+.shopcate_category_item_container{
+  width: 100%;
+  padding: 0px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
 .shopcate_category_item_wrap{
   display: inline-block;
   position: relative;

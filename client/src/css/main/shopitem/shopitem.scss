@@ -6,7 +6,7 @@ div.shopitem_section{
   height: 510px;
   .prev_btn{
     @include m.swiper_btn;
-    left: 10px;
+    left: 12px;
     top: 40%;
     border: none;
     &::before {
@@ -17,7 +17,7 @@ div.shopitem_section{
   
   .next_btn{
     @include m.swiper_btn;
-    right: 52px;
+    right: 60px;
     top: 40%;
     border: none;
     &::before {
