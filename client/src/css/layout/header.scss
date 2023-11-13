@@ -21,23 +21,31 @@ header.main_header {
           background-position: center;
         }
       }
-      div.header_logo_left{
-        display: flex;
-        width: 377px;
-        a{
-          margin: 0 10px;
-          padding: 21px 5px 15px;
-          font-size: 18px;
-          font-weight: bold;
-          &:hover{
-            color: #35C5F0;
+        div.header_logo_left{
+          width: 377px;
+          // display: flex;
+          border: 1px solid gray;
+          ul.header_logo_left_ul{
+            display: flex;
+            li.header_logo_left_ul_li{
+              border: 1px solid gray; /* 삭제====== */
+              height: 61px;
+              line-height: 61px;
+              a{
+                margin: 0 10px;
+                padding: 21px 5px 15px;
+                height: 100%;
+                font-size: 18px;
+                font-weight: bold;
+              border: 1px solid gray; /* 삭제====== */
+
+                &:hover{
+                  color: #35C5F0;
+                }
+              }
+            }
           }
-          &:hover ~ .header_nav{
-            //display: block;
-            color: red;
-          }
-        }
-      }
+      }//div.header_logo_left
       div.header_logo_searchBox{
         position: relative;
         display: flex;
@@ -80,7 +88,7 @@ header.main_header {
         align-items: center;
         a.header_logo_cart{
           padding: 0 10px;
-          margin-left : 9px;
+          margin-left : 5px;
           width: 30px;
           height: 30px;
           background-image: url('../../../public/images/headers/cart.png');
@@ -132,6 +140,7 @@ header.main_header {
       height: 52px;
       border: 1px solid gray;
       box-sizing: border-box;
+      // display: none; // none;
       div.header_nav_menu{
         display: flex;
         align-items: center;
@@ -274,4 +283,11 @@ header.main_header {
   }//div.main_header_layout
 }
 
-
+.header_nav_menu_popup{
+  display: flex;
+  position: absolute;
+  top: 75px;
+  left: 100px;
+  width: 1000px;
+  background: #FFF;
+}

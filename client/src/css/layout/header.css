@@ -25,20 +25,27 @@ header.main_header div.main_header_layout div.header_logo div.header_logoBox a.h
   background-position: center;
 }
 header.main_header div.main_header_layout div.header_logo div.header_logo_left {
-  display: flex;
   width: 377px;
+  border: 1px solid gray;
 }
-header.main_header div.main_header_layout div.header_logo div.header_logo_left a {
+header.main_header div.main_header_layout div.header_logo div.header_logo_left ul.header_logo_left_ul {
+  display: flex;
+}
+header.main_header div.main_header_layout div.header_logo div.header_logo_left ul.header_logo_left_ul li.header_logo_left_ul_li {
+  border: 1px solid gray; /* 삭제====== */
+  height: 61px;
+  line-height: 61px;
+}
+header.main_header div.main_header_layout div.header_logo div.header_logo_left ul.header_logo_left_ul li.header_logo_left_ul_li a {
   margin: 0 10px;
   padding: 21px 5px 15px;
+  height: 100%;
   font-size: 18px;
   font-weight: bold;
+  border: 1px solid gray; /* 삭제====== */
 }
-header.main_header div.main_header_layout div.header_logo div.header_logo_left a:hover {
+header.main_header div.main_header_layout div.header_logo div.header_logo_left ul.header_logo_left_ul li.header_logo_left_ul_li a:hover {
   color: #35C5F0;
-}
-header.main_header div.main_header_layout div.header_logo div.header_logo_left a:hover ~ .header_nav {
-  color: red;
 }
 header.main_header div.main_header_layout div.header_logo div.header_logo_searchBox {
   position: relative;
@@ -89,7 +96,7 @@ header.main_header div.main_header_layout div.header_logo div.header_logo_right 
 }
 header.main_header div.main_header_layout div.header_logo div.header_logo_right a.header_logo_cart {
   padding: 0 10px;
-  margin-left: 9px;
+  margin-left: 5px;
   width: 30px;
   height: 30px;
   background-image: url("../../../public/images/headers/cart.png");
@@ -275,4 +282,13 @@ header.main_header div.main_header_layout div.header_nav div.header_nav_popular 
   width: 104px;
   height: 20px;
   margin-right: 10px;
+}
+
+.header_nav_menu_popup {
+  display: flex;
+  position: absolute;
+  top: 75px;
+  left: 100px;
+  width: 1000px;
+  background: #FFF;
 }/*# sourceMappingURL=header.css.map */

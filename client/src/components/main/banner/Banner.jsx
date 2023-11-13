@@ -1,16 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Banner() {
 
   return (
     <>
       <div className="banner_wrap">
-        <a href="#" className="banner_wrap_left"></a>
-        <a href="#" className="banner_wrap_right"></a>
+        <Link to="#" className="banner_wrap_left"></Link>
+        <Link to="#" className="banner_wrap_right"></Link>
       </div>
     </>
-
-
   );
-
 }

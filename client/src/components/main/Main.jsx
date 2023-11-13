@@ -1,7 +1,5 @@
 import React from "react";
 import Header from "./header/Header";
-import Header_logo from "./header/Header_logo";
-import Header_nav from "./header/Header_nav";
 import Footer from "./footer/Footer";
 import Contents from "./contents/Contents";
 import Banner from "./banner/Banner";
@@ -14,8 +12,6 @@ export default function Main() {
     <>
       <Banner />
       <Header>
-        <Header_logo />
-        <Header_nav />
       </Header>
       <Outlet />
       <Footer>
