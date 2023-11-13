@@ -1,10 +1,105 @@
 @use "../common/mixin.scss" as m;
 
 header.main_header {
-  height: 133px;
+  // height: 133px;
   border: 1px solid gray;
-  div.main_header_layout {
-    height: 100%;
+  box-sizing: border-box;
+  section.main_header_logo_section {
     border: 1px solid gray;
+    box-sizing: border-box;
+    div.main_header_layout {
+      height: 100%;
+      // border: 1px solid gray;
+      div.main_header_logo_wrap {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 80px;
+        border: 1px solid gray;
+        h1.main_header_logo {
+          color: #000;
+          margin-right: 50px;
+        }
+        nav.main_header_gnb_menu {
+          ul.main_header_gnb_menu_list {
+            display: flex;
+            li.main_header_gnb_menu_list_li {
+              margin-right: 30px;
+            }
+          }
+        }
+        div.main_header_input_wrap {
+          input.input_box {
+          }
+        }
+        div.main_header_my_page_wrap {
+          img.main_header_my_page_img {
+          }
+        }
+        nav.main_header_sns_wrap {
+          ul.main_header_sns_list {
+            display: flex;
+            margin-left: 50px;
+            li.main_header_sns_list_li {
+              margin-right: 30px;
+              a.main_header_sns_list_a {
+              }
+            }
+          }
+        }
+        div.main_header_write_box {
+          width: 92px;
+          height: 40px;
+          background-color: #35c5f0;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          span {
+            color: #fff;
+          }
+        }
+      }
+    }
+  } //logo_section
+  section.main_header_gnb_section {
+    border: 1px solid gray;
+    height: 50px;
+
+    div.main_header_gnb_inner {
+      display: flex;
+      height: 100%;
+      nav.main_header_gnb_wrap {
+        width: 80%;
+        height: 100%;
+        ul.main_header_gnb_list {
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          height: 100%;
+
+          li.main_header_gnb_list_li {
+            margin-right: 30px;
+          }
+        }
+      }
+      nav.main_header_gnb_shop_wrap {
+        width: 20%;
+        height: 100%;
+        // background-color: red;
+        ul.main_header_gnb_shop_list {
+          height: 100%;
+          li.main_header_gnb_shop_list_li {
+            height: 100%;
+            a.main_header_gnb_shop_list_link {
+              height: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+        }
+      }
+    }
   }
 }

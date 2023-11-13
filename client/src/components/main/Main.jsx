@@ -19,7 +19,6 @@ export default function Main() {
         <SnsImg />
       </Contents>
       <Footer>
-
       </Footer>
     </>
 
