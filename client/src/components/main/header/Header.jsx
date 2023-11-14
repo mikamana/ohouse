@@ -42,6 +42,15 @@ export default function Header() {
     }
   }
 
+  /* const [showWrite, setShowWrite] = useState(false);
+  const handleClick = () => {
+    if (showWrite === false) {
+      setShowWrite(true)
+    } else {
+      setShowWrite(false)
+    }
+  } */
+
   return (
     <>
       <header className="main_header" onMouseLeave={handleMouseLeave}>
@@ -72,7 +81,18 @@ export default function Header() {
               <Link to="/login" className="header_logo_menu">로그인</Link>
               <Link to="/normal_users/new" className="header_logo_menu">회원가입</Link>
               <Link to="/customer_center" className="header_logo_menu">고객센터</Link>
-              <button>글쓰기<FiChevronDown /></button>
+              <div className="header_logo_write"><button type="button">글쓰기<FiChevronDown /></button>
+                <div className="header_nav_popup_write">
+                  <ul className="header_nav_popup_write_ul">
+                    <li>
+                      <Link to="/">
+                        <div>사진/동영상올리기</div>
+                        <div>우리집의 공간과 나의 일상을 기록해보세요.</div>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
