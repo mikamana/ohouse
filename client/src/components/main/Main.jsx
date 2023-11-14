@@ -22,7 +22,6 @@ export default function Main() {
         <ShopitemSection />
       </Contents>
       <Footer>
-
       </Footer>
     </>
 
