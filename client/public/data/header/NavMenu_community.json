@@ -1,0 +1,18 @@
+[
+  { "url" : "/", "menuName" : "홈"},
+  { "url" : "/", "menuName" : "추천"},
+  { "url" : "/", "menuName" : "#채널"},
+  { "url" : "/", "menuName" : "집들이"},
+  { "url" : "/", "menuName" : "집사진"},
+  { "url" : "/", "menuName" : "3D인테리어"},
+  { "url" : "/", "menuName" : "살림수납"},
+  { "url" : "/", "menuName" : "콜렉터블"},
+  { "url" : "/", "menuName" : "홈스토랑"},
+  { "url" : "/", "menuName" : "핫플레이스"},
+  { "url" : "/", "menuName" : "육아"},
+  { "url" : "/", "menuName" : "플랜테리어"},
+  { "url" : "/", "menuName" : "반려동물"},
+  { "url" : "/", "menuName" : "캠핑"},
+  { "url" : "/", "menuName" : "취미"},
+  { "url" : "/", "menuName" : "이벤트"}
+]
