@@ -1,5 +1,6 @@
 import ShopitemImageWrap from "./ShopitemImageWrap";
 import ShopitemInfo from "./ShopitemInfo";
+import ShopitemBest from "./components/ImageWrap/ShopitemBest";
 import ShopitemImage from "./components/ImageWrap/ShopitemImage"
 import ShopitemMark from "./components/ImageWrap/ShopitemMark"
 import ShopitemTimeCount from "./components/ImageWrap/ShopitemTimeCount"
@@ -12,11 +13,12 @@ import ShopitemTag from "./components/Info/ShopitemTag";
 import ShopitemTitle from "./components/Info/ShopitemTitle";
 import ShopitemTodayStart from "./components/Info/ShopitemTodayStart";
 
-export default function ShopitemContents({shopitemList}){
+export default function ShopitemContents({shopitemList,index}){
   return(
       <div className="shopitem_contents">
         <ShopitemImageWrap>
-          <ShopitemTimeCount/>
+          {shopitemList.best && <ShopitemBest rank={index} />}
+          {!shopitemList.time_count && <ShopitemTimeCount/>}
           <ShopitemImage
           shopimg={shopitemList.shopimg}
           />

@@ -20,7 +20,7 @@ div.shopitem_section .prev_btn {
   top: 50%;
   transform: translateX(50%);
   z-index: 10;
-  left: 10px;
+  left: 12px;
   top: 40%;
   border: none;
 }
@@ -51,7 +51,7 @@ div.shopitem_section .next_btn {
   top: 50%;
   transform: translateX(50%);
   z-index: 10;
-  right: 52px;
+  right: 60px;
   top: 40%;
   border: none;
 }
@@ -64,6 +64,12 @@ div.shopitem_section .next_btn:hover {
 }
 div.shopitem_section .next_btn::before {
   content: "\f054";
+}
+div.shopitem_section .prev_btn.swiper-button-disabled {
+  opacity: 0 !important;
+}
+div.shopitem_section .next_btn.swiper-button-disabled {
+  opacity: 0 !important;
 }
 
 .shopitem_more_wrap {
@@ -274,11 +280,4 @@ div.shopitem_coupon .shopitem_coupon_text {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-}
-
-.shopitem_section .prev_btn.swiper-button-disabled {
-  opacity: 0 !important;
-}
-.shopitem_section .next_btn.swiper-button-disabled {
-  opacity: 0 !important;
 }/*# sourceMappingURL=shopitem.css.map */
