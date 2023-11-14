@@ -5,7 +5,12 @@ export default function Contents({ children }) {
 
     <>
       <main className="main_contents">
+<<<<<<< HEAD
         {children}
+=======
+        {/* {children} */}
+        가나
+>>>>>>> work/하나
       </main>
     </>
 

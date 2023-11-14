@@ -1,0 +1,12 @@
+[
+  { "url" : "/store", "menuName" : "쇼핑홈"},
+  { "url" : "/store", "menuName" : "카테고리"},
+  { "url" : "/store", "menuName" : "베스트"},
+  { "url" : "/store", "menuName" : "오늘의딜"},
+  { "url" : "/store", "menuName" : "리퍼마켓"},
+  { "url" : "/store", "menuName" : "오!굿즈"},
+  { "url" : "/store", "menuName" : "블프세일"},
+  { "url" : "/store", "menuName" : "오!쇼룸"},
+  { "url" : "/store", "menuName" : "프리미엄"},
+  { "url" : "/store", "menuName" : "기획전"}
+]
