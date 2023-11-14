@@ -1,7 +1,7 @@
 @use "../common/mixin.scss" as m;
 
 div.banner_wrap{
-  display: none;
+  display: none; /* test 할 때는 flex로 바꿔주기!! 삭제===== */
   //display: flex;
   width: 100%;
   height: 50px;
