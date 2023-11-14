@@ -273,27 +273,35 @@ header.main_header div.main_header_layout_down div.header_nav div.header_nav_pop
   display: flex;
   align-items: center;
 }
-header.main_header div.main_header_layout_down div.header_nav div.header_nav_popular a.header_nav_popular_view div.header_nav_popular_view_list > span {
-  margin-right: 3px;
-}
-header.main_header div.main_header_layout_down div.header_nav div.header_nav_popular a.header_nav_popular_view div.header_nav_popular_view_list > span:first-of-type {
-  width: 20px;
-  height: 20px;
-  font-weight: 700;
+header.main_header div.main_header_layout_down div.header_nav div.header_nav_popular a.header_nav_popular_view div.header_nav_popular_view_list ul.header_nav_popular_view_list_ul {
+  height: 100%;
   text-align: center;
+  line-height: 52px;
+  overflow: hidden;
+  position: relative;
 }
-header.main_header div.main_header_layout_down div.header_nav div.header_nav_popular a.header_nav_popular_view div.header_nav_popular_view_list > span:nth-of-type(2) {
-  width: 24px;
-  height: 24px;
-  text-align: center;
+header.main_header div.main_header_layout_down div.header_nav div.header_nav_popular a.header_nav_popular_view div.header_nav_popular_view_list ul.header_nav_popular_view_list_ul li.header_nav_popular_view_list_li {
+  position: relative;
+  height: 100%;
+  transition: all 0.5s;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
 }
-header.main_header div.main_header_layout_down div.header_nav div.header_nav_popular a.header_nav_popular_view div.header_nav_popular_view_list > span:nth-of-type(2) img {
-  height: 110%;
+header.main_header div.main_header_layout_down div.header_nav div.header_nav_popular a.header_nav_popular_view div.header_nav_popular_view_list ul.header_nav_popular_view_list_ul li.header_nav_popular_view_list_li span.header_nav_popular_view_list_li_count {
+  font-weight: bold;
+  margin-right: 2px;
 }
-header.main_header div.main_header_layout_down div.header_nav div.header_nav_popular a.header_nav_popular_view div.header_nav_popular_view_list > span:nth-of-type(3) {
-  width: 104px;
-  height: 20px;
-  margin-right: 5px;
+header.main_header div.main_header_layout_down div.header_nav div.header_nav_popular a.header_nav_popular_view div.header_nav_popular_view_list ul.header_nav_popular_view_list_ul li.header_nav_popular_view_list_li span.header_nav_popular_view_list_li_count_img {
+  display: block;
+  height: 40px;
+  margin-right: 2px;
+}
+header.main_header div.main_header_layout_down div.header_nav div.header_nav_popular a.header_nav_popular_view div.header_nav_popular_view_list ul.header_nav_popular_view_list_ul li.header_nav_popular_view_list_li span.header_nav_popular_view_list_li_count_img img {
+  height: 100%;
+}
+header.main_header div.main_header_layout_down div.header_nav div.header_nav_popular a.header_nav_popular_view div.header_nav_popular_view_list ul.header_nav_popular_view_list_ul li.header_nav_popular_view_list_li a.header_nav_popular_view_list_link {
+  height: 100%;
 }
 header.main_header div.main_header_layout_down div.header_nav div.header_nav_popular > span.arrow {
   padding: 6px;

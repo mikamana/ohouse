@@ -1,7 +1,6 @@
 @charset "UTF-8";
 main.main_contents {
   min-height: 5000px;
-  border: 1px solid gray;
 }
 main.main_contents section.main_visual_section {
   width: 100%;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { FiChevronDown } from "react-icons/fi";
 import { FiChevronUp } from "react-icons/fi";
@@ -50,6 +50,88 @@ export default function Header() {
       setShowWrite(false)
     }
   } */
+
+  const [topY, setTopY] = useState(0);
+  const [currentTop, setCurrentTop] = useState(0);
+  const [count, setCount] = useState(1);
+
+  let menuRef = useRef();
+  // li를 레퍼런스로 잡음 menuRef
+
+  useEffect(() => {
+
+    setCurrentTop(menuRef.current.offsetHeight)
+
+  }, [])
+
+  // let ulRef = useRef();
+
+  const useInterval = (callback, delay) => {
+
+
+    const callbackRef = useRef(callback);
+
+    // console.log(callbackRef);
+    useEffect(() => {
+      callbackRef.current = callback;
+    });
+
+    useEffect(() => {
+
+      const timer =
+        setInterval(() => { callbackRef.current(); setCount((count) => count++); }, delay);
+      return () => clearInterval(timer);
+
+    })
+
+    // ulRef.current.style.top = `-${currentTop}px`;
+
+  }
+
+  // useInterval을 사용하여 일정한 간격으로 top을 업데이트합니다.
+  useInterval(() => {
+
+    setTopY((top) => top + currentTop);
+
+    if (topY >= 440) {
+
+      setTopY(0)
+
+    }
+
+  }, 3000);
+
+  const useCounterInterval = (callback, delay) => {
+
+    const callbackRef = useRef(callback);
+
+    // console.log(callbackRef);
+    useEffect(() => {
+      callbackRef.current = callback;
+    });
+
+    useEffect(() => {
+
+      const timer =
+        setInterval(() => { callbackRef.current(); }, delay);
+      return () => clearInterval(timer);
+
+    })
+
+
+  }
+
+  useCounterInterval(() => {
+
+    setCount((count) => ++count);
+
+    if (count === 6) {
+
+      setCount(1)
+
+    }
+
+  }, 3000);
 
   return (
     <>
@@ -104,9 +186,128 @@ export default function Header() {
             <div className="header_nav_popular">
               <Link to="/" className="header_nav_popular_view">
                 <div className="header_nav_popular_view_list">
-                  <span>1</span>
-                  <span><img src="images/headers/new.png" alt="" /></span>
-                  <span>물티슈케이스</span>
+                  <ul className="header_nav_popular_view_list_ul">
+                    <li className="header_nav_popular_view_list_li" ref={menuRef} style={{ top: `-${topY}px` }}>
+                      <span className="header_nav_popular_view_list_li_count">
+                        {/* {count} */}
+                        1
+                      </span>
+                      <span className="header_nav_popular_view_list_li_count_img">
+                        <img src="images/headers/uparrow.png" alt="이미지1" />
+                      </span>
+                      <Link to="#" className="header_nav_popular_view_list_link" >
+                        물티슈케이스
+                      </Link>
+                    </li>
+                    <li className="header_nav_popular_view_list_li" style={{ top: `-${topY}px` }}>
+                      <span className="header_nav_popular_view_list_li_count">
+                        {/* {count} */}
+                        2
+                      </span>
+                      <span className="header_nav_popular_view_list_li_count_img">
+                        <img src="images/headers/uparrow.png" alt="이미지1" />
+                      </span>
+                      <Link to="#" className="header_nav_popular_view_list_link">
+                        암막커튼 작은창
+                      </Link>
+                    </li>
+                    <li className="header_nav_popular_view_list_li" style={{ top: `-${topY}px` }}>
+                      <span className="header_nav_popular_view_list_li_count">
+                        {/* {count} */}
+                        3
+                      </span>
+                      <span className="header_nav_popular_view_list_li_count_img">
+                        <img src="images/headers/uparrow.png" alt="이미지1" />
+                      </span>
+                      <Link to="#" className="header_nav_popular_view_list_link">
+                        마샬 스피커
+                      </Link>
+                    </li>
+                    <li className="header_nav_popular_view_list_li" style={{ top: `-${topY}px` }}>
+                      <span className="header_nav_popular_view_list_li_count">
+                        {/* {count} */}
+                        4
+                      </span>
+                      <span className="header_nav_popular_view_list_li_count_img">
+                        <img src="images/headers/downarrow.png" alt="이미지1" />
+                      </span>
+                      <Link to="#" className="header_nav_popular_view_list_link">
+                        루씨에어
+                      </Link>
+                    </li>
+                    <li className="header_nav_popular_view_list_li" style={{ top: `-${topY}px` }}>
+                      <span className="header_nav_popular_view_list_li_count">
+                        {/* {count} */}
+                        5
+                      </span>
+                      <span className="header_nav_popular_view_list_li_count_img">
+                        <img src="images/headers/new.png" alt="이미지1" />
+                      </span>
+                      <Link to="#" className="header_nav_popular_view_list_link">
+                        룸앤티비
+                      </Link>
+                    </li>
+                    <li className="header_nav_popular_view_list_li" style={{ top: `-${topY}px` }}>
+                      <span className="header_nav_popular_view_list_li_count">
+                        {/* {count} */}
+                        6
+                      </span>
+                      <span className="header_nav_popular_view_list_li_count_img">
+                        <img src="images/headers/downarrow.png" alt="이미지1" />
+                      </span>
+                      <Link to="#" className="header_nav_popular_view_list_link">
+                        전등
+                      </Link>
+                    </li>
+                    <li className="header_nav_popular_view_list_li" style={{ top: `-${topY}px` }}>
+                      <span className="header_nav_popular_view_list_li_count">
+                        {/* {count} */}
+                        7
+                      </span>
+                      <span className="header_nav_popular_view_list_li_count_img">
+                        <img src="images/headers/new.png" alt="이미지1" />
+                      </span>
+                      <Link to="#" className="header_nav_popular_view_list_link">
+                        데스크데리어
+                      </Link>
+                    </li>
+                    <li className="header_nav_popular_view_list_li" style={{ top: `-${topY}px` }}>
+                      <span className="header_nav_popular_view_list_li_count">
+                        {/* {count} */}
+                        8
+                      </span>
+                      <span className="header_nav_popular_view_list_li_count_img">
+                        <img src="images/headers/new.png" alt="이미지1" />
+                      </span>
+                      <Link to="#" className="header_nav_popular_view_list_link">
+                        보조테이블
+                      </Link>
+                    </li>
+                    <li className="header_nav_popular_view_list_li" style={{ top: `-${topY}px` }}>
+                      <span className="header_nav_popular_view_list_li_count">
+                        {/* {count} */}
+                        9
+                      </span>
+                      <span className="header_nav_popular_view_list_li_count_img">
+                        <img src="images/headers/new.png" alt="이미지1" />
+                      </span>
+                      <Link to="#" className="header_nav_popular_view_list_link">
+                        반원테이블
+                      </Link>
+                    </li>
+                    <li className="header_nav_popular_view_list_li" style={{ top: `-${topY}px` }}>
+                      <span className="header_nav_popular_view_list_li_count">
+                        {/* {count} */}
+                        10
+                      </span>
+                      <span className="header_nav_popular_view_list_li_count_img">
+                        <img src="images/headers/new.png" alt="이미지1" />
+                      </span>
+                      <Link to="#" className="header_nav_popular_view_list_link">
+                        브라운물티슈
+                      </Link>
+                    </li>
+                  </ul>
                 </div>
               </Link>
               <span className="arrow">

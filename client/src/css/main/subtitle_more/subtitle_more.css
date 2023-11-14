@@ -4,7 +4,6 @@
   justify-content: space-between;
   width: 100%;
   padding: 20px 0px;
-  font-size: 0px;
   line-height: 1;
 }
 .subtitle_more .subtitle_more_text {
@@ -24,6 +23,7 @@
   text-overflow: ellipsis;
   font-size: 20px;
   line-height: 28px;
+  margin-bottom: 3px;
 }
 .subtitle_more .subtitle_more_text .subtitle_more_sub {
   overflow: hidden;
@@ -44,7 +44,7 @@
   background: none;
   font-size: 16px;
   line-height: 20px;
-  font-weight: 700;
+  font-weight: bold;
   color: rgb(53, 197, 240);
   cursor: pointer;
 }/*# sourceMappingURL=subtitle_more.css.map */

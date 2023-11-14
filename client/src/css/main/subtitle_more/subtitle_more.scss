@@ -1,4 +1,4 @@
-.subtitle_more{
+.subtitle_more {
   display: flex;
   -webkit-box-align: center;
   align-items: center;
@@ -6,17 +6,16 @@
   justify-content: space-between;
   width: 100%;
   padding: 20px 0px;
-  font-size: 0px;
   line-height: 1;
 
-  .subtitle_more_text{
+  .subtitle_more_text {
     flex: 1 1 0%;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     min-width: 0px;
-    
-    .subtitle_more_title{
+
+    .subtitle_more_title {
       overflow: hidden;
       display: inline-block;
       font-weight: 700;
@@ -26,9 +25,10 @@
       text-overflow: ellipsis;
       font-size: 20px;
       line-height: 28px;
+      margin-bottom: 3px;
     }
 
-    .subtitle_more_sub{
+    .subtitle_more_sub {
       overflow: hidden;
       display: inline-block;
       font-size: 14px;
@@ -40,7 +40,7 @@
       text-overflow: ellipsis;
     }
   }
-  .subtitle_more_button{
+  .subtitle_more_button {
     display: inline-block;
     margin: 0px;
     padding: 0px;
@@ -48,7 +48,9 @@
     background: none;
     font-size: 16px;
     line-height: 20px;
-    font-weight: 700;
+    // font-weight: 700;
+    // font-family: "Pretendard";
+    font-weight: bold;
     color: rgb(53, 197, 240);
     cursor: pointer;
   }

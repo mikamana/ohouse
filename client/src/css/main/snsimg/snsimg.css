@@ -8,38 +8,38 @@ section.snsimg_wrap div.snsimg_inner {
 section.snsimg_wrap div.snsimg_inner button.sns_prev_btn {
   position: absolute;
   left: 37px;
-  top: 200px;
+  top: 100px;
   width: 45px;
   height: 45px;
   border-radius: 50%;
   z-index: 2;
   background-color: #fff;
-  border: 1px solid #c9c9c9;
+  border: none;
+  box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
 }
 section.snsimg_wrap div.snsimg_inner button.sns_prev_btn::after {
   content: "\f053";
   font-family: "Font Awesome 6 Free"; /*폰트어썸 fas, far 글꼴 연결*/
-  font-weight: 600;
-  font-size: 18px;
-  color: #000;
+  font-weight: 900;
+  font-size: 24px;
 }
 section.snsimg_wrap div.snsimg_inner button.sns_next_btn {
   position: absolute;
   right: 37px;
-  top: 200px;
+  top: 100px;
   width: 45px;
   height: 45px;
   border-radius: 50%;
   z-index: 2;
   background-color: #fff;
-  border: 1px solid #c9c9c9;
+  border: none;
+  box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
 }
 section.snsimg_wrap div.snsimg_inner button.sns_next_btn::after {
   content: "\f054";
   font-family: "Font Awesome 6 Free"; /*폰트어썸 fas, far 글꼴 연결*/
-  font-weight: 600;
-  font-size: 18px;
-  color: #000;
+  font-weight: 900;
+  font-size: 24px;
 }
 section.snsimg_wrap div.snsimg_inner div.snsimg_title_wrap {
   padding: 20px 0px;
