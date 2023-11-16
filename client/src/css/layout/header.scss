@@ -277,14 +277,15 @@ header.main_header {
                   width: 100%;
                 }
               } //a.header_nav_menu_list2
-            }//li
-          }//ul.header_nav_popup_write_ul
-        }//div.header_nav_popup_write_content
+            } //li
+          } //ul.header_nav_popup_write_ul
+        } //div.header_nav_popup_write_content
       }
       div.header_nav_popular {
         position: relative;
         display: flex;
         align-items: center;
+        line-height: 100%;
         width: 192px;
         height: 100%;
         margin-left: 10px;
@@ -322,15 +323,20 @@ header.main_header {
           padding: 6px;
           width: 18px;
           height: 18px;
+          margin-bottom: 10px;
           cursor: pointer;
-          &:hover div.header_nav_popup {
-            visibility: visible;
-            opacity: 1;
-            transition: opacity 0.2s ease-in 0.2s;
+          // &:hover div.header_nav_popup {
+          //   visibility: visible;
+          //   opacity: 1;
+          //   transition: opacity 0.2s ease-in 0.2s;
+          // }
+          .arrow_icon {
+            font-size: 23px;
           }
           div.header_nav_popup {
             position: absolute;
-            visibility: hidden;
+            display: none;
+            //visibility: hidden;
             opacity: 0;
             padding: 20px 0;
             top: 10px;
@@ -340,8 +346,14 @@ header.main_header {
             border-radius: 0.3rem;
             box-shadow: 1px 1px 10px rgb(208, 210, 211);
             z-index: 2;
+            &.active{
+              display: block;
+              opacity: 1;
+              transition: opacity 1.5s;
+            }
             div.header_nav_popup_title {
               display: flex;
+              align-items: center;
               justify-content: space-between;
               margin: 0px 16px 8px;
               h2 {
@@ -349,11 +361,6 @@ header.main_header {
                 font-size: 18px;
                 font-weight: 700;
                 color: rgb(47, 52, 56);
-              }
-              span.arrow_popup {
-                padding: 6px;
-                width: 18px;
-                height: 18px;
               }
             } //div.header_nav_popup_title
             a.header_nav_popular_view_popup {

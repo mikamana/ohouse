@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { FiChevronDown } from "react-icons/fi";
 import { FiChevronUp } from "react-icons/fi";
@@ -44,17 +44,56 @@ export default function Header() {
   }
 
   const [showWrite, setShowWrite] = useState(false);
-  const handleClick = () => {
-    if (showWrite === false) {
-      setShowWrite(true)
-    } else {
-      setShowWrite(false)
-    }
+  const headerBox = useRef();
+  const toggleWriteMenu = (e) => {
+    setShowWrite(!showWrite)
   }
+
+  const [showPopular, setShowPopular] = useState("header_nav_popup");
+  const [showOpacity, setShowOpacity] = useState(1);
+
+
+
+  const handlerMouseEnter = ()=>{
+
+
+      setShowPopular("header_nav_popup active")
+
+
+
+      // if(showPopular==="block"){
+      //   setShowPopular("none")
+      // }else{
+      //   setShowPopular("block")
+      // }
+  
+      // if(showOpacity===0){
+      //   setShowOpacity(1)
+      // }else{
+      //   setShowOpacity(0)
+      // }
+
+  }
+
+  const handlerMouseLeave = () =>{
+
+    setShowPopular("header_nav_popup")
+
+  }
+
+
+  /* const [showPopular, setShowPopular] = useState(false);
+  const handleClick = (e) => {
+    e.preventDefault();
+    alert('실행!')
+    setShowPopular(!showPopular)
+  } */
+
+
 
   return (
     <>
-      <header className="main_header" onMouseLeave={handleMouseLeave}>
+      <header className="main_header" onMouseLeave={handleMouseLeave} ref={headerBox} onClick={(e) => { if(e.target === headerBox.current) setShowWrite(false) }}>
         <div className="main_header_layout inner">
           <div className="header_logo">
             <div className="header_logoBox">
@@ -74,7 +113,7 @@ export default function Header() {
               </ul>
             </div>
             <div className="header_logo_searchBox">
-              <img className="header_logo_search_img" src="images/headers/search.png" alt="" />
+              <img className="header_logo_search_img" src="images/headers/search.png" alt="이미지1" />
               <input className="header_logo_search" type="text" placeholder="통합검색" />
             </div>
             <div className="header_logo_right">
@@ -83,7 +122,7 @@ export default function Header() {
               <Link to="/normal_users/new" className="header_logo_menu">회원가입</Link>
               <Link to="/customer_center" className="header_logo_menu">고객센터</Link>
               <div className="header_logo_write">
-                <button type="button" onClick={handleClick}>글쓰기<FiChevronDown className="header_logo_write_icon"/></button>
+                <button type="button" onClick={toggleWriteMenu}>글쓰기<FiChevronDown className="header_logo_write_icon" /></button>
                 {showWrite &&
                   <div className="header_nav_popup_write">
                     <HeaderLogoWrite />
@@ -106,17 +145,17 @@ export default function Header() {
                   <span>물티슈케이스</span>
                 </div>
               </Link>
-              <span className="arrow">
-                <FiChevronDown />
-                <div className="header_nav_popup">
-                  <div className="header_nav_popup_title">
-                    <h2>인기검색어</h2>
-                    <span className="arrow_img_popup">
-                      <FiChevronUp />
-                    </span>
-                  </div>
-                  <HeaderNavPopularView />
-                </div>
+
+              {/* "header_nav_popup" */}
+              <span className="arrow" onMouseEnter={handlerMouseEnter} >
+                <FiChevronDown className="arrow_icon" />
+                    <div className={showPopular} onMouseLeave={handlerMouseLeave} >
+                      <div className="header_nav_popup_title">
+                        <h2>인기검색어</h2>
+                        <span><FiChevronUp className="arrow_icon" /></span>
+                      </div>
+                      <HeaderNavPopularView />
+                    </div>
               </span>
             </div>
           </div>

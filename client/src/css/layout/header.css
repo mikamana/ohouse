@@ -281,6 +281,7 @@ header.main_header div.main_header_layout_down div.header_nav div.header_nav_pop
   position: relative;
   display: flex;
   align-items: center;
+  line-height: 100%;
   width: 192px;
   height: 100%;
   margin-left: 10px;
@@ -319,16 +320,15 @@ header.main_header div.main_header_layout_down div.header_nav div.header_nav_pop
   padding: 6px;
   width: 18px;
   height: 18px;
+  margin-bottom: 10px;
   cursor: pointer;
 }
-header.main_header div.main_header_layout_down div.header_nav div.header_nav_popular > span.arrow:hover div.header_nav_popup {
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 0.2s ease-in 0.2s;
+header.main_header div.main_header_layout_down div.header_nav div.header_nav_popular > span.arrow .arrow_icon {
+  font-size: 23px;
 }
 header.main_header div.main_header_layout_down div.header_nav div.header_nav_popular > span.arrow div.header_nav_popup {
   position: absolute;
-  visibility: hidden;
+  display: none;
   opacity: 0;
   padding: 20px 0;
   top: 10px;
@@ -339,8 +339,14 @@ header.main_header div.main_header_layout_down div.header_nav div.header_nav_pop
   box-shadow: 1px 1px 10px rgb(208, 210, 211);
   z-index: 2;
 }
+header.main_header div.main_header_layout_down div.header_nav div.header_nav_popular > span.arrow div.header_nav_popup.active {
+  display: block;
+  opacity: 1;
+  transition: opacity 1.5s;
+}
 header.main_header div.main_header_layout_down div.header_nav div.header_nav_popular > span.arrow div.header_nav_popup div.header_nav_popup_title {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   margin: 0px 16px 8px;
 }
@@ -349,11 +355,6 @@ header.main_header div.main_header_layout_down div.header_nav div.header_nav_pop
   font-size: 18px;
   font-weight: 700;
   color: rgb(47, 52, 56);
-}
-header.main_header div.main_header_layout_down div.header_nav div.header_nav_popular > span.arrow div.header_nav_popup div.header_nav_popup_title span.arrow_popup {
-  padding: 6px;
-  width: 18px;
-  height: 18px;
 }
 header.main_header div.main_header_layout_down div.header_nav div.header_nav_popular > span.arrow div.header_nav_popup a.header_nav_popular_view_popup {
   display: flex;

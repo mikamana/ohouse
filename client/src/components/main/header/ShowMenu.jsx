@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { FiChevronDown } from "react-icons/fi";
 
@@ -15,12 +15,9 @@ export default function ShowMenu({ menuName }) {
   }, [menuName])
 
   const [showhiddenMeun, setShowhiddenMeun] = useState(false);
-  const handleClick2 = () => {
-    if (showhiddenMeun === false) {
-      setShowhiddenMeun(true)
-    } else {
-      setShowhiddenMeun(false)
-    }
+  const hiddenMenu = useRef();
+  const toggleListMenu = (e) => {
+    setShowhiddenMeun(!showhiddenMeun)
   }
 
   return (
@@ -31,9 +28,9 @@ export default function ShowMenu({ menuName }) {
             <p className="header_nav_menu_name">{list.menuName}</p>
           </Link>
         )}
-        {menuName === "community" && <button className="header_nav_menu_btn" onClick={handleClick2}><FiChevronDown /></button>}
+        {menuName === "community" && <button className="header_nav_menu_btn" onClick={toggleListMenu}><FiChevronDown /></button>}
       </div >
-      {showhiddenMeun && <div className="header_nav_popup_write_hidden">
+      {showhiddenMeun && <div className="header_nav_popup_write_hidden" ref={hiddenMenu} onClick={(e) => {if(e.target === hiddenMenu.current) setShowhiddenMeun(false)}}>
         <div className="header_nav_popup_write_content">
           <ul className="header_nav_popup_write_ul">
             <li>
