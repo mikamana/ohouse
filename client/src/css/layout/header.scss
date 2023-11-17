@@ -2,16 +2,19 @@
 
 header.main_header {
   height: 133px;
+  border: 1px solid gray;
   div.main_header_layout {
     height: 100%;
-    div.header_logo{
+    border: 1px solid gray;
+    div.main_header_layout_header_logo{
       display: flex;
       align-items: center;
       padding: 10px 0 10px 0;
       height: 81px;
       box-sizing: border-box;
-      div.header_logoBox{
-        width: 110px;
+      background-color: skyblue; // 삭제-----
+      div{
+        width: 120px;
         a.header_logo_logo{
           display: inline-block;
           width: 82px;
@@ -21,7 +24,7 @@ header.main_header {
           background-position: center;
         }
       }
-      div.header_logo_left{
+      div.header_logo_abox{
         display: flex;
         width: 377px;
         a{
@@ -32,246 +35,47 @@ header.main_header {
           &:hover{
             color: #35C5F0;
           }
-          &:hover ~ .header_nav{
-            //display: block;
-            color: red;
-          }
         }
       }
       div.header_logo_searchBox{
-        position: relative;
         display: flex;
-        align-items: center;
         padding: 0 14px;
+        align-items: center;
+        width: 270px;
         background: #FFF;
-        border: 1px solid var(--borderColor);
+        border: 1px solid #DADDE0;
         border-radius: 0.3rem;
-        box-sizing: border-box;
-        &:hover, &:hover > *{
-          background: rgb(247,249,250);
-        }
-        &:hover img{
-          filter: brightness(98%);
-        }
-        &:focus-within{
-          border: 1px solid rgb(53,197,240);
-        }
-        img{
-          position: absolute;
-          width: 28px;
-          left: 14px;
+        span.header_logo_search_img {
+          &::before {
+            content: "";
+            width: 30px;
+            height: 30px;
+            display: block;
+            background-image:url('../../../public/images/headers/search.png');
+            background-position: center;
+            background-size: 40px 40px;
+            background-repeat: no-repeat;
+            color: rgb(183, 185, 187);
+          }
         }
         input.header_logo_search{
-          margin-left: 28px;
-          width: 235px;
+          width: 240px;
           height: 38px;
           border: none;
-          outline: none;
           &::placeholder{
             font-family: Pretendard;
             font-size: 16px;
-            font-weight: 400;
-            color: #C2C8CC;
+            font-weight: 600;
+            color: #97999b;
           }
         }
-      }//div.header_logo_searchBox
-      div.header_logo_right{
-        display: flex;
-        align-items: center;
-        a.header_logo_cart{
-          padding: 0 10px;
-          margin-left : 9px;
-          width: 30px;
-          height: 30px;
-          background-image: url('../../../public/images/headers/cart.png');
-          background-position: center;
-          background-size: 35px;
-          background-repeat: no-repeat;
-          &:hover{
-            background-image: url('../../../public/images/headers/cart_hover.png');
-            background-size: 45px;
-            background-position: 3.1px;
-          }
-        }
-        a.header_logo_menu{
-          padding: 0 10px;
-          font-size: 14px;
-          color:#2F3438;
-          &:nth-child(3){
-            border-left: 1px solid var(--headerBorder);
-            border-right: 1px solid var(--headerBorder);
-          }
-        }
-        button{
-          margin-left: 5px;
-          padding: 10px 16px;
-          width: 93px;
-          height: 40px;
-          background: #35C5F0;
-          font-family: Pretendard;
-          font-size: 14px;
-          font-weight: 400;
-          color: #FFF;
-          border: none;
-          border-radius: 0.3rem;
-          i{
-            margin-left: 6px;
-          }
-          &:hover{
-            cursor: pointer;
-            background: #009FCE;
-          }
-        }
-      }//div.header_logo_right
+      }
     }//div.main_header_layout_header_logo
-    /* header_nav ============================== */
-    div.header_nav{
-      display: flex;
-      //visibility: hidden;
-      align-items: center;
+    div.main_header_layout_header_nav{
       height: 52px;
       border: 1px solid gray;
-      box-sizing: border-box;
-      div.header_nav_menu{
-        display: flex;
-        align-items: center;
-        width: 934px;
-        height: 100%; 
-        border: 1px solid gray; /* 삭제====== */
-        a{
-          display: inline-block;
-          height: 20px;
-          padding: 12px 6px;
-          margin-right: 5px;
-          font-weight: 600;
-          border: 1px solid gray; /* 삭제====== */
-          &:hover{
-            color: var(--sky);
-          }
-          p{
-            margin: 0 3px;
-          }
-        }
-      }
-      div.header_nav_popular{
-        position: relative;
-        display: flex;
-        align-items: center;
-        width: 192px;
-        height: 100%;
-        margin-left: 10px;
-        border: 1px solid gray; /* 삭제====== */
-        a.header_nav_popular_view{
-          display: flex;
-          height: 52px;
-          div{
-            display: flex;
-            align-items: center;
-            > span{
-              margin-right: 3px;
-              &:first-of-type{
-                width: 20px;
-                height: 20px;
-                font-weight: 700;
-                text-align: center; 
-              }
-              &:nth-of-type(2){
-                width: 24px;
-                height: 24px;
-                text-align: center;
-                img{
-                  height: 110%;
-                }
-              }
-              &:nth-of-type(3){
-                width: 104px;
-                height: 20px;
-                margin-right: 5px;
-              }
-            }
-          }
-        }//div
-        > span.arrow{
-          padding: 6px;
-          width: 18px;
-          height: 18px;
-          cursor: pointer;
-          &:hover div.header_nav_popup{
-            visibility: visible;
-            opacity: 1;
-            transition: opacity 0.2s ease-in 0.2s;
-          }
-          div.header_nav_popup{
-            position: absolute;
-            visibility: hidden;
-            opacity: 0;
-            padding: 20px 0;
-            top: 10px;
-            right: -15px;
-            width: 268px;
-            background: #FFF;
-            border: 1px solid var(--borderColor); /*  삭제======= */
-            border-radius: 0.3rem;
-            box-shadow: 1px 1px 10px rgb(208, 210, 211);
-            div.header_nav_popup_title{
-              display: flex;
-              justify-content: space-between;
-              margin: 0px 16px 8px;
-              h2{
-                line-height: 24px;
-                font-size: 18px;
-                font-weight: 700;
-                color: rgb(47,52,56);
-              }
-              span.arrow_popup{
-                padding: 6px;
-                width: 18px;
-                height: 18px;
-              }
-            }//div.header_nav_popup_title
-            a.header_nav_popular_view_popup{
-              display: flex;
-              align-items: center;
-              height: 40px;
-              border: 1px solid gray /* 삭제========= */;
-              box-sizing: border-box;
-              &:hover{
-                background: rgb(247,249,250);
-              }
-              div{
-                display: flex;
-                align-items: center;
-                margin: 8px 16px;
-                height: 24px;
-                > span{
-                  margin-right: 3px;
-                  &:first-of-type{
-                    width: 20px;
-                    height: 20px;
-                    font-weight: 700;
-                    text-align: center; 
-                  }
-                  &:nth-of-type(2){
-                    width: 24px;
-                    height: 24px;
-                    text-align: center;
-                    img{
-                      height: 110%;
-                    }
-                  }
-                  &:nth-of-type(3){
-                    width: 104px;
-                    height: 20px;
-                    margin-right: 10px;
-                  }
-                }
-              }
-            }//div.header_nav_popular_view_popup
-          }
-        }//span.arrow_img
-      }
-    }//div.main_header_layout_header_nav
-  }//div.main_header_layout
+    }
+  }
 }
 
 
