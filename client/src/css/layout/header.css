@@ -1,4 +1,3 @@
-@charset "UTF-8";
 header.main_header {
   height: 133px;
   /* header_nav ============================== */
@@ -117,7 +116,6 @@ header.main_header div.main_header_layout div.header_logo div.header_logo_right 
 }
 header.main_header div.main_header_layout div.header_logo div.header_logo_right div.header_logo_write {
   position: relative;
-  /* header_nav_popup 자리===== */
 }
 header.main_header div.main_header_layout div.header_logo div.header_logo_right div.header_logo_write button {
   margin-left: 5px;
@@ -331,13 +329,14 @@ header.main_header div.main_header_layout_down div.header_nav div.header_nav_pop
   display: none;
   opacity: 0;
   padding: 20px 0;
-  top: 10px;
+  top: -5px;
   right: -15px;
   width: 268px;
   background: #fff;
   border-radius: 0.3rem;
   box-shadow: 1px 1px 10px rgb(208, 210, 211);
   z-index: 2;
+  transform: translate3d(28px, 18px, 0px);
 }
 header.main_header div.main_header_layout_down div.header_nav div.header_nav_popular > span.arrow div.header_nav_popup.active {
   display: block;

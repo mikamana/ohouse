@@ -21,7 +21,7 @@ export default function ShowMenu({ menuName }) {
   }
 
   return (
-    <>
+    <div ref={hiddenMenu} onClick={(e) => {if(e.target === hiddenMenu.current) setShowhiddenMeun(false)}}>
       <div className="header_nav_menu">
         {navmenuList.map((list) =>
           <Link to={list.url} className="header_nav_menu_list" key={list.menuName}>
@@ -30,7 +30,7 @@ export default function ShowMenu({ menuName }) {
         )}
         {menuName === "community" && <button className="header_nav_menu_btn" onClick={toggleListMenu}><FiChevronDown /></button>}
       </div >
-      {showhiddenMeun && <div className="header_nav_popup_write_hidden" ref={hiddenMenu} onClick={(e) => {if(e.target === hiddenMenu.current) setShowhiddenMeun(false)}}>
+      {showhiddenMeun && <div className="header_nav_popup_write_hidden" >
         <div className="header_nav_popup_write_content">
           <ul className="header_nav_popup_write_ul">
             <li>
@@ -56,6 +56,6 @@ export default function ShowMenu({ menuName }) {
           </ul>
         </div>
       </div>}
-    </>
+    </div>
   );
 }

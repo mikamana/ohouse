@@ -7,8 +7,7 @@ export default function Contents({ children }) {
 
     <>
       <main className="main_contents">
-        {/* {children} */}
-        가나
+        {children}
       </main>
     </>
 

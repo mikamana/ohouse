@@ -1,0 +1,58 @@
+@use "../../common/mixin.scss" as m;
+
+div.snsimg_section {
+  display: block;
+  height: 260px;
+  div.snsimg_contents {
+    a.snsimg_section_linkBox {
+      display: inline-block;
+      div.snsimg_image_wrap {
+        position: relative;
+        width: 270px;
+        height: 180px;
+        overflow: hidden;
+        border-radius: 0.3rem;
+        &:hover img.snsimg_image_img {
+          transform: scale(1.05);
+        }
+        img.snsimg_image_img {
+          width: 100%;
+          height: 100%;
+          transform: scale(1);
+          transition: all 0.2s;
+        }
+        span.snsimg_image_img_scrapbtn{
+          position: absolute;
+          bottom: 10px;
+          right: 10px;
+          .snsimg_image_img_scrapbtn{
+            color: rgba(#FFF,0.5);
+            border: #FFF;
+            font-size: 25px;
+          }
+          &.active .snsimg_image_img_scrapbtn{
+            color: var(--sky);
+          }
+        }
+      } //div.snsimg_image_wrap
+      div.snsimg_text_wrap {
+        margin-top: 10px;
+        height: 50px;
+        width: 270px;
+        p.snsimg_text_content {
+          margin-bottom: 5px;
+          font-size: 16px;
+          line-height: 24px;
+          word-break: keep-all;
+          span.snsimg_text_sky {
+            color: var(--sky);
+            font-weight: 700;
+          &::after{
+            content:'';
+          }
+          }
+        } //div.snsimg_text_wrap
+      } //span.snsimg_text_sky_wrap
+    } //a.snsimg_section_linkBox
+  } //div.snsimg_contents
+} //div.snsimg_section

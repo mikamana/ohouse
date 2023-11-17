@@ -132,7 +132,6 @@ header.main_header {
               font-size: 23px;
             }
           }
-          /* header_nav_popup 자리===== */
           div.header_nav_popup_write {
             position: absolute;
             padding: 10px;
@@ -197,7 +196,7 @@ header.main_header {
       align-items: center;
       height: 52px;
       box-sizing: border-box;
-      // display: none; // none;
+      // display: none; 
       div.header_nav_menu {
         position: relative;
         display: flex;
@@ -339,13 +338,14 @@ header.main_header {
             //visibility: hidden;
             opacity: 0;
             padding: 20px 0;
-            top: 10px;
+            top: -5px;
             right: -15px;
             width: 268px;
             background: #fff;
             border-radius: 0.3rem;
             box-shadow: 1px 1px 10px rgb(208, 210, 211);
             z-index: 2;
+            transform: translate3d(28px, 18px, 0px);
             &.active{
               display: block;
               opacity: 1;
@@ -400,7 +400,7 @@ header.main_header {
                 }
               }
             } //div.header_nav_popular_view_popup
-          }
+          }//div.header_nav_popup
         } //span.arrow_img
       }
     } //div.main_header_layout_header_nav

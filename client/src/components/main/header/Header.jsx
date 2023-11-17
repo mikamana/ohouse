@@ -50,50 +50,38 @@ export default function Header() {
   }
 
   const [showPopular, setShowPopular] = useState("header_nav_popup");
-  const [showOpacity, setShowOpacity] = useState(1);
+  //const [showOpacity, setShowOpacity] = useState(1);
 
+  const handlerMouseEnter = () => {
+    setShowPopular("header_nav_popup active")
 
+    // if(showPopular==="block"){
+    //   setShowPopular("none")
+    // }else{
+    //   setShowPopular("block")
+    // }
 
-  const handlerMouseEnter = ()=>{
-
-
-      setShowPopular("header_nav_popup active")
-
-
-
-      // if(showPopular==="block"){
-      //   setShowPopular("none")
-      // }else{
-      //   setShowPopular("block")
-      // }
-  
-      // if(showOpacity===0){
-      //   setShowOpacity(1)
-      // }else{
-      //   setShowOpacity(0)
-      // }
+    // if(showOpacity===0){
+    //   setShowOpacity(1)
+    // }else{
+    //   setShowOpacity(0)
+    // }
 
   }
 
-  const handlerMouseLeave = () =>{
-
+  const handlerMouseLeave = () => {
     setShowPopular("header_nav_popup")
-
   }
 
-
-  /* const [showPopular, setShowPopular] = useState(false);
+  const [showPopularList, setShowPopularList] = useState(false);
   const handleClick = (e) => {
-    e.preventDefault();
-    alert('실행!')
-    setShowPopular(!showPopular)
-  } */
-
+    setShowPopular("header_nav_popup")
+  }
 
 
   return (
     <>
-      <header className="main_header" onMouseLeave={handleMouseLeave} ref={headerBox} onClick={(e) => { if(e.target === headerBox.current) setShowWrite(false) }}>
+      <header className="main_header" onMouseLeave={handleMouseLeave} ref={headerBox} onClick={(e) => { if (e.target === headerBox.current) setShowWrite(false)}}>
         <div className="main_header_layout inner">
           <div className="header_logo">
             <div className="header_logoBox">
@@ -114,7 +102,7 @@ export default function Header() {
             </div>
             <div className="header_logo_searchBox">
               <img className="header_logo_search_img" src="images/headers/search.png" alt="이미지1" />
-              <input className="header_logo_search" type="text" placeholder="통합검색" />
+              <input className="header_logo_search" type="text" placeholder="통합검색" name="header_logo_search"/>
             </div>
             <div className="header_logo_right">
               <Link to="/cart" className="header_logo_cart"></Link>
@@ -145,17 +133,16 @@ export default function Header() {
                   <span>물티슈케이스</span>
                 </div>
               </Link>
-
               {/* "header_nav_popup" */}
               <span className="arrow" onMouseEnter={handlerMouseEnter} >
                 <FiChevronDown className="arrow_icon" />
-                    <div className={showPopular} onMouseLeave={handlerMouseLeave} >
-                      <div className="header_nav_popup_title">
-                        <h2>인기검색어</h2>
-                        <span><FiChevronUp className="arrow_icon" /></span>
-                      </div>
-                      <HeaderNavPopularView />
-                    </div>
+                <div className={showPopular} onMouseLeave={handlerMouseLeave} >
+                  <div className="header_nav_popup_title">
+                    <h2>인기검색어</h2>
+                    <span onClick={handleClick}><FiChevronUp className="arrow_icon" /></span>
+                  </div>
+                  <HeaderNavPopularView />
+                </div>
               </span>
             </div>
           </div>
