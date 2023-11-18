@@ -1,5 +1,5 @@
 import React from "react";
-import {RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import "./css/common/reset.css";
 import "./css/common/mixin.css";
 import "./css/common/common.css";
@@ -20,19 +20,9 @@ import Main from "./components/main/Main";
 const router = createBrowserRouter([
 
   {
-
     path: "/",
     element: <Main />
-
   }
-
-  // {
-  //   path: "/",
-  //   element:<Root />,
-  //   children : [
-  //     {path : '/:params', element : {el}}
-  //   ]
-  // }
 
 ])
 
