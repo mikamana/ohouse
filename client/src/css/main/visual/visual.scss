@@ -145,6 +145,7 @@ main.main_contents {
         }
       }
       button.prev_btn {
+        @include m.swiper_btn;
         position: absolute;
         display: block;
         background-color: #fff;

@@ -1,21 +1,20 @@
 @use "../../common/mixin.scss" as m;
 
-div.shopitem_section{
+div.shopitem_section {
   display: block;
   position: relative;
   height: 510px;
-  .prev_btn{
+  .prev_btn {
     @include m.swiper_btn;
     left: 12px;
     top: 40%;
     border: none;
     &::before {
       content: "\f053";
-      
     }
   }
-  
-  .next_btn{
+
+  .next_btn {
     @include m.swiper_btn;
     right: 60px;
     top: 40%;
@@ -24,21 +23,21 @@ div.shopitem_section{
       content: "\f054";
     }
   }
-  .prev_btn.swiper-button-disabled{
+  .prev_btn.swiper-button-disabled {
     opacity: 0 !important;
   }
 
-  .next_btn.swiper-button-disabled{
+  .next_btn.swiper-button-disabled {
     opacity: 0 !important;
   }
 }
 
-.shopitem_more_wrap{
+.shopitem_more_wrap {
   position: relative;
   width: 269px;
   height: 269px;
 }
-.shopitem_more_button{
+.shopitem_more_button {
   position: absolute;
   width: 48px;
   height: 48px;
@@ -69,30 +68,30 @@ div.shopitem_section{
     content: "\f061";
   }
 }
-.shopitem_more_text{
+.shopitem_more_text {
   position: absolute;
   font-size: 13px;
   top: 50px;
 }
 
 //shopitem_section
-div.shopitem_contents:hover{
+div.shopitem_contents:hover {
   cursor: pointer;
-  .shopitem_image_img{
+  .shopitem_image_img {
     transform: scale(1.1);
   }
-  .shopitem_title_text{
+  .shopitem_title_text {
     opacity: 0.5;
   }
 }
-div.shopitem_image_wrap{
+div.shopitem_image_wrap {
   position: relative;
   z-index: 1;
   width: 269px;
   height: 269px;
   overflow: hidden;
 }
-.shopitem_timecount{
+.shopitem_timecount {
   position: absolute;
   display: block;
   top: 12px;
@@ -107,7 +106,7 @@ div.shopitem_image_wrap{
   text-align: center;
   font-weight: 600;
 }
-.shopitem_mark{
+.shopitem_mark {
   position: absolute;
   z-index: 3;
   width: 24px;
@@ -117,25 +116,25 @@ div.shopitem_image_wrap{
   background: none;
   opacity: 0.7;
 }
-.shopitem_image_img{
+.shopitem_image_img {
   width: 100%;
   height: 100%;
   border-radius: 4px;
-  transition: transform .2s;
+  transition: transform 0.2s;
 }
 //shipitem_image_wrap
 
-h2.shopitem_title{
+h2.shopitem_title {
   width: 100%;
   height: 100%;
   margin-top: 9px;
 }
-.shopitem_title_company{
+.shopitem_title_company {
   display: block;
   font-size: 11px;
   color: #828c94;
 }
-.shopitem_title_text{
+.shopitem_title_text {
   display: block;
   margin-top: 5px;
   font-size: 13px;
@@ -143,61 +142,59 @@ h2.shopitem_title{
   line-height: 17px;
   max-height: 34px;
   -webkit-line-clamp: 2;
-  transition: opacity .1s;
+  transition: opacity 0.1s;
 }
 //shopitem_title
 
-div.shopitem_price{
+div.shopitem_price {
   margin-top: 2px;
   font-size: 17px;
   line-height: 23px;
   font-weight: 700;
 }
 
-.shopitem_price_sale{
+.shopitem_price_sale {
   margin-right: 2px;
   color: var(--sky);
 }
-.shopitem_price_cost{
+.shopitem_price_cost {
   margin-right: 2px;
   color: #000;
 }
 //shopitem_price
 
-.shopitem_rating_p{
+.shopitem_rating_p {
   font-size: 12px;
   line-height: 16px;
   font-weight: 700;
   margin-top: 5px;
   color: #9e9e9e;
-  
 }
-.shopitem_rating_star{
+.shopitem_rating_star {
   width: 1.1em;
   height: 1.1em;
   margin-right: 1px;
   color: var(--sky);
   vertical-align: -2px;
 }
-.shopitem_rating_avg{
+.shopitem_rating_avg {
   margin-right: 2px;
   color: #424242;
   font-weight: 700;
 }
 //shopitem_rating
 
-div.shopitem_today_start{
+div.shopitem_today_start {
   margin-top: 4px;
-
 }
-.shopitem_today_start_img{
+.shopitem_today_start_img {
   width: auto;
   height: 15px;
   border: 0;
 }
 //shopitem_today_start
 
-.shopitem_start_span{
+.shopitem_start_span {
   display: inline-block;
   margin-top: 4px;
   font-size: 12px;
@@ -205,16 +202,15 @@ div.shopitem_today_start{
   color: rgb(99, 145, 230);
 }
 
-
-div.shopitem_tag{
+div.shopitem_tag {
   margin-top: 8px;
   display: flex;
-  svg{
+  svg {
     margin-right: 4px;
   }
 }
 
-div.shopitem_coupon{
+div.shopitem_coupon {
   display: flex;
   box-sizing: border-box;
   align-items: center;
@@ -229,16 +225,14 @@ div.shopitem_coupon{
   border-radius: 4px;
   color: var(--darkGray);
   border: 1px solid var(--headerBorder);
-  .shopitem_coupon_img{
+  .shopitem_coupon_img {
     display: block;
     width: 11px;
     margin-right: 5px;
   }
-  .shopitem_coupon_text{
+  .shopitem_coupon_text {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-  
   }
 }
-

@@ -1,18 +1,14 @@
+@use "../../../css/common/mixin.scss" as m;
+
 section.snsimg_wrap {
   margin: 40px 0px;
   div.snsimg_inner {
     position: relative;
     button.sns_prev_btn {
-      position: absolute;
-      left: 37px;
-      top: 100px;
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      z-index: 2;
-      background-color: #fff;
+      @include m.swiper_btn;
+      left: 12px;
       border: none;
-      box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
+      top: 40%;
 
       &::after {
         content: "\f053";
@@ -22,24 +18,16 @@ section.snsimg_wrap {
       }
     }
     button.sns_next_btn {
-      position: absolute;
-      right: 37px;
-      top: 100px;
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      z-index: 2;
-      background-color: #fff;
+      @include m.swiper_btn;
+      right: 60px;
       border: none;
-      box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
+      top: 40%;
       &::after {
         content: "\f054";
         font-family: "Font Awesome 6 Free"; /*폰트어썸 fas, far 글꼴 연결*/
         font-weight: 900;
         font-size: 24px;
       }
-    }
-    button.prev_btn {
     }
     div.snsimg_title_wrap {
       padding: 20px 0px;
