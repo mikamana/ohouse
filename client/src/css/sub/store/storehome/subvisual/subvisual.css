@@ -1,0 +1,65 @@
+section.sub_visual_section {
+  border: 1px solid gray;
+  width: 100%;
+  height: 380px;
+  position: relative;
+}
+section.sub_visual_section ul.sub_visual_list {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  overflow: hidden;
+}
+section.sub_visual_section ul.sub_visual_list li.sub_visual_list_li {
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+}
+section.sub_visual_section ul.sub_visual_list li.sub_visual_list_li a.sub_visual_list_link {
+  width: 100%;
+  height: 100%;
+}
+section.sub_visual_section ul.sub_visual_list li.sub_visual_list_li a.sub_visual_list_link img {
+  width: 1920px;
+  width: 100%;
+  height: 100%;
+}
+section.sub_visual_section div.sub_visual_inner {
+  border: 1px solid gray;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+section.sub_visual_section div.sub_visual_inner div.sub_visual_count_wrap p.sub_visual_count_p {
+  display: inline-block;
+  border-radius: 15px;
+  padding: 8px;
+  position: absolute;
+  right: 80px;
+  bottom: 20px;
+  background-color: #4f4f4f;
+  font-size: 12px;
+  color: #fff;
+}
+section.sub_visual_section div.sub_visual_inner div.sub_visual_count_wrap button.sub_visual_prev_btn {
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  border: none;
+}
+section.sub_visual_section div.sub_visual_inner div.sub_visual_count_wrap button.sub_visual_next_btn {
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  border: none;
+}/*# sourceMappingURL=subvisual.css.map */

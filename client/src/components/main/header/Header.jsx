@@ -8,7 +8,7 @@ export default function Header({ children }) {
 
     <>
       <header className="main_header">
-        <section className="main_header_logo_section">
+        {/* <section className="main_header_logo_section">
           <div className="main_header_layout inner">
             <div className="main_header_logo_wrap">
               <h1 className="main_header_logo">
@@ -63,8 +63,8 @@ export default function Header({ children }) {
               </div>
             </div>
           </div>
-        </section>
-        <section className="main_header_gnb_section">
+        </section> */}
+        {/* <section className="main_header_gnb_section">
           <div className="main_header_gnb_inner inner">
             <nav className="main_header_gnb_wrap">
               <ul className="main_header_gnb_list">
@@ -135,7 +135,7 @@ export default function Header({ children }) {
               </ul>
             </nav>
           </div>
-        </section>
+        </section> */}
 
       </header>
     </>
