@@ -15,6 +15,7 @@ import "./css/main/snsimg/snsimg.css";
 import "./css/main/subtitle_more/subtitle_more.css";
 import "./css/main/userimg/userimg.css";
 import "./css/main/visual/visual.css";
+import "./css/cart/cart.css"
 import Main from "./components/main/Main";
 
 
