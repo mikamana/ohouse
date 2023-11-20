@@ -76,6 +76,9 @@ div.shopitem_section{
 }
 
 //shopitem_section
+div.shopitem_contents{
+  padding: 0 0 30px;
+}
 div.shopitem_contents:hover{
   cursor: pointer;
   .shopitem_image_img{
@@ -91,6 +94,9 @@ div.shopitem_image_wrap{
   width: 269px;
   height: 269px;
   overflow: hidden;
+}
+div.shopitem_info_wrap{
+  width: 269px;
 }
 .shopitem_timecount{
   position: absolute;
@@ -136,7 +142,6 @@ h2.shopitem_title{
   color: #828c94;
 }
 .shopitem_title_text{
-  display: block;
   margin-top: 5px;
   font-size: 13px;
   font-weight: 400;
@@ -144,6 +149,13 @@ h2.shopitem_title{
   max-height: 34px;
   -webkit-line-clamp: 2;
   transition: opacity .1s;
+  
+  //밑으로 텍스트 넘침 숨기는 기능
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
 }
 //shopitem_title
 

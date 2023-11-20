@@ -1,6 +1,6 @@
 
 export default function ShopitemInfo({children}){
   return(
-    <div>{children}</div>
+    <div className="shopitem_info_wrap">{children}</div>
   );
 }
