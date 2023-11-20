@@ -12,15 +12,9 @@ export default function Main() {
 
     <>
       <Banner />
-      <Header>
-      </Header>
-      <Contents>
-        <SkyImg />
-      </Contents>
+      <Header />
       <Outlet />
-      <Footer>
-
-      </Footer>
+      <Footer />
     </>
 
   );

@@ -1,12 +1,12 @@
 [
-  {"num" : 1 , "img" : "images/headers/new.png", "item" : "귀요미곰돌이"},
-  {"num" : 2 , "img" : "images/headers/new.png", "item" : "귀요미곰돌이"},
-  {"num" : 3 , "img" : "images/headers/new.png", "item" : "귀요미곰돌이"},
-  {"num" : 4 , "img" : "images/headers/new.png", "item" : "귀요미곰돌이"},
-  {"num" : 5 , "img" : "images/headers/new.png", "item" : "귀요미곰돌이"},
-  {"num" : 6 , "img" : "images/headers/new.png", "item" : "귀요미곰돌이"},
-  {"num" : 7 , "img" : "images/headers/new.png", "item" : "귀요미곰돌이"},
-  {"num" : 8 , "img" : "images/headers/new.png", "item" : "귀요미곰돌이"},
-  {"num" : 9 , "img" : "images/headers/new.png", "item" : "귀요미곰돌이"},
-  {"num" : 10 , "img" : "images/headers/new.png", "item" : "귀요미곰돌이"}
+  {"num" : 1 , "img" : "images/headers/uparrow.png", "item" : "귀요미곰돌이"},
+  {"num" : 2 , "img" : "images/headers/uparrow.png", "item" : "암막커튼 작은창"},
+  {"num" : 3 , "img" : "images/headers/downarrow.png", "item" : "루씨에어"},
+  {"num" : 4 , "img" : "images/headers/new.png", "item" : "룸앤티비"},
+  {"num" : 5 , "img" : "images/headers/downarrow.png", "item" : "전등"},
+  {"num" : 6 , "img" : "images/headers/new.png", "item" : "데스크데리어"},
+  {"num" : 7 , "img" : "images/headers/new.png", "item" : "보조테이블"},
+  {"num" : 8 , "img" : "images/headers/new.png", "item" : "반원테이블"},
+  {"num" : 9 , "img" : "images/headers/new.png", "item" : "브라운물티슈"},
+  {"num" : 10 , "img" : "images/headers/new.png", "item" : "마샬 스피커"}
 ]
