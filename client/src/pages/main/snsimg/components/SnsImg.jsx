@@ -1,5 +1,5 @@
 import React from "react";
-import SnsImgTitleText from "./SnsImgTitleText";
+// import SnsImgTitleText from "./SnsImgTitleText";
 import SnsImgSwiper from "./SnsImgSwiper";
 
 export default function SnsImg() {
@@ -9,7 +9,7 @@ export default function SnsImg() {
     <>
       <section className="snsimg_wrap">
         <div className="snsimg_inner inner">
-          <SnsImgTitleText />
+          {/* <SnsImgTitleText /> */}
           <SnsImgSwiper />
         </div>
       </section >

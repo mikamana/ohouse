@@ -18,10 +18,11 @@ import "./css/main/subtitle_more/subtitle_more.css";
 import "./css/main/userimg/userimg.css";
 import "./css/main/visual/visual.css";
 import "./css/sub/store/storehome/subvisual/subvisual.css";
+import "./css/production/production.css";
 import SnsImg from "./pages/main/snsimg/components/SnsImg";
 import MainVisual from "./pages/main/visual/components/MainVisual";
 import SubVisual from "./pages/subpage/store/storehome/visual/SubVisual";
-
+import Productions from "./pages/productions/Productions";
 const router = createBrowserRouter([
 
   {
@@ -38,6 +39,12 @@ const router = createBrowserRouter([
       <Contents>
         <SubVisual />
       </Contents>
+      },
+      {
+        path:"/productions", element:
+        <Contents>
+          <Productions/>
+        </Contents>
       }
     ]
   }
