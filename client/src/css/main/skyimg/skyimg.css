@@ -1,54 +1,68 @@
-div.snsimg_section {
+div.skyimg_section {
   display: block;
   height: 260px;
 }
-div.snsimg_section div.snsimg_contents a.snsimg_section_linkBox {
+div.skyimg_section div.skyimg_contents {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* SkyImgContent.jsx */
+a.skyimg_section_linkBox {
   display: inline-block;
 }
-div.snsimg_section div.snsimg_contents a.snsimg_section_linkBox div.snsimg_image_wrap {
+a.skyimg_section_linkBox div.skyimg_image_wrap {
   position: relative;
   width: 270px;
   height: 180px;
   overflow: hidden;
   border-radius: 0.3rem;
 }
-div.snsimg_section div.snsimg_contents a.snsimg_section_linkBox div.snsimg_image_wrap:hover img.snsimg_image_img {
+a.skyimg_section_linkBox div.skyimg_image_wrap:hover img.skyimg_image_img {
   transform: scale(1.05);
 }
-div.snsimg_section div.snsimg_contents a.snsimg_section_linkBox div.snsimg_image_wrap img.snsimg_image_img {
+a.skyimg_section_linkBox div.skyimg_image_wrap img.skyimg_image_img {
   width: 100%;
   height: 100%;
   transform: scale(1);
   transition: all 0.2s;
 }
-div.snsimg_section div.snsimg_contents a.snsimg_section_linkBox div.snsimg_image_wrap span.snsimg_image_img_scrapbtn {
+a.skyimg_section_linkBox div.skyimg_image_wrap span.skyimg_image_img_scrapbtn {
   position: absolute;
   bottom: 10px;
   right: 10px;
 }
-div.snsimg_section div.snsimg_contents a.snsimg_section_linkBox div.snsimg_image_wrap span.snsimg_image_img_scrapbtn .snsimg_image_img_scrapbtn {
-  color: rgba(255, 255, 255, 0.5);
-  border: #FFF;
+a.skyimg_section_linkBox div.skyimg_image_wrap span.skyimg_image_img_scrapbtn .skyimg_image_img_scrapbtn {
+  color: rgba(255, 255, 255, 0.7);
+  border: #fff;
   font-size: 25px;
 }
-div.snsimg_section div.snsimg_contents a.snsimg_section_linkBox div.snsimg_image_wrap span.snsimg_image_img_scrapbtn.active .snsimg_image_img_scrapbtn {
+a.skyimg_section_linkBox div.skyimg_image_wrap span.skyimg_image_img_scrapbtn.active .skyimg_image_img_scrapbtn {
   color: var(--sky);
 }
-div.snsimg_section div.snsimg_contents a.snsimg_section_linkBox div.snsimg_text_wrap {
+a.skyimg_section_linkBox div.skyimg_text_wrap {
   margin-top: 10px;
   height: 50px;
   width: 270px;
 }
-div.snsimg_section div.snsimg_contents a.snsimg_section_linkBox div.snsimg_text_wrap p.snsimg_text_content {
+a.skyimg_section_linkBox div.skyimg_text_wrap p.skyimg_text_content {
   margin-bottom: 5px;
   font-size: 16px;
   line-height: 24px;
   word-break: keep-all;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
-div.snsimg_section div.snsimg_contents a.snsimg_section_linkBox div.snsimg_text_wrap p.snsimg_text_content span.snsimg_text_sky {
+a.skyimg_section_linkBox div.skyimg_text_wrap p.skyimg_text_content span.skyimg_text_sky {
   color: var(--sky);
   font-weight: 700;
 }
-div.snsimg_section div.snsimg_contents a.snsimg_section_linkBox div.snsimg_text_wrap p.snsimg_text_content span.snsimg_text_sky::after {
+a.skyimg_section_linkBox div.skyimg_text_wrap p.skyimg_text_content span.skyimg_text_sky::after {
   content: "";
+  display: inline-block;
+  width: 5px;
 }/*# sourceMappingURL=skyimg.css.map */
