@@ -1,12 +1,36 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { FiChevronDown } from "react-icons/fi";
-import { FiChevronUp } from "react-icons/fi";
 import ShowMenu from "./ShowMenu";
-import HeaderNavPopularView from "./HeaderNavPopularView";
+import HeaderSearchRight from './HeaderSearchRight';
+import HeaderLogoWrite from "./HeaderLogoWrite";
+import HeaderNavPopular from "./HeaderNavPopular";
 
 export default function Header() {
+  /* 스크롤할 때 헤더 고정 */
+  const [isFixed, SetIsFixed] = useState(false);
+  useEffect(() => {
+    document.getElementById('main_header').scrollTo(0, 0);
+  }, [])
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const ScrollTop = window.scrollY;
+      if (ScrollTop >= 50) {
+        console.log(ScrollTop);
+        SetIsFixed(true);
+      } else {
+        SetIsFixed(false);
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { capture: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    }
+  }, [])
+
+
+
+  /* header_logo 메뉴 호버시 header_nav 메뉴 show */
   let [hovering, setHovering] = useState(1)
   let [showMenu, setShowMenu] = useState(1)
 
@@ -35,109 +59,22 @@ export default function Header() {
       setHovering(3);
     }
   }
-
   function handleMouseLeave() {
     if (showMenu === 2 || showMenu === 3) {
       setShowMenu(1);
     }
   }
 
-  /* const [showWrite, setShowWrite] = useState(false);
-  const handleClick = () => {
-    if (showWrite === false) {
-      setShowWrite(true)
-    } else {
-      setShowWrite(false)
-    }
-  } */
-
-  const [topY, setTopY] = useState(0);
-  const [currentTop, setCurrentTop] = useState(0);
-  const [count, setCount] = useState(1);
-
-  let menuRef = useRef();
-  // li를 레퍼런스로 잡음 menuRef
-
-  useEffect(() => {
-
-    setCurrentTop(menuRef.current.offsetHeight)
-
-  }, [])
-
-  // let ulRef = useRef();
-
-  const useInterval = (callback, delay) => {
-
-
-    const callbackRef = useRef(callback);
-
-    // console.log(callbackRef);
-    useEffect(() => {
-      callbackRef.current = callback;
-    });
-
-    useEffect(() => {
-
-      const timer =
-        setInterval(() => { callbackRef.current(); setCount((count) => count++); }, delay);
-      return () => clearInterval(timer);
-
-    })
-
-    // ulRef.current.style.top = `-${currentTop}px`;
-
-  }
-
-  // useInterval을 사용하여 일정한 간격으로 top을 업데이트합니다.
-  useInterval(() => {
-
-    setTopY((top) => top + currentTop);
-
-    if (topY >= 440) {
-
-      setTopY(0)
-
-    }
-
-  }, 3000);
-
-  const useCounterInterval = (callback, delay) => {
-
-    const callbackRef = useRef(callback);
-
-    // console.log(callbackRef);
-    useEffect(() => {
-      callbackRef.current = callback;
-    });
-
-    useEffect(() => {
-
-      const timer =
-        setInterval(() => { callbackRef.current(); }, delay);
-      return () => clearInterval(timer);
-
-    })
-
-
-  }
-
-  useCounterInterval(() => {
-
-    setCount((count) => ++count);
-
-    if (count === 6) {
-
-      setCount(1)
-
-    }
-
-  }, 3000);
+  // 헤더클릭시 글쓰기 사라지는거 나중에 
+  // const headerBox = useRef();
+  // ref={headerBox}
+  // onClick={(e) => { if (e.target === headerBox.current) {setShowWrite("header_nav_popup_write"); setShowProfile("header_nav_popup_profile"); } }}
 
   return (
     <>
-      <header className="main_header" onMouseLeave={handleMouseLeave}>
-        <div className="main_header_layout inner">
-          <div className="header_logo">
+      <header className="main_header" id="main_header" onMouseLeave={handleMouseLeave}>
+        <div className={isFixed ? "main_header_layout_up active" : "main_header_layout_up"}>
+          <div className="header_logo inner">
             <div className="header_logoBox">
               <Link to="/" className="header_logo_logo"></Link>
             </div>
@@ -154,179 +91,19 @@ export default function Header() {
                 </li>
               </ul>
             </div>
-            <div className="header_logo_searchBox">
-              <img className="header_logo_search_img" src="images/headers/search.png" alt="" />
-              <input className="header_logo_search" type="text" placeholder="통합검색" />
-            </div>
-            <div className="header_logo_right">
-              <Link to="/cart" className="header_logo_cart"></Link>
-              <Link to="/login" className="header_logo_menu">로그인</Link>
-              <Link to="/normal_users/new" className="header_logo_menu">회원가입</Link>
-              <Link to="/customer_center" className="header_logo_menu">고객센터</Link>
-              <div className="header_logo_write"><button type="button">글쓰기<FiChevronDown /></button>
-                <div className="header_nav_popup_write">
-                  <ul className="header_nav_popup_write_ul">
-                    <li>
-                      <Link to="/">
-                        <div>사진/동영상올리기</div>
-                        <div>우리집의 공간과 나의 일상을 기록해보세요.</div>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            <HeaderSearchRight />
+            <HeaderLogoWrite />
           </div>
         </div>
         <div className="main_header_layout_down">
-          <div className="header_nav  inner">
+          <div className="header_nav inner">
             {showMenu === 1 && <ShowMenu menuName="community" />}
             {showMenu === 2 && <ShowMenu menuName="store" />}
             {showMenu === 3 && <ShowMenu menuName="experts" />}
-            <div className="header_nav_popular">
-              <Link to="/" className="header_nav_popular_view">
-                <div className="header_nav_popular_view_list">
-                  <ul className="header_nav_popular_view_list_ul">
-                    <li className="header_nav_popular_view_list_li" ref={menuRef} style={{ top: `-${topY}px` }}>
-                      <span className="header_nav_popular_view_list_li_count">
-                        {/* {count} */}
-                        1
-                      </span>
-                      <span className="header_nav_popular_view_list_li_count_img">
-                        <img src="images/headers/uparrow.png" alt="이미지1" />
-                      </span>
-                      <Link to="#" className="header_nav_popular_view_list_link" >
-                        물티슈케이스
-                      </Link>
-                    </li>
-                    <li className="header_nav_popular_view_list_li" style={{ top: `-${topY}px` }}>
-                      <span className="header_nav_popular_view_list_li_count">
-                        {/* {count} */}
-                        2
-                      </span>
-                      <span className="header_nav_popular_view_list_li_count_img">
-                        <img src="images/headers/uparrow.png" alt="이미지1" />
-                      </span>
-                      <Link to="#" className="header_nav_popular_view_list_link">
-                        암막커튼 작은창
-                      </Link>
-                    </li>
-                    <li className="header_nav_popular_view_list_li" style={{ top: `-${topY}px` }}>
-                      <span className="header_nav_popular_view_list_li_count">
-                        {/* {count} */}
-                        3
-                      </span>
-                      <span className="header_nav_popular_view_list_li_count_img">
-                        <img src="images/headers/uparrow.png" alt="이미지1" />
-                      </span>
-                      <Link to="#" className="header_nav_popular_view_list_link">
-                        마샬 스피커
-                      </Link>
-                    </li>
-                    <li className="header_nav_popular_view_list_li" style={{ top: `-${topY}px` }}>
-                      <span className="header_nav_popular_view_list_li_count">
-                        {/* {count} */}
-                        4
-                      </span>
-                      <span className="header_nav_popular_view_list_li_count_img">
-                        <img src="images/headers/downarrow.png" alt="이미지1" />
-                      </span>
-                      <Link to="#" className="header_nav_popular_view_list_link">
-                        루씨에어
-                      </Link>
-                    </li>
-                    <li className="header_nav_popular_view_list_li" style={{ top: `-${topY}px` }}>
-                      <span className="header_nav_popular_view_list_li_count">
-                        {/* {count} */}
-                        5
-                      </span>
-                      <span className="header_nav_popular_view_list_li_count_img">
-                        <img src="images/headers/new.png" alt="이미지1" />
-                      </span>
-                      <Link to="#" className="header_nav_popular_view_list_link">
-                        룸앤티비
-                      </Link>
-                    </li>
-                    <li className="header_nav_popular_view_list_li" style={{ top: `-${topY}px` }}>
-                      <span className="header_nav_popular_view_list_li_count">
-                        {/* {count} */}
-                        6
-                      </span>
-                      <span className="header_nav_popular_view_list_li_count_img">
-                        <img src="images/headers/downarrow.png" alt="이미지1" />
-                      </span>
-                      <Link to="#" className="header_nav_popular_view_list_link">
-                        전등
-                      </Link>
-                    </li>
-                    <li className="header_nav_popular_view_list_li" style={{ top: `-${topY}px` }}>
-                      <span className="header_nav_popular_view_list_li_count">
-                        {/* {count} */}
-                        7
-                      </span>
-                      <span className="header_nav_popular_view_list_li_count_img">
-                        <img src="images/headers/new.png" alt="이미지1" />
-                      </span>
-                      <Link to="#" className="header_nav_popular_view_list_link">
-                        데스크데리어
-                      </Link>
-                    </li>
-                    <li className="header_nav_popular_view_list_li" style={{ top: `-${topY}px` }}>
-                      <span className="header_nav_popular_view_list_li_count">
-                        {/* {count} */}
-                        8
-                      </span>
-                      <span className="header_nav_popular_view_list_li_count_img">
-                        <img src="images/headers/new.png" alt="이미지1" />
-                      </span>
-                      <Link to="#" className="header_nav_popular_view_list_link">
-                        보조테이블
-                      </Link>
-                    </li>
-                    <li className="header_nav_popular_view_list_li" style={{ top: `-${topY}px` }}>
-                      <span className="header_nav_popular_view_list_li_count">
-                        {/* {count} */}
-                        9
-                      </span>
-                      <span className="header_nav_popular_view_list_li_count_img">
-                        <img src="images/headers/new.png" alt="이미지1" />
-                      </span>
-                      <Link to="#" className="header_nav_popular_view_list_link">
-                        반원테이블
-                      </Link>
-                    </li>
-                    <li className="header_nav_popular_view_list_li" style={{ top: `-${topY}px` }}>
-                      <span className="header_nav_popular_view_list_li_count">
-                        {/* {count} */}
-                        10
-                      </span>
-                      <span className="header_nav_popular_view_list_li_count_img">
-                        <img src="images/headers/new.png" alt="이미지1" />
-                      </span>
-                      <Link to="#" className="header_nav_popular_view_list_link">
-                        브라운물티슈
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </Link>
-              <span className="arrow">
-                <FiChevronDown />
-                <div className="header_nav_popup">
-                  <div className="header_nav_popup_title">
-                    <h2>인기검색어</h2>
-                    <span className="arrow_img_popup">
-                      <FiChevronUp />
-                    </span>
-                  </div>
-                  <HeaderNavPopularView />
-                </div>
-              </span>
-            </div>
+            <HeaderNavPopular />
           </div>
         </div>
       </header >
     </>
   );
-
 }

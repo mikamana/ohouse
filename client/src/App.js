@@ -16,23 +16,28 @@ import "./css/main/subtitle_more/subtitle_more.css";
 import "./css/main/userimg/userimg.css";
 import "./css/main/visual/visual.css";
 import Main from "./components/main/Main";
+import Contents from './components/main/contents/Contents';
+import SkyImg from './pages/main/skyimg/SkyImg';
 
 const router = createBrowserRouter([
 
   {
 
     path: "/",
-    element: <Main />
-
+    element:<Main />,
+    children : [
+      { path : '/', element : 
+        <Contents>
+          <SkyImg />
+        </Contents>
+      },
+      { path : '/store', element : 
+        <Contents>
+          
+        </Contents>
+      }
+    ]
   }
-
-  // {
-  //   path: "/",
-  //   element:<Root />,
-  //   children : [
-  //     {path : '/:params', element : {el}}
-  //   ]
-  // }
 
 ])
 
