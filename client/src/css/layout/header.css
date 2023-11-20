@@ -149,6 +149,59 @@ header.main_header div.main_header_layout div.header_logo div.header_logo_right 
   border-radius: 0.3rem;
   box-shadow: 1px 1px 10px rgb(208, 210, 211);
   z-index: 10;
+  /* div.header_nav_popup_title {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 16px 8px;
+    h2 {
+      line-height: 24px;
+      font-size: 18px;
+      font-weight: 700;
+      color: rgb(47, 52, 56);
+    }
+    span.arrow_popup {
+      padding: 6px;
+      width: 18px;
+      height: 18px;
+    }
+  } //div.header_nav_popup_title
+  a.header_nav_popular_view_popup {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    box-sizing: border-box;
+    &:hover {
+      background: rgb(247, 249, 250);
+    }
+    div {
+      display: flex;
+      align-items: center;
+      margin: 8px 16px;
+      height: 24px;
+      > span {
+        margin-right: 3px;
+        &:first-of-type {
+          width: 20px;
+          height: 20px;
+          font-weight: 700;
+          text-align: center;
+        }
+        &:nth-of-type(2) {
+          width: 24px;
+          height: 24px;
+          text-align: center;
+          img {
+            height: 110%;
+          }
+        }
+        &:nth-of-type(3) {
+          width: 104px;
+          height: 20px;
+          margin-right: 10px;
+        }
+      }
+    }
+  } //div.header_nav_popular_view_popup */
 }
 header.main_header div.main_header_layout_down {
   height: 52px;

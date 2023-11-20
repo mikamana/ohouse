@@ -18,6 +18,7 @@ export default function Main() {
     <>
       <Banner />
       <Header>
+
       </Header>
       <Contents>
         <MainVisual />
