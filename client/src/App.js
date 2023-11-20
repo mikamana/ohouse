@@ -1,7 +1,5 @@
 import React from "react";
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Contents from "./components/main/contents/Contents";
-import Main from "./components/main/Main";
 import "./css/common/reset.css";
 import "./css/common/mixin.css";
 import "./css/common/common.css";

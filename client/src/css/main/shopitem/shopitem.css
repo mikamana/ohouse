@@ -29,6 +29,7 @@ div.shopitem_section .prev_btn::before {
   font-weight: 900;
 }
 div.shopitem_section .prev_btn:hover {
+  color: #fff;
   background: var(--lightGray);
 }
 div.shopitem_section .prev_btn::before {
@@ -60,6 +61,7 @@ div.shopitem_section .next_btn::before {
   font-weight: 900;
 }
 div.shopitem_section .next_btn:hover {
+  color: #fff;
   background: var(--lightGray);
 }
 div.shopitem_section .next_btn::before {

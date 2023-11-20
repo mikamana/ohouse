@@ -29,6 +29,7 @@ div.shopcate_section .prev_btn2::before {
   font-weight: 900;
 }
 div.shopcate_section .prev_btn2:hover {
+  color: #fff;
   background: var(--lightGray);
 }
 div.shopcate_section .prev_btn2::before {
@@ -60,6 +61,7 @@ div.shopcate_section .next_btn2::before {
   font-weight: 900;
 }
 div.shopcate_section .next_btn2:hover {
+  color: #fff;
   background: var(--lightGray);
 }
 div.shopcate_section .next_btn2::before {
