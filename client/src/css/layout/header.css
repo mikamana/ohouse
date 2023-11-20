@@ -545,6 +545,7 @@ div.header_logo_searchBox_loginver input.header_logo_search::placeholder {
  */
 /* 로그인 후 헤더 메뉴 (react-icon 설정)*/
 div.header_logo_right_loginver {
+  position: relative;
   margin: 0 10px;
   display: flex;
   align-items: center;
@@ -600,8 +601,8 @@ div.header_logo_right_loginver div.header_nav_popup_profile {
   visibility: hidden;
   opacity: 0;
   padding: 8px;
-  top: 108px;
-  right: 245px;
+  top: 48px;
+  left: 50px;
   width: 184px;
   height: 294px;
   background: #fff;
