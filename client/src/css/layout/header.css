@@ -254,7 +254,8 @@ header.main_header div.main_header_layout_down div.header_nav div.header_nav_men
   box-sizing: border-box;
 }
 header.main_header div.main_header_layout_down div.header_nav div.header_nav_menu div.header_nav_menu_wrap a.header_nav_menu_list:hover {
-  color: var(--sky);
+  background: var(--lightGray);
+  color: #fff !important;
 }
 header.main_header div.main_header_layout_down div.header_nav div.header_nav_menu div.header_nav_menu_wrap a.header_nav_menu_list p.header_nav_menu_name {
   font-weight: 700;

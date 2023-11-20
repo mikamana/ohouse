@@ -1,10 +1,10 @@
 import React from "react";
 import {RouterProvider, createBrowserRouter } from 'react-router-dom';
+import "./css/layout/header.css";
 import "./css/common/reset.css";
 import "./css/common/mixin.css";
 import "./css/common/common.css";
 import "./css/layout/banner.css";
-import "./css/layout/header.css";
 import "./css/layout/footer.css";
 import "./css/main/dealimg/dealimg.css";
 import "./css/main/iconmenu/iconmenu.css";
@@ -18,6 +18,8 @@ import "./css/main/visual/visual.css";
 import Main from "./components/main/Main";
 import Contents from './components/main/contents/Contents';
 import SkyImg from './pages/main/skyimg/SkyImg';
+import IconMenu from "./pages/main/iconmenu/IconMenu";
+import IconMenuSlide from "./pages/main/iconmenu/IconMenuSlide";
 
 const router = createBrowserRouter([
 
@@ -28,7 +30,9 @@ const router = createBrowserRouter([
     children : [
       { path : '/', element : 
         <Contents>
+          <IconMenu />
           <SkyImg />
+          <IconMenuSlide />
         </Contents>
       },
       { path : '/store', element : 
