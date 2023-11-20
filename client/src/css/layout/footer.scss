@@ -1,10 +1,170 @@
 @use "../common/mixin.scss" as m;
 
 footer.main_footer {
-  height: 320px;
-  border: 1px solid gray;
+  height: 240px;
+  background: #F7F9FC;
+  // border: 1px solid gray;
+  font-size: 12px;
+  padding: 40px 0 10px 0;
+  
   div.main_footer_layout {
-    border: 1px solid gray;
+    display: flex;
+    // border: 1px solid gray;
     height: 100%;
-  }
-}
+      > div {
+        width: 240px;
+        height: 100%;
+        padding: 0 30px;
+        &:not(.main_footer_right) {
+          border-right: 1px solid var(--headerBorder);
+        }
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    // main_footer_left /////////////////////////
+    .main_footer_left {
+      padding-left: 0;
+      .main_footer_customer_center {
+        display: block;
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .main_footer_phone_box {
+        font-size: 14px;
+        margin: 20px 0 8px 0;
+        .main_footer_phone {
+          font-size: 16px;
+          font-weight: 700;
+          margin-right: 6px;
+        }
+      }
+      .main_footer_customer_day {
+        white-space: pre-wrap;
+        line-height: 20px;
+      }
+      .main_footer_customer_inquire {
+        font-size: 14px;
+        margin-top: 12px;
+        button {
+          cursor: pointer;
+          margin-bottom: 12px;
+        }
+        button,
+        a {
+          display: inline-block;
+          height: 32px;
+          background: transparent;
+          border: 1px solid var(--headerBorder);
+          line-height: 32px;
+          text-align: center;
+          padding: 0 8px;
+        }
+      }
+    }//main_footer_left
+    //main_footer_center /////////////////////////
+    .main_footer_center {
+      display: grid;
+      gap: 20px 10px;
+      grid-template-rows: repeat(6, min-content);
+      grid-auto-flow: column;
+      :nth-child(4) {
+        font-weight: 900;
+      }//:nth-child(4)
+  
+    }//main_footer_center
+    //main_footer_right /////////////////////////
+    .main_footer_right {
+      width: 507px;
+      padding-right: 0;
+      line-height: 20px;
+      ul, .main_footer_small_text_box {
+        margin: 12px 0;
+      }
+      div *:not(:last-child):after {
+        content: '';
+        width: 1px;
+        height: 12px;
+        background: var(--darkGray);
+        display: inline-block;
+        margin: 0px 4px;
+        vertical-align: middle;
+      } //::after
+      div {
+        address {
+          display: inline-block;
+        }
+      }
+      .main_footer_small_text_box {
+        font-size: 10px;
+        line-height: 14px;
+        a {
+          font-weight: 700;
+        }
+      }//main_footer_small_text_box
+      .main_footer_icon_box {
+        display: flex;
+        li {
+          width: 114px;
+          border: 1px solid #828C94;
+          display: flex;
+          align-items: center;
+          text-align: center;
+          justify-content: center;
+          margin-right: 6px;
+          &:first-child {
+            width: 167px;
+            font-size: 10px;
+            text-align: left;
+            line-height: 14px;
+            padding: 0 6px;
+          }
+          img {
+            display: inline-block;
+            height: 32px;
+          }
+        }
+      }//main_footer_icon_box
+      .main_footer_sns_icon {
+        li {
+          
+          display: inline-block;
+          &:nth-child(1) a {
+            background-image: url("../../../public/imgae/sns_icon1.svg");
+          }
+          &:nth-child(2) a {
+            background-image: url("../../../public/imgae/sns_icon2.svg");
+          }
+          &:nth-child(3) a {
+            background-image: url("../../../public/imgae/sns_icon3.svg");
+          }
+          &:nth-child(4) a {
+            background-image: url("../../../public/imgae/sns_icon4.svg");
+          }
+          &:nth-child(5) a {
+            background-image: url("../../../public/imgae/sns_icon5.svg");
+            
+          }
+          a {
+            width: 24px;
+            height: 24px;
+            background-repeat: no-repeat;
+            opacity: 40%;
+            border-radius: 100%;
+            display: inline-block;
+            color: #FFF;
+            text-align: center;
+            line-height: 24px;
+            margin-right: 14px;
+            
+            &:hover {
+              opacity: 50%;
+            }
+
+          }// li a
+          
+        }
+      }//main_footer_sns_icon
+    }//main_footer_right
+  }//div.main_footer_layout
+}//footer.main_footer
