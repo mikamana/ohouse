@@ -31,6 +31,7 @@ section.snsimg_wrap div.snsimg_inner button.sns_prev_btn::before {
   font-weight: 900;
 }
 section.snsimg_wrap div.snsimg_inner button.sns_prev_btn:hover {
+  color: #fff;
   background: var(--lightGray);
 }
 section.snsimg_wrap div.snsimg_inner button.sns_prev_btn::after {
@@ -65,6 +66,7 @@ section.snsimg_wrap div.snsimg_inner button.sns_next_btn::before {
   font-weight: 900;
 }
 section.snsimg_wrap div.snsimg_inner button.sns_next_btn:hover {
+  color: #fff;
   background: var(--lightGray);
 }
 section.snsimg_wrap div.snsimg_inner button.sns_next_btn::after {
