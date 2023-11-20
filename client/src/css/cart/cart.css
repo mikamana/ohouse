@@ -180,4 +180,30 @@
   margin: 0;
   padding: 0;
   margin-left: 16px;
+}
+
+.remove_btn_light {
+  cursor: pointer;
+  background: none;
+  padding: 5px;
+  border: none;
+  font-size: 0;
+  transition: opacity 0.1s;
+  color: rgb(130, 140, 148);
+}
+.remove_btn_light:hover {
+  opacity: 0.5;
+}
+
+.remove_btn_bold {
+  cursor: pointer;
+  background: none;
+  padding: 5px;
+  border: none;
+  font-size: 0;
+  transition: opacity 0.1s;
+  color: #424242;
+}
+.remove_btn_bold:hover {
+  opacity: 0.5;
 }/*# sourceMappingURL=cart.css.map */
