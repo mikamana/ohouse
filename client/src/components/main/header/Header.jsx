@@ -68,7 +68,6 @@ export default function Header() {
 
   const useInterval = (callback, delay) => {
 
-
     const callbackRef = useRef(callback);
 
     // console.log(callbackRef);
@@ -101,37 +100,37 @@ export default function Header() {
 
   }, 3000);
 
-  const useCounterInterval = (callback, delay) => {
+  // const useCounterInterval = (callback, delay) => {
 
-    const callbackRef = useRef(callback);
+  //   const callbackRef = useRef(callback);
 
-    // console.log(callbackRef);
-    useEffect(() => {
-      callbackRef.current = callback;
-    });
+  //   // console.log(callbackRef);
+  //   useEffect(() => {
+  //     callbackRef.current = callback;
+  //   });
 
-    useEffect(() => {
+  //   useEffect(() => {
 
-      const timer =
-        setInterval(() => { callbackRef.current(); }, delay);
-      return () => clearInterval(timer);
+  //     const timer =
+  //       setInterval(() => { callbackRef.current(); }, delay);
+  //     return () => clearInterval(timer);
 
-    })
+  //   })
 
 
-  }
+  // }
 
-  useCounterInterval(() => {
+  // useCounterInterval(() => {
 
-    setCount((count) => ++count);
+  //   setCount((count) => ++count);
 
-    if (count === 6) {
+  //   if (count === 6) {
 
-      setCount(1)
+  //     setCount(1)
 
-    }
+  //   }
 
-  }, 3000);
+  // }, 3000);
 
   return (
     <>
