@@ -6,17 +6,16 @@ import { Outlet } from "react-router-dom";
 
 // import MainVisual from "../../pages/main/visual/components/MainVisual";
 // import SnsImg from "../../pages/main/snsimg/components/SnsImg";
+
 export default function Main() {
 
   return (
 
     <>
       <Banner />
-      <Header>
-      </Header>
+      <Header />
       <Outlet />
-      <Footer>
-      </Footer>
+      <Footer />
     </>
 
   );
