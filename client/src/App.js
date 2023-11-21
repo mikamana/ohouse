@@ -1,5 +1,5 @@
 import React from "react";
-import {RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import "./css/common/reset.css";
 import "./css/common/mixin.css";
 import "./css/common/common.css";
@@ -15,11 +15,26 @@ import "./css/main/snsimg/snsimg.css";
 import "./css/main/subtitle_more/subtitle_more.css";
 import "./css/main/userimg/userimg.css";
 import "./css/main/visual/visual.css";
-import Main from './components/main/Main';
-import Contents from "./components/main/contents/Contents";
-import SubtitleMore from './pages/main/subtitle_more/Subtitle_more';
-import UserImg from "./pages/main/userimg/UserImg";
-import Login from "./pages/user/Login";
+import "./css/sub/store/storehome/subvisual/subvisual.css";
+import "./css/production/production.css";
+import "./css/cart/cart.css"
+import "./css/sub/store/storehome/todaydeal/storehometodaydeal.css"
+import "./css/sub/store/storehome/popularproducts/storehomepopularproducts.css"
+import Main from "./components/main/Main";
+import Contents from './components/main/contents/Contents';
+import SkyImg from './pages/main/skyimg/SkyImg';
+import IconMenu from "./pages/main/iconmenu/IconMenu";
+import IconMenuSlide from "./pages/main/iconmenu/IconMenuSlide";
+import SnsImg from "./pages/main/snsimg/components/SnsImg";
+import MainVisual from "./pages/main/visual/components/MainVisual";
+import SubVisual from "./pages/subpage/store/storehome/visual/SubVisual";
+import Productions from "./pages/productions/Productions";
+import UserImg from "./pages/main/userimg/UserImg"
+import Exhibitions from './pages/main/userimg/Exhibitions';
+import ShopitemSection from "./pages/main/shopitem/ShopitemSection";
+import ShopcateSection from "./pages/main/shopcate/ShopcateSection";
+import StoreHomePopularProductsSection from "./pages/subpage/store/storehome/popularproducts/StoreHomePopularProductsSection";
+import StoreHomeTodayDealSection from "./pages/subpage/store/storehome/todaydeal/StoreHomeTodayDealSection";
 
 const router = createBrowserRouter([
 
@@ -28,19 +43,38 @@ const router = createBrowserRouter([
     element: <Main />,
     children: [
       {
-        path: "/", element :
-        <Contents>
-          <SubtitleMore />
-          <UserImg />
-        </Contents>
+        path: '/', element:
+          <Contents>
+            <MainVisual />
+            <IconMenu />
+            <SnsImg />
+            <SkyImg />
+            <IconMenuSlide />
+            <ShopitemSection/>
+            <UserImg />
+            <Exhibitions />
+            <ShopcateSection/>
+          </Contents>
       },
       {
-        path: ""
+        path: '/store', element:
+          <Contents>
+
+            <SubVisual />
+            <StoreHomeTodayDealSection/>
+            <StoreHomePopularProductsSection/>
+          </Contents>
+      },
+      {
+        path: '/production', element:
+          <Contents>
+            <Productions />
+          </Contents>
       }
     ]
   }
-])
 
+])
 
 function App() {
   return (

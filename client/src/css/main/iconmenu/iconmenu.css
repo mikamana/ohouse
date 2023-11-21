@@ -1,1 +1,35 @@
-/*# sourceMappingURL=iconmenu.css.map */
+.main_visual_swiper_wrap {
+  position: relative;
+}
+.main_visual_swiper_wrap .iconmenu_slide img {
+  width: 72px;
+}
+.main_visual_swiper_wrap .iconmenu_slide P {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.iconmenu {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.iconmenu div {
+  flex: 1;
+}
+.iconmenu div img {
+  width: 88px;
+}
+.iconmenu div p {
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.prev_btn_icon.swiper-button-disabled {
+  opacity: 0 !important;
+}
+
+.next_btn_icon.swiper-button-disabled {
+  opacity: 0 !important;
+}/*# sourceMappingURL=iconmenu.css.map */

@@ -1,10 +1,11 @@
 .inner {
   width: 1256px;
-  margin: 0 auto;
   padding: 0px 60px;
+  margin: 0 auto;
   box-sizing: border-box;
 }
 
+*,
 body {
   color: #424242;
   font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
@@ -23,4 +24,157 @@ body {
   --blackGray: #2f3438;
   --borderColor: #dadde0;
   --headerBorder: #eaedef;
+}
+
+.swiper_wrap {
+  position: relative;
+}
+
+.prev_style {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  background: #fff;
+  border: none;
+  border-radius: 100%;
+  box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
+  color: #2f3437;
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  left: 0;
+}
+.prev_style::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+.prev_style:hover {
+  background: var(--lightGray);
+}
+.prev_style::before {
+  content: "\f053";
+}
+
+.next_style {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  background: #fff;
+  border: none;
+  border-radius: 100%;
+  box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
+  color: #2f3437;
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  right: 0;
+}
+.next_style::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+.next_style:hover {
+  background: var(--lightGray);
+}
+.next_style::before {
+  content: "\f054";
+}
+
+.prev_style_opactiy {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  background: #fff;
+  border: none;
+  border-radius: 100%;
+  box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
+  color: #2f3437;
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  opacity: 0;
+  left: -24px;
+}
+.prev_style_opactiy::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+.prev_style_opactiy:hover {
+  background: var(--lightGray);
+}
+.prev_style_opactiy::before {
+  content: "\f053";
+}
+.prev_style_opactiy:hover {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out 0s;
+}
+
+.next_style_opactiy {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  background: #fff;
+  border: none;
+  border-radius: 100%;
+  box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
+  color: #2f3437;
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  opacity: 0;
+  right: -24px;
+}
+.next_style_opactiy::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+.next_style_opactiy:hover {
+  background: var(--lightGray);
+}
+.next_style_opactiy::before {
+  content: "\f054";
+}
+.next_style_opactiy:hover {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out 0s;
+}
+
+.sky_btn {
+  background: var(--sky);
+  border-radius: 4px;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+}
+.sky_btn:hover {
+  background: var(--darkSky);
 }/*# sourceMappingURL=common.css.map */

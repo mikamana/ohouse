@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 export default function SubtitleMore({title, subTitle}){
   return(
@@ -20,7 +20,7 @@ export default function SubtitleMore({title, subTitle}){
             <button className="subtitle_more_button" type="button">더보기</button>
           </Link>
         </div>
+      </div>
     </div>
-  </div>
   );
 }

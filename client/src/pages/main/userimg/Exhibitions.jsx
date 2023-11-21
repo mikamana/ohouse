@@ -13,7 +13,7 @@ export default function Exhibitions(){
   return(
   <>
     <SubtitleMore title={"오늘의 기획전"}/>
-    <div className="inner">
+    <div className="inner exhibitions_main">
 
     <div className="main_visual_swiper_wrap">
         <Swiper
@@ -67,6 +67,13 @@ export default function Exhibitions(){
           <UserImg_Text text={"오직 이번주 한정 특가!"}/>
           <UserImg_Title name={"exhibitions_title"} title={"가전/디지털 BLACK FRIDAY ~81%"}/>
         </div>
+      </SwiperSlide>
+      
+      <SwiperSlide> 
+      <div className="exhibitions_button_wrap">
+        <button className="exhibitions_list_button"></button>
+        <span className="exhibitions_img_list_button_span">더보기</span>
+      </div>
       </SwiperSlide>
       
       </div>
