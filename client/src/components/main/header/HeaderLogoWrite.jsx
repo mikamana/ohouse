@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
 import HeaderLogoWritePopup from "./HeaderLogoWritePopup";
 
-export default function HeaderLogoWrite() {
+export default function HeaderLogoWrite({getWrite}) {
   const [showWrite, setShowWrite] = useState("header_nav_popup_write");
   const toggleWriteMenu = (e) => {
     if (showWrite === "header_nav_popup_write") {

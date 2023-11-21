@@ -16,7 +16,7 @@ export default function Header() {
     const handleScroll = () => {
       const ScrollTop = window.scrollY;
       if (ScrollTop >= 50) {
-        console.log(ScrollTop);
+        //console.log(ScrollTop);
         SetIsFixed(true);
       } else {
         SetIsFixed(false);
@@ -70,7 +70,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="main_header" id="main_header" onMouseLeave={handleMouseLeave}>
+      <header className="main_header" id="main_header" onMouseLeave={handleMouseLeave}> 
         <div className={isFixed ? "main_header_layout_up active" : "main_header_layout_up"}>
           <div className="header_logo inner">
             <div className="header_logoBox">

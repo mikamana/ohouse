@@ -244,6 +244,7 @@ header.main_header {
           margin: 0 4.5px;
           box-sizing: border-box;
           a.header_nav_menu_list {
+            position: relative;
             display: inline-block;
             height: 51px;
             line-height: 51px;
@@ -252,6 +253,18 @@ header.main_header {
             box-sizing: border-box;
             &:hover {
               color: var(--sky);
+            }
+            &.active{
+            &::after{
+              content: '';
+              position: absolute;
+              display: block;
+              left: 0;
+              bottom: 0;
+              width: 100%;
+              height: 2px;
+              background-color: var(--sky);
+            }
             }
             p.header_nav_menu_name {
               font-weight: 700;
@@ -414,7 +427,7 @@ header.main_header {
               visibility: visible;
               opacity: 1;
               transform: none;
-              transition: all 0.2s ease;
+              transition: all 0.2s ease 0.1s;
               z-index: 100;
             }
             div.header_nav_popup_title {
