@@ -150,6 +150,7 @@
 }
 .exhibitions_main .main_visual_swiper_wrap .exhibitions {
   width: 269px;
+  margin: 15px 0px;
 }
 .exhibitions_main .main_visual_swiper_wrap .exhibitions .userimg_image_frame {
   width: inherit;

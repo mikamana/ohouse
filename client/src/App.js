@@ -48,7 +48,8 @@ const router = createBrowserRouter([
             <MainVisual />
             <IconMenu />
             <SnsImg />
-            <SkyImg />
+            <SkyImg title={"와😮 소리 나오는 40평 이상 배치법"}/>
+            <SkyImg title={"써보고 추천하는 잘샀템즈 💰"}/>
             <IconMenuSlide />
             <ShopitemSection/>
             <UserImg />
@@ -59,7 +60,6 @@ const router = createBrowserRouter([
       {
         path: '/store', element:
           <Contents>
-
             <SubVisual />
             <StoreHomeTodayDealSection/>
             <StoreHomePopularProductsSection/>

@@ -1,7 +1,7 @@
 .main_visual_swiper_wrap {
   position: relative;
   .iconmenu_slide {
-    img{
+    img {
       width: 72px;
     }
     P {
@@ -48,6 +48,8 @@
   display: flex;
   justify-content: center;
   text-align: center;
+  margin-top: 45px;
+
   div {
     flex: 1;
     img {
@@ -59,9 +61,9 @@
     }
   }
 }
-.prev_btn_icon.swiper-button-disabled{
+.prev_btn_icon.swiper-button-disabled {
   opacity: 0 !important;
 }
-.next_btn_icon.swiper-button-disabled{
+.next_btn_icon.swiper-button-disabled {
   opacity: 0 !important;
 }

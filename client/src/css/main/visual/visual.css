@@ -1,7 +1,4 @@
 @charset "UTF-8";
-main.main_contents {
-  min-height: 5000px;
-}
 main.main_contents section.main_visual_section {
   width: 100%;
   height: 508px;
@@ -93,6 +90,12 @@ main.main_contents section.main_visual_section div.main_visual_inner div.main_vi
   font-size: 14px;
   color: #fff;
 }
+main.main_contents section.main_visual_section div.main_visual_inner div.main_visual_swiper_wrap div.swiper div.swiper-pagination span.swiper-pagination-current {
+  color: #fff;
+}
+main.main_contents section.main_visual_section div.main_visual_inner div.main_visual_swiper_wrap div.swiper div.swiper-pagination span.swiper-pagination-total {
+  color: #fff;
+}
 main.main_contents section.main_visual_section div.main_visual_inner div.main_visual_swiper_wrap div.swiper-slide img {
   transition: all 0.2s ease-out;
   width: 100%;
@@ -140,6 +143,22 @@ main.main_contents section.main_visual_section div.main_visual_inner button.next
 }
 main.main_contents section.main_visual_section div.main_visual_inner button.prev_btn {
   position: absolute;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  background: #fff;
+  border-radius: 100%;
+  box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  top: 50%;
+  transform: translateX(50%);
+  z-index: 10;
+  position: absolute;
   display: block;
   background-color: #fff;
   border-radius: 50%;
@@ -152,6 +171,13 @@ main.main_contents section.main_visual_section div.main_visual_inner button.prev
   transform: translateY(-50%);
   z-index: 2;
   border: 1px solid rgba(0, 0, 0, 0.2);
+}
+main.main_contents section.main_visual_section div.main_visual_inner button.prev_btn::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+main.main_contents section.main_visual_section div.main_visual_inner button.prev_btn:hover {
+  background: var(--lightGray);
 }
 main.main_contents section.main_visual_section div.main_visual_inner button.prev_btn::after {
   content: "\f053";
