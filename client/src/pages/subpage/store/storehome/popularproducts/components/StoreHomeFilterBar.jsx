@@ -14,7 +14,14 @@ export default function StoreHomeFilterBar(){
             </div>
           </div>
           <div className="popular_filter_bar_control_list_right">
-  
+              <div className="popular_filter_bar_control_list_item_right">
+                <div className="popular_filter_bar_drop_down">
+                  <button className="popular_filter_bar_order_button">
+                    인기순
+                    <svg className="popular_smallarrow" width="8" height="8" viewBox="0 0 8 8" preserveAspectRatio="xMidYMid meet"><path fill="#BDBDBD" d="M0 2l4 4 4-4z"></path></svg>
+                  </button>
+                </div>
+              </div>
           </div>
         </div>
       </div>

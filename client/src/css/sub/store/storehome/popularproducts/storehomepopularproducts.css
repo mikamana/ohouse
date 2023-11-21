@@ -99,4 +99,49 @@ div.store_home_popularproducts_section .shopitem_contents {
   height: 12px;
   margin-left: 5px;
   vertical-align: -1px;
+}
+
+.popular_filter_bar_control_list_right {
+  flex: 0 0 auto;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  white-space: nowrap;
+}
+
+.popular_filter_bar_control_list_item_right {
+  display: inline-block;
+  margin: 0 2px;
+  vertical-align: bottom;
+  font-size: 0;
+  line-height: 0;
+  white-space: nowrap;
+}
+
+.popular_filter_bar_order_button {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  display: inline-block;
+  padding: 7px 4px;
+  box-sizing: border-box;
+  border: none;
+  background: none;
+  color: #424242;
+  font-size: 13px;
+  font-family: inherit;
+  font-weight: 400;
+  line-height: 19px;
+  text-decoration: none;
+  text-align: center;
+  transition: opacity 0.1s;
+  cursor: pointer;
+}
+.popular_filter_bar_order_button:hover {
+  opacity: 0.5;
+}
+
+.popular_smallarrow {
+  margin-left: 4px;
 }/*# sourceMappingURL=storehomepopularproducts.css.map */
