@@ -6,7 +6,7 @@ export default function CartContentCoupon(){
         쿠폰 적용된 가격은 결제할 때 확인 가능
       </div>
       <RemoveBtn
-      weight="light"
+      btn_type="react"
       />
     </div>
   );
