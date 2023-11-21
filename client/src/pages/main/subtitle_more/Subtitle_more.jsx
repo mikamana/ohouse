@@ -1,17 +1,17 @@
 import React from "react";
 import {Link} from "react-router-dom"
 
-export default function SubtitleMore(){
+export default function SubtitleMore({title, subTitle}){
   return(
   <div className="inner">
     <div className="subtitle_more">
         <div className="subtitle_more_text">
         <div className="subtitle_more_title">
-          이런 사진 찾고 있나요?
+          {title}
         </div>
 
         <div className="subtitle_more_sub">
-          좋아하실 만한 인테리어 콘텐츠를 추천해드려요
+        {subTitle && <div className="subtitle_more_sub">{subTitle}</div>}
         </div>
       </div>
 

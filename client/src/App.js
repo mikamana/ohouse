@@ -15,24 +15,30 @@ import "./css/main/snsimg/snsimg.css";
 import "./css/main/subtitle_more/subtitle_more.css";
 import "./css/main/userimg/userimg.css";
 import "./css/main/visual/visual.css";
-import Main from "./components/main/Main";
-
+import Main from './components/main/Main';
+import Contents from "./components/main/contents/Contents";
+import SubtitleMore from './pages/main/subtitle_more/Subtitle_more';
+import UserImg from "./pages/main/userimg/UserImg";
+import Login from "./pages/user/Login";
 
 const router = createBrowserRouter([
 
   {
     path: "/",
-    element: <Main />
+    element: <Main />,
+    children: [
+      {
+        path: "/", element :
+        <Contents>
+          <SubtitleMore />
+          <UserImg />
+        </Contents>
+      },
+      {
+        path: ""
+      }
+    ]
   }
-
-  // {
-  //   path: "/",
-  //   element:<Root />,
-  //   children : [
-  //     {path : '/:params', element : {el}}
-  //   ]
-  // }
-
 ])
 
 
