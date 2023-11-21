@@ -29,6 +29,8 @@ import SnsImg from "./pages/main/snsimg/components/SnsImg";
 import MainVisual from "./pages/main/visual/components/MainVisual";
 import SubVisual from "./pages/subpage/store/storehome/visual/SubVisual";
 import Productions from "./pages/productions/Productions";
+import UserImg from "./pages/main/userimg/UserImg"
+import Exhibitions from './pages/main/userimg/Exhibitions';
 
 const router = createBrowserRouter([
 
@@ -44,6 +46,8 @@ const router = createBrowserRouter([
             <SnsImg />
             <SkyImg />
             <IconMenuSlide />
+            <UserImg />
+            <Exhibitions />
           </Contents>
       },
       {
