@@ -1,5 +1,4 @@
 import RemoveBtn from "./button/RemoveBtn";
-
 export default function CartContentCoupon(){
   return(
     <div className='cart_contents_coupon_wrap'>
