@@ -31,6 +31,10 @@ import SubVisual from "./pages/subpage/store/storehome/visual/SubVisual";
 import Productions from "./pages/productions/Productions";
 import UserImg from "./pages/main/userimg/UserImg"
 import Exhibitions from './pages/main/userimg/Exhibitions';
+import ShopitemSection from "./pages/main/shopitem/ShopitemSection";
+import ShopcateSection from "./pages/main/shopcate/ShopcateSection";
+import StoreHomePopularProductsSection from "./pages/subpage/store/storehome/popularproducts/StoreHomePopularProductsSection";
+import StoreHomeTodayDealSection from "./pages/subpage/store/storehome/todaydeal/StoreHomeTodayDealSection";
 
 const router = createBrowserRouter([
 
@@ -46,8 +50,10 @@ const router = createBrowserRouter([
             <SnsImg />
             <SkyImg />
             <IconMenuSlide />
+            <ShopitemSection/>
             <UserImg />
             <Exhibitions />
+            <ShopcateSection/>
           </Contents>
       },
       {
@@ -55,7 +61,8 @@ const router = createBrowserRouter([
           <Contents>
 
             <SubVisual />
-
+            <StoreHomeTodayDealSection/>
+            <StoreHomePopularProductsSection/>
           </Contents>
       },
       {
