@@ -1,0 +1,13 @@
+@use "../../../../common/mixin.scss" as m;
+
+div.store_todaydeal_section{
+  display: flex;
+  position: relative;
+  height: 510px;
+  justify-content: space-between;
+  .shopitem_contents{
+    width: 25%;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}

@@ -116,6 +116,10 @@ div.shopitem_section .next_btn.swiper-button-disabled {
   top: 50px;
 }
 
+div.shopitem_contents {
+  padding: 0 0 30px;
+}
+
 div.shopitem_contents:hover {
   cursor: pointer;
 }
@@ -132,6 +136,10 @@ div.shopitem_image_wrap {
   width: 269px;
   height: 269px;
   overflow: hidden;
+}
+
+div.shopitem_info_wrap {
+  width: 269px;
 }
 
 .shopitem_timecount {
@@ -181,7 +189,6 @@ h2.shopitem_title {
 }
 
 .shopitem_title_text {
-  display: block;
   margin-top: 5px;
   font-size: 13px;
   font-weight: 400;
@@ -189,6 +196,11 @@ h2.shopitem_title {
   max-height: 34px;
   -webkit-line-clamp: 2;
   transition: opacity 0.1s;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
 }
 
 div.shopitem_price {
