@@ -15,13 +15,11 @@
   top: 50%;
   transform: translateX(50%);
   z-index: 10;
-  //opacity: 0;
   &::before {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
   }
   &:hover {
-    color: #fff;
     background: var(--lightGray);
   }
 }

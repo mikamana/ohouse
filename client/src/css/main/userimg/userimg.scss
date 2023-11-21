@@ -86,12 +86,14 @@
   }
 }
 
+.exhibitions_main{
 .main_visual_swiper_wrap{
   position: relative;
 .prev_btn {
   @include m.swiper_btn;
   left: -50px;
   top: 40%;
+  border: none;
   &::before {
     content: "\f053";
   }
@@ -100,6 +102,7 @@
   @include m.swiper_btn;
   right: 6px;
   top: 40%;
+  border: none;
   &::before {
     content: "\f054";
   }
@@ -172,4 +175,5 @@
     opacity: 0 !important;
     display: none;
   }
+}
 }

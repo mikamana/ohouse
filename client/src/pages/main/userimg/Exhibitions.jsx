@@ -13,7 +13,7 @@ export default function Exhibitions(){
   return(
   <>
     <SubtitleMore title={"오늘의 기획전"}/>
-    <div className="inner">
+    <div className="inner exhibitions_main">
 
     <div className="main_visual_swiper_wrap">
         <Swiper

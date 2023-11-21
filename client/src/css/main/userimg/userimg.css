@@ -83,10 +83,10 @@
   text-align: center;
 }
 
-.main_visual_swiper_wrap {
+.exhibitions_main .main_visual_swiper_wrap {
   position: relative;
 }
-.main_visual_swiper_wrap .prev_btn {
+.exhibitions_main .main_visual_swiper_wrap .prev_btn {
   position: absolute;
   width: 48px;
   height: 48px;
@@ -105,19 +105,19 @@
   z-index: 10;
   left: -50px;
   top: 40%;
+  border: none;
 }
-.main_visual_swiper_wrap .prev_btn::before {
+.exhibitions_main .main_visual_swiper_wrap .prev_btn::before {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
 }
-.main_visual_swiper_wrap .prev_btn:hover {
-  color: #fff;
+.exhibitions_main .main_visual_swiper_wrap .prev_btn:hover {
   background: var(--lightGray);
 }
-.main_visual_swiper_wrap .prev_btn::before {
+.exhibitions_main .main_visual_swiper_wrap .prev_btn::before {
   content: "\f053";
 }
-.main_visual_swiper_wrap .next_btn {
+.exhibitions_main .main_visual_swiper_wrap .next_btn {
   position: absolute;
   width: 48px;
   height: 48px;
@@ -136,40 +136,40 @@
   z-index: 10;
   right: 6px;
   top: 40%;
+  border: none;
 }
-.main_visual_swiper_wrap .next_btn::before {
+.exhibitions_main .main_visual_swiper_wrap .next_btn::before {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
 }
-.main_visual_swiper_wrap .next_btn:hover {
-  color: #fff;
+.exhibitions_main .main_visual_swiper_wrap .next_btn:hover {
   background: var(--lightGray);
 }
-.main_visual_swiper_wrap .next_btn::before {
+.exhibitions_main .main_visual_swiper_wrap .next_btn::before {
   content: "\f054";
 }
-.main_visual_swiper_wrap .exhibitions {
+.exhibitions_main .main_visual_swiper_wrap .exhibitions {
   width: 269px;
 }
-.main_visual_swiper_wrap .exhibitions .userimg_image_frame {
+.exhibitions_main .main_visual_swiper_wrap .exhibitions .userimg_image_frame {
   width: inherit;
   height: 179px;
   overflow: hidden;
   transition: all 0.5s;
 }
-.main_visual_swiper_wrap .exhibitions .userimg_image_frame img {
+.exhibitions_main .main_visual_swiper_wrap .exhibitions .userimg_image_frame img {
   width: 100%;
   height: 100%;
 }
-.main_visual_swiper_wrap .exhibitions .userimg_image_frame img:hover {
+.exhibitions_main .main_visual_swiper_wrap .exhibitions .userimg_image_frame img:hover {
   scale: 1.1;
 }
-.main_visual_swiper_wrap .exhibitions .exhibitions_title {
+.exhibitions_main .main_visual_swiper_wrap .exhibitions .exhibitions_title {
   font-size: 16px;
   line-height: 24px;
   font-weight: 700;
 }
-.main_visual_swiper_wrap .exhibitions .userimg_text {
+.exhibitions_main .main_visual_swiper_wrap .exhibitions .userimg_text {
   width: 100%;
   overflow: hidden;
   display: -webkit-box;
@@ -179,13 +179,13 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
-.main_visual_swiper_wrap .exhibitions_button_wrap {
+.exhibitions_main .main_visual_swiper_wrap .exhibitions_button_wrap {
   position: absolute;
   right: 120px;
   top: 90px;
   overflow: hidden;
 }
-.main_visual_swiper_wrap .exhibitions_button_wrap .exhibitions_list_button {
+.exhibitions_main .main_visual_swiper_wrap .exhibitions_button_wrap .exhibitions_list_button {
   display: block;
   width: 40px;
   height: 40px;
@@ -193,23 +193,23 @@
   background-color: rgb(234, 237, 239);
   border: none;
 }
-.main_visual_swiper_wrap .exhibitions_button_wrap .exhibitions_list_button::after {
+.exhibitions_main .main_visual_swiper_wrap .exhibitions_button_wrap .exhibitions_list_button::after {
   content: "\f054";
   font-family: "Font Awesome 6 Free"; /*폰트어썸 fas, far 글꼴 연결*/
   font-weight: 600;
   font-size: 16px;
   color: #000;
 }
-.main_visual_swiper_wrap .exhibitions_button_wrap .exhibitions_img_list_button_span {
+.exhibitions_main .main_visual_swiper_wrap .exhibitions_button_wrap .exhibitions_img_list_button_span {
   display: block;
   margin-top: 5px;
   margin-left: 3px;
 }
-.main_visual_swiper_wrap .prev_btn.swiper-button-disabled {
+.exhibitions_main .main_visual_swiper_wrap .prev_btn.swiper-button-disabled {
   opacity: 0 !important;
   display: none;
 }
-.main_visual_swiper_wrap .next_btn.swiper-button-disabled {
+.exhibitions_main .main_visual_swiper_wrap .next_btn.swiper-button-disabled {
   opacity: 0 !important;
   display: none;
 }/*# sourceMappingURL=userimg.css.map */
