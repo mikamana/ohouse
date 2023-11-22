@@ -1,0 +1,11 @@
+div.store_todaydeal_section {
+  display: flex;
+  position: relative;
+  height: 510px;
+  justify-content: space-between;
+}
+div.store_todaydeal_section .shopitem_contents {
+  width: 25%;
+  padding-right: 10px;
+  padding-left: 10px;
+}/*# sourceMappingURL=storehometodaydeal.css.map */

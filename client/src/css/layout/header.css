@@ -153,10 +153,15 @@ header.main_header div.main_header_layout_up div.header_logo div.header_logo_wri
 }
 header.main_header div.main_header_layout_up div.header_logo div.header_logo_write button span {
   margin-right: 3px;
+  color: #fff;
 }
 header.main_header div.main_header_layout_up div.header_logo div.header_logo_write button .header_logo_write_icon {
   vertical-align: middle;
   font-size: 23px;
+  color: #fff;
+}
+header.main_header div.main_header_layout_up div.header_logo div.header_logo_write button svg polyline {
+  color: #fff;
 }
 header.main_header div.main_header_layout_up div.header_logo div.header_logo_write div.header_nav_popup_write {
   position: absolute;
@@ -255,7 +260,7 @@ header.main_header div.main_header_layout_down div.header_nav div.header_nav_men
   box-sizing: border-box;
 }
 header.main_header div.main_header_layout_down div.header_nav div.header_nav_menu div.header_nav_menu_wrap a.header_nav_menu_list:hover {
-  color: var(--sky);
+  color: var(--sky) !important;
 }
 header.main_header div.main_header_layout_down div.header_nav div.header_nav_menu div.header_nav_menu_wrap a.header_nav_menu_list.active::after {
   content: "";

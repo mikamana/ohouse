@@ -1,6 +1,7 @@
 div.skyimg_section {
   display: block;
   height: 260px;
+  margin-bottom: 30px;
 }
 div.skyimg_section div.skyimg_contents {
   display: flex;

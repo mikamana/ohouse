@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import ShowMenu from "./ShowMenu";
 import HeaderSearchRight from './HeaderSearchRight';
@@ -27,6 +27,8 @@ export default function Header() {
       window.removeEventListener('scroll', handleScroll);
     }
   }, [])
+
+
 
   /* header_logo 메뉴 호버시 header_nav 메뉴 show */
   let [hovering, setHovering] = useState(1)

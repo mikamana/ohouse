@@ -145,10 +145,17 @@ header.main_header {
           }
           span {
             margin-right: 3px;
+            color: #fff;
           }
           .header_logo_write_icon {
             vertical-align: middle;
             font-size: 23px;
+            color: #fff;
+          }
+          svg {
+            polyline {
+              color: #fff;
+            }
           }
         }
         div.header_nav_popup_write {
@@ -252,7 +259,7 @@ header.main_header {
             white-space: nowrap;
             box-sizing: border-box;
             &:hover {
-              color: var(--sky);
+              color: var(--sky) !important;
             }
             &.active{
             &::after{
