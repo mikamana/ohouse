@@ -258,8 +258,7 @@ header.main_header {
             white-space: nowrap;
             box-sizing: border-box;
             &:hover {
-              background: var(--lightGray);
-              color: #fff !important;
+              color: var(--sky) !important;
             }
             p.header_nav_menu_name {
               font-weight: 700;

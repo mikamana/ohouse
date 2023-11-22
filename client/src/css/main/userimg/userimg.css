@@ -83,6 +83,9 @@
   text-align: center;
 }
 
+.exhibitions_main {
+  margin-bottom: 40px;
+}
 .exhibitions_main .main_visual_swiper_wrap {
   position: relative;
 }
