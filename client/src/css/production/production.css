@@ -87,6 +87,9 @@ section.production_selling_wrap div.production_selling_inner div.production_sell
 }
 section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(1) p.production_selling_info_title {
   border: 1px solid gray;
+  color: #656e75;
+  font-weight: 700;
+  font-size: 14px;
 }
 section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title {
   display: flex;
@@ -286,6 +289,9 @@ section.production_selling_wrap div.production_selling_inner div.production_sell
   height: 25px;
   color: #828c94;
 }
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(10) p.production_selling_select_info_wrap {
+  position: relative;
+}
 section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(10) p.production_selling_select_info_wrap select.production_selling_select {
   width: 100%;
   height: 40px;
@@ -293,6 +299,51 @@ section.production_selling_wrap div.production_selling_inner div.production_sell
   border-radius: 5px;
   color: #424242;
   padding-left: 8px;
+  -webkit-appearance: none; /* 크롬 화살표 없애기 */
+  -moz-appearance: none; /* 파이어폭스 화살표 없애기 */
+  appearance: none; /* 화살표 없애기 */
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(10) p.production_selling_select_info_wrap span.production_selling_select-input__icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: #3eb9df;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(11) p.production_selling_totprice_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #2f3438;
+  border: 1px solid gray;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(11) p.production_selling_totprice_wrap span.production_selling_totprice_text {
+  font-size: 14px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(11) p.production_selling_totprice_wrap span.production_selling_totprice_price {
+  font-weight: bold;
+  font-size: 20px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(12) p.production_selling_button_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(12) p.production_selling_button_wrap * {
+  padding: 13px 0px;
+  font-size: 17px;
+  font-weight: bold;
+  border: 1px solid #3eb9df;
+  width: 49%;
+  border-radius: 5px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(12) p.production_selling_button_wrap button.production_selling_button_cart {
+  background: none;
+  color: #3eb9df;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(12) p.production_selling_button_wrap button.production_selling_button_buy {
+  background-color: #35c5f0;
+  color: #fff;
 }
 button.production_selling_price_coupon {
   padding: 8px 15px;

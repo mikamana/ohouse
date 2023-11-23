@@ -184,7 +184,27 @@ export default function Productions() {
                         COLOR
                       </option>
                     </select>
+                    <span className="production_selling_select-input__icon">
+                      <svg class="icon" width="10" height="10" preserveAspectRatio="xMidYMid meet"><path fill-rule="evenodd" d="M0 3l5 5 5-5z"></path></svg>
+                    </span>
                   </p>
+                </li>
+                <li className="production_selling_container_info_list_li">
+                  <p className="production_selling_totprice_wrap">
+                    <span className="production_selling_totprice_text">주문금액</span>
+                    <span className="production_selling_totprice_price">0원</span>
+                  </p>
+                </li>
+                <li className="production_selling_container_info_list_li">
+                  <p className="production_selling_button_wrap">
+                    <button className="production_selling_button_cart">장바구니</button>
+                    <button className="production_selling_button_buy">바로구매</button>
+                  </p>
+                </li>
+                <li className="production_selling_container_info_list_li">
+                  <Link to="#" className="production_selling_coupon_banner_wrap">
+                    <img class="production-selling-promotion-banner__image production-selling-promotion-banner__image--pc" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/production_promotions/event/170046315235278107.png?gif=1&amp;w=480" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/production_promotions/event/170046315235278107.png?gif=1&amp;w=720 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/production_promotions/event/170046315235278107.png?gif=1&amp;w=960 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/admins/production_promotions/event/170046315235278107.png?gif=1&amp;w=1440 3x" />
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -195,7 +215,7 @@ export default function Productions() {
             </nav>
           </div>
         </div>
-      </section>
+      </section >
     </>
 
   )
