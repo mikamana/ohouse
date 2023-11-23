@@ -16,7 +16,6 @@ export default function Header() {
     const handleScroll = () => {
       const ScrollTop = window.scrollY;
       if (ScrollTop >= 50) {
-        console.log(ScrollTop);
         SetIsFixed(true);
       } else {
         SetIsFixed(false);
