@@ -35,6 +35,8 @@ import ShopitemSection from "./pages/main/shopitem/ShopitemSection";
 import ShopcateSection from "./pages/main/shopcate/ShopcateSection";
 import StoreHomePopularProductsSection from "./pages/subpage/store/storehome/popularproducts/StoreHomePopularProductsSection";
 import StoreHomeTodayDealSection from "./pages/subpage/store/storehome/todaydeal/StoreHomeTodayDealSection";
+import Signup from './pages/user/Signup';
+import Login from './pages/user/Login';
 
 const router = createBrowserRouter([
 
@@ -72,7 +74,16 @@ const router = createBrowserRouter([
           </Contents>
       }
     ]
+  },
+  {
+    path: '/normalUsers/new', element:
+      <Signup />
+  },
+  {
+    path: 'login', element:
+    <Login/>
   }
+
 
 ])
 
