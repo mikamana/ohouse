@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 export default function IconMenuSlide(){
   const [iconMenuSlide, setIconMenuSlide] = useState([]);
   useEffect(()=>{
-    fetch(`data/iconMenuSlide.json`)
+    fetch(`data/iconMenuShopSlide.json`)
     .then((res)=>res.json())
     .then((data)=>setIconMenuSlide(data));
   });
@@ -19,24 +19,24 @@ export default function IconMenuSlide(){
       <div className="iconMenu_inner_wrap inner">
         <div className="main_visual_swiper_wrap">
           <Swiper
-            slidesPerView={14}
+            slidesPerView={10}
             spaceBetween={10}
             slidesPerGroup={5}
             navigation={{
-              prevEl: ".prev_btn_icon",
-              nextEl: ".next_btn_icon",
+              prevEl: ".prev_btn_icon_shop",
+              nextEl: ".next_btn_icon_shop",
             }}
             modules={[Navigation]}
             className="mySwiper"
           >
             {iconMenuSlide.map((icon) =>(
-              <SwiperSlide key={icon.id} className="iconMenu iconMenu_slide" style={{ width: 'auto' }}> 
+              <SwiperSlide key={icon.id} className="iconMenu iconMenuShop_slide" style={{ width: 'auto' }}> 
                 <IconMenuContent image={icon.image} name={icon.name}/>
               </SwiperSlide>
             ))}
           </Swiper>
-          <button className="prev_btn_icon prev_style"></button>
-          <button className="next_btn_icon next_style"></button>
+          <button className="prev_btn_icon_shop"></button>
+          <button className="next_btn_icon_shop"></button>
         </div>
       </div>
     </>

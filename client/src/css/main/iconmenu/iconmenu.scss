@@ -1,7 +1,8 @@
+// iconmenu 슬라이드
 .main_visual_swiper_wrap {
   position: relative;
-  .iconmenu_slide {
-    img{
+  .iconMenu_slide {
+    img {
       width: 72px;
     }
     P {
@@ -9,46 +10,65 @@
       line-height: 20px;
     }
   }
-  // button.prev_btn_icon,
-  // button.next_btn_icon{
-  //   position: absolute;
-  //   display: flex;
-  //   width: 32px;
-  //   height: 32px;
-  //   background: rgba(0, 0, 0, 0.26);
-  //   border-radius: 100%;
-  //   border: 0;
-  //   color: #fff;
-  //   cursor: pointer;
-  //   top: 50%;
-  //   transform: translateY(-50%);
-  //   justify-content: center;
-  //   align-items: center;
-  //   z-index: 10;
-  //   &::before {
-  //     font-family: "Font Awesome 5 Free";
-  //     font-weight: 900;
-  //   }
-  // }
-  // button.prev_btn_icon{
-  //   left: 0;
-  //   &::before {
-  //     content: "\f053";
-  //   }
-  // }
-  // button.next_btn_icon{
-  //   right: 0;
-  //   &::before {
-  //     content: "\f054";
-  //   }
-  // }
+  .iconMenuShop_slide {
+    img {
+      width: 80px;
+    }
+    p {
+      font-size: 15px;
+      font-weight: 700;
+    }
+  }
+  button.prev_btn_icon_shop,
+  button.next_btn_icon_shop {
+    position: absolute;
+    display: flex;
+    width: 32px;
+    height: 32px;
+    background: rgba(0, 0, 0, 0.26);
+    border-radius: 100%;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    top: 50%;
+    transform: translateY(-50%);
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    &::before {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+    }
+  }
+  button.prev_btn_icon_shop{
+    left: 0;
+    &::before {
+      content: "\f053";
+    }
+  }
+  button.next_btn_icon_shop{
+    right: 0;
+    &::before {
+      content: "\f054";
+    }
+  }
+  .prev_btn_icon.swiper-button-disabled, 
+  .prev_btn_icon_shop.swiper-button-disabled
+  {
+    opacity: 0 !important;
+  }
+  .next_btn_icon.swiper-button-disabled,
+  .next_btn_icon_shop.swiper-button-disabled{
+    opacity: 0 !important;
+  }
 }
-.iconmenu {
+//iconmenu일반_슬라이드X
+.iconMenu {
   width: 100%;
   display: flex;
   justify-content: center;
   text-align: center;
-  div {
+  a {
     flex: 1;
     img {
       width: 88px;
@@ -59,9 +79,24 @@
     }
   }
 }
-.prev_btn_icon.swiper-button-disabled{
-  opacity: 0 !important;
-}
-.next_btn_icon.swiper-button-disabled{
-  opacity: 0 !important;
+// iconmenu쇼핑_슬라이드X
+.iconMenuShop {
+  a {
+    position: relative;
+    img {
+      width: 66px;
+      border-radius: 30%;
+    }//img
+  }//a
+  a:first-child::after {
+    content: 'HOT';
+    position: absolute;
+    right: 14px;
+    top: -6px;
+    background: var(--red);
+    color: #fff;
+    font-size: 12px;
+    padding: 5px 8px;
+    border-radius: 20px;
+  }
 }

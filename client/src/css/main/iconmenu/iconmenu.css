@@ -1,35 +1,95 @@
 .main_visual_swiper_wrap {
   position: relative;
 }
-.main_visual_swiper_wrap .iconmenu_slide img {
+.main_visual_swiper_wrap .iconMenu_slide img {
   width: 72px;
 }
-.main_visual_swiper_wrap .iconmenu_slide P {
+.main_visual_swiper_wrap .iconMenu_slide P {
   font-size: 14px;
   line-height: 20px;
 }
+.main_visual_swiper_wrap .iconMenuShop_slide img {
+  width: 80px;
+}
+.main_visual_swiper_wrap .iconMenuShop_slide p {
+  font-size: 15px;
+  font-weight: 700;
+}
+.main_visual_swiper_wrap button.prev_btn_icon_shop,
+.main_visual_swiper_wrap button.next_btn_icon_shop {
+  position: absolute;
+  display: flex;
+  width: 32px;
+  height: 32px;
+  background: rgba(0, 0, 0, 0.26);
+  border-radius: 100%;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+.main_visual_swiper_wrap button.prev_btn_icon_shop::before,
+.main_visual_swiper_wrap button.next_btn_icon_shop::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+.main_visual_swiper_wrap button.prev_btn_icon_shop {
+  left: 0;
+}
+.main_visual_swiper_wrap button.prev_btn_icon_shop::before {
+  content: "\f053";
+}
+.main_visual_swiper_wrap button.next_btn_icon_shop {
+  right: 0;
+}
+.main_visual_swiper_wrap button.next_btn_icon_shop::before {
+  content: "\f054";
+}
+.main_visual_swiper_wrap .prev_btn_icon.swiper-button-disabled,
+.main_visual_swiper_wrap .prev_btn_icon_shop.swiper-button-disabled {
+  opacity: 0 !important;
+}
+.main_visual_swiper_wrap .next_btn_icon.swiper-button-disabled,
+.main_visual_swiper_wrap .next_btn_icon_shop.swiper-button-disabled {
+  opacity: 0 !important;
+}
 
-.iconmenu {
+.iconMenu {
   width: 100%;
   display: flex;
   justify-content: center;
   text-align: center;
 }
-.iconmenu div {
+.iconMenu a {
   flex: 1;
 }
-.iconmenu div img {
+.iconMenu a img {
   width: 88px;
 }
-.iconmenu div p {
+.iconMenu a p {
   font-size: 16px;
   margin-top: 8px;
 }
 
-.prev_btn_icon.swiper-button-disabled {
-  opacity: 0 !important;
+.iconMenuShop a {
+  position: relative;
 }
-
-.next_btn_icon.swiper-button-disabled {
-  opacity: 0 !important;
+.iconMenuShop a img {
+  width: 66px;
+  border-radius: 30%;
+}
+.iconMenuShop a:first-child::after {
+  content: "HOT";
+  position: absolute;
+  right: 14px;
+  top: -6px;
+  background: var(--red);
+  color: #fff;
+  font-size: 12px;
+  padding: 5px 8px;
+  border-radius: 20px;
 }/*# sourceMappingURL=iconmenu.css.map */
