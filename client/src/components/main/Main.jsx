@@ -20,10 +20,6 @@ export default function Main() {
         
       </Header>
       <Contents>
-      {/* <StoreHomeTodayDealSection/> */}
-      {/* <StoreHomePopularProductsSection/> */}
-      {/* <ShopitemSection/> */}
-      {/* <ShopcateSection/> */}
       <Cart/>
       </Contents>
       <Footer>
