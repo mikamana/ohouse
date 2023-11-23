@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { PiBellLight, PiBookmarkSimpleLight, PiShoppingCartLight } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import HeaderProfile from "./HeaderProfile";
-
+import { TfiSearch } from "react-icons/tfi";
 
 export default function HeaderSearchRight() {
   const [showProfile, setShowProfile] = useState("header_nav_popup_profile");
@@ -31,13 +31,14 @@ export default function HeaderSearchRight() {
 
       {/* 로그인 후 메뉴 */}
       <div className="header_logo_searchBox_loginver">
-        <img className="header_logo_search_img" src="images/headers/search.png" alt="검색창 돋보기" />
+        {/* <img className="header_logo_search_img" src="/images/headers/search.png" alt="검색창 돋보기" /> */}
+        <TfiSearch size="20" color="828c94" />
         <input className="header_logo_search" type="text" placeholder="통합검색" name="header_logo_search" />
       </div>
       <div className="header_logo_right_loginver">
-        <Link to="/cart" className="header_logo_scrap"><PiBookmarkSimpleLight /></Link>
-        <Link to="/login" className="header_logo_feed"><PiBellLight /></Link>
-        <Link to="/normal_users/new" className="header_logo_cart">
+        <Link to="/collections" className="header_logo_scrap"><PiBookmarkSimpleLight /></Link>
+        <Link to="/notifications/feed" className="header_logo_feed"><PiBellLight /></Link>
+        <Link to="/cart" className="header_logo_cart">
           <PiShoppingCartLight />
           <span className="header_logo_cart_num">26</span>
         </Link>

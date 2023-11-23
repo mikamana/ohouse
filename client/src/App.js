@@ -35,6 +35,7 @@ import ShopitemSection from "./pages/main/shopitem/ShopitemSection";
 import ShopcateSection from "./pages/main/shopcate/ShopcateSection";
 import StoreHomePopularProductsSection from "./pages/subpage/store/storehome/popularproducts/StoreHomePopularProductsSection";
 import StoreHomeTodayDealSection from "./pages/subpage/store/storehome/todaydeal/StoreHomeTodayDealSection";
+import Recommand from "./pages/subpage/topics/recommand/Recommand";
 
 const router = createBrowserRouter([
 
@@ -55,6 +56,12 @@ const router = createBrowserRouter([
             <UserImg />
             <Exhibitions />
             <ShopcateSection/>
+          </Contents>
+      },
+      {
+        path: '/topics/recommand', element:
+          <Contents>
+            <Recommand />
           </Contents>
       },
       {

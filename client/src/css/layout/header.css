@@ -262,6 +262,9 @@ header.main_header div.main_header_layout_down div.header_nav div.header_nav_men
 header.main_header div.main_header_layout_down div.header_nav div.header_nav_menu div.header_nav_menu_wrap a.header_nav_menu_list:hover {
   color: var(--sky) !important;
 }
+header.main_header div.main_header_layout_down div.header_nav div.header_nav_menu div.header_nav_menu_wrap a.header_nav_menu_list.active {
+  color: var(--sky);
+}
 header.main_header div.main_header_layout_down div.header_nav div.header_nav_menu div.header_nav_menu_wrap a.header_nav_menu_list.active::after {
   content: "";
   position: absolute;
@@ -360,7 +363,7 @@ header.main_header div.main_header_layout_down div.header_nav div.header_nav_pop
 }
 header.main_header div.main_header_layout_down div.header_nav div.header_nav_popular div.header_nav_popular_view div.header_nav_popular_view_list ul.header_nav_popular_view_list_ul li.header_nav_popular_view_list_li span.header_nav_popular_view_list_li_count {
   font-weight: bold;
-  margin-right: 2px;
+  margin-right: 8px;
 }
 header.main_header div.main_header_layout_down div.header_nav div.header_nav_popular div.header_nav_popular_view div.header_nav_popular_view_list ul.header_nav_popular_view_list_ul li.header_nav_popular_view_list_li span.header_nav_popular_view_list_li_count_img {
   display: block;
@@ -371,6 +374,7 @@ header.main_header div.main_header_layout_down div.header_nav div.header_nav_pop
   height: 100%;
 }
 header.main_header div.main_header_layout_down div.header_nav div.header_nav_popular div.header_nav_popular_view div.header_nav_popular_view_list ul.header_nav_popular_view_list_ul li.header_nav_popular_view_list_li a.header_nav_popular_view_list_link {
+  margin-left: 8px;
   height: 100%;
 }
 header.main_header div.main_header_layout_down div.header_nav div.header_nav_popular > span.arrow {
@@ -475,13 +479,8 @@ div.header_logo_searchBox_loginver:hover img {
 div.header_logo_searchBox_loginver:focus-within {
   border: 1px solid rgb(53, 197, 240);
 }
-div.header_logo_searchBox_loginver img {
-  position: absolute;
-  width: 28px;
-  left: 14px;
-}
 div.header_logo_searchBox_loginver input.header_logo_search {
-  margin-left: 28px;
+  margin-left: 2px;
   padding-right: 6px;
   width: 280px;
   height: 38px;

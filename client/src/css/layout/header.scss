@@ -262,6 +262,7 @@ header.main_header {
               color: var(--sky) !important;
             }
             &.active{
+              color: var(--sky);
             &::after{
               content: '';
               position: absolute;
@@ -389,7 +390,7 @@ header.main_header {
                 align-items: center;
                 span.header_nav_popular_view_list_li_count {
                   font-weight: bold;
-                  margin-right: 2px;
+                  margin-right: 8px;
                 }
                 span.header_nav_popular_view_list_li_count_img {
                   display: block;
@@ -400,6 +401,7 @@ header.main_header {
                   }
                 }
                 a.header_nav_popular_view_list_link {
+                  margin-left: 8px;
                   height: 100%;
                 }
               }
@@ -513,13 +515,8 @@ div.header_logo_searchBox_loginver {
   &:focus-within {
     border: 1px solid rgb(53, 197, 240);
   }
-  img {
-    position: absolute;
-    width: 28px;
-    left: 14px;
-  }
   input.header_logo_search {
-    margin-left: 28px;
+    margin-left: 2px;
     padding-right: 6px;
     width: 280px;
     height: 38px;
