@@ -1,1 +1,219 @@
-/*# sourceMappingURL=userimg.css.map */
+@charset "UTF-8";
+.userimg {
+  display: flex;
+}
+.userimg .userimg_form {
+  width: 365px;
+  margin-right: 20px;
+  margin-bottom: 40px;
+}
+.userimg .userimg_form .userimg_image_frame {
+  overflow: hidden;
+  height: 260px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.userimg .userimg_form .userimg_image_frame img {
+  width: 100%;
+  transition: all 0.3s;
+  height: 100%;
+  border-radius: 5px;
+}
+.userimg .userimg_form .userimg_image_frame img:hover {
+  transform: scale(1.1);
+}
+.userimg .userimg_form .userimg_title {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+}
+.userimg .userimg_form .userimg_text {
+  width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  margin-top: 2px;
+  font-size: 16px;
+  line-height: 24px;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.userimg_sub {
+  display: flex;
+  flex-wrap: wrap;
+}
+.userimg_sub .userimg_sub_form {
+  width: 368px;
+  margin: 15px 5px;
+}
+.userimg_sub .userimg_sub_form .userimg_image_frame {
+  overflow: hidden;
+  height: 260px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.userimg_sub .userimg_sub_form .userimg_image_frame img {
+  width: 100%;
+  transition: all 0.3s;
+  height: 100%;
+  border-radius: 5px;
+}
+.userimg_sub .userimg_sub_form .userimg_image_frame img:hover {
+  transform: scale(1.1);
+}
+.userimg_sub .userimg_sub_form .userimg_subtitle {
+  text-align: center;
+  font-size: 17px;
+  line-height: 26px;
+  font-weight: 700;
+  color: #2f3438;
+}
+.userimg_sub .userimg_sub_form .userimg_address {
+  font-size: 13px;
+  line-height: 16px;
+  margin-top: 6px;
+  color: #2f3438;
+  text-align: center;
+}
+.userimg_sub .userimg_sub_form .userimg_rewie {
+  color: rgb(130, 140, 148);
+  font-size: 13px;
+  line-height: 16px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.exhibitions_main {
+  margin-bottom: 40px;
+}
+.exhibitions_main .main_visual_swiper_wrap {
+  position: relative;
+}
+.exhibitions_main .main_visual_swiper_wrap .prev_btn {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  background: #fff;
+  border-radius: 100%;
+  box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  top: 50%;
+  transform: translateX(50%);
+  z-index: 10;
+  left: -50px;
+  top: 40%;
+  border: none;
+}
+.exhibitions_main .main_visual_swiper_wrap .prev_btn::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+.exhibitions_main .main_visual_swiper_wrap .prev_btn:hover {
+  background: var(--lightGray);
+}
+.exhibitions_main .main_visual_swiper_wrap .prev_btn::before {
+  content: "\f053";
+}
+.exhibitions_main .main_visual_swiper_wrap .next_btn {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  background: #fff;
+  border-radius: 100%;
+  box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  top: 50%;
+  transform: translateX(50%);
+  z-index: 10;
+  right: 6px;
+  top: 40%;
+  border: none;
+}
+.exhibitions_main .main_visual_swiper_wrap .next_btn::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+.exhibitions_main .main_visual_swiper_wrap .next_btn:hover {
+  background: var(--lightGray);
+}
+.exhibitions_main .main_visual_swiper_wrap .next_btn::before {
+  content: "\f054";
+}
+.exhibitions_main .main_visual_swiper_wrap .exhibitions {
+  width: 269px;
+  margin: 15px 0px;
+}
+.exhibitions_main .main_visual_swiper_wrap .exhibitions .userimg_image_frame {
+  width: inherit;
+  height: 179px;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+.exhibitions_main .main_visual_swiper_wrap .exhibitions .userimg_image_frame img {
+  width: 100%;
+  height: 100%;
+}
+.exhibitions_main .main_visual_swiper_wrap .exhibitions .userimg_image_frame img:hover {
+  scale: 1.1;
+}
+.exhibitions_main .main_visual_swiper_wrap .exhibitions .exhibitions_title {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+}
+.exhibitions_main .main_visual_swiper_wrap .exhibitions .userimg_text {
+  width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  margin-top: 8px;
+  font-size: 16px;
+  line-height: 24px;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.exhibitions_main .main_visual_swiper_wrap .exhibitions_button_wrap {
+  position: absolute;
+  right: 120px;
+  top: 90px;
+  overflow: hidden;
+}
+.exhibitions_main .main_visual_swiper_wrap .exhibitions_button_wrap .exhibitions_list_button {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgb(234, 237, 239);
+  border: none;
+}
+.exhibitions_main .main_visual_swiper_wrap .exhibitions_button_wrap .exhibitions_list_button::after {
+  content: "\f054";
+  font-family: "Font Awesome 6 Free"; /*폰트어썸 fas, far 글꼴 연결*/
+  font-weight: 600;
+  font-size: 16px;
+  color: #000;
+}
+.exhibitions_main .main_visual_swiper_wrap .exhibitions_button_wrap .exhibitions_img_list_button_span {
+  display: block;
+  margin-top: 5px;
+  margin-left: 3px;
+}
+.exhibitions_main .main_visual_swiper_wrap .prev_btn.swiper-button-disabled {
+  opacity: 0 !important;
+  display: none;
+}
+.exhibitions_main .main_visual_swiper_wrap .next_btn.swiper-button-disabled {
+  opacity: 0 !important;
+  display: none;
+}/*# sourceMappingURL=userimg.css.map */

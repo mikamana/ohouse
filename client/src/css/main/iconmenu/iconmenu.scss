@@ -1,0 +1,68 @@
+.main_visual_swiper_wrap {
+  position: relative;
+  .iconmenu_slide {
+    img {
+      width: 72px;
+    }
+    P {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+  // button.prev_btn_icon,
+  // button.next_btn_icon{
+  //   position: absolute;
+  //   display: flex;
+  //   width: 32px;
+  //   height: 32px;
+  //   background: rgba(0, 0, 0, 0.26);
+  //   border-radius: 100%;
+  //   border: 0;
+  //   color: #fff;
+  //   cursor: pointer;
+  //   top: 50%;
+  //   transform: translateY(-50%);
+  //   justify-content: center;
+  //   align-items: center;
+  //   z-index: 10;
+  //   &::before {
+  //     font-family: "Font Awesome 5 Free";
+  //     font-weight: 900;
+  //   }
+  // }
+  // button.prev_btn_icon{
+  //   left: 0;
+  //   &::before {
+  //     content: "\f053";
+  //   }
+  // }
+  // button.next_btn_icon{
+  //   right: 0;
+  //   &::before {
+  //     content: "\f054";
+  //   }
+  // }
+}
+.iconmenu {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 40px 0px;
+  div {
+    flex: 1;
+    img {
+      width: 88px;
+    }
+    p {
+      font-size: 16px;
+      margin-top: 8px;
+    }
+  }
+}
+.prev_btn_icon.swiper-button-disabled {
+  opacity: 0 !important;
+}
+.next_btn_icon.swiper-button-disabled {
+  opacity: 0 !important;
+}
