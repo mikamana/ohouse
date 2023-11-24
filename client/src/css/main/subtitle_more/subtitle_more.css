@@ -1,1 +1,50 @@
-/*# sourceMappingURL=subtitle_more.css.map */
+.subtitle_more {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 0px;
+  line-height: 1;
+}
+.subtitle_more .subtitle_more_text {
+  flex: 1 1 0%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  min-width: 0px;
+}
+.subtitle_more .subtitle_more_text .subtitle_more_title {
+  overflow: hidden;
+  display: inline-block;
+  font-weight: 700;
+  color: rgb(47, 52, 56);
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 20px;
+  line-height: 28px;
+  margin-bottom: 3px;
+}
+.subtitle_more .subtitle_more_text .subtitle_more_sub {
+  overflow: hidden;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+  color: rgb(47, 52, 56);
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.subtitle_more .subtitle_more_button {
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  background: none;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: bold;
+  color: rgb(53, 197, 240);
+  cursor: pointer;
+}/*# sourceMappingURL=subtitle_more.css.map */

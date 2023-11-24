@@ -1,1 +1,69 @@
-/*# sourceMappingURL=skyimg.css.map */
+div.skyimg_section {
+  display: block;
+  height: 260px;
+  margin-bottom: 30px;
+}
+div.skyimg_section div.skyimg_contents {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* SkyImgContent.jsx */
+a.skyimg_section_linkBox {
+  display: inline-block;
+}
+a.skyimg_section_linkBox div.skyimg_image_wrap {
+  position: relative;
+  width: 270px;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 0.3rem;
+}
+a.skyimg_section_linkBox div.skyimg_image_wrap:hover img.skyimg_image_img {
+  transform: scale(1.05);
+}
+a.skyimg_section_linkBox div.skyimg_image_wrap img.skyimg_image_img {
+  width: 100%;
+  height: 100%;
+  transform: scale(1);
+  transition: all 0.2s;
+}
+a.skyimg_section_linkBox div.skyimg_image_wrap span.skyimg_image_img_scrapbtn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+a.skyimg_section_linkBox div.skyimg_image_wrap span.skyimg_image_img_scrapbtn .skyimg_image_img_scrapbtn {
+  color: rgba(255, 255, 255, 0.7);
+  border: #fff;
+  font-size: 25px;
+}
+a.skyimg_section_linkBox div.skyimg_image_wrap span.skyimg_image_img_scrapbtn.active .skyimg_image_img_scrapbtn {
+  color: var(--sky);
+}
+a.skyimg_section_linkBox div.skyimg_text_wrap {
+  margin-top: 10px;
+  height: 50px;
+  width: 270px;
+}
+a.skyimg_section_linkBox div.skyimg_text_wrap p.skyimg_text_content {
+  margin-bottom: 5px;
+  font-size: 16px;
+  line-height: 24px;
+  word-break: keep-all;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+a.skyimg_section_linkBox div.skyimg_text_wrap p.skyimg_text_content span.skyimg_text_sky {
+  color: var(--sky);
+  font-weight: 700;
+}
+a.skyimg_section_linkBox div.skyimg_text_wrap p.skyimg_text_content span.skyimg_text_sky::after {
+  content: "";
+  display: inline-block;
+  width: 5px;
+}/*# sourceMappingURL=skyimg.css.map */

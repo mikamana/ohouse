@@ -5,17 +5,19 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import IconMenuContent from "./components/IconMenuContent";
+import SubtitleMore from "../subtitle_more/Subtitle_more";
 import { useEffect, useState } from "react";
 
 export default function IconMenuSlide(){
   const [iconMenuSlide, setIconMenuSlide] = useState([]);
   useEffect(()=>{
-    fetch(`data/iconMenuShopSlide.json`)
+    fetch(`data/iconMenu/iconMenuShopSlide.json`)
     .then((res)=>res.json())
     .then((data)=>setIconMenuSlide(data));
   });
   return(
     <>
+      <SubtitleMore title={'카테고리'}/>
       <div className="iconMenu_inner_wrap inner">
         <div className="main_visual_swiper_wrap">
           <Swiper
@@ -30,7 +32,7 @@ export default function IconMenuSlide(){
             className="mySwiper"
           >
             {iconMenuSlide.map((icon) =>(
-              <SwiperSlide key={icon.id} className="iconMenu iconMenuShop_slide" style={{ width: 'auto' }}> 
+              <SwiperSlide key={icon.imssID} className="iconMenu iconMenuShop_slide" style={{ width: 'auto' }}> 
                 <IconMenuContent image={icon.image} name={icon.name}/>
               </SwiperSlide>
             ))}

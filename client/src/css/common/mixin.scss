@@ -1,0 +1,25 @@
+@mixin swiper_btn {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  background: #fff;
+  border-radius: 100%;
+  box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  top: 50%;
+  transform: translateX(50%);
+  z-index: 10;
+  &::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+  }
+  &:hover {
+    background: var(--lightGray);
+  }
+}

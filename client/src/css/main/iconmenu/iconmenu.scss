@@ -1,7 +1,9 @@
 // iconmenu 슬라이드
 .main_visual_swiper_wrap {
   position: relative;
+  margin-bottom: 50px;
   .iconMenu_slide {
+    margin: 0 0 10px 0;
     img {
       width: 72px;
     }
@@ -10,14 +12,19 @@
       line-height: 20px;
     }
   }
-  .iconMenuShop_slide {
+  div.iconMenuShop_slide {
+    margin: 0 0 10px 0;
     img {
       width: 80px;
     }
     p {
       font-size: 15px;
       font-weight: 700;
+      margin-top: 18px;
     }
+  }
+  button.next_style {
+    right: 24px;
   }
   button.prev_btn_icon_shop,
   button.next_btn_icon_shop {
@@ -67,36 +74,40 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  font-size: 16px;
+  line-height: 19px;
   text-align: center;
-  a {
+  margin: 30px 0 10px 0;
+  div {
     flex: 1;
     img {
       width: 88px;
     }
     p {
-      font-size: 16px;
       margin-top: 8px;
     }
   }
 }
 // iconmenu쇼핑_슬라이드X
 .iconMenuShop {
-  a {
+  margin: 50px 0 60px 0;
+  div {
     position: relative;
     img {
       width: 66px;
       border-radius: 30%;
     }//img
   }//a
-  a:first-child::after {
+  div:first-child::after {
     content: 'HOT';
     position: absolute;
     right: 14px;
     top: -6px;
     background: var(--red);
-    color: #fff;
-    font-size: 12px;
-    padding: 5px 8px;
     border-radius: 20px;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
   }
 }

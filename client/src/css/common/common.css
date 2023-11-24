@@ -1,11 +1,12 @@
 .inner {
   width: 1256px;
+  padding: 0px 60px;
   margin: 0 auto;
-  padding: 0 60px;
+  box-sizing: border-box;
 }
 
+*,
 body {
-  color: #424242;
   font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
@@ -37,7 +38,7 @@ body {
   border: none;
   border-radius: 100%;
   box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
-  color: #2F3437;
+  color: #2f3437;
   cursor: pointer;
   font-size: 24px;
   line-height: 1;
@@ -69,7 +70,7 @@ body {
   border: none;
   border-radius: 100%;
   box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
-  color: #2F3437;
+  color: #2f3437;
   cursor: pointer;
   font-size: 24px;
   line-height: 1;
@@ -101,7 +102,7 @@ body {
   border: none;
   border-radius: 100%;
   box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
-  color: #2F3437;
+  color: #2f3437;
   cursor: pointer;
   font-size: 24px;
   line-height: 1;
@@ -138,7 +139,7 @@ body {
   border: none;
   border-radius: 100%;
   box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
-  color: #2F3437;
+  color: #2f3437;
   cursor: pointer;
   font-size: 24px;
   line-height: 1;
