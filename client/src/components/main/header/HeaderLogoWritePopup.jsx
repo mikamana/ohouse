@@ -5,7 +5,7 @@ export default function HeaderLogoWrite() {
   const [popupWriteList, SetPopupWriteList] = useState([]);
 
   useEffect(() => {
-    fetch('data/header/Popup_write.json')
+    fetch('/data/header/Popup_write.json')
       .then((res) => res.json())
       .then((data) => {
         //console.log(data);

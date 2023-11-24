@@ -62,7 +62,7 @@ const router = createBrowserRouter([
         path: '/topics/recommand', element:
           <Contents>
             <Recommand />
-          </Contents>
+          </Contents>,
       },
       {
         path: '/store', element:
