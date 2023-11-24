@@ -20,6 +20,7 @@ import "./css/production/production.css";
 import "./css/cart/cart.css"
 import "./css/sub/store/storehome/todaydeal/storehometodaydeal.css"
 import "./css/sub/store/storehome/popularproducts/storehomepopularproducts.css"
+import "./css/orders/orders.css"
 import Main from "./components/main/Main";
 import Contents from './components/main/contents/Contents';
 import SkyImg from './pages/main/skyimg/SkyImg';
@@ -38,6 +39,7 @@ import StoreHomeTodayDealSection from "./pages/subpage/store/storehome/todaydeal
 import Signup from './pages/user/Signup';
 import Login from './pages/user/Login';
 import Cart from "./pages/cart/Cart";
+import Orders from "./pages/orders/Orders";
 
 const router = createBrowserRouter([
 
@@ -78,6 +80,12 @@ const router = createBrowserRouter([
         path: '/cart', element:
           <Contents>
             <Cart/>
+          </Contents>
+      },
+      {
+        path: '/orders', element:
+          <Contents>
+            <Orders/>
           </Contents>
       }
     ]

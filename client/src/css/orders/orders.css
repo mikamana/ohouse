@@ -1,0 +1,217 @@
+.orders_section_container {
+  display: flex;
+  position: relative;
+  color: rgb(47, 52, 56);
+  margin-bottom: 50px;
+}
+
+.orders_form_wrap {
+  max-width: 1256px;
+  margin: 0px auto;
+  flex: 1 0 0%;
+  min-width: 0px;
+}
+
+.orders_sidebar_wrap {
+  flex: 0 0 366px;
+  width: 366px;
+  margin-left: 40px;
+}
+
+.orders_form_title {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  margin: 40px 0px;
+  color: rgb(47, 52, 56);
+}
+
+.orders_form_box:not(:last-child) {
+  margin-bottom: 50px;
+}
+
+.orders_form_box_title_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgb(234, 237, 239);
+}
+
+.orders_form_box_title {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.orders_form_box_input_wrap {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.orders_form_box_input_title {
+  font-size: 14px;
+  line-height: 18px;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  width: 72px;
+  white-space: pre-line;
+  max-height: 40px;
+  transition: color 0.25s ease 0s;
+  color: rgb(130, 140, 148);
+}
+
+.orders_form_box_input_contents_wrap {
+  flex-grow: 1;
+  min-width: 0px;
+}
+
+.orders_form_box_input_contents_container {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+  box-sizing: border-box;
+  border: 1px solid rgb(218, 221, 224);
+  border-radius: 4px;
+  height: 40px;
+  padding: 0px 14px;
+  width: 270px;
+}
+.orders_form_box_input_contents_container > input {
+  width: 50px;
+}
+.orders_form_box_input_contents_container:hover {
+  background-color: rgb(247, 249, 250);
+}
+.orders_form_box_input_contents_container.active {
+  border: 1px solid #35c5f0;
+}
+
+.orders_form_box_input_contents_email_container {
+  display: flex;
+}
+
+.orders_form_box_input_contents_box_email_id {
+  display: flex;
+  flex: 1 0 0px;
+  width: 100%;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+
+.orders_form_box_input_contents_box_email_mail {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0%;
+}
+
+.orders_form_box_input_contents_box_email_span {
+  font-size: 18px;
+  line-height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+}
+
+.orders_form_box_input_contents_box_email_mail_self_input {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+  box-sizing: border-box;
+  border: 1px solid rgb(218, 221, 224);
+  border-radius: 4px;
+  height: 40px;
+  padding: 0px 14px;
+  max-width: 270px;
+  width: auto;
+  margin-bottom: 10px;
+}
+.orders_form_box_input_contents_box_email_mail_self_input > input {
+  width: 50px;
+}
+.orders_form_box_input_contents_box_email_mail_self_input:hover {
+  background-color: rgb(247, 249, 250);
+}
+.orders_form_box_input_contents_box_email_mail_self_input.active {
+  border: 1px solid #35c5f0;
+}
+
+.orders_form_box_input_contents_box_email_mail_select_box {
+  display: inline-block;
+  line-height: 0;
+  position: relative;
+  flex: 1 0 0px;
+  flex-wrap: wrap;
+  max-width: 270px;
+  min-width: -moz-max-content;
+  min-width: max-content;
+}
+
+.orders_form_box_input_contents_box_email_mail_select_box_downarrow {
+  display: inline-block;
+  font-size: 24px;
+  line-height: 1;
+  position: absolute;
+  top: 8px;
+  right: 13px;
+  color: rgb(130, 140, 148);
+}
+
+.orders_form_box_input_contents_box_email_mail_select {
+  display: inline-block;
+  margin: 0px;
+  padding: 0px 37px 0px 13px;
+  background: none;
+  font-style: inherit;
+  font-variant: inherit;
+  font-weight: inherit;
+  font-stretch: inherit;
+  font-family: inherit;
+  font-optical-sizing: inherit;
+  font-kerning: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  font-size: 16px;
+  line-height: 20px;
+  position: relative;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 100%;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid rgb(218, 221, 224);
+  color: rgb(47, 52, 56);
+}
+.orders_form_box_input_contents_box_email_mail_select:focus {
+  border-color: #35c5f0;
+}
+.orders_form_box_input_contents_box_email_mail_select:focus-visible {
+  outline: 0;
+}
+
+.orders_form_box_input {
+  box-sizing: border-box;
+  flex: 1 0 0%;
+  vertical-align: middle;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  height: 100%;
+  color: #2F3438;
+  outline: none;
+  font-size: 16px;
+  line-height: 24px;
+  padding-right: 6px;
+}
+
+.order_invisible {
+  display: none;
+}/*# sourceMappingURL=orders.css.map */

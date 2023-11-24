@@ -47,7 +47,6 @@ export default function HeaderNavPopular() {
   useInterval(() => {
     setTopY((top) => top + currentTop);
     if (topY >= 440) {
-      console.log(`topY--->${topY}`);
       setTopY(0)
     }
   }, 3000);
