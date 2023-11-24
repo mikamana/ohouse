@@ -1,0 +1,31 @@
+@use "../../../common/mixin.scss" as m;
+
+.channel_container {
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+  }//h2
+  a {
+    width: 50%;
+    display: inline-block;
+    .channel_title_box {
+      width: 100%;
+      .channel_title_hash{
+        font-size: 18px;
+        font-weight: 700;
+      }//channel_title_hash
+      .channel_title_sub{
+        color: #828C94;
+        font-size: 13px;
+      }//channel_title_sub
+    }//channel_title_box
+    .channel_image_box {
+      width: 100%;
+      display: flex;
+      div {
+        width: 25%;
+        img {width: 80%;}
+      }
+    } //channel_image_box
+  } //channel_container a
+}//channel_container

@@ -17,9 +17,9 @@ import "./css/main/userimg/userimg.css";
 import "./css/main/visual/visual.css";
 import "./css/sub/store/storehome/subvisual/subvisual.css";
 import "./css/production/production.css";
-import "./css/cart/cart.css"
-import "./css/sub/store/storehome/todaydeal/storehometodaydeal.css"
-import "./css/sub/store/storehome/popularproducts/storehomepopularproducts.css"
+import "./css/cart/cart.css";
+import "./css/sub/store/storehome/todaydeal/storehometodaydeal.css";
+import "./css/sub/store/storehome/popularproducts/storehomepopularproducts.css";
 import Main from "./components/main/Main";
 import Contents from './components/main/contents/Contents';
 import SkyImg from './pages/main/skyimg/SkyImg';
@@ -39,7 +39,7 @@ import StoreHomePopularProductsSection from "./pages/subpage/store/storehome/pop
 import StoreHomeTodayDealSection from "./pages/subpage/store/storehome/todaydeal/StoreHomeTodayDealSection";
 import Signup from './pages/user/Signup';
 import Login from './pages/user/Login';
-import Channel from "./pages/subpage/topics/hashtag-channel/Channel";
+import Channel from "./pages/subpage/topics/hashtagChannel/Channel";
 import Event from "./pages/subpage/competitions/feed/Event";
 import Search from "./pages/subpage/search/Search";
 
@@ -75,7 +75,7 @@ const router = createBrowserRouter([
           </Contents>
       },
       {
-        path: '/topics/hashtag-channel', element:
+        path: '/topics/hashtagChannel', element:
           <Contents>
             <Channel />
           </Contents>

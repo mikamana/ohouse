@@ -1,0 +1,29 @@
+.channel_container h2 {
+  font-size: 16px;
+  font-weight: 700;
+}
+.channel_container a {
+  width: 50%;
+  display: inline-block;
+}
+.channel_container a .channel_title_box {
+  width: 100%;
+}
+.channel_container a .channel_title_box .channel_title_hash {
+  font-size: 18px;
+  font-weight: 700;
+}
+.channel_container a .channel_title_box .channel_title_sub {
+  color: #828C94;
+  font-size: 13px;
+}
+.channel_container a .channel_image_box {
+  width: 100%;
+  display: flex;
+}
+.channel_container a .channel_image_box div {
+  width: 25%;
+}
+.channel_container a .channel_image_box div img {
+  width: 80%;
+}/*# sourceMappingURL=channel.css.map */
