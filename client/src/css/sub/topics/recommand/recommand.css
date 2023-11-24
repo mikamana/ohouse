@@ -1,0 +1,14 @@
+section.topics_recommand_section {
+  width: 100%;
+}
+section.topics_recommand_section .topics_recommand_content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 6px auto;
+  padding: 10px 0;
+}
+section.topics_recommand_section .topics_recommand_content .shopcate_category_item_container {
+  margin-right: 5px;
+  width: auto;
+}/*# sourceMappingURL=Recommand.css.map */

@@ -6,6 +6,8 @@ import HeaderLogoWrite from "./HeaderLogoWrite";
 import HeaderNavPopular from "./HeaderNavPopular";
 
 export default function Header() {
+  /* header_layout_up active 일 때 header_nav position fixed 주기 */
+
   /* 스크롤할 때 헤더 고정 */
   const [isFixed, SetIsFixed] = useState(false);
   useEffect(() => {
@@ -16,7 +18,7 @@ export default function Header() {
     const handleScroll = () => {
       const ScrollTop = window.scrollY;
       if (ScrollTop >= 50) {
-        //console.log(ScrollTop);
+        console.log(ScrollTop);
         SetIsFixed(true);
       } else {
         SetIsFixed(false);
@@ -27,8 +29,6 @@ export default function Header() {
       window.removeEventListener('scroll', handleScroll);
     }
   }, [])
-
-
 
   /* header_logo 메뉴 호버시 header_nav 메뉴 show */
   let [hovering, setHovering] = useState(1)
@@ -59,9 +59,19 @@ export default function Header() {
       setHovering(3);
     }
   }
+
   function handleMouseLeave() {
     if (showMenu === 2 || showMenu === 3) {
       setShowMenu(1);
+    }
+  }
+
+  const [isFixedDown, SetIsFixedDown] = useState(false);
+  function handleMouseEnter(){
+    if(isFixed === true){
+      SetIsFixedDown(true)
+    }else{
+      SetIsFixedDown(false)
     }
   }
 
@@ -73,7 +83,8 @@ export default function Header() {
   return (
     <>
       <header className="main_header" id="main_header" onMouseLeave={handleMouseLeave}> 
-        <div className={isFixed ? "main_header_layout_up active" : "main_header_layout_up"}>
+        <div className={"main_header_layout_up"} style={{position:isFixed ? 'fixed' : 'relative', top : isFixed ? '0' : null}}  onMouseEnter={handleMouseEnter}>
+        {/* </div><div className={isFixed ? "main_header_layout_up active" : "main_header_layout_up"}> */}
           <div className="header_logo inner">
             <div className="header_logoBox">
               <Link to="/" className="header_logo_logo"></Link>
@@ -95,7 +106,8 @@ export default function Header() {
             <HeaderLogoWrite />
           </div>
         </div>
-        <div className="main_header_layout_down">
+        {/* "main_header_layout_down" */}
+        <div className={isFixedDown ? "main_header_layout_down active" : "main_header_layout_down"} style={{position:isFixed ? 'fixed' : 'relative', top : isFixed ? '30px' : null, transition: isFixed ? 'top 0.1s' : null}}>
           <div className="header_nav inner">
             {showMenu === 1 && <ShowMenu menuName="community" />}
             {showMenu === 2 && <ShowMenu menuName="store" />}

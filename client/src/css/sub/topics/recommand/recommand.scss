@@ -1,0 +1,17 @@
+@use '../../../common/mixin.scss' as m;
+
+section.topics_recommand_section{
+  width: 100%;
+  .topics_recommand_content{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 6px auto;
+    padding: 10px 0;
+    .shopcate_category_item_container{
+      margin-right: 5px;
+      width:auto;
+
+    }
+  }
+}

@@ -20,6 +20,7 @@ import "./css/production/production.css";
 import "./css/cart/cart.css"
 import "./css/sub/store/storehome/todaydeal/storehometodaydeal.css"
 import "./css/sub/store/storehome/popularproducts/storehomepopularproducts.css"
+import "./css/sub/topics/recommand/recommand.css"
 import Main from "./components/main/Main";
 import Contents from './components/main/contents/Contents';
 import SkyImg from './pages/main/skyimg/SkyImg';
