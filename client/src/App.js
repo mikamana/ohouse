@@ -55,13 +55,13 @@ const router = createBrowserRouter([
             <MainVisual />
             <IconMenu />
             <SnsImg />
-            <SkyImg title={"와😮 소리 나오는 40평 이상 배치법"}/>
-            <SkyImg title={"써보고 추천하는 잘샀템즈 💰"}/>
+            <SkyImg title={"와😮 소리 나오는 40평 이상 배치법"} />
+            <SkyImg title={"써보고 추천하는 잘샀템즈 💰"} />
             <IconMenuSlide />
-            <ShopitemSection/>
+            <ShopitemSection />
             <UserImg />
             <Exhibitions />
-            <ShopcateSection/>
+            <ShopcateSection />
           </Contents>
       },
       {
@@ -69,9 +69,9 @@ const router = createBrowserRouter([
           <Contents>
             <SubVisual />
             <IconMenuShop />
-            <StoreHomeTodayDealSection/>
+            <StoreHomeTodayDealSection />
             <IconMenuSlideShop />
-            <StoreHomePopularProductsSection/>
+            <StoreHomePopularProductsSection />
           </Contents>
       },
       {
@@ -100,7 +100,7 @@ const router = createBrowserRouter([
   },
   {
     path: 'login', element:
-    <Login/>
+      <Login />
   },
   {
     path: '/search', element:

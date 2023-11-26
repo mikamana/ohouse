@@ -2,6 +2,7 @@ import React from "react";
 import ProductionsCate from "./components/ProductionsCate";
 import ProductionsContainer from "./components/ProductionsContainer";
 import ProductionsNav from "./components/ProductionsNav";
+import ProductionsPrdWrap from "./components/ProductionsPrdWrap";
 
 export default function Productions() {
 
@@ -15,9 +16,7 @@ export default function Productions() {
           <ProductionsContainer />
         </div>
         <ProductionsNav />
-        <div className="ddd">
-          가나
-        </div>
+        <ProductionsPrdWrap />
       </section >
     </>
 
