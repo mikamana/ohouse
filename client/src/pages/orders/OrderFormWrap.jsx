@@ -3,12 +3,15 @@ import { IoMdArrowDropdown } from "react-icons/io";
 
 export default function OrderFormWrap(){
   const [display,setDisplay] = useState('order_invisible');
-  const [form, setForm] = useState({"orderer_id":"", "orderer_mail":"", "pass":"", "passcheck":"", "orderer_name":""});
+  const [form, setForm] = useState({"orderer_id":"", "orderer_mail":"", "orderer_phead":"010","orderer_pbody":"","pass":"", "passcheck":"", "orderer_name":"","reciever_name":"","reciever_place":"","reciever_phead":"010","reciever_pbody":""});
   const [domain, setDomain] = useState(false);
+  const [phead,setPhead] = useState('010');
 
   function isFocus(e){
     const parent = e.target.parentNode
     parent.classList.add('active')
+    const a = JSON.stringify({"orderer_id":"", "orderer_mail":"", "orderer_phead":"010","orderer_pbody":"","pass":"", "passcheck":"", "orderer_name":"","reciever_name":"","reciever_place":"","reciever_phead":"010","reciever_pbody":""})
+    console.log(a);
   }
 
   function isBlur(e){
@@ -34,6 +37,10 @@ export default function OrderFormWrap(){
     else{
       setDisplay('order_invisible')
     }
+  }
+  const selectPhone= (e)=>{
+    let {value} = e.target;
+    setPhead(value)
   }
 
   const inputDomain = useRef(null);
@@ -87,8 +94,34 @@ export default function OrderFormWrap(){
                 </div>
               </div>
             </div>
+
           </div>
         </div>
+
+        <div className="orders_form_box_input_wrap">
+          <div className="orders_form_box_input_title">전화번호</div>
+          <div className="orders_form_box_input_contents_wrap">
+            <div className="orders_form_box_input_contents_phone_container">
+              <div className="orders_form_box_input_contents_box_phone_head_wrap">
+                <div className="orders_form_box_input_contents_box_phone_head_box">
+                  <span className="orders_form_box_input_contents_box_email_mail_select_box_downarrow"><IoMdArrowDropdown/></span>
+                  <select className="orders_form_box_input_contents_box_phone_head" name="orderer_phead" id="orderer_phead" onChange={selectChange}>
+                    <option value="010">010</option>
+                    <option value="011">011</option>
+                    <option value="016">016</option>
+                    <option value="017">017</option>
+                    <option value="018">018</option>
+                    <option value="019">019</option>
+                  </select>
+                </div>
+              </div>
+              <div className="orders_form_box_input_contents_box_phone_body_wrap">
+              <input className="orders_form_box_input_phone" name="orderer_pbody" value={form.orderer_pbody ? form.orderer_pbody : ""} maxLength={20} onChange={handleChange} onFocus={isFocus} onBlur={isBlur}/>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <div className="orders_form_box">
@@ -96,8 +129,51 @@ export default function OrderFormWrap(){
           <h2 className="orders_form_box_title">배송지</h2>
         </div>
         <div className="orders_form_box_input_wrap">
+          <div className="orders_form_box_input_title">배송지명</div>
+          <div className="orders_form_box_input_contents_wrap">
+            <div className="orders_form_box_input_contents_container">
+              <input className="orders_form_box_input" name="reciever_place" value={form.reciever_place ? form.reciever_place : ""} maxLength={10} onChange={handleChange} onFocus={isFocus} onBlur={isBlur}/>
+              <div></div>
+            </div>
+          </div>
+        </div>
+
+        <div className="orders_form_box_input_wrap">
+          <div className="orders_form_box_input_title">받는 사람</div>
+          <div className="orders_form_box_input_contents_wrap">
+            <div className="orders_form_box_input_contents_container">
+              <input className="orders_form_box_input" name="reciever_name" value={form.reciever_name ? form.reciever_name : ""} maxLength={10} onChange={handleChange} onFocus={isFocus} onBlur={isBlur}/>
+              <div></div>
+            </div>
+          </div>
+        </div>
+
+        <div className="orders_form_box_input_wrap">
+          <div className="orders_form_box_input_title">전화번호</div>
+          <div className="orders_form_box_input_contents_wrap">
+            <div className="orders_form_box_input_contents_phone_container">
+              <div className="orders_form_box_input_contents_box_phone_head_wrap">
+                <div className="orders_form_box_input_contents_box_phone_head_box">
+                  <span className="orders_form_box_input_contents_box_email_mail_select_box_downarrow"><IoMdArrowDropdown/></span>
+                  <select className="orders_form_box_input_contents_box_phone_head" name="reciever_phead" id="reciever_phead" onChange={selectChange}>
+                    <option value="010">010</option>
+                    <option value="011">011</option>
+                    <option value="016">016</option>
+                    <option value="017">017</option>
+                    <option value="018">018</option>
+                    <option value="019">019</option>
+                  </select>
+                </div>
+              </div>
+              <div className="orders_form_box_input_contents_box_phone_body_wrap">
+              <input className="orders_form_box_input_phone" name="reciever_pbody" value={form.reciever_pbody ? form.reciever_pbody : ""} maxLength={20} onChange={handleChange} onFocus={isFocus} onBlur={isBlur}/>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+
+
 
       <div className="orders_form_box">
         <div className="orders_form_box_title_wrap">
