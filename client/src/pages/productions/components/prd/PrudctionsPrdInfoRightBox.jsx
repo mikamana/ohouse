@@ -1,5 +1,7 @@
 import React from "react";
-
+import ProductionInfoOption from "../info/ProductionInfoOption";
+import ProductionInfoTotPrice from "../info/ProductionInfoTotPrice";
+import ProductionCartBtn from "../info/ProductionCartBtn";
 
 export default function PrudctionsPrdInfoRightBox() {
 
@@ -7,7 +9,12 @@ export default function PrudctionsPrdInfoRightBox() {
 
         <>
             <div className="production_selling_prd_info_right">
-                
+                <ProductionInfoOption />
+                <ul className="production_selling_prd_info_gap">
+
+                </ul>
+                <ProductionInfoTotPrice />
+                <ProductionCartBtn />
             </div>
         </>
 
