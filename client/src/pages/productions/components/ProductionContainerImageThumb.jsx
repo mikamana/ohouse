@@ -1,17 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ShopitemTimeCount from "../../main/shopitem/components/ImageWrap/ShopitemTimeCount";
 
 
-export default function ProductionContainerImageThumb(props) {
+export default function ProductionContainerImageThumb() {
 
   // const [thumbClass, setThumbClass] = useState(false)
   const [thumbClass, setThumbClass] = useState('production_selling_container_image_thumb_wrap')
-
-  const handlerClick = (e) => {
-
-    setThumbClass(true)
-
-  }
 
   const removeClass = (e) => {
 
@@ -44,7 +38,7 @@ export default function ProductionContainerImageThumb(props) {
         onBlur={removeClass}
       >
         <fieldset className="production_selling_container_image_thumb">
-          <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/164032981730100118.jpg?gif=1&w=640&h=640&c=c&webp=1" alt="상품상세페이지썸네일" />
+          <img srcSet="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/164032981730100118.jpg?gif=1&w=640&h=640&c=c&webp=1" alt="상품상세페이지썸네일" />
           <ShopitemTimeCount isNew={true} />
         </fieldset>
       </div>

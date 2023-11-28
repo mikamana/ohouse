@@ -11,10 +11,10 @@ export default function ShopitemTodayStart({ ts }) {
     }
   }
   return (
-    <div className="shopitem_today_start">
+    <span className="shopitem_today_start">
       {
         todayStart(ts)
       }
-    </div>
+    </span>
   );
 }

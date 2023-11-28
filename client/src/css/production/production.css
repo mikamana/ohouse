@@ -117,29 +117,29 @@ section.production_selling_wrap div.production_selling_inner div.production_sell
   font-size: 22px;
   line-height: 36px;
 }
-section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title div.production_selling_info_title_div {
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div {
   width: 20%;
   display: flex;
   justify-content: flex-end;
 }
-section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title div.production_selling_info_title_div a.production_selling_scrap_icon {
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div a.production_selling_scrap_icon {
   margin-left: 10px;
 }
-section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title div.production_selling_info_title_div a.production_selling_scrap_icon svg.icon--stroke path {
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div a.production_selling_scrap_icon svg.icon--stroke path {
   color: rgb(0, 0, 0);
   fill: rgb(255, 255, 255);
 }
-section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title div.production_selling_info_title_div a.production_selling_scrap_icon svg.icon--stroke path:hover {
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div a.production_selling_scrap_icon svg.icon--stroke path:hover {
   stroke: rgb(145, 145, 145);
 }
-section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title div.production_selling_info_title_div a.production_selling_scrap_icon svg.icon {
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div a.production_selling_scrap_icon svg.icon {
   color: rgb(0, 0, 0);
   fill: rgb(117, 117, 117);
 }
-section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title div.production_selling_info_title_div a.production_selling_scrap_icon svg.icon:hover {
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div a.production_selling_scrap_icon svg.icon:hover {
   fill: rgb(145, 145, 145);
 }
-section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title div.production_selling_info_title_div a.production_selling_scrap_icon span {
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div a.production_selling_scrap_icon span {
   display: block;
   font-size: 12px;
   text-align: center;

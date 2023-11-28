@@ -8,7 +8,6 @@ export default function HeaderNavPopularView() {
     fetch('data/header/Popularview_list.json')
       .then((res) => res.json())
       .then((data) => {
-        //console.log(data);
         SetPopularList(data)
       })
       .catch((err) => console.err)

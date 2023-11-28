@@ -126,13 +126,12 @@ section.production_selling_wrap {
                   font-size: 22px;
                   line-height: 36px;
                 }
-                div.production_selling_info_title_div {
+                p.production_selling_info_title_div {
                   width: 20%;
                   display: flex;
                   justify-content: flex-end;
                   a.production_selling_scrap_icon {
                     margin-left: 10px;
-
                     svg.icon--stroke {
                       path {
                         &:hover {
@@ -242,7 +241,6 @@ section.production_selling_wrap {
             } //nth-child(6)
             &:nth-child(7) {
               display: flex;
-
               span.production_selling_benefit_span {
                 margin-right: 10px;
                 font-size: 14px;

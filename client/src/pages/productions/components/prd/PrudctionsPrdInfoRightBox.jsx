@@ -17,7 +17,6 @@ export default function PrudctionsPrdInfoRightBox() {
                     <ProductionInfoTotPrice />
                     <ProductionCartBtn />
                 </div>
-
             </div>
         </>
 

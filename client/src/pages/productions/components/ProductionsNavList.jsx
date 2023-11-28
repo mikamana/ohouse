@@ -16,7 +16,6 @@ export default function ProductionsNavList() {
   function fnScroll(e) {
 
     let scry = window.scrollY
-    console.log('scry = ' + scry);
 
     if (scry >= 1000 && scry < 3800) {
 

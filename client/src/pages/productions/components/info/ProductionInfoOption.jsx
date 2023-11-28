@@ -23,7 +23,7 @@ export default function ProductionInfoOption() {
           </option>
         </select>
         <span className="production_selling_select-input__icon">
-          <svg class="icon" width="10" height="10" preserveAspectRatio="xMidYMid meet"><path fill-rule="evenodd" d="M0 3l5 5 5-5z"></path></svg>
+          <svg className="icon" width="10" height="10" preserveAspectRatio="xMidYMid meet"><path fillRule="evenodd" d="M0 3l5 5 5-5z"></path></svg>
         </span>
       </p>
     </>
