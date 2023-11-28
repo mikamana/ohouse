@@ -26,6 +26,8 @@ import Contents from './components/main/contents/Contents';
 import SkyImg from './pages/main/skyimg/SkyImg';
 import IconMenu from "./pages/main/iconmenu/IconMenu";
 import IconMenuSlide from "./pages/main/iconmenu/IconMenuSlide";
+import IconMenuShop from "./pages/main/iconmenu/iconMenuShop";
+import IconMenuSlideShop from "./pages/main/iconmenu/iconMenuShopSlide";
 import SnsImg from "./pages/main/snsimg/components/SnsImg";
 import MainVisual from "./pages/main/visual/components/MainVisual";
 import SubVisual from "./pages/subpage/store/storehome/visual/SubVisual";
@@ -40,6 +42,9 @@ import Signup from './pages/user/Signup';
 import Login from './pages/user/Login';
 import Cart from "./pages/cart/Cart";
 import Orders from "./pages/orders/Orders";
+import Channel from "./pages/subpage/topics/hashtag-channel/Channel";
+import Event from "./pages/subpage/competitions/feed/Event";
+import Search from "./pages/subpage/search/Search";
 
 const router = createBrowserRouter([
 
@@ -53,21 +58,35 @@ const router = createBrowserRouter([
             <MainVisual />
             <IconMenu />
             <SnsImg />
-            <SkyImg title={"와😮 소리 나오는 40평 이상 배치법"}/>
-            <SkyImg title={"써보고 추천하는 잘샀템즈 💰"}/>
+            <SkyImg title={"와😮 소리 나오는 40평 이상 배치법"} />
+            <SkyImg title={"써보고 추천하는 잘샀템즈 💰"} />
             <IconMenuSlide />
-            <ShopitemSection/>
+            <ShopitemSection />
             <UserImg />
             <Exhibitions />
-            <ShopcateSection/>
+            <ShopcateSection />
           </Contents>
       },
       {
         path: '/store', element:
           <Contents>
             <SubVisual />
-            <StoreHomeTodayDealSection/>
-            <StoreHomePopularProductsSection/>
+            <IconMenuShop />
+            <StoreHomeTodayDealSection />
+            <IconMenuSlideShop />
+            <StoreHomePopularProductsSection />
+          </Contents>
+      },
+      {
+        path: '/topics/hashtag-channel', element:
+          <Contents>
+            <Channel />
+          </Contents>
+      },
+      {
+        path: '/feed/Event', element:
+          <Contents>
+            <Event />
           </Contents>
       },
       {
@@ -96,7 +115,13 @@ const router = createBrowserRouter([
   },
   {
     path: 'login', element:
-    <Login/>
+      <Login />
+  },
+  {
+    path: '/search', element:
+      <Contents>
+        <Search />
+      </Contents>
   }
 
 
