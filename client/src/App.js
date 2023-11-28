@@ -16,6 +16,7 @@ import "./css/main/subtitle_more/subtitle_more.css";
 import "./css/main/userimg/userimg.css";
 import "./css/main/visual/visual.css";
 import "./css/sub/store/storehome/subvisual/subvisual.css";
+import "./css/sub/contents/projects/projects.css";
 import "./css/production/production.css";
 import "./css/cart/cart.css";
 import "./css/sub/store/storehome/todaydeal/storehometodaydeal.css";
@@ -42,6 +43,8 @@ import Login from './pages/user/Login';
 import Channel from "./pages/subpage/topics/hashtag-channel/Channel";
 import Event from "./pages/subpage/competitions/feed/Event";
 import Search from "./pages/subpage/search/Search";
+import ProjectsWrap from "./pages/subpage/contents/projects/ProjectsWrap";
+import CardCollections from "./pages/subpage/contents/cardCollections/CardCollections";
 
 const router = createBrowserRouter([
 
@@ -72,6 +75,18 @@ const router = createBrowserRouter([
             <StoreHomeTodayDealSection />
             <IconMenuSlideShop />
             <StoreHomePopularProductsSection />
+          </Contents>
+      },
+      {
+        path: '/content/projects', element:
+          <Contents>
+            <ProjectsWrap />
+          </Contents>
+      },
+      {
+        path: '/content/cardCollections', element:
+          <Contents>
+            <CardCollections />
           </Contents>
       },
       {
