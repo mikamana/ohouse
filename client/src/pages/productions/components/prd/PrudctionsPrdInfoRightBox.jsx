@@ -10,11 +10,14 @@ export default function PrudctionsPrdInfoRightBox() {
         <>
             <div className="production_selling_prd_info_right">
                 <ProductionInfoOption />
-                <ul className="production_selling_prd_info_gap">
+                {/* <ul className="production_selling_prd_info_gap">
 
-                </ul>
-                <ProductionInfoTotPrice />
-                <ProductionCartBtn />
+                </ul> */}
+                <div className="production_selling_prd_info_right_btn_box">
+                    <ProductionInfoTotPrice />
+                    <ProductionCartBtn />
+                </div>
+
             </div>
         </>
 

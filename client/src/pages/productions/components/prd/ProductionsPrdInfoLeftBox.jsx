@@ -2,6 +2,7 @@ import React from "react";
 import ProductionsPrdTitleBox from "./userstyle/ProductionsPrdTitleBox";
 import ProductionsPrdUserImgBox from "./userstyle/ProductionsPrdUserImgBox";
 import ProductionsPrdReviewWrap from "./review/ProductionsPrdReviewWrap";
+import ProductionContainerInqueryWrap from "./inquiry/ProductionContainerInqueryWrap";
 
 
 
@@ -32,6 +33,14 @@ export default function ProductionsPrdInfoLeftBox() {
                             deck={"active"}
                         />
                         <ProductionsPrdReviewWrap />
+                    </li>
+                    <li className="production_selling_prd_info_list_li">
+                        <ProductionsPrdTitleBox title={"문의"}
+                            count={" 120"}
+                            more={"문의하기"}
+                            deck={"active"}
+                        />
+                        <ProductionContainerInqueryWrap />
                     </li>
                 </ul>
             </div >

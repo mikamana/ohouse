@@ -1,4 +1,5 @@
 import React from "react";
+import ProductionSvg from "../ProductionSvg";
 
 
 export default function ProductionInfoReviewBox() {
@@ -9,11 +10,11 @@ export default function ProductionInfoReviewBox() {
     <>
       <p className="production_selling_container_info_review_wrap">
         <span className="production-selling-header__review__icon">
-          <img src="./images/productions/review_img.png" alt="리뷰아이콘이미지1" />
-          <img src="./images/productions/review_img.png" alt="리뷰아이콘이미지1" />
-          <img src="./images/productions/review_img.png" alt="리뷰아이콘이미지1" />
-          <img src="./images/productions/review_img.png" alt="리뷰아이콘이미지1" />
-          <img src="./images/productions/review_img.png" alt="리뷰아이콘이미지1" />
+          <ProductionSvg />
+          <ProductionSvg />
+          <ProductionSvg />
+          <ProductionSvg />
+          <ProductionSvg />
         </span>
         <span className="production-selling-header__review_text">
           61개 리뷰

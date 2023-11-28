@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 export default function ProductionsPrdTitleBox(props) {
 
     return (
-
         <>
             <div className="production_selling_prd_title_wrap">
                 <h4 className="production_selling_prd_title">
@@ -16,7 +15,6 @@ export default function ProductionsPrdTitleBox(props) {
                 </Link>
             </div>
         </>
-
     );
 
 }
