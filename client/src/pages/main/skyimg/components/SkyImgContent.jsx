@@ -6,7 +6,7 @@ import SkyImgText from './SkyImgText';
 export default function SkyImgContent() {
   const [skyImgContent, setSkyImgContent] = useState([]);
   useEffect(() => {
-    fetch('data/SkyImg/SkyImgContent.json')
+    fetch('/data/SkyImg/SkyImgContent.json')
       .then((res) => res.json())
       .then((skyImgContent) => {
         setSkyImgContent(skyImgContent);

@@ -33,11 +33,9 @@ a.skyimg_section_linkBox {
       position: absolute;
       bottom: 10px;
       right: 10px;
-      .skyimg_image_img_scrapbtn {
-        color: rgba(#fff, 0.7);
-        border: #fff;
-        font-size: 25px;
-      }
+      color: rgba(#fff, 0.7);
+      border: #fff;
+      font-size: 25px;
       &.active .skyimg_image_img_scrapbtn {
         color: var(--sky);
       }

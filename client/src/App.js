@@ -20,6 +20,7 @@ import ShopitemSection from "./pages/main/shopitem/ShopitemSection";
 import ShopcateSection from "./pages/main/shopcate/ShopcateSection";
 import StoreHomePopularProductsSection from "./pages/subpage/store/storehome/popularproducts/StoreHomePopularProductsSection";
 import StoreHomeTodayDealSection from "./pages/subpage/store/storehome/todaydeal/StoreHomeTodayDealSection";
+import Recommand from "./pages/subpage/topics/recommand/Recommand";
 import Signup from './pages/user/Signup';
 import Login from './pages/user/Login';
 import PasswordNew from "./pages/user/PasswordNew";
@@ -49,6 +50,12 @@ const router = createBrowserRouter([
             <Exhibitions />
             <ShopcateSection />
           </Contents>
+      },
+      {
+        path: '/topics/recommand', element:
+          <Contents>
+            <Recommand />
+          </Contents>,
       },
       {
         path: '/store', element:

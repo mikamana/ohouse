@@ -1,6 +1,6 @@
 [
   { "url" : "/", "menuName" : "홈"},
-  { "url" : "/", "menuName" : "추천"},
+  { "url" : "/topics/recommand", "menuName" : "추천"},
   { "url" : "/", "menuName" : "#채널"},
   { "url" : "/", "menuName" : "집들이"},
   { "url" : "/", "menuName" : "집사진"},
