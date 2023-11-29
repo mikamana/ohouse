@@ -18,16 +18,16 @@ export default function HeaderSearchRight() {
     <>
       {/* 로그인 전 메뉴 */}
       <div className="header_logo_searchBox">
-        <img className="header_logo_search_img" src="images/headers/search.png" alt="이미지1" />
+        <img className="header_logo_search_img" src="/images/headers/search.png" alt="이미지1" />
         <input className="header_logo_search" type="text" placeholder="통합검색" name="header_logo_search" />
       </div>
       <div className="header_logo_right">
-        <Link to="/cart" className="header_logo_cart"><PiShoppingCartLight className="header_logo_cart_icon"/></Link>
+        <Link to="/cart" className="header_logo_cart"><PiShoppingCartLight className="header_logo_cart_icon" /></Link>
         <Link to="/login" className="header_logo_menu">로그인</Link>
         <Link to="/normalUsers/new" className="header_logo_menu">회원가입</Link>
         <Link to="/customer_center" className="header_logo_menu">고객센터</Link>
-      </div> 
-{/* 
+      </div>
+      {/* 
       { 로그인 후 메뉴 }
       <div className="header_logo_searchBox_loginver">
         <img className="header_logo_search_img" src="images/headers/search.png" alt="검색창 돋보기" />
@@ -47,7 +47,7 @@ export default function HeaderSearchRight() {
           <HeaderProfile />
         </div>
       </div>
-*/}    
+*/}
     </>
   );
 }

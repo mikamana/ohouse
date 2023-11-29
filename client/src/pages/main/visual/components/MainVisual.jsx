@@ -1,7 +1,7 @@
 import React from "react";
 import MainVisualImgBox from "./MainVisualImgBox";
 import MainVisualSlideBox from "./MainVisualSlideBox";
-
+import "../../../../css/main/visual/visual.css";
 export default function MainVisual() {
 
   return (

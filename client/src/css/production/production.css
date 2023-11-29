@@ -1,8 +1,957 @@
-section.production_selling_wrap {
-  border: 1px solid gray;
-  min-height: 1200px;
+@charset "UTF-8";
+section.production_selling_wrap div.production_selling_inner nav.production_selling_category_gnb {
+  padding: 25px 0px;
 }
-section.production_selling_wrap div.production_selling_inner {
-  border: 1px solid gray;
-  min-height: 1200px;
+section.production_selling_wrap div.production_selling_inner nav.production_selling_category_gnb ul.production_selling_category_list {
+  display: flex;
+}
+section.production_selling_wrap div.production_selling_inner nav.production_selling_category_gnb ul.production_selling_category_list li.production_selling_category_list_li:not(:last-child)::after {
+  content: "\f054";
+  font-family: "Font Awesome 6 Free"; /*폰트어썸 fas, far 글꼴 연결*/
+  font-weight: 600;
+  font-size: 10px;
+  color: rgb(117, 117, 117);
+  margin: 0px 5px;
+}
+section.production_selling_wrap div.production_selling_inner nav.production_selling_category_gnb ul.production_selling_category_list li.production_selling_category_list_li a.production_selling_category_list_link {
+  color: rgb(117, 117, 117);
+  font-size: 15px;
+}
+section.production_selling_wrap div.production_selling_inner nav.production_selling_category_gnb ul.production_selling_category_list li.production_selling_category_list_li a.production_selling_category_list_link:hover {
+  color: rgb(182, 182, 182);
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container {
+  display: flex;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_left {
+  width: 625px;
+  min-height: 800px;
+  box-sizing: border-box;
+  margin-right: 50px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_left fieldset.production_selling_container_image_box {
+  display: flex;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_left fieldset.production_selling_container_image_box ul.production_selling_container_image_list {
+  margin-right: 10px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_left fieldset.production_selling_container_image_box ul.production_selling_container_image_list li.production_selling_container_image_list_li {
+  margin-bottom: 8px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_left fieldset.production_selling_container_image_box ul.production_selling_container_image_list li.production_selling_container_image_list_li button.production_selling_container_image_list_button {
+  background-color: none;
+  border: none;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border-radius: 4px;
+  position: relative;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_left fieldset.production_selling_container_image_box ul.production_selling_container_image_list li.production_selling_container_image_list_li button.production_selling_container_image_list_button img {
+  width: 56px;
+  height: 56px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border 0.01s;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_left fieldset.production_selling_container_image_box ul.production_selling_container_image_list li.production_selling_container_image_list_li button.production_selling_container_image_list_button img:hover {
+  border: 2px solid rgb(53, 197, 240);
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_left fieldset.production_selling_container_image_box div.production_selling_container_image_thumb_wrap {
+  flex-grow: 1;
+  width: 558px;
+  height: 558px;
+  border-radius: 10px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_left fieldset.production_selling_container_image_box div.production_selling_container_image_thumb_wrap.active {
+  border: 3.5px solid rgba(53, 197, 240, 0.7);
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_left fieldset.production_selling_container_image_box div.production_selling_container_image_thumb_wrap fieldset.production_selling_container_image_thumb {
+  height: 100%;
+  position: relative;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_left fieldset.production_selling_container_image_box div.production_selling_container_image_thumb_wrap fieldset.production_selling_container_image_thumb img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_left fieldset.production_selling_container_image_box div.production_selling_container_image_thumb_wrap fieldset.production_selling_container_image_thumb div.shopitem_timecount {
+  position: absolute;
+  left: initial;
+  right: 20px;
+  top: initial;
+  bottom: 20px;
+  padding: 10px 15px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_left fieldset.production_selling_container_image_box div.production_selling_container_image_thumb_wrap fieldset.production_selling_container_image_thumb div.shopitem_timecount span.shopitem_timecount_span {
+  margin-right: 10px;
+  color: #ffd9d9;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_left fieldset.production_selling_container_image_box div.production_selling_container_image_thumb_wrap fieldset.production_selling_container_image_thumb div.shopitem_timecount span.shopitem_timecount_span::before {
+  content: "\f017";
+  font-family: "Font Awesome 6 Free"; /*폰트어썸 fas, far 글꼴 연결*/
+  font-weight: 400;
+  font-size: 12px;
+  margin-right: 5px;
+  color: #fff;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right {
+  box-sizing: border-box;
+  flex-grow: 1;
+  min-height: 800px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(1) p.production_selling_info_title {
+  color: #656e75;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title span.production_selling_info_title_span {
+  width: 80%;
+  font-size: 22px;
+  line-height: 36px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div {
+  width: 20%;
+  display: flex;
+  justify-content: flex-end;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div a.production_selling_scrap_icon {
+  margin-left: 10px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div a.production_selling_scrap_icon svg.icon--stroke path {
+  color: rgb(0, 0, 0);
+  fill: rgb(255, 255, 255);
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div a.production_selling_scrap_icon svg.icon--stroke path:hover {
+  stroke: rgb(145, 145, 145);
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div a.production_selling_scrap_icon svg.icon {
+  color: rgb(0, 0, 0);
+  fill: rgb(117, 117, 117);
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div a.production_selling_scrap_icon svg.icon:hover {
+  fill: rgb(145, 145, 145);
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div a.production_selling_scrap_icon span {
+  display: block;
+  font-size: 12px;
+  text-align: center;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(3) {
+  margin-bottom: 10px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(3) p.production_selling_container_info_review_wrap {
+  display: flex;
+  align-items: center;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(3) p.production_selling_container_info_review_wrap:hover svg {
+  fill: #5acdf0;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(3) p.production_selling_container_info_review_wrap:hover span {
+  color: #5acdf0;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(3) p.production_selling_container_info_review_wrap span.production-selling-header__review_text {
+  color: #35c5f0;
+  font-size: 13px;
+  font-weight: 700;
+  margin-left: 7px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(4) {
+  margin: 5px 0px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(4) p.production_selling_seil_info_wrap span.production_selling_seil_info_span {
+  color: #656e75;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(4) p.production_selling_seil_info_wrap span.production_selling_seil_info_discount {
+  color: #bdbdbd;
+  text-decoration: line-through;
+  margin-left: 5px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(4) p.production_selling_seil_info_wrap span.production_selling_seil_info_alert {
+  vertical-align: middle;
+  margin-left: 5px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(5) {
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(5) p.production_selling_price_info_wrap {
+  display: flex;
+  align-items: center;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(5) p.production_selling_price_info_wrap span.production_selling_price_info_span {
+  font-weight: bold;
+  font-size: 32px;
+  vertical-align: middle;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(5) p.production_selling_price_info_wrap span.production_selling_price_info_span span {
+  font-weight: normal;
+  margin-right: 5px;
+  font-size: 28px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(5) p.production_selling_price_info_wrap svg {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(6) {
+  margin-bottom: 20px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(6) p.production_selling_coupon_price_info_wrap {
+  display: flex;
+  justify-content: space-between;
+  color: rgb(240, 86, 86);
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(6) p.production_selling_coupon_price_info_wrap span.production_selling_coupon_price_info_span {
+  font-weight: bold;
+  font-size: 32px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(6) p.production_selling_coupon_price_info_wrap span.production_selling_coupon_price_info_span span {
+  font-weight: normal;
+  font-size: 28px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(6) p.production_selling_coupon_price_info_wrap span.production_selling_coupon_price_info_text_span {
+  font-weight: bold;
+  font-size: 15px;
+  vertical-align: middle;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(7) {
+  display: flex;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(7) span.production_selling_benefit_span {
+  margin-right: 10px;
+  font-size: 14px;
+  color: #828c94;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(7) p.production_selling_benefit_p span.production_selling_benefit_info_span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #292929;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(7) p.production_selling_benefit_p span.production_selling_benefit_info_span span.production_selling_point {
+  font-weight: bold;
+  margin-right: 5px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(8) {
+  display: flex;
+  margin-bottom: 12px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(8) span.production_selling_benefit_span {
+  margin-right: 10px;
+  font-size: 14px;
+  color: #828c94;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(8) p.production_selling_benefit_p {
+  flex-grow: 1;
+  position: relative;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(8) p.production_selling_benefit_p span.production_selling_benefit_info_span {
+  display: flex;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #292929;
+  width: 100%;
+  align-items: center;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(8) p.production_selling_benefit_p span.production_selling_benefit_info_span:last-child {
+  background-color: #f7f8fa;
+  padding: 12px;
+  box-sizing: border-box;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(8) p.production_selling_benefit_p span.production_selling_benefit_info_span span.production_selling_benefit_info_span_sky {
+  color: #3eb9df !important;
+  font-weight: bold;
+  margin-left: 5px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(8) p.production_selling_benefit_p span.production_selling_benefit_info_span span.production_selling_benefit_info_span_sky svg.information-icon {
+  margin-left: 3px;
+  vertical-align: bottom;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(8) p.production_selling_benefit_p span.production_selling_benefit_info_span span.production_selling_benefit_info_span_arrival span.production_selling_benefit_info_span_percent {
+  font-weight: bold;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(8) p.production_selling_benefit_p span.production_selling_benefit_info_span span.production_selling_benefit_info_span_arrival span.production_selling_benefit_info_span_percent::after {
+  content: "\f107";
+  font-family: "Font Awesome 6 Free"; /*폰트어썸 fas, far 글꼴 연결*/
+  font-weight: 600;
+  font-size: 14px;
+  color: #797979;
+  position: absolute;
+  right: 20px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(8) p.production_selling_benefit_p span.production_selling_benefit_info_span span.production_selling_point {
+  font-weight: bold;
+  margin-right: 5px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(9) {
+  border-top: 1px solid #d1d1d1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(9) p.production_selling_life_p {
+  padding: 14px 0px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(9) p.production_selling_life_p span.production_selling_life_span svg {
+  vertical-align: middle;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(9) p.production_selling_life_p span.production_selling_life_span span {
+  vertical-align: middle;
+  font-size: 15px;
+  color: #525b61;
+  font-weight: bold;
+  margin-left: 5px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(9) button.production_selling_life_button {
+  background-color: none;
+  border: none;
+  border-radius: 15px;
+  width: 80px;
+  height: 25px;
+  color: #828c94;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(9) button.production_selling_life_button:hover {
+  background-color: #dfdfdf;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(10) {
+  margin-bottom: 40px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(10) p.production_selling_select_info_wrap {
+  position: relative;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(10) p.production_selling_select_info_wrap select.production_selling_select {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #3eb9df;
+  border-radius: 5px;
+  color: #424242;
+  padding-left: 8px;
+  -webkit-appearance: none; /* 크롬 화살표 없애기 */
+  -moz-appearance: none; /* 파이어폭스 화살표 없애기 */
+  appearance: none; /* 화살표 없애기 */
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(10) p.production_selling_select_info_wrap span.production_selling_select-input__icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: #3eb9df;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(11) {
+  margin-bottom: 25px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(11) p.production_selling_totprice_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #2f3438;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(11) p.production_selling_totprice_wrap span.production_selling_totprice_text {
+  font-size: 14px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(11) p.production_selling_totprice_wrap span.production_selling_totprice_price {
+  font-weight: bold;
+  font-size: 20px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(12) {
+  margin-bottom: 30px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(12) p.production_selling_button_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(12) p.production_selling_button_wrap * {
+  padding: 13px 0px;
+  font-size: 17px;
+  font-weight: bold;
+  border: 1px solid #3eb9df;
+  width: 49%;
+  border-radius: 5px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(12) p.production_selling_button_wrap button.production_selling_button_cart {
+  background: none;
+  color: #3eb9df;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(12) p.production_selling_button_wrap button.production_selling_button_buy {
+  background-color: #35c5f0;
+  color: #fff;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(13) {
+  margin-bottom: 40px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(13) a.production_selling_coupon_banner_wrap img.production-selling-promotion-banner__image {
+  width: 100%;
+}
+
+button.production_selling_price_coupon {
+  padding: 8px 15px;
+  border: none;
+  background-color: #ff7777;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 5px;
+}
+button.production_selling_price_coupon::after {
+  content: "\f019";
+  font-family: "Font Awesome 6 Free"; /*폰트어썸 fas, far 글꼴 연결*/
+  font-weight: 600;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+div.production_selling_navigion_wrap {
+  border: 1px solid rgb(237, 237, 237);
+  height: 55px;
+  background-color: rgb(250, 250, 250);
+  width: 100%;
+  position: sticky;
+  top: 82px;
+  z-index: 10;
+}
+div.production_selling_navigion_wrap div.production_selling_navigion_inner {
+  height: 100%;
+}
+div.production_selling_navigion_wrap div.production_selling_navigion_inner nav.production_selling_navigion {
+  height: 100%;
+}
+div.production_selling_navigion_wrap div.production_selling_navigion_inner nav.production_selling_navigion ul.production_selling_navigion_list {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+div.production_selling_navigion_wrap div.production_selling_navigion_inner nav.production_selling_navigion ul.production_selling_navigion_list li.production_selling_navigion_list_li {
+  padding: 20px 40px;
+  position: relative;
+}
+div.production_selling_navigion_wrap div.production_selling_navigion_inner nav.production_selling_navigion ul.production_selling_navigion_list li.production_selling_navigion_list_li.active span.production_selling_navigion_info_text {
+  color: #35c5f0;
+}
+div.production_selling_navigion_wrap div.production_selling_navigion_inner nav.production_selling_navigion ul.production_selling_navigion_list li.production_selling_navigion_list_li.active::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #35c5f0;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+}
+div.production_selling_navigion_wrap div.production_selling_navigion_inner nav.production_selling_navigion ul.production_selling_navigion_list li.production_selling_navigion_list_li:hover span.production_selling_navigion_info_text {
+  color: #35c5f0;
+}
+div.production_selling_navigion_wrap div.production_selling_navigion_inner nav.production_selling_navigion ul.production_selling_navigion_list li.production_selling_navigion_list_li:hover span.production_selling_navigion_point {
+  color: #000;
+}
+div.production_selling_navigion_wrap div.production_selling_navigion_inner nav.production_selling_navigion ul.production_selling_navigion_list li.production_selling_navigion_list_li a.production_selling_navigion_link span.production_selling_navigion_info_text {
+  font-weight: bold;
+}
+div.production_selling_navigion_wrap div.production_selling_navigion_inner nav.production_selling_navigion ul.production_selling_navigion_list li.production_selling_navigion_list_li a.production_selling_navigion_link span.production_selling_navigion_info_text span.production_selling_navigion_point {
+  color: #9e9e9e;
+}
+
+div.production_selling_prd_info_wrap {
+  min-height: 2000px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner {
+  min-height: 2000px;
+  display: flex;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left {
+  width: 750px;
+  min-height: 2000px;
+  padding: 40px 20px 0;
+  box-sizing: border-box;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(1) {
+  margin-bottom: 80px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(1) div.production_selling_prd_userimg_wrap {
+  width: 100%;
+  position: relative;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(1) div.production_selling_prd_userimg_wrap ul.swiper-slide {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(1) div.production_selling_prd_userimg_wrap ul.swiper-slide li.production_selling_prd_userimg_list_li {
+  width: 49.6%;
+  height: 285px;
+  margin-top: 5px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(1) div.production_selling_prd_userimg_wrap ul.swiper-slide li.production_selling_prd_userimg_list_li a.production_selling_prd_userimg_list_link img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(1) div.production_selling_prd_userimg_wrap button.prev_btn {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  background: #fff;
+  border-radius: 100%;
+  box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  top: 50%;
+  transform: translateX(50%);
+  z-index: 10;
+  border: none;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(1) div.production_selling_prd_userimg_wrap button.prev_btn::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(1) div.production_selling_prd_userimg_wrap button.prev_btn:hover {
+  background: var(--lightGray);
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(1) div.production_selling_prd_userimg_wrap button.prev_btn::after {
+  content: "\f053";
+  font-family: "Font Awesome 6 Free"; /*폰트어썸 fas, far 글꼴 연결*/
+  font-weight: 600;
+  font-size: 18px;
+  color: #000;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(1) div.production_selling_prd_userimg_wrap button.next_btn {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  background: #fff;
+  border-radius: 100%;
+  box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  top: 50%;
+  transform: translateX(50%);
+  z-index: 10;
+  border: none;
+  right: -20px;
+  top: 50%;
+  z-index: 2;
+  transform: translateY(-50%);
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(1) div.production_selling_prd_userimg_wrap button.next_btn::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(1) div.production_selling_prd_userimg_wrap button.next_btn:hover {
+  background: var(--lightGray);
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(1) div.production_selling_prd_userimg_wrap button.next_btn::after {
+  content: "\f054";
+  font-family: "Font Awesome 6 Free"; /*폰트어썸 fas, far 글꼴 연결*/
+  font-weight: 600;
+  font-size: 18px;
+  color: #000;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(1) div.production_selling_prd_userimg_wrap .swiper-button-disabled {
+  opacity: 0 !important;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(1) div.production_selling_prd_userimg_wrap span.pagination_bullet {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(1) div.production_selling_prd_userimg_wrap span.swiper-pagination-bullet-active {
+  background-color: #000;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(1) div.production_selling_prd_userimg_wrap div.production_selling_prd_userimg_btn_box {
+  margin-top: 20px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(1) div.production_selling_prd_userimg_wrap div.production_selling_prd_userimg_btn_box button.production_selling_prd_userimg_btn {
+  display: block;
+  margin: 0 auto;
+  border: #35c5f0 solid 1px;
+  background-color: #fff;
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #35c5f0;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(1) div.production_selling_prd_userimg_wrap div.production_selling_prd_userimg_btn_box span.production_selling_prd_userimg_btn_text {
+  color: #c2c8cc;
+  font-size: 12px;
+  text-align: center;
+  display: block;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(2) {
+  width: 100%;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(2) img.production_selling_prd_info_list_img {
+  width: 100%;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(3) div.production_selling_prd_review_box {
+  padding: 24px 0px;
+  border-radius: 4px;
+  background-color: #f7f8fa;
+  margin: 16px 0 24px;
+  display: flex;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(3) div.production_selling_prd_review_box div.production_selling_prd_review_left {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #ededed;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(3) div.production_selling_prd_review_box div.production_selling_prd_review_left div.production_selling_prd_review_total_box {
+  padding: 30px 0px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(3) div.production_selling_prd_review_box div.production_selling_prd_review_left div.production_selling_prd_review_total_box span.production_selling_prd_review_icon {
+  font-size: 24px;
+  font-weight: bold;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(3) div.production_selling_prd_review_box div.production_selling_prd_review_left div.production_selling_prd_review_total_box span.production_selling_prd_review_icon svg {
+  fill: #35c5f0;
+  margin: 0px 3px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(3) div.production_selling_prd_review_box div.production_selling_prd_review_left div.production_selling_prd_review_total_box span.production_selling_prd_review_icon span {
+  font-size: 34px;
+  color: #424242;
+  margin-left: 8px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(3) div.production_selling_prd_review_box div.production_selling_prd_review_right {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(3) div.production_selling_prd_review_box div.production_selling_prd_review_right ul.production_selling_prd_review_asterion_list li.production_selling_prd_review_asterion_list_li {
+  display: flex;
+  align-items: center;
+  margin: 4px 0px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(3) div.production_selling_prd_review_box div.production_selling_prd_review_right ul.production_selling_prd_review_asterion_list li.production_selling_prd_review_asterion_list_li > * {
+  margin: 0px 8px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(3) div.production_selling_prd_review_box div.production_selling_prd_review_right ul.production_selling_prd_review_asterion_list li.production_selling_prd_review_asterion_list_li span.production_selling_prd_review_asterion_list_text {
+  color: #9e9e9e;
+  font-size: 12px;
+  font-weight: 400;
+  padding-top: 2px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(3) div.production_selling_prd_review_box div.production_selling_prd_review_right ul.production_selling_prd_review_asterion_list li.production_selling_prd_review_asterion_list_li div.production_selling_prd_review_asterion_list_bar {
+  width: 180px;
+  height: 5px;
+  border-radius: 10px;
+  background-color: #35c5f0;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(3) div.production_selling_prd_review_box div.production_selling_prd_review_right ul.production_selling_prd_review_asterion_list li.production_selling_prd_review_asterion_list_li span.production_selling_prd_review_asterion_list_number {
+  color: #9e9e9e;
+  font-size: 12px;
+  font-weight: 400;
+  padding-top: 2px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(3) div.production_selling_prd_review_feed_wrap {
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0px;
+  margin-bottom: 20px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(3) div.production_selling_prd_review_feed_wrap ul.production_selling_prd_review_feed_list {
+  display: flex;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(3) div.production_selling_prd_review_feed_wrap ul.production_selling_prd_review_feed_list li.production_selling_prd_review_feed_list_li {
+  margin-right: 7px;
+  color: #757575;
+  font-size: 13px;
+  font-weight: 700;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(3) div.production_selling_prd_review_feed_wrap ul.production_selling_prd_review_feed_list li.production_selling_prd_review_feed_list_li:nth-child(2) {
+  color: #35c5f0;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(3) div.production_selling_prd_review_feed_wrap ul.production_selling_prd_review_feed_list li.production_selling_prd_review_feed_list_li:nth-child(2)::after {
+  content: "";
+  border-right: 1px solid #bdbdbd;
+  margin-left: 10px;
+  margin-right: 5px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(3) div.production_selling_prd_review_feed_wrap ul.production_selling_prd_review_feed_list li.production_selling_prd_review_feed_list_li:nth-child(3) {
+  color: #35c5f0;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(3) div.production_selling_prd_review_feed_wrap ul.production_selling_prd_review_feed_option_list {
+  display: flex;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(3) div.production_selling_prd_review_feed_wrap ul.production_selling_prd_review_feed_option_list li.production_selling_prd_review_feed_option_list_li button {
+  font-size: 15px;
+  line-height: 19px;
+  padding: 7px 8px 6px;
+  border-radius: 4px;
+  border: none;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(3) div.production_selling_prd_review_feed_wrap ul.production_selling_prd_review_feed_option_list li.production_selling_prd_review_feed_option_list_li button.production_selling_prd_review_feed_asterion_btn {
+  margin-right: 5px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li ul.production_selling_prd_review_item_list li.production_selling_prd_review_item_list_li {
+  margin-bottom: 15px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li ul.production_selling_prd_review_item_list li.production_selling_prd_review_item_list_li div.production_selling_prd_review_item_box div.production_selling_prd_review_item_user {
+  display: flex;
+  align-items: center;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li ul.production_selling_prd_review_item_list li.production_selling_prd_review_item_list_li div.production_selling_prd_review_item_box div.production_selling_prd_review_item_user a.production_selling_prd_review_item_user_img {
+  width: 24px;
+  height: 24px;
+  margin-right: 7px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li ul.production_selling_prd_review_item_list li.production_selling_prd_review_item_list_li div.production_selling_prd_review_item_box div.production_selling_prd_review_item_user a.production_selling_prd_review_item_user_img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li ul.production_selling_prd_review_item_list li.production_selling_prd_review_item_list_li div.production_selling_prd_review_item_box div.production_selling_prd_review_item_user div.production_selling_prd_review_item_user_info_wrap p.production_selling_prd_review_item_user_info_title {
+  font-size: 13px;
+  margin-bottom: 7px;
+  color: #424242;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li ul.production_selling_prd_review_item_list li.production_selling_prd_review_item_list_li div.production_selling_prd_review_item_box div.production_selling_prd_review_item_user div.production_selling_prd_review_item_user_info_wrap button.production_selling_prd_review_item_user_info_btn {
+  border: none;
+  background: none;
+  padding: 0px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li ul.production_selling_prd_review_item_list li.production_selling_prd_review_item_list_li div.production_selling_prd_review_item_box div.production_selling_prd_review_item_user div.production_selling_prd_review_item_user_info_wrap button.production_selling_prd_review_item_user_info_btn span.production_selling_prd_review_item_user_info_btn_span svg {
+  margin-right: 2px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li ul.production_selling_prd_review_item_list li.production_selling_prd_review_item_list_li div.production_selling_prd_review_item_box div.production_selling_prd_review_item_user div.production_selling_prd_review_item_user_info_wrap span.production_selling_prd_review_item_user_info_btn_span_date {
+  font-size: 13px;
+  color: #757575;
+  margin-left: 5px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li ul.production_selling_prd_review_item_list li.production_selling_prd_review_item_list_li div.production_selling_prd_review_item_box div.production_selling_prd_review_item_detail_star {
+  margin-top: 7px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li ul.production_selling_prd_review_item_list li.production_selling_prd_review_item_list_li div.production_selling_prd_review_item_box div.production_selling_prd_review_item_detail_star span.production_selling_prd_review_item_detail_star_left_span {
+  font-size: 11px;
+  color: #757575;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li ul.production_selling_prd_review_item_list li.production_selling_prd_review_item_list_li div.production_selling_prd_review_item_box div.production_selling_prd_review_item_detail_star span.production_selling_prd_review_item_detail_star_left_svg {
+  font-size: 12px;
+  vertical-align: middle;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li ul.production_selling_prd_review_item_list li.production_selling_prd_review_item_list_li div.production_selling_prd_review_item_box div.production_selling_prd_review_item_detail_star span.production_selling_prd_review_item_detail_star_left_svg svg {
+  margin-left: 3px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li ul.production_selling_prd_review_item_list li.production_selling_prd_review_item_list_li div.production_selling_prd_review_item_box div.production_selling_prd_review_item_detail_star div.production_selling_prd_review_item_detail_star_left {
+  float: left;
+  margin-right: 15px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li ul.production_selling_prd_review_item_list li.production_selling_prd_review_item_list_li div.production_selling_prd_review_item_box div.production_selling_prd_review_item_detail_star p.production_selling_prd_review_item_name {
+  font-size: 13px;
+  font-weight: 400;
+  color: #828c94;
+  padding: 10px 0px;
+  position: relative;
+  margin: 5px 0px 5px 10px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li ul.production_selling_prd_review_item_list li.production_selling_prd_review_item_list_li div.production_selling_prd_review_item_box div.production_selling_prd_review_item_detail_star p.production_selling_prd_review_item_name::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 10px;
+  left: -10px;
+  display: block;
+  background-color: #c9c9c9;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li ul.production_selling_prd_review_item_list li.production_selling_prd_review_item_list_li div.production_selling_prd_review_item_box div.production_selling_prd_review_item_detail_star button.production_selling_prd_review_item_btn_img {
+  border: none;
+  background: none;
+  padding: 0px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li ul.production_selling_prd_review_item_list li.production_selling_prd_review_item_list_li div.production_selling_prd_review_item_box div.production_selling_prd_review_item_detail_star button.production_selling_prd_review_item_btn_img img {
+  width: 112px;
+  height: 112px;
+  border-radius: 5px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li ul.production_selling_prd_review_item_list li.production_selling_prd_review_item_list_li div.production_selling_prd_review_item_box div.production_selling_prd_review_item_detail_star p.production_selling_prd_review_item_text {
+  margin: 20px 0px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li ul.production_selling_prd_review_item_list li.production_selling_prd_review_item_list_li div.production_selling_prd_review_item_box div.production_selling_prd_review_item_detail_star button.production_selling_prd_review_item_help_btn {
+  border: 1px solid #35c5f0;
+  background: none;
+  width: 114px;
+  height: 32px;
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 15px;
+  color: #35c5f0;
+  font-weight: bold;
+  margin-right: 8px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li ul.production_selling_prd_review_item_list li.production_selling_prd_review_item_list_li div.production_selling_prd_review_item_box div.production_selling_prd_review_item_detail_star span.production_selling_prd_review_item_help_span {
+  font-size: 13px;
+  font-weight: 400;
+  color: #424242;
+  margin-top: 8px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li {
+  margin-top: 40px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_right {
+  padding: 20px 10px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+div.production_selling_prd_title_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0px;
+}
+div.production_selling_prd_title_wrap h4.production_selling_prd_title {
+  font-size: 18px;
+  font-weight: bold;
+}
+div.production_selling_prd_title_wrap h4.production_selling_prd_title span.production_selling_prd_title_point {
+  color: #35c5f0;
+}
+div.production_selling_prd_title_wrap a.production_selling_prd_title_span {
+  font-size: 22px;
+  font-weight: bold;
+  color: #757575;
+}
+div.production_selling_prd_title_wrap a.production_selling_prd_title_span.active {
+  color: #35c5f0;
+  font-size: 15px;
+}
+
+div.production_selling_prd_info_right {
+  padding: 10px 10px;
+  position: relative;
+}
+div.production_selling_prd_info_right p.production_selling_select_info_wrap {
+  position: sticky;
+  top: 170px;
+}
+div.production_selling_prd_info_right p.production_selling_select_info_wrap select.production_selling_select {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #3eb9df;
+  border-radius: 5px;
+  color: #424242;
+  padding-left: 8px;
+  -webkit-appearance: none; /* 크롬 화살표 없애기 */
+  -moz-appearance: none; /* 파이어폭스 화살표 없애기 */
+  appearance: none; /* 화살표 없애기 */
+}
+div.production_selling_prd_info_right p.production_selling_select_info_wrap span.production_selling_select-input__icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: #3eb9df;
+}
+div.production_selling_prd_info_right div.production_selling_prd_info_right_btn_box {
+  position: sticky;
+  top: 800px;
+}
+div.production_selling_prd_info_right div.production_selling_prd_info_right_btn_box p.production_selling_totprice_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #2f3438;
+}
+div.production_selling_prd_info_right div.production_selling_prd_info_right_btn_box p.production_selling_totprice_wrap span.production_selling_totprice_text {
+  font-size: 14px;
+}
+div.production_selling_prd_info_right div.production_selling_prd_info_right_btn_box p.production_selling_totprice_wrap span.production_selling_totprice_price {
+  font-weight: bold;
+  font-size: 20px;
+}
+div.production_selling_prd_info_right div.production_selling_prd_info_right_btn_box p.production_selling_button_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+div.production_selling_prd_info_right div.production_selling_prd_info_right_btn_box p.production_selling_button_wrap * {
+  padding: 13px 0px;
+  font-size: 17px;
+  font-weight: bold;
+  border: 1px solid #3eb9df;
+  width: 49%;
+  border-radius: 5px;
+}
+div.production_selling_prd_info_right div.production_selling_prd_info_right_btn_box p.production_selling_button_wrap button.production_selling_button_cart {
+  background: none;
+  color: #3eb9df;
+}
+div.production_selling_prd_info_right div.production_selling_prd_info_right_btn_box p.production_selling_button_wrap button.production_selling_button_buy {
+  background-color: #35c5f0;
+  color: #fff;
+}
+
+div.projects_house_intro_box div.production_selling_prd_review_item_user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+div.projects_house_intro_box div.production_selling_prd_review_item_user a.production_selling_prd_review_item_user_img {
+  width: 24px;
+  height: 24px;
+  margin-right: 7px;
+}
+div.projects_house_intro_box div.production_selling_prd_review_item_user a.production_selling_prd_review_item_user_img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+div.projects_house_intro_box div.production_selling_prd_review_item_user div.production_selling_prd_review_item_user_info_wrap {
+  display: flex;
+}
+div.projects_house_intro_box div.production_selling_prd_review_item_user div.production_selling_prd_review_item_user_info_wrap p.production_selling_prd_review_item_user_info_title {
+  font-size: 13px;
+  margin-bottom: 7px;
+  color: #424242;
+  margin: 0 auto;
+}
+div.projects_house_intro_box div.production_selling_prd_review_item_user div.production_selling_prd_review_item_user_info_wrap button.production_selling_prd_review_item_user_info_btn {
+  border: none;
+  background: none;
+  padding: 0px;
+}
+div.projects_house_intro_box div.production_selling_prd_review_item_user div.production_selling_prd_review_item_user_info_wrap button.production_selling_prd_review_item_user_info_btn span.production_selling_prd_review_item_user_info_btn_span svg {
+  margin-right: 2px;
+}
+div.projects_house_intro_box div.production_selling_prd_review_item_user div.production_selling_prd_review_item_user_info_wrap span.production_selling_prd_review_item_user_info_btn_span_date {
+  font-size: 13px;
+  color: #757575;
+  margin-left: 5px;
+}
+
+div.production_container_inquery_wrap {
+  min-height: 800px;
 }/*# sourceMappingURL=production.css.map */

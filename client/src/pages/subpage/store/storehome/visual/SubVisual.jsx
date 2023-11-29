@@ -1,5 +1,6 @@
 import React from "react";
 import SubVisualSlideList from "./SubVisualSlideList";
+import "../../../../../css/sub/store/storehome/subvisual/subvisual.css";
 export default function SubVisual() {
 
     return (

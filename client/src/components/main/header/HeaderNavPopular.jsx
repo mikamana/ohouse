@@ -10,7 +10,6 @@ export default function HeaderNavPopular() {
   //   fetch('data/header/Popularview_list.json')
   //     .then((res) => res.json())
   //     .then((data) => {
-  //       //console.log(data);
   //       SetPopularList(data)
   //     })
   //     .catch((err) => console.err)
@@ -31,7 +30,6 @@ export default function HeaderNavPopular() {
 
   const useInterval = (callback, delay) => {
     const callbackRef = useRef(callback);
-    // console.log(callbackRef);
     useEffect(() => {
       callbackRef.current = callback;
     });
@@ -47,7 +45,6 @@ export default function HeaderNavPopular() {
   useInterval(() => {
     setTopY((top) => top + currentTop);
     if (topY >= 440) {
-      console.log(`topY--->${topY}`);
       setTopY(0)
     }
   }, 3000);
@@ -71,7 +68,7 @@ export default function HeaderNavPopular() {
                 1
               </span>
               <span className="header_nav_popular_view_list_li_count_img">
-                <img src="images/headers/uparrow.png" alt="이미지1" />
+                <img src="/images/headers/uparrow.png" alt="이미지1" />
               </span>
               <Link to="#" className="header_nav_popular_view_list_link" >
                 물티슈케이스
@@ -83,7 +80,7 @@ export default function HeaderNavPopular() {
                 2
               </span>
               <span className="header_nav_popular_view_list_li_count_img">
-                <img src="images/headers/uparrow.png" alt="이미지1" />
+                <img src="/images/headers/uparrow.png" alt="이미지1" />
               </span>
               <Link to="#" className="header_nav_popular_view_list_link">
                 암막커튼 작은창
@@ -95,7 +92,7 @@ export default function HeaderNavPopular() {
                 3
               </span>
               <span className="header_nav_popular_view_list_li_count_img">
-                <img src="images/headers/uparrow.png" alt="이미지1" />
+                <img src="/images/headers/uparrow.png" alt="이미지1" />
               </span>
               <Link to="#" className="header_nav_popular_view_list_link">
                 마샬 스피커
@@ -107,7 +104,7 @@ export default function HeaderNavPopular() {
                 4
               </span>
               <span className="header_nav_popular_view_list_li_count_img">
-                <img src="images/headers/downarrow.png" alt="이미지1" />
+                <img src="/images/headers/downarrow.png" alt="이미지1" />
               </span>
               <Link to="#" className="header_nav_popular_view_list_link">
                 루씨에어
@@ -119,7 +116,7 @@ export default function HeaderNavPopular() {
                 5
               </span>
               <span className="header_nav_popular_view_list_li_count_img">
-                <img src="images/headers/new.png" alt="이미지1" />
+                <img src="/images/headers/new.png" alt="이미지1" />
               </span>
               <Link to="#" className="header_nav_popular_view_list_link">
                 룸앤티비
@@ -131,7 +128,7 @@ export default function HeaderNavPopular() {
                 6
               </span>
               <span className="header_nav_popular_view_list_li_count_img">
-                <img src="images/headers/downarrow.png" alt="이미지1" />
+                <img src="/images/headers/downarrow.png" alt="이미지1" />
               </span>
               <Link to="#" className="header_nav_popular_view_list_link">
                 전등
@@ -143,7 +140,7 @@ export default function HeaderNavPopular() {
                 7
               </span>
               <span className="header_nav_popular_view_list_li_count_img">
-                <img src="images/headers/new.png" alt="이미지1" />
+                <img src="/images/headers/new.png" alt="이미지1" />
               </span>
               <Link to="#" className="header_nav_popular_view_list_link">
                 데스크데리어
@@ -155,7 +152,7 @@ export default function HeaderNavPopular() {
                 8
               </span>
               <span className="header_nav_popular_view_list_li_count_img">
-                <img src="images/headers/new.png" alt="이미지1" />
+                <img src="/images/headers/new.png" alt="이미지1" />
               </span>
               <Link to="#" className="header_nav_popular_view_list_link">
                 보조테이블
@@ -167,7 +164,7 @@ export default function HeaderNavPopular() {
                 9
               </span>
               <span className="header_nav_popular_view_list_li_count_img">
-                <img src="images/headers/new.png" alt="이미지1" />
+                <img src="/images/headers/new.png" alt="이미지1" />
               </span>
               <Link to="#" className="header_nav_popular_view_list_link">
                 반원테이블
@@ -179,7 +176,7 @@ export default function HeaderNavPopular() {
                 10
               </span>
               <span className="header_nav_popular_view_list_li_count_img">
-                <img src="images/headers/new.png" alt="이미지1" />
+                <img src="/images/headers/new.png" alt="이미지1" />
               </span>
               <Link to="#" className="header_nav_popular_view_list_link">
                 브라운물티슈

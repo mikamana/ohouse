@@ -3,24 +3,6 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import "./css/common/reset.css";
 import "./css/common/mixin.css";
 import "./css/common/common.css";
-import "./css/layout/banner.css";
-import "./css/layout/header.css";
-import "./css/layout/footer.css";
-import "./css/main/dealimg/dealimg.css";
-import "./css/main/iconmenu/iconmenu.css";
-import "./css/main/shopcate/shopcate.css";
-import "./css/main/shopitem/shopitem.css";
-import "./css/main/skyimg/skyimg.css";
-import "./css/main/snsimg/snsimg.css";
-import "./css/main/subtitle_more/subtitle_more.css";
-import "./css/main/userimg/userimg.css";
-import "./css/main/visual/visual.css";
-import "./css/sub/store/storehome/subvisual/subvisual.css";
-import "./css/production/production.css";
-import "./css/cart/cart.css";
-import "./css/sub/store/storehome/todaydeal/storehometodaydeal.css";
-import "./css/sub/store/storehome/popularproducts/storehomepopularproducts.css";
-import "./css/sub/search/search.css"
 import Main from "./components/main/Main";
 import Contents from './components/main/contents/Contents';
 import SkyImg from './pages/main/skyimg/SkyImg';
@@ -43,6 +25,8 @@ import Login from './pages/user/Login';
 import Channel from "./pages/subpage/topics/hashtagChannel/Channel";
 import Event from "./pages/subpage/competitions/feed/Event";
 import Search from "./pages/subpage/search/Search";
+import ProjectsWrap from "./pages/subpage/contents/projects/ProjectsWrap";
+import CardCollections from "./pages/subpage/contents/cardCollections/CardCollections";
 
 const router = createBrowserRouter([
 
@@ -56,13 +40,13 @@ const router = createBrowserRouter([
             <MainVisual />
             <IconMenu />
             <SnsImg />
-            <SkyImg title={"와😮 소리 나오는 40평 이상 배치법"}/>
-            <SkyImg title={"써보고 추천하는 잘샀템즈 💰"}/>
+            <SkyImg title={"와😮 소리 나오는 40평 이상 배치법"} />
+            <SkyImg title={"써보고 추천하는 잘샀템즈 💰"} />
             <IconMenuSlide />
-            <ShopitemSection/>
+            <ShopitemSection />
             <UserImg />
             <Exhibitions />
-            <ShopcateSection/>
+            <ShopcateSection />
           </Contents>
       },
       {
@@ -70,9 +54,21 @@ const router = createBrowserRouter([
           <Contents>
             <SubVisual />
             <IconMenuShop />
-            <StoreHomeTodayDealSection/>
+            <StoreHomeTodayDealSection />
             <IconMenuSlideShop />
-            <StoreHomePopularProductsSection/>
+            <StoreHomePopularProductsSection />
+          </Contents>
+      },
+      {
+        path: '/content/projects', element:
+          <Contents>
+            <ProjectsWrap />
+          </Contents>
+      },
+      {
+        path: '/content/cardCollections', element:
+          <Contents>
+            <CardCollections />
           </Contents>
       },
       {
@@ -108,6 +104,12 @@ const router = createBrowserRouter([
   {
     path: 'login', element:
     <Login/>
+  },
+  {
+    path: '/search', element:
+      <Contents>
+        <Search />
+      </Contents>
   }
 
 
