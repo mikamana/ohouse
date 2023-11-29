@@ -2,6 +2,8 @@ import { useRef, useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { FaCheck } from "react-icons/fa6";
 import OrdersProductWrap from "./components/OrdersProductWrap";
+import OhouseDeliveryIcon from "./components/OhouseDeliveryIcon";
+import OrdersPaymentDetail from "./components/OrdersPaymentDetail";
 
 
 
@@ -304,7 +306,63 @@ export default function OrderFormWrap(){
         <div className="orders_form_box_title_wrap">
           <h2 className="orders_form_box_title">결제수단</h2>
         </div>
-        
+        <div className="orders_form_box_payment_wrap">
+          <div className="orders_form_box_payment_container">
+            <div className="orders_form_box_payment_box">
+
+              <div className="orders_form_box_payment">
+                <button className="orders_form_box_payment_btn" type="button" title="">
+                  <span className="orders_form_box_payment_span">카드</span>
+                  <img className="orders_form_box_payment_img" src="https://image.ohou.se/i/bucketplace-v2-development/pg/168311599350498640.png?w=72&h=72&c=c" alt="" />
+                </button>
+              </div>
+              <div className="orders_form_box_payment">
+                <button className="orders_form_box_payment_btn" type="button" title="">
+                  <span className="orders_form_box_payment_span">무통장입금</span>
+                  <img className="orders_form_box_payment_img" src="https://image.ohou.se/i/bucketplace-v2-development/pg/168311600677152970.png?w=72&h=72&c=c" alt="" />
+                </button>
+              </div>
+              <div className="orders_form_box_payment">
+                <button className="orders_form_box_payment_btn" type="button" title="">
+                  <span className="orders_form_box_payment_span">카카오페이</span>
+                  <img className="orders_form_box_payment_img" src="https://image.ohou.se/i/bucketplace-v2-development/pg/img_kakaopay.png?w=72&h=72&c=c" alt="" />
+                  <span className="orders_form_box_payment_sale_span">1천원 즉시할인</span>
+                </button>
+              </div>
+              <div className="orders_form_box_payment">
+                <button className="orders_form_box_payment_btn" type="button" title="">
+                  <span className="orders_form_box_payment_span">네이버페이</span>
+                  <img className="orders_form_box_payment_img" src="https://image.ohou.se/i/bucketplace-v2-development/pg/img_naver.png?w=72&h=72&c=c" alt="" />
+                  <span className="orders_form_box_payment_sale_span">최대2.5%적립</span>
+                </button>
+              </div>
+              <div className="orders_form_box_payment">
+                <button className="orders_form_box_payment_btn" type="button" title="">
+                  <span className="orders_form_box_payment_span">페이코</span>
+                  <img className="orders_form_box_payment_img" src="https://image.ohou.se/i/bucketplace-v2-development/pg/img_payco.png?w=72&h=72&c=c" alt="" />
+                  <span className="orders_form_box_payment_sale_span">최대 1%적립</span>
+                </button>
+              </div>
+              <div className="orders_form_box_payment">
+                <button className="orders_form_box_payment_btn" type="button" title="">
+                  <span className="orders_form_box_payment_span">토스</span>
+                  <img className="orders_form_box_payment_img" src="https://image.ohou.se/i/bucketplace-v2-development/pg/img_toss_v2.png?w=72&h=72&c=c" alt="" />
+                  <span className="orders_form_box_payment_sale_span">최대2천원적립</span>
+                </button>
+              </div>
+              <div className="orders_form_box_payment">
+                <button className="orders_form_box_payment_btn" type="button" title="">
+                  <span className="orders_form_box_payment_span">핸드폰</span>
+                  <img className="orders_form_box_payment_img" src="https://image.ohou.se/i/bucketplace-v2-development/pg/168311602265893776.png?w=72&h=72&c=c" alt="" />
+                </button>
+              </div>
+
+            </div>
+          </div>
+          <OrdersPaymentDetail
+          paytype=''
+          />
+        </div>
       </div>
 
     </div>
