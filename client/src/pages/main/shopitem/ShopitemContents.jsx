@@ -12,45 +12,46 @@ import ShopitemStartSpan from "./components/Info/ShopitemStartSpan";
 import ShopitemTag from "./components/Info/ShopitemTag";
 import ShopitemTitle from "./components/Info/ShopitemTitle";
 import ShopitemTodayStart from "./components/Info/ShopitemTodayStart";
+import "../../../css/main/shopitem/shopitem.css";
 
-export default function ShopitemContents({shopitemList,index}){
-  return(
-      <div className="shopitem_contents">
-        <ShopitemImageWrap>
-          {shopitemList.best && <ShopitemBest rank={index} />}
-          {!shopitemList.time_count && <ShopitemTimeCount/>}
-          <ShopitemImage
+export default function ShopitemContents({ shopitemList, index }) {
+  return (
+    <div className="shopitem_contents">
+      <ShopitemImageWrap>
+        {shopitemList.best && <ShopitemBest rank={index} />}
+        {!shopitemList.time_count && <ShopitemTimeCount />}
+        <ShopitemImage
           shopimg={shopitemList.shopimg}
-          />
-          <ShopitemMark/>
-        </ShopitemImageWrap>
-        <ShopitemInfo>
-          <ShopitemTitle
+        />
+        <ShopitemMark />
+      </ShopitemImageWrap>
+      <ShopitemInfo>
+        <ShopitemTitle
           company={shopitemList.title_company}
           text={shopitemList.title_text}
-          />
-          <ShopitemPrice
+        />
+        <ShopitemPrice
           sale={shopitemList.price_sale}
           cost={shopitemList.price_cost}
           another={shopitemList.price_another}
-          />
-          <ShopitemRating
+        />
+        <ShopitemRating
           avg={shopitemList.rating_avg}
           review={shopitemList.rating_review}
-          />
-          <ShopitemTodayStart
+        />
+        <ShopitemTodayStart
           ts={shopitemList.delivery_type}
-          />
-          {shopitemList.delivery_type === "todayDelivery" && <ShopitemStartSpan/>}
-          <ShopitemTag
+        />
+        {shopitemList.delivery_type === "todayDelivery" && <ShopitemStartSpan />}
+        <ShopitemTag
           free={shopitemList.tag_free}
           hotprice={shopitemList.tag_hotprice}
-          />
-          {shopitemList.coupon_sale && <ShopitemCoupon/>}
-          {shopitemList.percent && <ShopitemCouponMax
+        />
+        {shopitemList.coupon_sale && <ShopitemCoupon />}
+        {shopitemList.percent && <ShopitemCouponMax
           percent={shopitemList.percent}
-          />}
-        </ShopitemInfo>
-      </div>
+        />}
+      </ShopitemInfo>
+    </div>
   );
 }

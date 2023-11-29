@@ -7,6 +7,8 @@ import ShopitemContents from './ShopitemContents';
 import React, { useEffect, useState } from 'react'
 import ShopitemMore from './ShopitemMore';
 import SubtitleMore from '../subtitle_more/Subtitle_more';
+import "../../../css/main/shopitem/shopitem.css";
+
 export default function ShopitemSection() {
   const [shopArray, setShopArray] = useState([]);
   useEffect(() => {

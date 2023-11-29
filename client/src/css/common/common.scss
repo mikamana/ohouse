@@ -7,9 +7,16 @@
   box-sizing: border-box;
 }
 
+.sub_inner {
+  margin-right: auto;
+  margin-left: auto;
+  width: 1136px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 *,
 body {
-  color: #424242;
   font-family:
     "Pretendard Variable",
     Pretendard,

@@ -5,10 +5,9 @@ export default function HeaderNavPopularView() {
   const [popularList, SetPopularList] = useState([]);
 
   useEffect(() => {
-    fetch('data/header/Popularview_list.json')
+    fetch('/data/header/Popularview_list.json')
       .then((res) => res.json())
       .then((data) => {
-        //console.log(data);
         SetPopularList(data)
       })
       .catch((err) => console.err)

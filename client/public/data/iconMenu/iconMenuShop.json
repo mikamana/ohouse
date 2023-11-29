@@ -1,0 +1,52 @@
+[
+  {
+    "imsId" : "ims1",
+    "image" : "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-store_home_shortcut_sets-169957638258878835.png/512/none",
+    "name" : "쿠폰받기"
+  },
+  {
+    "imsId" : "ims2",
+    "image" : "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-store_home_shortcut_sets-169254392912279857.png/512/none",
+    "name" : "BEST"
+  },
+  {
+    "imsId" : "ims3",
+    "image" : "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-store_home_shortcut_sets-169268342330570105.png/512/none",
+    "name" : "오늘의딜"
+  },
+  {
+    "imsId" : "ims4",
+    "image" : "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-store_home_shortcut_sets-170019718769379494.png/512/none",
+    "name" : "득템찬스"
+  },
+  {
+    "imsId" : "ims5",
+    "image" : "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-store_home_shortcut_sets-169957649851025946.png/512/none",
+    "name" : "행운출첵"
+  },
+  {
+    "imsId" : "ims6",
+    "image" : "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-store_home_shortcut_sets-169957650886766995.png/512/none",
+    "name" : "프리미엄"
+  },
+  {
+    "imsId" : "ims7",
+    "image" : "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-store_home_shortcut_sets-169932191260999270.png/512/none",
+    "name" : "신혼살림"
+  },
+  {
+    "imsId" : "ims8",
+    "image" : "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-store_home_shortcut_sets-170020000674740154.png/512/none",
+    "name" : "믹스앤매치"
+  },
+  {
+    "imsId" : "ims9",
+    "image" : "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-store_home_shortcut_sets-169353225639708707.png/512/none",
+    "name" : "오!쇼룸"
+  },
+  {
+    "imsId" : "ims10",
+    "image" : "https://image.ohou.se/image/resize/bucketplace-v2-development/uploads-shortcut-store_home_shortcut_sets-170000734704932263.png/512/none",
+    "name" : "특가/혜택"
+  }
+]

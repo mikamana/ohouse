@@ -1,17 +1,17 @@
 @use "../../common/mixin.scss" as m;
 
-.userimg{
+.userimg {
   display: flex;
-    .userimg_form{
-      width: 365px;
-      margin-right: 20px;
-      margin-bottom: 40px;
-    .userimg_image_frame{
+  .userimg_form {
+    width: 365px;
+    margin-right: 20px;
+    margin-bottom: 40px;
+    .userimg_image_frame {
       overflow: hidden;
       height: 260px;
       margin-bottom: 10px;
       border-radius: 5px;
-      img{
+      img {
         width: 100%;
         transition: all 0.3s;
         height: 100%;
@@ -46,12 +46,12 @@
   .userimg_sub_form {
     width: 368px;
     margin: 15px 5px;
-    .userimg_image_frame{
+    .userimg_image_frame {
       overflow: hidden;
       height: 260px;
       margin-bottom: 10px;
       border-radius: 5px;
-      img{
+      img {
         width: 100%;
         transition: all 0.3s;
         height: 100%;
@@ -86,94 +86,96 @@
   }
 }
 
-.exhibitions_main{
-.main_visual_swiper_wrap{
-  position: relative;
-.prev_btn {
-  @include m.swiper_btn;
-  left: -50px;
-  top: 40%;
-  border: none;
-  &::before {
-    content: "\f053";
-  }
-}
-.next_btn {
-  @include m.swiper_btn;
-  right: 6px;
-  top: 40%;
-  border: none;
-  &::before {
-    content: "\f054";
-  }
-}
+.exhibitions_main {
+  margin-bottom: 40px;
+  .main_visual_swiper_wrap {
+    position: relative;
+    .prev_btn {
+      @include m.swiper_btn;
+      left: -50px;
+      top: 40%;
+      border: none;
+      &::before {
+        content: "\f053";
+      }
+    }
+    .next_btn {
+      @include m.swiper_btn;
+      right: 6px;
+      top: 40%;
+      border: none;
+      &::before {
+        content: "\f054";
+      }
+    }
 
-  .exhibitions{
-    width: 269px;
-    .userimg_image_frame{
-      width: inherit;
-      height: 179px;
-      overflow: hidden;
-      transition: all 0.5s;
-      img{
-        width: 100%;
-        height: 100%;
-        &:hover{
-          scale: 1.1;
+    .exhibitions {
+      width: 269px;
+      margin: 15px 0px;
+      .userimg_image_frame {
+        width: inherit;
+        height: 179px;
+        overflow: hidden;
+        transition: all 0.5s;
+        img {
+          width: 100%;
+          height: 100%;
+          &:hover {
+            scale: 1.1;
+          }
         }
       }
-    }
-    .exhibitions_title{
-      font-size: 16px;
-      line-height: 24px;
-      font-weight: 700;
-    }
-    .userimg_text{
-      width: 100%;
-      overflow: hidden;
-      display: -webkit-box;
-      margin-top: 8px;
-      font-size: 16px;
-      line-height: 24px;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-    }
-  }
-
-  .exhibitions_button_wrap {
-    position: absolute;
-    right: 120px;
-    top: 90px;
-    overflow: hidden;
-    .exhibitions_list_button {
-      display: block;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background-color: rgb(234, 237, 239);
-      border: none;
-      &::after {
-        content: "\f054";
-        font-family: "Font Awesome 6 Free"; /*폰트어썸 fas, far 글꼴 연결*/
-        font-weight: 600;
+      .exhibitions_title {
         font-size: 16px;
-        color: #000;
+        line-height: 24px;
+        font-weight: 700;
+      }
+      .userimg_text {
+        width: 100%;
+        overflow: hidden;
+        display: -webkit-box;
+        margin-top: 8px;
+        font-size: 16px;
+        line-height: 24px;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
       }
     }
-    .exhibitions_img_list_button_span {
-      display: block;
-      margin-top: 5px;
-      margin-left: 3px;
+
+    .exhibitions_button_wrap {
+      position: absolute;
+      right: 120px;
+      top: 90px;
+      overflow: hidden;
+      .exhibitions_list_button {
+        display: block;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgb(234, 237, 239);
+        border: none;
+        &::after {
+          content: "\f054";
+          font-family: "Font Awesome 6 Free"; /*폰트어썸 fas, far 글꼴 연결*/
+          font-weight: 600;
+          font-size: 16px;
+          color: #000;
+        }
+      }
+      .exhibitions_img_list_button_span {
+        display: block;
+        margin-top: 5px;
+        margin-left: 3px;
+      }
+    }
+
+    .prev_btn.swiper-button-disabled {
+      opacity: 0 !important;
+      display: none;
+    }
+    .next_btn.swiper-button-disabled {
+      opacity: 0 !important;
+      display: none;
     }
   }
-
-  .prev_btn.swiper-button-disabled{
-    opacity: 0 !important;
-    display: none;
-  }
-  .next_btn.swiper-button-disabled{
-    opacity: 0 !important;
-    display: none;
-  }
-}
 }

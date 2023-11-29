@@ -13,8 +13,8 @@ export default function Login(){
   const navigate = useNavigate()
 
   const handleChange = (e) => {
-    const{name, value} = e.target;
-    setForm({...form, [name] : value})
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value })
   }
 
   const handleId = (e) => {
