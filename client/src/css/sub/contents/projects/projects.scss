@@ -1,0 +1,88 @@
+div.projects_wrap {
+    div.projects_inner_wrap {
+        ul.house_cate_list {
+            display: flex;
+            li.house_cate_list_li {
+                margin-right: 5px;
+                div.house_cate_list_box {
+                    margin-top: 5px;
+                    padding: 15px 0px;
+                    button.house_cate_list_btn {
+                        color: #757575;
+                        border: none;
+                        padding: 7px 8px 6px;
+                        border-radius: 5px;
+                        font-weight: bold;
+                        font-size: 15px;
+                        span.house_cate_list_span {
+                            &::after {
+                                content: "\f078";
+                                font-family: "Font Awesome 6 Free"; /*폰트어썸 fas, far 글꼴 연결*/
+                                font-weight: 800;
+                                font-size: 14px;
+                                margin-left: 5px;
+                                color: #757575;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        div.projects_all_count_wrap {
+            margin: 20px 0px 10px;
+            span.projects_all_count_text {
+                font-size: 15px;
+                color: rgb(66, 66, 66);
+            }
+        }
+        div.projects_house_intro_wrap {
+            display: flex;
+            margin: 0px -10px;
+            div.projects_house_intro_box {
+                width: 33.33%;
+                margin: 0px 10px 40px;
+                border-radius: 4px;
+                fieldset.projects_house_intro_img_wrap {
+                    position: relative;
+                    width: 100%;
+                    img {
+                        width: 100%;
+                        border-radius: 4px;
+                    }
+                    span.projects_house_intro_img_span_new {
+                        position: absolute;
+                        left: 20px;
+                        top: 10px;
+                        padding: 5px 8px;
+                        background-color: #ff7777;
+                        color: #fff;
+                        border-radius: 4px;
+                        font-size: 10px;
+                        font-weight: bold;
+                    }
+                    span.projects_house_intro_img_span_svg {
+                        position: absolute;
+                        right: 10px;
+                        bottom: 10px;
+                        svg {
+                        }
+                    }
+                }
+                p.projects_house_intro_info {
+                    text-align: center;
+                    margin: 10px 0px;
+                }
+            }
+            p.projects_house_intro_scrap {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                margin-top: 8px;
+                margin-right: 8px;
+                color: rgb(130, 140, 148);
+                font-size: 14px;
+            }
+        }
+    }
+}

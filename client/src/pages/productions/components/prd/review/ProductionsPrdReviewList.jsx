@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ProductionSvg from "../../ProductionSvg";
+import ProductionsPrdReviewUserItem from "./ProductionsPrdReviewUserItem";
 
 export default function ProductionsPrdReviewList() {
 
@@ -10,26 +11,7 @@ export default function ProductionsPrdReviewList() {
             <ul className="production_selling_prd_review_item_list">
                 <li className="production_selling_prd_review_item_list_li">
                     <div className="production_selling_prd_review_item_box">
-                        <div className="production_selling_prd_review_item_user">
-                            <Link to="#" className="production_selling_prd_review_item_user_img">
-                                <img src="https://image.ohou.se/image/central_crop/bucketplace-v2-development/uploads-users-profile_images-169328749141341054.jpeg/80/80" alt="유저리뷰이미지" />
-                            </Link>
-                            <div className="production_selling_prd_review_item_user_info_wrap">
-                                <p className="production_selling_prd_review_item_user_info_title">
-                                    정송운<span>(민서맘)</span>
-                                </p>
-                                <button className="production_selling_prd_review_item_user_info_btn">
-                                    <span className="production_selling_prd_review_item_user_info_btn_span">
-                                        <ProductionSvg />
-                                        <ProductionSvg />
-                                        <ProductionSvg />
-                                        <ProductionSvg />
-                                        <ProductionSvg />
-                                    </span>
-                                </button>
-                                <span className="production_selling_prd_review_item_user_info_btn_span_date">2023.11.23 ∙ 오늘의집 구매</span>
-                            </div>
-                        </div>
+                        <ProductionsPrdReviewUserItem isNew={false} />
                         <div className="production_selling_prd_review_item_detail_star">
                             <div className="production_selling_prd_review_item_detail_star_left">
                                 <span className="production_selling_prd_review_item_detail_star_left_span">내구성</span>

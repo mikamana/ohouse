@@ -5,7 +5,7 @@ import { FiChevronDown } from "react-icons/fi";
 export default function ShowMenu({ menuName, headerBox }) {
   const [navmenuList, setNavmenuList] = useState([]);
   useEffect((e) => {
-    fetch(`data/header/NavMenu_${menuName}.json`)
+    fetch(`/data/header/NavMenu_${menuName}.json`)
       .then((res) => res.json())
       .then((data) => {
         setNavmenuList(data)

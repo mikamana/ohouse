@@ -937,6 +937,49 @@ div.production_selling_prd_info_right {
   }
 }
 
+div.projects_house_intro_box {
+  div.production_selling_prd_review_item_user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a.production_selling_prd_review_item_user_img {
+      width: 24px;
+      height: 24px;
+      margin-right: 7px;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+    }
+    div.production_selling_prd_review_item_user_info_wrap {
+      display: flex;
+
+      p.production_selling_prd_review_item_user_info_title {
+        font-size: 13px;
+        margin-bottom: 7px;
+        color: #424242;
+        margin: 0 auto;
+      }
+      button.production_selling_prd_review_item_user_info_btn {
+        border: none;
+        background: none;
+        padding: 0px;
+        span.production_selling_prd_review_item_user_info_btn_span {
+          svg {
+            margin-right: 2px;
+          }
+        }
+      }
+      span.production_selling_prd_review_item_user_info_btn_span_date {
+        font-size: 13px;
+        color: #757575;
+        margin-left: 5px;
+      }
+    }
+  } //production_selling_prd_review_item_user
+} //ProjectsWrap 에서 사용
+
 div.production_container_inquery_wrap {
   min-height: 800px;
 }
