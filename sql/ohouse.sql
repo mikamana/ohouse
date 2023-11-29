@@ -7,7 +7,7 @@
 create table review(
 
 		rid int auto_increment primary key,
-        ananan varchar(500)
+        asfasdasasas varchar(500)
 
 );
 
