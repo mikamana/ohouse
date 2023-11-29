@@ -8,7 +8,6 @@ export default function HeaderLogoWrite() {
     fetch('/data/header/Popup_write.json')
       .then((res) => res.json())
       .then((data) => {
-        //console.log(data);
         SetPopupWriteList(data)
       })
       .catch((err) => console.err)

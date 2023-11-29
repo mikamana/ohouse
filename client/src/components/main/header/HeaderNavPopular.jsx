@@ -10,7 +10,6 @@ export default function HeaderNavPopular() {
   //   fetch('data/header/Popularview_list.json')
   //     .then((res) => res.json())
   //     .then((data) => {
-  //       //console.log(data);
   //       SetPopularList(data)
   //     })
   //     .catch((err) => console.err)
@@ -31,7 +30,6 @@ export default function HeaderNavPopular() {
 
   const useInterval = (callback, delay) => {
     const callbackRef = useRef(callback);
-    // console.log(callbackRef);
     useEffect(() => {
       callbackRef.current = callback;
     });
@@ -47,7 +45,6 @@ export default function HeaderNavPopular() {
   useInterval(() => {
     setTopY((top) => top + currentTop);
     if (topY >= 440) {
-      console.log(`topY--->${topY}`);
       setTopY(0)
     }
   }, 3000);

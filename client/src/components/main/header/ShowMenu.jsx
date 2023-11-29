@@ -8,7 +8,6 @@ export default function ShowMenu({ menuName, headerBox }) {
     fetch(`/data/header/NavMenu_${menuName}.json`)
       .then((res) => res.json())
       .then((data) => {
-        //console.log(data);
         setNavmenuList(data)
       })
       .catch((err) => console.err);
