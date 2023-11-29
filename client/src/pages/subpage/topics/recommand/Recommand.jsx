@@ -5,6 +5,8 @@ import { SwiperSlide } from "swiper/react";
 import SnsImgImgBox from "../../../main/snsimg/SnsImgImgBox";
 import SubtitleMore from "../../../main/subtitle_more/Subtitle_more";
 import "../../../../css/sub/topics/recommand/recommand.css";
+import RecommandImgText from "./component/RecommandImgText";
+import RecommandImgBox from "./component/RecommandImgBox";
 
 export default function Recommand() {
   /* 메뉴 */
@@ -39,6 +41,13 @@ export default function Recommand() {
           <SubtitleMore title={"산타들 주목 🎅🏼 이런 선물 어때요?"} />
           <div className="snsimg_inner inner">
           <SwiperSlide>
+            <div>
+              <SnsImgImgBox />
+              <RecommandImgText />
+            </div>
+            <RecommandImgBox />
+            <SnsImgImgBox />
+            <SnsImgImgBox />
             <SnsImgImgBox />
             <SnsImgImgBox />
             <SnsImgImgBox />
