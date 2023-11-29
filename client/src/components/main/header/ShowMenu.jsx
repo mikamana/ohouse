@@ -25,12 +25,18 @@ export default function ShowMenu({ menuName, headerBox }) {
 
   const hiddenMenu = ['반려동물', '캠핑', '취미', '이벤트']
 
+  /* 메뉴 클릭 시 underline color : header_nav_menu_list */
+  const [menuLine, setMenuLine] = useState(0);
+  const showUnderline = (e, idx) => {
+    setMenuLine(idx)
+  };
+
   return (
     <div /* ref={headerBox} onClick={(e) => {if(e.target === hiddenMenu.current) setShowHiddenMeun(false)}} */>
       <div className="header_nav_menu">
-        {navmenuList.map((list) =>
-          <div className="header_nav_menu_wrap" key={list.menuName}>
-            <Link to={list.url} className="header_nav_menu_list">
+        {navmenuList.map((list, idx) =>
+          <div className="header_nav_menu_wrap"  key={list.menuName}>
+            <Link to={list.url} className={(idx === menuLine ? "header_nav_menu_list active" : "header_nav_menu_list")} onClick={(e)=>showUnderline(e,idx)}>
               <p className="header_nav_menu_name">{list.menuName}</p>
             </Link>
           </div>
