@@ -1,7 +1,7 @@
 import SubtitleMore from "../subtitle_more/Subtitle_more";
 import ShopcateCategory from "./ShopcateCategory";
 import ShopcateContents from "./ShopcateContents";
-
+import "../../../css/main/shopcate/shopcate.css";
 export default function ShopcateSection() {
   return (
     <>

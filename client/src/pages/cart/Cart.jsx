@@ -1,9 +1,11 @@
 import React from "react";
 import CartSection from './CartSection';
-export default function Cart(){
-  return(
+import "../../css/cart/cart.css";
+
+export default function Cart() {
+  return (
     <div className='cart'>
-      <CartSection/>
+      <CartSection />
     </div>
   );
 }

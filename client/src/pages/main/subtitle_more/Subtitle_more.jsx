@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import "../../../css/main/subtitle_more/subtitle_more.css";
 
 export default function SubtitleMore({ title, subTitle }) {
   return (

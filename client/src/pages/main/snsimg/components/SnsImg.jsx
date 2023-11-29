@@ -2,6 +2,8 @@ import React from "react";
 // import SnsImgTitleText from "./SnsImgTitleText";
 import SnsImgSwiper from "./SnsImgSwiper";
 import SubtitleMore from "../../subtitle_more/Subtitle_more";
+import "../../../../css/main/snsimg/snsimg.css";
+
 export default function SnsImg() {
 
   return (
