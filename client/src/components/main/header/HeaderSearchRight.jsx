@@ -3,6 +3,7 @@ import { PiBellLight, PiBookmarkSimpleLight, PiShoppingCartLight } from "react-i
 import { Link } from "react-router-dom";
 import HeaderProfile from "./HeaderProfile";
 import { getUser } from './../../../pages/utill/sessionStorage';
+import { TfiSearch } from 'react-icons/tfi';
 
 export default function HeaderSearchRight() {
   const userInfo = getUser();
