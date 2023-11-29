@@ -7,9 +7,11 @@
 create table review(
 
 		rid int auto_increment primary key,
-        review_content varchar(500),
+        dlskflsjh varchar(500)
 
 );
+
+
 
 
 
