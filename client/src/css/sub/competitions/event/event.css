@@ -1,1 +1,40 @@
-/*# sourceMappingURL=event.css.map */
+ul.event_container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 40px;
+}
+ul.event_container li.event_content {
+  width: 50%;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+ul.event_container li.event_content a:hover img {
+  transform: scale(1.1);
+}
+ul.event_container li.event_content a .event_image {
+  border-radius: 6px;
+  overflow: hidden;
+}
+ul.event_container li.event_content a .event_image img {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  transition: linear 0.2s;
+}
+ul.event_container li.event_content a .event_title {
+  display: flex;
+  justify-content: space-between;
+  color: #bdbdbd;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 20px 15px;
+}
+ul.event_container li.event_content a .event_title .event_title_now {
+  color: var(--sky);
+}
+ul.event_container li.event_content a .event_title .event_title_date {
+  font-size: 13px;
+  font-weight: normal;
+}/*# sourceMappingURL=event.css.map */

@@ -1,0 +1,77 @@
+.search_keyword {
+  width: 100%;
+  border-bottom: 1px solid var(--gray);
+  font-size: 15px;
+  line-height: 23px;
+  padding: 8px 16px 9px 16px;
+}
+.search_keyword span {
+  margin-right: 12px;
+}
+.search_keyword a {
+  color: var(--sky);
+  font-weight: 600;
+  margin-right: 10px;
+}
+.search_keyword a:hover {
+  color: var(--lightSky);
+}
+
+.search_total {
+  width: 100%;
+  border: 1px solid var(--borderColor);
+  border-radius: 8px;
+  margin: 40px 0;
+}
+.search_total > div {
+  font-size: 14px;
+}
+.search_total > div .search_total_sub_title {
+  line-height: 20px;
+  margin: 20px;
+}
+.search_total > div .search_total_sub_title p {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.search_total > div .search_total_sub_title span {
+  color: #828c94;
+}
+.search_total ul.search_total_image {
+  display: flex;
+  margin: 20px 16px;
+}
+.search_total ul.search_total_image li a {
+  display: block;
+  line-height: 18px;
+  margin: 12px 20px 0 0;
+}
+.search_total ul.search_total_image li a figure {
+  width: 72px;
+  height: 72px;
+  border-radius: 24px;
+  background-image: url("https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/snapshots/169864726998635933.jpeg?gif=1&w=320&h=214&c=c");
+  background-position: 50% center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  margin: 0 auto 10px;
+}
+.search_total ul.search_total_image li a figure:hover {
+  border: 2px solid var(--sky);
+}
+.search_total .search_total_bttn {
+  width: 100%;
+  display: block;
+  text-align: center;
+  border: 1px solid var(--borderColor);
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 16px 0;
+  margin: 20px;
+}
+.search_total .search_total_bttn:hover {
+  background: var(--lightGray);
+}/*# sourceMappingURL=search.css.map */

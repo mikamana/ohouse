@@ -20,6 +20,7 @@ import "./css/production/production.css";
 import "./css/cart/cart.css";
 import "./css/sub/store/storehome/todaydeal/storehometodaydeal.css";
 import "./css/sub/store/storehome/popularproducts/storehomepopularproducts.css";
+import "./css/sub/search/search.css"
 import Main from "./components/main/Main";
 import Contents from './components/main/contents/Contents';
 import SkyImg from './pages/main/skyimg/SkyImg';
@@ -81,7 +82,7 @@ const router = createBrowserRouter([
           </Contents>
       },
       {
-        path: '/feed/Event', element:
+        path: '/feed/event', element:
           <Contents>
             <Event />
           </Contents>
@@ -90,6 +91,12 @@ const router = createBrowserRouter([
         path: '/production', element:
           <Contents>
             <Productions />
+          </Contents>
+      },
+      {
+        path: '/search', element:
+          <Contents>
+            <Search />
           </Contents>
       }
     ]
@@ -101,12 +108,6 @@ const router = createBrowserRouter([
   {
     path: 'login', element:
     <Login/>
-  },
-  {
-    path: '/search', element:
-      <Contents>
-        <Search />
-      </Contents>
   }
 
 
