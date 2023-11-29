@@ -37,6 +37,7 @@ import StoreHomePopularProductsSection from "./pages/subpage/store/storehome/pop
 import StoreHomeTodayDealSection from "./pages/subpage/store/storehome/todaydeal/StoreHomeTodayDealSection";
 import Signup from './pages/user/Signup';
 import Login from './pages/user/Login';
+import PasswordNew from "./pages/user/PasswordNew";
 
 const router = createBrowserRouter([
 
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
           <Contents>
             <Productions />
           </Contents>
+      },
+      {
+        path: '/users/password/new',element:
+          <PasswordNew/>
       }
     ]
   },

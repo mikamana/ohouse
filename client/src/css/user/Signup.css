@@ -5,10 +5,32 @@
   margin: 0 auto;
   width: 360px;
 }
+.Signup .SignupLogo {
+  position: absolute;
+  left: 15px;
+}
 .Signup .SignupTitle {
-  padding-top: 60px;
+  padding-top: 95px;
   font-size: 20px;
   font-weight: bold;
+}
+.Signup .SignupSNS {
+  padding: 15px 0 30px 0;
+  overflow: hidden;
+  border-bottom: 1px solid #eee;
+}
+.Signup .SignupSNS .SignupSNSText {
+  font-size: 12px;
+  text-align: center;
+  margin: 15px 0;
+  color: #757575;
+}
+.Signup .SignupSNS .SignupSNSImg {
+  text-align: center;
+}
+.Signup .SignupSNS .SignupSNSImg img {
+  cursor: pointer;
+  margin: 0 10px;
 }
 .Signup .SingupForm {
   padding-top: 30px;
@@ -40,7 +62,16 @@
   transition: border-color 0.1s, background-color 0.1s;
   resize: none;
 }
-.Signup .SingupForm button:not(.SinupEmailClose) {
+.Signup .SingupForm input:not(input[type=checkbox]):focus, .Signup .SingupForm select:focus {
+  outline: none;
+}
+.Signup .SingupForm .SingupNotValue {
+  border-color: #f77 !important;
+}
+.Signup .SingupForm .SingupLabelNotValue {
+  color: #f77 !important;
+}
+.Signup .SingupForm button:not(.SinupEmailClose, .SignupEmailButton) {
   margin-top: 10px;
   width: 100%;
   height: 45px;
@@ -64,6 +95,9 @@
   position: relative;
   display: flex;
 }
+.Signup .SingupForm .SingupId .SingupIdInput:focus {
+  outline: none;
+}
 .Signup .SingupForm .SingupId .SingupIdspan {
   font-size: 15px;
   -moz-flex: 0 0 20px;
@@ -85,6 +119,13 @@
   cursor: default;
   color: rgba(0, 0, 0, 0.3);
 }
+.Signup .SingupForm .SingupText {
+  display: block;
+  padding-top: 10px;
+  font-size: 14px;
+  line-height: 18px;
+  color: rgb(255, 119, 119);
+}
 .Signup .SingupForm .SignupIdButton {
   background: rgb(247, 248, 250);
   color: rgb(194, 200, 204);
@@ -93,6 +134,51 @@
   border-radius: 4px;
   cursor: pointer;
   box-sizing: border-box;
+}
+.Signup .SingupForm .SignupIdButtonActive {
+  background-color: #fff;
+  border: 1px solid #35c5f0;
+  color: #35c5f0;
+}
+.Signup .SingupForm .SignupEmail {
+  min-height: 143px;
+  box-sizing: border-box;
+  background: rgb(247, 248, 250);
+  padding: 20px 16px;
+}
+.Signup .SingupForm .SignupEmail .SignupEmailTitle {
+  margin-bottom: 12px;
+  font-size: 13px;
+  line-height: 20px;
+}
+.Signup .SingupForm .SignupEmail div {
+  position: relative;
+}
+.Signup .SingupForm .SignupEmail div .SignupEmailButton {
+  position: absolute;
+  white-space: pre;
+  width: 47.7px;
+  min-height: 31px;
+  right: 10px;
+  top: 5px;
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 17px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #35c5f0;
+  color: #35c5f0;
+}
+.Signup .SingupForm .SignupEmail span {
+  display: inline-block;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  line-height: 20px;
+}
+.Signup .SingupForm .SignupEmail span .SignupEmailReturn {
+  cursor: pointer;
 }
 .Signup .SingupForm .SignupPass {
   margin-bottom: 30px;
@@ -120,6 +206,28 @@
   margin: 18px 0;
 }
 .Signup .SingupForm .SignupAgree .SingupAgreeCheckbox {
+  font-size: 14px;
+  line-height: 20px;
+  color: #2F3438;
+  margin-bottom: 10px;
+}
+.Signup .SignupAgreeNotValue {
+  margin-bottom: 30px;
+  padding: 18px;
+  border: 1px solid #f77;
+}
+.Signup .SignupAgreeNotValue input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+}
+.Signup .SignupAgreeNotValue hr {
+  padding: 0;
+  height: 1px;
+  border: none;
+  background-color: #EAEDEF;
+  margin: 18px 0;
+}
+.Signup .SignupAgreeNotValue .SingupAgreeCheckbox {
   font-size: 14px;
   line-height: 20px;
   color: #2F3438;
