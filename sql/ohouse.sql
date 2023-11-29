@@ -7,13 +7,22 @@
 create table review(
 
 		rid int auto_increment primary key,
-        dlskflsjh varchar(500)
+        ananan varchar(500)
 
 );
 
 
 
 
+
+
+
+create table review(
+
+		rid int auto_increment primary key,
+        dlskflsjh varchar(500)
+
+);
 
 
 
