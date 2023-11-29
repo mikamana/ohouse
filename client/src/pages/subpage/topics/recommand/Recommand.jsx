@@ -16,8 +16,8 @@ export default function Recommand() {
 
   return (
     <section className="topics_recommand_section">
-      <div className="topics_recommand_inner inner">
-        {/* ShopcateCategoryItem.jsx */}
+      {/* ShopcateCategoryItem.jsx */}
+      <div className="topics_recommand_menu_section inner">
         <div className="topics_recommand_menu">
           {
             catelist.map((list) =>
@@ -26,23 +26,21 @@ export default function Recommand() {
               />)
           }
         </div>
-        {/* RecommandImgContent.jsx */}
-        <div className="recommand_content_section">
-          <RecommandImgContent />
-          <RecommandImgContent />
-        </div>
+      </div>
+      {/* RecommandImgContent.jsx */}
+      <div className="topics_recommand_content_section inner">
+        <RecommandImgContent />
+        <RecommandImgContent />
       </div>
       {/* subTitlemore.jsx SnsImg.jsx */}
-      <div className="recommand_snsimg_section ">
-        {/* <section className="snsimg_wrap">
-            <SubtitleMore title={"산타들 주목 🎅🏼 이런 선물 어때요?"} />
-            <div className="snsimg_inner inner">
+      <section className="snsimg_wrap">
+        <div className="snsimg_wrap_contentbox">
+          <SubtitleMore title={"산타들 주목 🎅🏼 이런 선물 어때요?"} />
+          <div className="snsimg_inner inner">
             <SnsImgSwiper />
-            </div>
-          </section > */}
-
-        <SnsImg />
-      </div>
+          </div>
+        </div>
+      </section>
     </section>
   );
 }

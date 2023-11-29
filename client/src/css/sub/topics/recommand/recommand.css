@@ -2,30 +2,30 @@
 section.topics_recommand_section {
   width: 100%;
   /* recommandImgContent.jsx */
-  /* recommandImgContent.jsx */
+  /* Subtitlemore.jsx */
 }
-section.topics_recommand_section .topics_recommand_inner {
+section.topics_recommand_section .topics_recommand_menu_section {
   margin: 6px auto;
 }
-section.topics_recommand_section .topics_recommand_inner .topics_recommand_menu {
+section.topics_recommand_section .topics_recommand_menu_section .topics_recommand_menu {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   padding: 10px 0;
 }
-section.topics_recommand_section .topics_recommand_inner .topics_recommand_menu .shopcate_category_item_container {
+section.topics_recommand_section .topics_recommand_menu_section .topics_recommand_menu .shopcate_category_item_container {
   margin-right: 5px;
   width: auto;
 }
-section.topics_recommand_section .topics_recommand_inner .topics_recommand_menu .shopcate_category_item_container .shopcate_category_item_wrap {
+section.topics_recommand_section .topics_recommand_menu_section .topics_recommand_menu .shopcate_category_item_container .shopcate_category_item_wrap {
   background-color: #fff;
   border: 1px solid rgb(218, 221, 224);
   box-sizing: border-box;
 }
-section.topics_recommand_section div.recommand_content_section {
+section.topics_recommand_section div.topics_recommand_content_section {
   display: block;
 }
-section.topics_recommand_section div.recommand_content_section div.recommand_contents {
+section.topics_recommand_section div.topics_recommand_content_section div.recommand_contents {
   margin-top: 6px;
   margin-bottom: 30px;
   display: flex;
@@ -155,17 +155,14 @@ section.topics_recommand_section div.recommand_section div.recommand_id_wrap .re
 section.topics_recommand_section div.recommand_section div.recommand_id_wrap .recommand_id_likebtn .recommand_id_likenum {
   font-size: 12px;
 }
-section.topics_recommand_section div.recommand_snsimg_section {
-  background-color: rgb(247, 249, 250);
+section.topics_recommand_section section.snsimg_wrap {
+  margin: 40px 0px;
   /* SnsImg.jsx */
 }
-section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wrap {
-  margin: 40px 0px;
-}
-section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wrap div.snsimg_inner {
+section.topics_recommand_section section.snsimg_wrap div.snsimg_inner {
   position: relative;
 }
-section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wrap div.snsimg_inner button.sns_prev_btn {
+section.topics_recommand_section section.snsimg_wrap div.snsimg_inner button.sns_prev_btn {
   position: absolute;
   width: 48px;
   height: 48px;
@@ -186,20 +183,20 @@ section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wra
   border: none;
   top: 40%;
 }
-section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wrap div.snsimg_inner button.sns_prev_btn::before {
+section.topics_recommand_section section.snsimg_wrap div.snsimg_inner button.sns_prev_btn::before {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
 }
-section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wrap div.snsimg_inner button.sns_prev_btn:hover {
+section.topics_recommand_section section.snsimg_wrap div.snsimg_inner button.sns_prev_btn:hover {
   background: var(--lightGray);
 }
-section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wrap div.snsimg_inner button.sns_prev_btn::after {
+section.topics_recommand_section section.snsimg_wrap div.snsimg_inner button.sns_prev_btn::after {
   content: "\f053";
   font-family: "Font Awesome 6 Free"; /*폰트어썸 fas, far 글꼴 연결*/
   font-weight: 900;
   font-size: 24px;
 }
-section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wrap div.snsimg_inner button.sns_next_btn {
+section.topics_recommand_section section.snsimg_wrap div.snsimg_inner button.sns_next_btn {
   position: absolute;
   width: 48px;
   height: 48px;
@@ -220,30 +217,30 @@ section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wra
   border: none;
   top: 40%;
 }
-section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wrap div.snsimg_inner button.sns_next_btn::before {
+section.topics_recommand_section section.snsimg_wrap div.snsimg_inner button.sns_next_btn::before {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
 }
-section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wrap div.snsimg_inner button.sns_next_btn:hover {
+section.topics_recommand_section section.snsimg_wrap div.snsimg_inner button.sns_next_btn:hover {
   background: var(--lightGray);
 }
-section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wrap div.snsimg_inner button.sns_next_btn::after {
+section.topics_recommand_section section.snsimg_wrap div.snsimg_inner button.sns_next_btn::after {
   content: "\f054";
   font-family: "Font Awesome 6 Free"; /*폰트어썸 fas, far 글꼴 연결*/
   font-weight: 900;
   font-size: 24px;
 }
-section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wrap div.snsimg_inner div.snsimg_title_wrap {
+section.topics_recommand_section section.snsimg_wrap div.snsimg_inner div.snsimg_title_wrap {
   padding: 20px 0px;
   box-sizing: border-box;
 }
-section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wrap div.snsimg_inner div.snsimg_title_wrap p.snsimg_title_text strong.snsimg_title_text {
+section.topics_recommand_section section.snsimg_wrap div.snsimg_inner div.snsimg_title_wrap p.snsimg_title_text strong.snsimg_title_text {
   font-weight: 700;
   font-size: 20px;
   color: rgb(47, 52, 56);
   line-height: 28px;
 }
-section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wrap div.snsimg_inner div.snsimg_title_wrap p.snsimg_title_text_bold span.snsimg_title_info {
+section.topics_recommand_section section.snsimg_wrap div.snsimg_inner div.snsimg_title_wrap p.snsimg_title_text_bold span.snsimg_title_info {
   display: inline-block;
   font-size: 14px;
   color: rgb(47, 52, 56);
@@ -253,58 +250,58 @@ section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wra
   font-weight: 400;
   line-height: 28px;
 }
-section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wrap div.snsimg_inner div.swiper-slide {
+section.topics_recommand_section section.snsimg_wrap div.snsimg_inner div.swiper-slide {
   display: flex;
 }
-section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div {
+section.topics_recommand_section section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div {
   width: calc((100% - 100px) / 6);
   margin-right: 20px;
   flex-shrink: 0;
   border-radius: 5px;
   overflow: hidden;
 }
-section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fieldset.snsimg_img_fieldset {
+section.topics_recommand_section section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fieldset.snsimg_img_fieldset {
   position: relative;
 }
-section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fieldset.snsimg_img_fieldset .snsimg_img_list_link img {
+section.topics_recommand_section section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fieldset.snsimg_img_fieldset .snsimg_img_list_link img {
   width: 100%;
   border-radius: 5px;
   transition: all 0.2s;
 }
-section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fieldset.snsimg_img_fieldset .snsimg_img_list_link img:hover {
+section.topics_recommand_section section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fieldset.snsimg_img_fieldset .snsimg_img_list_link img:hover {
   transform: scale(1.1);
 }
-section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fieldset.snsimg_img_fieldset .snsimg_img_list_link p.snsimg_img_list_user {
+section.topics_recommand_section section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fieldset.snsimg_img_fieldset .snsimg_img_list_link p.snsimg_img_list_user {
   position: absolute;
   left: 10px;
   bottom: 15px;
   display: flex;
   align-items: center;
 }
-section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fieldset.snsimg_img_fieldset .snsimg_img_list_link p.snsimg_img_list_user span.snsimg_img_list_user_img {
+section.topics_recommand_section section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fieldset.snsimg_img_fieldset .snsimg_img_list_link p.snsimg_img_list_user span.snsimg_img_list_user_img {
   display: block;
   width: 24px;
   height: 24px;
   border-radius: 50%;
   margin-right: 7px;
 }
-section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fieldset.snsimg_img_fieldset .snsimg_img_list_link p.snsimg_img_list_user span.snsimg_img_list_user_img img {
+section.topics_recommand_section section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fieldset.snsimg_img_fieldset .snsimg_img_list_link p.snsimg_img_list_user span.snsimg_img_list_user_img img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
 }
-section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fieldset.snsimg_img_fieldset .snsimg_img_list_link p.snsimg_img_list_user span.snsimg_img_list_user_text {
+section.topics_recommand_section section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fieldset.snsimg_img_fieldset .snsimg_img_list_link p.snsimg_img_list_user span.snsimg_img_list_user_text {
   color: #fff;
   font-weight: bold;
   font-size: 14px;
   margin-right: 65px;
 }
-section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wrap div.snsimg_inner div.snsimg_img_list_button_wrap {
+section.topics_recommand_section section.snsimg_wrap div.snsimg_inner div.snsimg_img_list_button_wrap {
   position: absolute;
   right: 80px;
   top: 50%;
 }
-section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wrap div.snsimg_inner div.snsimg_img_list_button_wrap button.snsimg_img_list_button {
+section.topics_recommand_section section.snsimg_wrap div.snsimg_inner div.snsimg_img_list_button_wrap button.snsimg_img_list_button {
   background-color: red;
   width: 40px;
   height: 40px;
@@ -313,23 +310,23 @@ section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wra
   border: none;
   transform: translateY(-50%);
 }
-section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wrap div.snsimg_inner div.snsimg_img_list_button_wrap button.snsimg_img_list_button::after {
+section.topics_recommand_section section.snsimg_wrap div.snsimg_inner div.snsimg_img_list_button_wrap button.snsimg_img_list_button::after {
   content: "\f054";
   font-family: "Font Awesome 6 Free"; /*폰트어썸 fas, far 글꼴 연결*/
   font-weight: 600;
   font-size: 16px;
   color: #000;
 }
-section.topics_recommand_section div.recommand_snsimg_section section.snsimg_wrap div.snsimg_inner div.snsimg_img_list_button_wrap span.snsimg_img_list_button_span {
+section.topics_recommand_section section.snsimg_wrap div.snsimg_inner div.snsimg_img_list_button_wrap span.snsimg_img_list_button_span {
   display: block;
   margin-top: -15px;
   margin-left: 3px;
 }
-section.topics_recommand_section div.recommand_snsimg_section .sns_next_btn.swiper-button-disabled {
+section.topics_recommand_section .sns_next_btn.swiper-button-disabled {
   opacity: 0 !important;
   display: none;
 }
-section.topics_recommand_section div.recommand_snsimg_section .sns_prev_btn.swiper-button-disabled {
+section.topics_recommand_section .sns_prev_btn.swiper-button-disabled {
   opacity: 0 !important;
   display: none;
-}/*# sourceMappingURL=recommand.css.map */
+}/*# sourceMappingURL=Recommand.css.map */
