@@ -1,8 +1,7 @@
-import { Link } from "react-router-dom";
-
 import React from "react";
 import IconMenuContent from "./components/IconMenuContent";
 import { useEffect, useState } from "react";
+import "../../../css/main/iconmenu/iconmenu.css";
 
 export default function IconMenu() {
   const [iconMenu, setIconMenu] = useState([]);

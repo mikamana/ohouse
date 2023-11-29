@@ -1,5 +1,7 @@
 import React from 'react';
 import ProductionsPrdReviewUserItem from '../../../productions/components/prd/review/ProductionsPrdReviewUserItem';
+import "../../../../css/sub/contents/projects/projects.css";
+
 
 export default function ProjectsWrap() {
     return (
