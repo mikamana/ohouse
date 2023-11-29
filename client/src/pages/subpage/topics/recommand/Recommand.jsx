@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import ShopcateCategoryItem from "../../../main/shopcate/components/category/ShopcateCategoryItem";
 import RecommandImgContent from "./component/RecommandImgContent";
-import SubtitleMore from "../../../main/subtitle_more/Subtitle_more";
-import SnsImgSwiper from "../../../main/snsimg/components/SnsImgSwiper";
-import SnsImg from "../../../main/snsimg/components/SnsImg";
-import SnsImgImgBox from "../../../main/snsimg/SnsImgImgBox";
 import { SwiperSlide } from "swiper/react";
+import SnsImgImgBox from "../../../main/snsimg/SnsImgImgBox";
+import SubtitleMore from "../../../main/subtitle_more/Subtitle_more";
+import "../../../../css/sub/topics/recommand/recommand.css";
 
 export default function Recommand() {
   /* 메뉴 */
