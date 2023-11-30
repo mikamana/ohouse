@@ -8,4 +8,5 @@ const pool = mysql.createPool({
   database : 'ohouse'
 })
 
-export const db = pool.promise()
+export const db = pool.promise();
+
