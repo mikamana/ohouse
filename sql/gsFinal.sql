@@ -10,6 +10,9 @@ drop table oh_member;
 
 
 
+
+
+
 desc oh_member;
 select * from oh_member;
 desc oh_category;
