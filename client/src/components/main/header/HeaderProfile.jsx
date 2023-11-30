@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { removeUser } from "../../../pages/utill/sessionStorage";
 
 export default function HeaderProfile() {
   const profileMenu = ['마이페이지', '나의 쇼핑', '이벤트', '전문가 신청', '판매자 신청', '고객센터', '로그아웃']
 
   const [newMark, setNewMark] = useState('마이페이지')
 
+  const handleLogout = () => {
+    removeUser();
+    window.location.reload();
+  }
 
   return (
     /* 로그인 후 마이페이지 클릭시 팝업 map없이 */
@@ -29,7 +34,7 @@ export default function HeaderProfile() {
         <Link to="/" className="header_nav_menu_list3">고객센터</Link>
       </li>
       <li>
-        <Link to="/" className="header_nav_menu_list3">로그아웃</Link>
+        <div className="header_nav_menu_list3" onClick={handleLogout}>로그아웃</div>
       </li>
     </ul>
   );
