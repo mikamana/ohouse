@@ -47,8 +47,8 @@ export default function ShopitemContents({shopitemList,index}){
           hotprice={shopitemList.tag_hotprice}
           />
           {shopitemList.coupon_sale && <ShopitemCoupon/>}
-          {shopitemList.percent && <ShopitemCouponMax
-          percent={shopitemList.percent}
+          {shopitemList.coupon_percent && <ShopitemCouponMax
+          percent={shopitemList.coupon_percent}
           />}
         </ShopitemInfo>
       </div>

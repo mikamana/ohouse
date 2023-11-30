@@ -1075,7 +1075,7 @@
   padding-inline: 24px;
 }
 
-.orders_siderbar_total_price_title_wrap {
+.orders_sidebar_total_price_title_wrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1170,7 +1170,7 @@
   height: 20px;
 }
 
-.orders_siderbar_agreement_other_wrap {
+.orders_sidebar_agreement_other_wrap {
   flex: 1 1 0%;
   min-width: 0px;
   max-width: 100%;
@@ -1180,28 +1180,52 @@
   padding-inline: 24px;
 }
 
-.orders_siderbar_agreement_other_container {
+.orders_sidebar_agreement_other_container {
   margin-bottom: 15px;
 }
-.orders_siderbar_agreement_other_container:first-of-type {
+.orders_sidebar_agreement_other_container:first-of-type {
   padding-top: 15px;
 }
 
-.orders_siderbar_agreement_other_agree {
+.orders_sidebar_agreement_other_agree {
   font-size: 14px;
   line-height: 18px;
   color: rgb(130, 140, 148);
 }
 
-.orders_siderbar_agreement_other_responsibility {
+.orders_sidebar_agreement_other_responsibility {
   font-size: 12px;
   line-height: 20px;
   color: rgb(130, 140, 148);
   margin-top: 10px;
 }
 
-.orders_siderbar_agreement_other_agree {
+.orders_sidebar_agreement_other_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-size: 14px;
   line-height: 18px;
   color: rgb(130, 140, 148);
+}
+
+.orders_sidebar_agreement_other_box_span {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  cursor: pointer;
+  margin-left: 12px;
+}
+
+.orders_sidebar_agreement_other_box_span_downarrow_container {
+  transition: all 0.3s ease 0s;
+}
+.orders_sidebar_agreement_other_box_span_downarrow_container.rotate_active {
+  transform: rotate(180deg);
+}
+
+.orders_sidebar_agreement_other_box_span_downarrow_box {
+  display: inline-block;
+  font-size: 18px;
+  line-height: 1;
 }/*# sourceMappingURL=orders.css.map */
