@@ -16,25 +16,28 @@ export default function RecommandImgContent() {
   }, [])
 
   return (
-    <div className="recommand_contents">
-      {recommandContent.map((content) =>
-        <div className="recommand_section">
-          <Link to="#" className="recommand_section_linkBox" key={content.url}>
-            <RecommandImgImage
-              url={content.url}
-              text={content.text}
+    <div className="topics_recommand_content_section inner">
+
+      <div className="recommand_contents">
+        {recommandContent.map((content) =>
+          <div className="recommand_section" key={content.url}>
+            <Link to="#" className="recommand_section_linkBox" key={content.url}>
+              <RecommandImgImage
+                url={content.url}
+                text={content.text}
+              />
+              <RecommandImgText
+                text={content.text}
+              />
+            </Link>
+            <RecommandImgId
+              idimg={content.idimg}
+              id={content.id}
+              likenum={content.likenum}
             />
-            <RecommandImgText
-              text={content.text}
-            />
-          </Link>
-          <RecommandImgId
-            idimg={content.idimg}
-            id={content.id}
-            likenum={content.likenum}
-          />
-        </div>
-      )}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

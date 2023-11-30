@@ -650,7 +650,7 @@ div.header_logo_right_loginver div.header_nav_popup_profile.active {
   transition: all 0.2s ease;
   z-index: 100;
 }
-div.header_logo_right_loginver div.header_nav_popup_profile ul li .header_nav_menu_list3 {
+div.header_logo_right_loginver div.header_nav_popup_profile ul li a.header_nav_menu_list3 {
   display: inline-block;
   width: 100%;
   height: 42px;
@@ -660,9 +660,8 @@ div.header_logo_right_loginver div.header_nav_popup_profile ul li .header_nav_me
   white-space: nowrap;
   border-radius: 2px;
   box-sizing: border-box;
-  cursor: pointer;
 }
-div.header_logo_right_loginver div.header_nav_popup_profile ul li .header_nav_menu_list3:hover {
+div.header_logo_right_loginver div.header_nav_popup_profile ul li a.header_nav_menu_list3:hover {
   background: rgb(247, 249, 250);
 }
 div.header_logo_right_loginver div.header_nav_popup_profile ul li .header_nav_menu_list3_newMark {
