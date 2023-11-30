@@ -18,7 +18,8 @@ export default function Login(){
   }
 
   const handleId = (e) => {
-    if(form.id === ""){
+    const idregExp = /^.*(?=.*[@]).*$/;
+    if(form.id.match(idregExp) == null){
       setIdValue(false);
       e.target.className = "LoginNotValue"
     }else{
@@ -27,7 +28,7 @@ export default function Login(){
     }
   }
 
-  const handlePass = (e) => {
+  const handlePass = (e) => { 
     if(form.pass === ""){
       setPassValue(false);
       e.target.className = "LoginNotValue"
@@ -42,7 +43,6 @@ export default function Login(){
     if(idValue && passValue){
       axios.post("http://localhost:8000/login", form)
       .then(result => {
-        console.log(result.data);
         if(result.data.login_result){
           setCookie("ohouse-jwt",result.data.token);
           const userid = jwtDecode(result.data.token);

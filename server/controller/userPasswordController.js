@@ -1,5 +1,6 @@
 import nodemailer from 'nodemailer';
-import * as repository from "../repository/userPasswordRepository.js"
+import * as repository from "../repository/userPasswordRepository.js";
+import bcript from "bcryptjs";
 
 /* 
 const  mailer = nodemailer.createTransport({
@@ -24,8 +25,8 @@ export function email(req, res){
   const mailOptions = {
     from : "nodetest789@gmail.com",
     to: id,
-    subject: '이메일 인증번호',
-    text: `인증번호 ${number}`
+    subject: '[오늘의집] 인증코드안내',
+    text: `인증코드를 확인해주세여 ${number}`
   }
   mailer.sendMail(mailOptions, (error, info) => {
     if (error) {
@@ -37,4 +38,12 @@ export function email(req, res){
   })
   */
   res.json(number);
+}
+
+export async function newPassword(req, res){
+  const { pass, id} = req.body;
+  const hpass = bcript.hashSync(pass, 10);
+  const params = [hpass, id];
+  const result = await repository.newPassword(params)
+  res.json(result)
 }
