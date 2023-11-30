@@ -29,6 +29,7 @@ import Event from "./pages/subpage/competitions/feed/Event";
 import Search from "./pages/subpage/search/Search";
 import ProjectsWrap from "./pages/subpage/contents/projects/ProjectsWrap";
 import CardCollections from "./pages/subpage/contents/cardCollections/CardCollections";
+import PasswordNewNew from './pages/user/PasswordNewNew';
 
 const router = createBrowserRouter([
 
@@ -110,6 +111,10 @@ const router = createBrowserRouter([
   {
     path: 'login', element:
       <Login />
+  },
+  {
+    path: '/users/password/new1',element:
+      <PasswordNewNew/>
   },
   {
     path: '/search', element:

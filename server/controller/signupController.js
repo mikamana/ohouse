@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
-import * as repository from "../repository/signupRepository.js"
-import bcript from "bcryptjs"
+import * as repository from "../repository/signupRepository.js";
+import bcript from "bcryptjs";
 /* 
 const  mailer = nodemailer.createTransport({
   service: "gmail",
@@ -14,14 +14,14 @@ export async function emailCheck(req, res){
   const {eid, domain} = req.body;
   const id = eid + "@" + domain;
   const result = await repository.idCheck(id);
-  const number = Math.floor(Math.random()*1E9)
+  const number = Math.floor(Math.random()*1E9);
   if(result.cnt === 0){
 /* 
   const mailOptions = {
     from : "nodetest789@gmail.com",
     to: id,
-    subject: '이메일 인증번호',
-    text: `인증번호 ${number}`
+    subject: '[오늘의집] 인증코드안내',
+    text: `인증코드를 확인해주세여 ${number}`
   }
   mailer.sendMail(mailOptions, (error, info) => {
     if (error) {
@@ -38,14 +38,14 @@ export async function emailCheck(req, res){
 
 export async function nicknameCheck(req, res){
   const {nickname} = req.body;
-  const result = await repository.nicknameCheck(nickname)
-  res.json(result)
+  const result = await repository.nicknameCheck(nickname);
+  res.json(result);
 }
 
 export async function signup(req, res){
   const {eid, domain, pass, nickname} = req.body;
   const id = eid + "@" + domain;
-  const hpass = bcript.hashSync(pass, 10)
+  const hpass = bcript.hashSync(pass, 10);
   const params = [id, hpass, nickname];
   const result = await repository.signup(params);
   res.json(result);

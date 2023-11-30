@@ -5,5 +5,6 @@ const router = express.Router();
 
 router.post("/", controller.userPasswordNew);
 router.post("/email", controller.email);
+router.post("/new", controller.newPassword);
 
 export default router;

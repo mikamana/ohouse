@@ -9,7 +9,7 @@ const server = express();
 
 server.use(cors());
 server.use(express.json());
-server.use(express.urlencoded());
+server.use(express.urlencoded({extended:true}));
 server.use('/normalUsers/new/', signup)
 server.use('/login', login)
 server.use('/users/password/new', userPass)

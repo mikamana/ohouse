@@ -15,5 +15,5 @@ export async function login(req, res){
   }
   result.pass = ""
   result.cnt = ""
-  res.json(result)
+  res.json(result)  
 }
