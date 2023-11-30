@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { PiBellLight, PiBookmarkSimpleLight, PiShoppingCartLight } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import HeaderProfile from "./HeaderProfile";
-
+import { getUser } from './../../../pages/utill/sessionStorage';
+import { TfiSearch } from 'react-icons/tfi';
 
 export default function HeaderSearchRight() {
+  const userInfo = getUser();
   const [showProfile, setShowProfile] = useState("header_nav_popup_profile");
   const toggleProfileMenu = (e) => {
     if (showProfile === "header_nav_popup_profile") {
@@ -13,10 +15,10 @@ export default function HeaderSearchRight() {
       setShowProfile("header_nav_popup_profile")
     }
   }
-
   return (
     <>
-      {/* 로그인 전 메뉴 */}
+      {!userInfo ?(
+      <>
       <div className="header_logo_searchBox">
         <img className="header_logo_search_img" src="/images/headers/search.png" alt="이미지1" />
         <input className="header_logo_search" type="text" placeholder="통합검색" name="header_logo_search" />
@@ -27,16 +29,18 @@ export default function HeaderSearchRight() {
         <Link to="/normalUsers/new" className="header_logo_menu">회원가입</Link>
         <Link to="/customer_center" className="header_logo_menu">고객센터</Link>
       </div>
-      {/* 
-      { 로그인 후 메뉴 }
+      </>
+      ):(
+      <>
       <div className="header_logo_searchBox_loginver">
-        <img className="header_logo_search_img" src="images/headers/search.png" alt="검색창 돋보기" />
+        {/* <img className="header_logo_search_img" src="/images/headers/search.png" alt="검색창 돋보기" />  */}
+        <TfiSearch size="20" color="828c94" />
         <input className="header_logo_search" type="text" placeholder="통합검색" name="header_logo_search" />
       </div>
       <div className="header_logo_right_loginver">
-        <Link to="/cart" className="header_logo_scrap"><PiBookmarkSimpleLight /></Link>
-        <Link to="/login" className="header_logo_feed"><PiBellLight /></Link>
-        <Link to="/normal_users/new" className="header_logo_cart">
+        <Link to="/collections" className="header_logo_scrap"><PiBookmarkSimpleLight /></Link>
+        <Link to="/notifications/feed" className="header_logo_feed"><PiBellLight /></Link>
+        <Link to="/cart" className="header_logo_cart">
           <PiShoppingCartLight />
           <span className="header_logo_cart_num">26</span>
         </Link>
@@ -47,7 +51,8 @@ export default function HeaderSearchRight() {
           <HeaderProfile />
         </div>
       </div>
-*/}
+      </>
+      )}
     </>
   );
 }

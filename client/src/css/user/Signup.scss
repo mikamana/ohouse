@@ -3,10 +3,32 @@
   padding-bottom: 60px;
   margin: 0 auto;
   width: 360px;
+  .SignupLogo{
+    position: absolute;
+    left: 15px;
+  }
   .SignupTitle{
-    padding-top: 60px;
+    padding-top: 95px;
     font-size: 20px;
     font-weight: bold;
+  }
+  .SignupSNS{
+    padding: 15px 0 30px 0;
+    overflow: hidden;
+    border-bottom: 1px solid #eee;
+    .SignupSNSText{
+      font-size: 12px;
+      text-align: center;
+      margin: 15px 0;
+      color: #757575;
+    }
+    .SignupSNSImg{
+      text-align: center;
+      img{
+        cursor: pointer;
+        margin: 0 10px;
+      }
+    }
   }
   .SingupForm{
     padding-top: 30px;
@@ -36,8 +58,17 @@
       line-height: 21px;
       transition: border-color .1s,background-color .1s;
       resize: none;
+      &:focus{
+        outline: none;
+      }
     }
-    button:not(.SinupEmailClose){
+    .SingupNotValue{
+      border-color: #f77 !important;
+    }
+    .SingupLabelNotValue{
+      color: #f77 !important;
+    }
+    button:not(.SinupEmailClose,.SignupEmailButton){
       margin-top: 10px;
       width: 100%;
       height: 45px;
@@ -59,6 +90,9 @@
       .SingupIdInput{
         position: relative;
         display: flex;
+        &:focus{
+          outline: none;
+        }
       }
       .SingupIdspan{
         font-size: 15px;
@@ -86,6 +120,13 @@
         color: rgba(0,0,0,.3);
       }
     }
+    .SingupText{
+      display: block;
+      padding-top: 10px;
+      font-size: 14px;
+      line-height: 18px;
+      color: rgb(255, 119, 119);
+    }
     .SignupIdButton{
       background: rgb(247, 248, 250);
       color: rgb(194, 200, 204);
@@ -94,6 +135,51 @@
       border-radius: 4px;
       cursor: pointer;
       box-sizing: border-box;
+    }
+    .SignupIdButtonActive{
+      background-color: #fff;
+      border: 1px solid #35c5f0;
+      color: #35c5f0;
+    }
+    .SignupEmail{
+      min-height: 143px;
+      box-sizing: border-box;
+      background: rgb(247, 248, 250);
+      padding: 20px 16px;
+      .SignupEmailTitle{
+        margin-bottom: 12px;
+        font-size: 13px;
+        line-height: 20px;
+      }
+      div{
+        position: relative;
+        .SignupEmailButton{
+          position: absolute;
+          white-space: pre;
+          width: 47.7px;
+          min-height: 31px;
+          right: 10px;
+          top: 5px;
+          margin: 0;
+          text-align: center;
+          font-size: 14px;
+          line-height: 17px;
+          box-sizing: border-box;
+          background-color: #fff;
+          border: 1px solid #35c5f0;
+          color: #35c5f0;
+        }
+      }
+      span{
+        display: inline-block;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        font-size: 13px;
+        line-height: 20px;
+        .SignupEmailReturn{
+          cursor: pointer;
+        }
+      }
     }
     .SignupPass{
       margin-bottom: 30px;
@@ -126,6 +212,28 @@
         margin-bottom: 10px;
       }
     }
+  }
+  .SignupAgreeNotValue{
+    margin-bottom: 30px;
+    padding: 18px;
+    border: 1px solid #f77;
+    input[type=checkbox]{
+      width: 20px;
+      height: 20px;
+    }
+    hr{
+      padding: 0;
+      height: 1px;
+      border: none;
+      background-color: #EAEDEF;
+      margin: 18px 0;
+    }
+    .SingupAgreeCheckbox{
+      font-size: 14px;
+      line-height: 20px;
+      color: #2F3438;
+      margin-bottom: 10px;
+    } 
   }
   .SignupSubmitButton{
     box-sizing: border-box;
