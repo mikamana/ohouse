@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ShopcateCategoryItem from "../../../main/shopcate/components/category/ShopcateCategoryItem";
 import RecommandImgContent from "./component/RecommandImgContent";
-import { SwiperSlide } from "swiper/react";
-import SubtitleMore from "../../../main/subtitle_more/Subtitle_more";
-import RecommandImgBox from "./component/RecommandImgBox";
-import "../../../../css/sub/topics/recommand/recommand.css";
 import Recommandcontent from "./component/RecommandContent";
+import "../../../../css/sub/topics/recommand/recommand.css";
 
 export default function Recommand() {
   /* 메뉴 */
@@ -33,6 +30,7 @@ export default function Recommand() {
       <Recommandcontent />
       <Recommandcontent />
       <Recommandcontent />
+      <RecommandImgContent />
     </section>
   );
 }

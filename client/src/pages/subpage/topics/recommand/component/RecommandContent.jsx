@@ -9,21 +9,11 @@ export default function Recommandcontent() {
     <>
       {/* RecommandImgContent.jsx */}
       <RecommandImgContent />
-      <RecommandImgContent />
       {/* subTitlemore.jsx SnsImg.jsx */}
       <section className="snsimg_wrap">
         <SubtitleMore title={"산타들 주목 🎅🏼 이런 선물 어때요?"} />
         <div className="snsimg_inner inner">
           <SwiperSlide>
-            <RecommandImgBox />
-            <RecommandImgBox />
-            <RecommandImgBox />
-            <RecommandImgBox />
-            <RecommandImgBox />
-            <RecommandImgBox />
-            <RecommandImgBox />
-            <RecommandImgBox />
-            <RecommandImgBox />
             <RecommandImgBox />
           </SwiperSlide>
         </div>

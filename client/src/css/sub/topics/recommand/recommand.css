@@ -26,10 +26,15 @@ section.topics_recommand_section div.topics_recommand_content_section {
 }
 section.topics_recommand_section div.topics_recommand_content_section div.recommand_contents {
   margin-top: 6px;
-  margin-bottom: 30px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  width: 1136px;
+}
+section.topics_recommand_section div.recommand_section {
+  margin-bottom: 30px;
+  width: calc((100% - 56px) / 4);
 }
 section.topics_recommand_section div.recommand_section a.recommand_section_linkBox {
   display: inline-block;
@@ -62,6 +67,10 @@ section.topics_recommand_section div.recommand_section a.recommand_section_linkB
 }
 section.topics_recommand_section div.recommand_section a.recommand_section_linkBox div.recommand_image_wrap span.recommand_image_img_scrapbtn.active .recommand_image_img_scrapbtn {
   color: var(--sky);
+}
+section.topics_recommand_section div.recommand_section a.recommand_section_linkBox div.recommand_image_wrap span.recommand_image_img_scrapbtn .shopitem_mark {
+  bottom: 0px;
+  right: 0px;
 }
 section.topics_recommand_section div.recommand_section a.recommand_section_linkBox div.recommand_text_wrap {
   position: relative;
@@ -152,7 +161,7 @@ section.topics_recommand_section div.recommand_section div.recommand_id_wrap .re
   font-size: 12px;
 }
 section.topics_recommand_section section.snsimg_wrap {
-  margin: 40px 0px;
+  margin: 10px 0px 40px 0px;
 }
 section.topics_recommand_section section.snsimg_wrap .subtitle_more {
   display: flex;
@@ -268,6 +277,10 @@ section.topics_recommand_section section.snsimg_wrap div.snsimg_inner div.swiper
   font-weight: bold;
   font-size: 14px;
   margin-right: 65px;
+}
+section.topics_recommand_section section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fieldset.snsimg_img_fieldset .snsimg_img_list_link p.snsimg_img_list_user .shopitem_mark {
+  bottom: -5px;
+  right: -23px;
 }
 section.topics_recommand_section section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fieldset.snsimg_img_fieldset .snsimg_img_list_link div.snsimg_img_list_link_textwrap {
   position: relative;

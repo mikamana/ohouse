@@ -8,11 +8,15 @@ import HeaderNavPopular from "./HeaderNavPopular";
 export default function Header() {
   /* 스크롤할 때 헤더 고정 */
   const [isFixed, SetIsFixed] = useState(false);
-  useEffect(() => {
-    document.getElementById('main_header').scrollTo(0, 0);
-  }, [])
-
+  // useEffect(() => {
+  //   document.getElementById('main_header').scrollTo(0, 0);
+  // }, [])
+  const [isFixedDown, SetIsFixedDown] = useState(false);
   const [position, setPosition] = useState(window.scrollY);
+  
+    /* header_logo 메뉴 호버시 header_nav 메뉴 show */
+    let [hovering, setHovering] = useState(1)
+    let [showMenu, setShowMenu] = useState(1)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,11 +25,13 @@ export default function Header() {
         console.log(`ScrollTop =>${ScrollTop}`);
         console.log(`position =>${position}`);
         SetIsFixed(true);
-      } else {
+      } else if(ScrollTop < 50){
         SetIsFixed(false);
       }
       SetIsFixedDown(position > ScrollTop);
-      setPosition(ScrollTop)
+      console.log('down =' + isFixedDown);
+      console.log('fixed =' + isFixed);
+      //setPosition(ScrollTop)
     }
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -33,9 +39,7 @@ export default function Header() {
     }
   }, [position])
 
-  /* header_logo 메뉴 호버시 header_nav 메뉴 show */
-  let [hovering, setHovering] = useState(1)
-  let [showMenu, setShowMenu] = useState(1)
+
 
   useEffect(() => {
     switch (hovering) {
@@ -70,7 +74,6 @@ export default function Header() {
   }
 
   /* header_layout_up fixed일 때 메뉴 호버하면 header_navmenu 나타남 */
-  const [isFixedDown, SetIsFixedDown] = useState(true);
   function handleNavMenuon(){
     if(isFixed === true){
       SetIsFixedDown(true)
@@ -118,7 +121,7 @@ export default function Header() {
         </div>
         {/* "main_header_layout_down" */}
         {/* <div className={isFixedDown ? "main_header_layout_down active" : "main_header_layout_down"} style={{position:isFixed ? 'fixed' : 'relative', top : isFixed ? '30px' : null, top : isFixedDown ? '81px' : null, transition: isFixed ? 'top 0.1s' : null}}> */}
-        <div className={isFixed ? "main_header_layout_down active" : "main_header_layout_down"} style={{top : isFixedDown ? '81px' : null}}>
+        <div className={isFixed ? "main_header_layout_down active" : "main_header_layout_down"} style={{top : isFixedDown ? '81px' : '0px'}}>
           <div className="header_nav inner">
             {showMenu === 1 && <ShowMenu menuName="community" />}
             {showMenu === 2 && <ShowMenu menuName="store" />}

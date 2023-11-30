@@ -5,12 +5,12 @@ import RecommandImgText from "./RecommandImgText";
 import RecommandImgId from "./RecommandImgId";
 
 export default function RecommandImgContent() {
-  const [recommandContent, setRecommandContent] = useState([]);
+  const [recommandContent, SetRecommandContent] = useState([]);
   useEffect(() => {
     fetch('/data/topics/recommandContent.json')
       .then((res) => res.json())
       .then((recommandContent) => {
-        setRecommandContent(recommandContent);
+        SetRecommandContent(recommandContent);
       })
       .catch((err) => console.err);
   }, [])
