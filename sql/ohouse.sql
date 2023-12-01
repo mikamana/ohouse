@@ -5927,9 +5927,14 @@ insert into oh_community (mid, house_img, house_title, house_content)
     'basicchoi@d-friends.co.kr',
     'https://image.ohou.se/i/bucketplace-v2-development/uploads/projects/cover_images/169838188772822300.jpg',
     '우드와 컬러 패턴의 조화로 꾸며가는 빈티지 무드의 신혼집',
-    '저는 최근에 제가 식물을 제법 잘 키우는 편이라는 뜻밖의 재능을 알게 됐어요. 사실 별로 해주는 건 없는데 무럭무럭 자라서 깜짝 깜짝 놀라요. 이 나비란도 자구가 너무 커져서 정리를 해줘야 하는데 아직 엄두를 내지 못하고 있어요.');insert into oh_community (mid, house_img, house_title, house_content)  values (     'samsoon_kim@d-friends.co.kr',     'https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168981484562138165.jpg',     '질리지 않는 화이트&우드의 매력! 53평 내추럴 하우스',     '안녕하세요, 에이치디자인입니다 :) 오늘은 노원구 중계동에 위치한 53평 아파트 시공 현장을 소개해 드리려고 해요! 이번 현장은 포근하면서도 단정한 분위기의 화이트&우드 인테리어를 진행했어요.')
+    '저는 최근에 제가 식물을 제법 잘 키우는 편이라는 뜻밖의 재능을 알게 됐어요. 사실 별로 해주는 건 없는데 무럭무럭 자라서 깜짝 깜짝 놀라요. 이 나비란도 자구가 너무 커져서 정리를 해줘야 하는데 아직 엄두를 내지 못하고 있어요.');
+insert into oh_community (mid, house_img, house_title, house_content)  values (
+'samsoon_kim@d-friends.co.kr',
+'https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168981484562138165.jpg',
+'질리지 않는 화이트&우드의 매력! 53평 내추럴 하우스',     '안녕하세요, 에이치디자인입니다 :) 오늘은 노원구 중계동에 위치한 53평 아파트 시공 현장을 소개해 드리려고 해요! 이번 현장은 포근하면서도 단정한 분위기의 화이트&우드 인테리어를 진행했어요.');
 
 
 
 
 
+select * from oh_product;
