@@ -1,0 +1,89 @@
+@use "../common/mixin.scss" as m;
+
+div.admin_section {
+  div.admin_banner {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    height: 100px;
+    box-sizing: border-box;
+    div.admin_logowrap {
+      width: 100px;
+      margin: 10px 20px;
+      img {
+        width: 100%;
+      }
+    }
+    h1.admin_title {
+      width: 50%;
+      font-size: 25px;
+      font-weight: 600;
+    }
+  } //div.admin_banner
+  nav.admin_navmenu {
+    display: flex;
+    margin: 0 auto;
+    width: 40%;
+    a {
+      margin-left: 5px;
+      flex: 1;
+      display: inline-block;
+      text-align: center;
+      height: 35px;
+      line-height: 35px;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--sky);
+      border-bottom: 2px solid var(--darkGray);
+      &:hover {
+        background-color: var(--gray);
+      }
+    }
+  }
+  div.admin_content {
+    margin: 10px auto;
+    width: 95%;
+    border: 1px solid var(--darkGray);
+    table.admin_table {
+      margin: 0 auto;
+      border: 1px solid #fff;
+      width: 90%;
+      text-align: center;
+      border-collapse: collapse;
+      td,
+      th {
+        padding: 3px 2px;
+        line-height: 25px;
+        border: 1px solid #fff;
+      }
+      thead {
+        background-color: var(--sky);
+        border-bottom: 5px solid #fff;
+        th {
+          height: 60px;
+          line-height: 60px;
+          font-size: 17px;
+          font-weight: bold;
+          color: #fff;
+          border-left: 2px solid #fff;
+          &:first-child {
+            border-left: none;
+          }
+        }
+      }
+      tbody {
+        td {
+          font-size: 15px;
+          height: 35px;
+          line-height: 35px;
+          img.admin_userimg {
+            width: 30px;
+          }
+        }
+      }
+      tr:nth-child(even) {
+        background: #d0e4f5;
+      }
+    }
+  } //div.admin_content
+} //div.admin_section

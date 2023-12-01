@@ -1,0 +1,146 @@
+{
+  "iconMenu" : [
+    {
+      "id" : "1",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/shortcut/home_feed_shortcut_sets/167262690767101882.png?w=144",
+      "name" : "쇼핑하기"
+    },
+    {
+      "id" : "2",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/shortcut/home_feed_shortcut_sets/169959195838627461.png?w=144",
+      "name" : "블프초특가"
+    },
+    {
+      "id" : "3",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/shortcut/home_feed_shortcut_sets/167198007152582471.png?w=144",
+      "name" : "오늘의딜"
+    },
+    {
+      "id" : "4",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/shortcut/home_feed_shortcut_sets/169655628839725014.png?w=144",
+      "name" : "추천콘텐츠"
+    },
+    {
+      "id" : "5",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/shortcut/home_feed_shortcut_sets/169233364533637651.png?w=144",
+      "name" : "장보기"
+    },
+    {
+      "id" : "6",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/shortcut/home_feed_shortcut_sets/167198010271968429.png?w=144",
+      "name" : "집들이"
+    },
+    {
+      "id" : "7",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/shortcut/home_feed_shortcut_sets/169880736853477508.png?w=144",
+      "name" : "수납꿀팁"
+    },
+    {
+      "id" : "8",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/shortcut/home_feed_shortcut_sets/167198012024333402.png?w=144",
+      "name" : "빠른배송"
+    },
+    {
+      "id" : "9",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/shortcut/home_feed_shortcut_sets/167198022841390557.png?w=144",
+      "name" : "리모델링"
+    },
+    {
+      "id" : "10",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/shortcut/home_feed_shortcut_sets/167198021046015480.png?w=144",
+      "name" : "쉬운이사"
+    }
+  ],
+  "mainIconSlider" : [
+    {
+      "id" : "1",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/169331097073161718.png?w=72",
+      "name" : "가을캠핑"
+    },
+    {
+      "id" : "2",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/165698403420736265.png?w=72",
+      "name" : "가구"
+    },
+    {
+      "id" : "3",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/169336026919989706.png?w=72",
+      "name" : "패브릭"
+    },
+    {
+      "id" : "4",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/169258215285574092.png?w=72",
+      "name" : "가전·디지털"
+    },
+    {
+      "id" : "5",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/165443714334272236.png?w=72",
+      "name" : "주방용품"
+    },
+    {
+      "id" : "6",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/166727583625644946.png?w=72",
+      "name" : "식품"
+    },
+    {
+      "id" : "7",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/167167019685810067.png?w=72",
+      "name" : "데코·식물"
+    },
+    {
+      "id" : "8",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/165443713935676588.png?w=72",
+      "name" : "조명"
+    },
+    {
+      "id" : "9",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/165443714917341657.png?w=72",
+      "name" : "수납·정리"
+    },
+    {
+      "id" : "10",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/165579048228622395.png?gif=1&w=144&h=144&c=c",
+      "name" : "생활용품"
+    },
+    {
+      "id" : "11",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/165519431107541334.png?w=72",
+      "name" : "생필품"
+    },
+    {
+      "id" : "12",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/166598560990637620.png?w=72",
+      "name" : "유아·아동"
+    },
+    {
+      "id" : "13",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823231401891024.png?w=72",
+      "name" : "반려동물"
+    },
+    {
+      "id" : "14",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/169331096291521248.png?w=72",
+      "name" : "캠핑·레저"
+    },
+    {
+      "id" : "15",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823230480918647.png?w=72",
+      "name" : "공구·DIY"
+    },
+    {
+      "id" : "16",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/162823230908544036.png?w=72",
+      "name" : "인테리어시공"
+    },
+    {
+      "id" : "17",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/166597743167902408.png?w=72",
+      "name" : "렌탈"
+    },
+    {
+      "id" : "18",
+      "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/category/store_home_categories/168188662903796143.png?w=72",
+      "name" : "장보기"
+    }
+  ]
+}
