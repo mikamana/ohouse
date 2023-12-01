@@ -2,7 +2,7 @@ import React from "react";
 import ProductionSvg from "../ProductionSvg";
 
 
-export default function ProductionInfoReviewBox() {
+export default function ProductionInfoReviewBox(props) {
 
   return (
 
@@ -17,7 +17,7 @@ export default function ProductionInfoReviewBox() {
           <ProductionSvg />
         </span>
         <span className="production-selling-header__review_text">
-          61개 리뷰
+          {props.rating + '개 리뷰'}
         </span>
       </p>
     </>

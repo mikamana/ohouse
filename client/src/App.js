@@ -95,7 +95,7 @@ const router = createBrowserRouter([
           </Contents>
       },
       {
-        path: '/production', element:
+        path: '/production/:pid', element:
           <Contents>
             <Productions />
           </Contents>

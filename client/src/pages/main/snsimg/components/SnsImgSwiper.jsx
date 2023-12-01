@@ -1,14 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import SnsImgImgBox from "../SnsImgImgBox";
+import axios from "axios";
+
+
 
 
 export default function SnsImgSwiper() {
+
 
     return (
 

@@ -1,13 +1,12 @@
 import React from 'react';
 import { IoMdArrowDropdown } from "react-icons/io";
-export default function OrdersPaymentDetail({paytype}) {
-  console.log(paytype);
+export default function OrdersPaymentDetail({ paytype }) {
   function PaymentDetail(paytype) {
     if (paytype === '') {
       return (
         <div className='orders_payment_type_card_wrap'>
           <div className='orders_payment_type_card_container'>
-            <span className='orders_payment_type_card_span'><IoMdArrowDropdown/></span>
+            <span className='orders_payment_type_card_span'><IoMdArrowDropdown /></span>
             <select className='orders_payment_type_card_select' name="card_bank" id="">
               <option value="카드를 선택해주세요.">카드를 선택해주세요.</option>
               <option value="KB국민">KB국민</option>
@@ -17,7 +16,7 @@ export default function OrdersPaymentDetail({paytype}) {
           </div>
           <div className='orders_payment_type_card_paytype_wrap'>
             <div className='orders_payment_type_card_paytype_container'>
-              <span className='orders_payment_type_card_span'><IoMdArrowDropdown/></span>
+              <span className='orders_payment_type_card_span'><IoMdArrowDropdown /></span>
               <select className='orders_payment_type_card_select' name="pay_type" id="">
                 <option value="1">일시불</option>
                 <option value="2">2개월</option>
