@@ -20,13 +20,16 @@ import ShopitemSection from "./pages/main/shopitem/ShopitemSection";
 import ShopcateSection from "./pages/main/shopcate/ShopcateSection";
 import StoreHomePopularProductsSection from "./pages/subpage/store/storehome/popularproducts/StoreHomePopularProductsSection";
 import StoreHomeTodayDealSection from "./pages/subpage/store/storehome/todaydeal/StoreHomeTodayDealSection";
+import Recommand from "./pages/subpage/topics/recommand/Recommand";
 import Signup from './pages/user/Signup';
 import Login from './pages/user/Login';
+import PasswordNew from "./pages/user/PasswordNew";
 import Channel from "./pages/subpage/topics/hashtagChannel/Channel";
 import Event from "./pages/subpage/competitions/feed/Event";
 import Search from "./pages/subpage/search/Search";
 import ProjectsWrap from "./pages/subpage/contents/projects/ProjectsWrap";
 import CardCollections from "./pages/subpage/contents/cardCollections/CardCollections";
+import PasswordNewNew from './pages/user/PasswordNewNew';
 
 const router = createBrowserRouter([
 
@@ -48,6 +51,12 @@ const router = createBrowserRouter([
             <Exhibitions />
             <ShopcateSection />
           </Contents>
+      },
+      {
+        path: '/topics/recommand', element:
+          <Contents>
+            <Recommand />
+          </Contents>,
       },
       {
         path: '/store', element:
@@ -94,6 +103,9 @@ const router = createBrowserRouter([
           <Contents>
             <Search />
           </Contents>
+      },
+      { path: '/users/password/new',element:
+          <PasswordNew/>
       }
     ]
   },
@@ -104,6 +116,10 @@ const router = createBrowserRouter([
   {
     path: 'login', element:
     <Login/>
+  },
+  {
+    path: '/users/password/new1',element:
+      <PasswordNewNew/>
   },
   {
     path: '/search', element:
