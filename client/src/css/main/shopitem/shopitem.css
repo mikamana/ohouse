@@ -240,8 +240,9 @@ div.shopitem_price {
   font-weight: 700;
 }
 
-div.shopitem_today_start {
+.shopitem_today_start {
   margin-top: 4px;
+  display: block;
 }
 
 .shopitem_today_start_img {

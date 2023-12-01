@@ -24,6 +24,8 @@ import Recommand from "./pages/subpage/topics/recommand/Recommand";
 import Signup from './pages/user/Signup';
 import Login from './pages/user/Login';
 import PasswordNew from "./pages/user/PasswordNew";
+import Cart from "./pages/cart/Cart";
+import Orders from "./pages/orders/Orders";
 import Channel from "./pages/subpage/topics/hashtag-channel/Channel";
 import Event from "./pages/subpage/competitions/feed/Event";
 import Search from "./pages/subpage/search/Search";
@@ -101,6 +103,18 @@ const router = createBrowserRouter([
       {
         path: '/users/password/new',element:
           <PasswordNew/>
+      },
+      {
+        path: '/cart', element:
+        <Contents>
+          <Cart/>
+        </Contents>
+      },
+      {
+        path: '/orders', element:
+          <Contents>
+            <Orders/>
+          </Contents>
       }
     ]
   },

@@ -1,7 +1,8 @@
 import CartContentsContainer from './components/CartContents/CartContentsContainer';
 import CartContentCoupon from './components/CartContents/CartContentsCouponWrap';
 import CartContentHeader from './components/CartContents/CartContentsHeaderWrap';
-import CartContentList from './components/CartContents/CartContentsListWrap';
+import CartContentItemWrap from './components/CartContents/CartContentsItemWrap';
+import CartContentsSimilarWrap from './components/CartContents/CartContentsSimilarWrap';
 
 export default function CartContentsWrap(){
   return(
@@ -9,7 +10,8 @@ export default function CartContentsWrap(){
       <CartContentsContainer>
         <CartContentHeader/>
         <CartContentCoupon/>
-        <CartContentList/>
+        <CartContentItemWrap/>
+        <CartContentsSimilarWrap/>
       </CartContentsContainer>
     </div>
   );
