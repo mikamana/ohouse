@@ -22,16 +22,12 @@ export default function Header() {
     const handleScroll = () => {
       const ScrollTop = window.scrollY;
       if (ScrollTop >= 50) {
-        console.log(`ScrollTop =>${ScrollTop}`);
-        console.log(`position =>${position}`);
         SetIsFixed(true);
       } else if(ScrollTop < 50){
         SetIsFixed(false);
       }
       SetIsFixedDown(position > ScrollTop);
-      console.log('down =' + isFixedDown);
-      console.log('fixed =' + isFixed);
-      //setPosition(ScrollTop)
+      // setPosition(ScrollTop)
     }
     window.addEventListener('scroll', handleScroll);
     return () => {

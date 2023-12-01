@@ -5,13 +5,12 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import React, { useEffect, useState } from 'react'
 import ShopitemContents from '../../../main/shopitem/ShopitemContents';
-
+import axios from 'axios'
 export default function CartContentsSimilarWrap(){
   const [shopArray,setShopArray] = useState([]);
   useEffect(()=>{
-    fetch('db/shopitem.json')
-    .then(res=>res.json())
-    .then(data=>setShopArray(data.slice(0,9)))
+    axios('http://127.0.0.1:8000/product/shopitem')
+    .then(result=>setShopArray(result.data.slice(0,9)))
   },[])
 
   return(

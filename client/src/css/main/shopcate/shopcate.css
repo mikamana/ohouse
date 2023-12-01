@@ -98,6 +98,16 @@ div.shopcate_section .next_btn2.swiper-button-disabled {
   background-color: rgb(247, 249, 250);
   cursor: pointer;
 }
+.shopcate_category_item_wrap:hover {
+  background-color: rgb(234, 237, 239);
+}
+.shopcate_category_item_wrap#active {
+  background-color: var(--sky);
+  color: #fff;
+}
+.shopcate_category_item_wrap#active:hover {
+  background-color: rgb(0, 159, 206);
+}
 
 .shopcate_category_item_text {
   font-size: 14px;

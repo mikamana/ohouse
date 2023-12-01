@@ -14,8 +14,14 @@ drop table oh_member;
 
 
 
-insert into oh_member (mid, pass, nickname) values ("@","$2a$10$TcZs4tDeBpTJNAnVHg65U.m0DsqsTj0eH1gLkulWOfnNv1H96sfwG", "관리자");
 
+/*
+	업데이트 필요한 사항들
+*/
+insert into oh_member (mid, pass, nickname) values ("@","$2a$10$TcZs4tDeBpTJNAnVHg65U.m0DsqsTj0eH1gLkulWOfnNv1H96sfwG", "관리자");
+update oh_product set price_sale = null,price_origin = 58900 where pid = 59;
+-- 관리자 계정 mid = @, pass = 1234, nickname = 관리자 insert
+-- oh_product 오류 수정
 
 desc oh_member;
 select * from oh_member;
