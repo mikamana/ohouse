@@ -1,4 +1,4 @@
-import * as repository from "../repository/loginRepository.js"
+import * as repository from "../../repository/oh_member/loginRepository.js"
 import bcript from "bcryptjs";
 import jwt from "jsonwebtoken";
 

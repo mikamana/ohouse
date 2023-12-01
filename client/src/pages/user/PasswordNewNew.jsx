@@ -73,13 +73,13 @@ export default function PasswordNewNew(){
       <div className="PasswordNewNewPass">
           <label className={(passText === "") ? "" : "PasswordNewNewLabelNotValue"}>비밀번호</label>
           <span className="PasswordNewNewTitle">영문, 숫자를 포함한 8자 이상의 비밀번호를 입력해주세요.</span>
-          <input type="password" name="pass" onChange={handleChange} onBlur={handlePass} value={form.pass} ref={inputPass} placeholder="비밀번호" className={(passText === "") ? "" : "PasswordNewNewNotValue"}/>
+          <input type="password" name="pass" onChange={handleChange} onBlur={handlePass} value={form.pass} ref={inputPass} placeholder="새비밀번호" className={(passText === "") ? "" : "PasswordNewNewNotValue"}/>
           <span className="PasswordNewNewText">{passText}</span>
         </div>
 
         <div className="PasswordNewNewCheck">
           <label className={(passCheckText === "") ? "" : "PasswordNewNewLabelNotValue"}>비밀번호확인</label>
-          <input type="password" name="passcheck" onChange={handleChange} onBlur={handlePassCheck} value={form.passcheck} ref={inputPassCheck} placeholder="비밀번호 확인" className={(passCheckText === "") ? "" : "PasswordNewNewNotValue"}/>
+          <input type="password" name="passcheck" onChange={handleChange} onBlur={handlePassCheck} value={form.passcheck} ref={inputPassCheck} placeholder="새비밀번호 확인" className={(passCheckText === "") ? "" : "PasswordNewNewNotValue"}/>
           <span className="PasswordNewNewText">{passCheckText}</span>
         </div>
         

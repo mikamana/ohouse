@@ -1,4 +1,4 @@
-import { db } from "./../data/database.js";
+import { db } from './../../data/database.js';
 
 export async function userPasswordNew(id){
   const sql = `select count(mid) as cntid, count(phone) as cnt, any_value(phone) as phone, any_value(left(phone,3))

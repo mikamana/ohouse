@@ -32,6 +32,8 @@ import Search from "./pages/subpage/search/Search";
 import ProjectsWrap from "./pages/subpage/contents/projects/ProjectsWrap";
 import CardCollections from "./pages/subpage/contents/cardCollections/CardCollections";
 import PasswordNewNew from './pages/user/PasswordNewNew';
+import Edit from './pages/user/Edit';
+import Withdrawals from './pages/user/Withdrawals';
 
 const router = createBrowserRouter([
 
@@ -102,7 +104,9 @@ const router = createBrowserRouter([
       },
       {
         path: '/users/password/new',element:
+        <Contents>
           <PasswordNew/>
+        </Contents>
       },
       {
         path: '/cart', element:
@@ -114,6 +118,18 @@ const router = createBrowserRouter([
         path: '/orders', element:
           <Contents>
             <Orders/>
+          </Contents>
+      },
+      {
+        path: '/edit', element:
+          <Contents>
+            <Edit/>
+          </Contents>
+      },
+      {
+        path: '/withdrawals', element:
+          <Contents>
+            <Withdrawals/>
           </Contents>
       }
     ]

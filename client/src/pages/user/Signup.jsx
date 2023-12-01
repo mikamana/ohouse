@@ -155,7 +155,7 @@ export default function Signup(){
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault();    
     if(mailCheck && nickNameValue && passValue && passCheckValue && check.q && check.w && check.e){
       axios.post("http://localhost:8000/normalUsers/new", form)
       .then(result => {
