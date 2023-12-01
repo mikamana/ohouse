@@ -91,7 +91,6 @@ div.shopitem_section .next_btn.swiper-button-disabled {
   line-height: 1;
   justify-content: center;
   align-items: center;
-  opacity: 1;
   transform: translateX(50%);
   z-index: 10;
   top: 65%;
