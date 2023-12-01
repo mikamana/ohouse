@@ -29,7 +29,7 @@ export default function Header() {
       SetIsFixedDown(position > ScrollTop);
       // setPosition(ScrollTop)
     }
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { capture: true });
     return () => {
       window.removeEventListener('scroll', handleScroll);
     }
@@ -60,7 +60,6 @@ export default function Header() {
       setHovering(3);
     }
   }
-
   function handleMouseLeave() {
     if (showMenu === 2 || showMenu === 3) {
       setShowMenu(1);
@@ -89,9 +88,8 @@ export default function Header() {
 
   return (
     <>
-      <header className="main_header" id="main_header" onMouseLeave={()=>{handleMouseLeave(); handleNavMenuoff();}}> 
-        <div className={"main_header_layout_up"} style={{position:isFixed ? 'fixed' : 'relative', top : isFixed ? '0' : null}} onMouseEnter={handleNavMenuon} >
-        {/* </div><div className={isFixed ? "main_header_layout_up active" : "main_header_layout_up"}> */}
+      <header className="main_header" id="main_header" onMouseLeave={handleMouseLeave}>
+        <div className={isFixed ? "main_header_layout_up active" : "main_header_layout_up"}>
           <div className="header_logo inner">
             <div className="header_logoBox">
               <Link to="/" className="header_logo_logo"></Link>
