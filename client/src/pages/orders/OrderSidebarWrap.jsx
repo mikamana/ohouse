@@ -45,6 +45,11 @@ export default function OrderSidebarWrap(){
             paytype={''}
             />
         </div>
+        <div className="orders_sidebar_total_payment_btn_wrap">
+          <button className="orders_sidebar_total_payment_btn">
+            {'1123123'}원 결제하기
+          </button>
+        </div>
       </div>
     </div>
   );
