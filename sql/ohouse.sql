@@ -7,11 +7,12 @@ drop table oh_community;
 drop table oh_product;
 drop table oh_category;
 drop table oh_member;
-
-
-
-
-
+/*
+	업데이트 필요한 사항들
+*/
+update oh_product set price_sale = null,price_origin = 58900 where pid = 59;
+-- oh_product 오류 수정
+-- 관리자 계정 mid = @, pass = 1234, nickname = 관리자
 
 desc oh_member;
 select * from oh_member;

@@ -28,7 +28,6 @@ export default function OrderFormWrap(){
     setForm({...form, [name] : value});
     if(e.target.name === 'reciever_request'){
       const letters = e.target.value.split("");
-      console.log(letters.length)
       setLength(letters.length < 51 ? letters.length : 50)
     }
   }
@@ -36,7 +35,6 @@ export default function OrderFormWrap(){
     let {name, value} = e.target;
     setForm({...form, [name] : value});
     setDomain(true);
-    console.log(display);
     if(e.target.value !== 'selftype' && e.target.name === 'orderer_mail'){
       setDisplay({...display, mailbox : "order_invisible"})
 
