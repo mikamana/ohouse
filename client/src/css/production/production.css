@@ -348,6 +348,32 @@ section.production_selling_wrap div.production_selling_inner div.production_sell
   transform: translateY(-50%);
   fill: #3eb9df;
 }
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(10) div.production_qty_wrap {
+  width: 100%;
+  background-color: rgb(247, 249, 250);
+  padding: 15px;
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(10) div.production_qty_wrap p.production_qty_sub_title {
+  width: 70%;
+  word-break: keep-all;
+  margin-bottom: 10px;
+  line-height: 150%;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(10) div.production_qty_wrap div.production_qty_price_wrap {
+  display: flex;
+  justify-content: space-between;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(10) div.production_qty_wrap div.production_qty_price_wrap div.production_qty_btn_wrap {
+  border: 1px solid rgb(200, 200, 200);
+  padding: 10px;
+  border-radius: 5px;
+}
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(10) div.production_qty_wrap div.production_qty_price_wrap div.production_qty_btn_wrap > * {
+  padding: 10px 15px;
+  box-sizing: border-box;
+}
 section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(11) {
   margin-bottom: 25px;
 }

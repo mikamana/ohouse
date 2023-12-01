@@ -8,7 +8,7 @@ export default function ProductionsPrdReviewUserTitle(props) {
         <>
             <div className="production_selling_prd_review_item_user_info_wrap">
                 <p className="production_selling_prd_review_item_user_info_title">
-                    정송운<span>(민서맘)</span>
+                    <span>{props.mid}</span>
                 </p>
                 <button className="production_selling_prd_review_item_user_info_btn">
                     {

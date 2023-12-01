@@ -369,6 +369,38 @@ section.production_selling_wrap {
                   fill: #3eb9df;
                 }
               }
+              div.production_qty_wrap {
+                width: 100%;
+                background-color: rgb(247, 249, 250);
+                padding: 15px;
+                box-sizing: border-box;
+                margin-top: 20px;
+                p.production_qty_sub_title {
+                  width: 70%;
+                  word-break: keep-all;
+                  margin-bottom: 10px;
+                  line-height: 150%;
+                }
+                div.production_qty_price_wrap {
+                  display: flex;
+                  justify-content: space-between;
+                  div.production_qty_btn_wrap {
+                    border: 1px solid rgb(200, 200, 200);
+                    padding: 10px;
+                    border-radius: 5px;
+                    > * {
+                      padding: 10px 15px;
+                      box-sizing: border-box;
+                    }
+                    span.production_qty_btn_total {
+                    }
+                    span.production_qty_btn_length {
+                    }
+                  }
+                  span.production_qty_price {
+                  }
+                }
+              }
             } // nth-child(10)
             &:nth-child(11) {
               margin-bottom: 25px;

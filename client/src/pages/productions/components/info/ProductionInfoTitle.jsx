@@ -1,12 +1,12 @@
 import React from "react";
 
-export default function ProductionInfoTitle() {
+export default function ProductionInfoTitle(props) {
 
   return (
 
     <>
       <p className="production_selling_info_title">
-        삼성전자
+        {props.title}
       </p>
     </>
 

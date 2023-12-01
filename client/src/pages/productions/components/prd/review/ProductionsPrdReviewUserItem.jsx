@@ -7,9 +7,11 @@ export default function ProductionsPrdReviewUserItem(props) {
         <>
             <div className="production_selling_prd_review_item_user">
                 <Link to="#" className="production_selling_prd_review_item_user_img">
-                    <img src="https://image.ohou.se/image/central_crop/bucketplace-v2-development/uploads-users-profile_images-169328749141341054.jpeg/80/80" alt="유저리뷰이미지" />
+                    <img src={props.userImg} alt="유저리뷰이미지" />
                 </Link>
-                <ProductionsPrdReviewUserTitle isNew={props.isNew} />
+                <ProductionsPrdReviewUserTitle isNew={props.isNew}
+                    mid={props.mid}
+                />
             </div>
         </>
     );
