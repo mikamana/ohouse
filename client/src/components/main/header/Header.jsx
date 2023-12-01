@@ -39,8 +39,6 @@ export default function Header() {
     }
   }, [position])
 
-
-
   useEffect(() => {
     switch (hovering) {
       case 1:

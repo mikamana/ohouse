@@ -3,6 +3,7 @@ import cors from "cors";
 import signup from "./router/signupRouter.js"
 import login from "./router/loginRouter.js"
 import userPass from "./router/userPasswordRouter.js"
+import admin from "./router/adminRouter.js"
 
 const PORT = 8000;
 const server = express();
@@ -13,6 +14,7 @@ server.use(express.urlencoded({extended:true}));
 server.use('/normalUsers/new/', signup)
 server.use('/login', login)
 server.use('/users/password/new', userPass)
+server.use('/admin',admin);
 
 server.listen(PORT,()=>{
   console.log(`server start --->> ${PORT}`);

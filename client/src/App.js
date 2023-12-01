@@ -29,6 +29,7 @@ import Event from "./pages/subpage/competitions/feed/Event";
 import Search from "./pages/subpage/search/Search";
 import ProjectsWrap from "./pages/subpage/contents/projects/ProjectsWrap";
 import CardCollections from "./pages/subpage/contents/cardCollections/CardCollections";
+import Adminpage from "./pages/admin/Adminpage";
 
 const router = createBrowserRouter([
 
@@ -116,9 +117,11 @@ const router = createBrowserRouter([
       <Contents>
         <Search />
       </Contents>
+  },
+  {
+    path: '/admin', element:
+      <Adminpage />
   }
-
-
 ])
 
 function App() {

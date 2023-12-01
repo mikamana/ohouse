@@ -1,3 +1,6 @@
+ -- ohouse 데이터테이블 사용
+ use ohouse;
+ select database();
 
 drop table oh_order;
 drop table oh_cart;
@@ -7,10 +10,6 @@ drop table oh_community;
 drop table oh_product;
 drop table oh_category;
 drop table oh_member;
-
-
-
-
 
 
 desc oh_member;

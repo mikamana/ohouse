@@ -23,7 +23,7 @@ export default function RecommandImgBox() {
               </div>
               <p className="snsimg_img_list_user">
                 <span className="snsimg_img_list_user_img">
-                  <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1577181681_416337.jpeg?w=36" />
+                  <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1577181681_416337.jpeg?w=36" alt="profile"/>
                 </span>
                 <span className="snsimg_img_list_user_text">
                   예진문
