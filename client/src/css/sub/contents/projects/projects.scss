@@ -95,14 +95,17 @@ div.projects_wrap {
         div.projects_house_intro_wrap {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
-            margin: 0px -10px;
+            // margin: 0px -10px;
             width: 100%;
+
             div.projects_house_intro_box {
-                width: 32.2%;
+                width: 32%;
                 // margin: 0px 10px 40px;
                 border-radius: 4px;
                 margin-bottom: 40px;
+                &:not(:nth-child(3n + 3)) {
+                    margin-right: 22px;
+                }
                 fieldset.projects_house_intro_img_wrap {
                     position: relative;
                     width: 100%;

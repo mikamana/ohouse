@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-
-
 export default function ProductionsNavList() {
   const [showList, setShowList] = useState(0);
   const [scrollList, setScrollList] = useState(0);
 
   useEffect(() => {
-
+    window.scrollTo(0, 0);
+    //시작위치 정해주기
     window.addEventListener("scroll", fnScroll)
-
   }, [])
 
   function fnScroll(e) {
@@ -42,8 +40,6 @@ export default function ProductionsNavList() {
 
     setScrollList(scry)
 
-
-
   }
 
   useEffect(() => {
@@ -53,7 +49,7 @@ export default function ProductionsNavList() {
       behavior: 'smooth',
     });
 
-  }, [scrollList])
+  }, [scrollList]);
 
   return (
 

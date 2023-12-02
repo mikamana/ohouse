@@ -2,7 +2,7 @@
   { "url" : "/", "menuName" : "홈"},
   { "url" : "/topics/recommand", "menuName" : "추천"},
   { "url" : "/", "menuName" : "#채널"},
-  { "url" : "/", "menuName" : "집들이"},
+  { "url" : "/content/projects", "menuName" : "집들이"},
   { "url" : "/", "menuName" : "집사진"},
   { "url" : "/", "menuName" : "3D인테리어"},
   { "url" : "/", "menuName" : "살림수납"},

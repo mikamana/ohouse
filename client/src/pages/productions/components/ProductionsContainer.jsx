@@ -46,20 +46,16 @@ export default function ProductionsContainer() {
 
   const getQty = (e) => {
 
-    // console.log(e.qtyFlag);
-    // console.log(e.qty);
     setqty(e.qty);
     setPrc(e.price);
 
     // const price = e.price * e.qty;
     // const result = list.sale_price * parseInt(e.qty)
 
-    // console.log(result);
     // setPrc(price);
 
   }
 
-  console.log(qty);
 
 
 
@@ -114,7 +110,9 @@ export default function ProductionsContainer() {
               />
             </li>
             <li className="production_selling_container_info_list_li">
-              <ProductionInfoTotPrice price={prc} />
+              <ProductionInfoTotPrice price={prc}
+                priceOrigin={list.sale_price}
+              />
             </li>
             <li className="production_selling_container_info_list_li">
               <ProductionCartBtn price={prc}

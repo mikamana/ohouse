@@ -40,18 +40,18 @@ select * from oh_cart;
 desc oh_order;
 select * from oh_order;
 
--- create table oh_member(
--- 	mid varchar(100) primary key,
---     pass varchar(100) not null,
---     nickname varchar(50) not null,
--- 	phone varchar(20),
---     homepage varchar(300),
---     gender varchar(10),
---     birthday varchar(30),
--- 	userimg varchar(300),
---     comment varchar(100),
---     mdate datetime
--- );
+create table oh_member(
+	mid varchar(100) primary key,
+    pass varchar(100) not null,
+    nickname varchar(50) not null,
+	phone varchar(20),
+    homepage varchar(300),
+    gender varchar(10),
+    birthday varchar(30),
+	userimg varchar(300),
+    comment varchar(100),
+    mdate datetime
+);
 -- create table oh_category (
 --     category_id int auto_increment primary key,
 --     category_name varchar(20) not null
@@ -82,14 +82,14 @@ select * from oh_order;
 --     constraint oh_review_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
 -- 	constraint oh_review_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
 -- );
--- create table oh_community(
--- 	hid int auto_increment primary key,
--- 	mid varchar(100),	
--- 	house_img varchar(300),
--- 	house_title varchar(100),
--- 	house_content varchar(500),
--- 	constraint oh_community_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
--- );
+create table oh_community(
+	hid int auto_increment primary key,
+	mid varchar(100),	
+	house_img varchar(300),
+	house_title varchar(100),
+	house_content varchar(500),
+	constraint oh_community_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
+);
 -- create table oh_channel (
 --     channel_id int auto_increment primary key,
 --     channel_title varchar(20),
@@ -175,6 +175,13 @@ insert into oh_member (mid, pass, nickname, userimg, mdate) values("arilee@d-fri
 insert into oh_member (mid, pass, nickname, userimg, mdate) values("arlee@d-friends.co.kr","1234","이어른","https://images.unsplash.com/photo-1699955980432-a2cebbbdd887?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM5fHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
 insert into oh_member (mid, pass, nickname, userimg, mdate) values("backkim@d-friends.co.kr","1234","김백제","https://images.unsplash.com/photo-1697664210419-63958ebae181?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQwfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
 insert into oh_member (mid, pass, nickname, userimg, mdate) values("basicchoi@d-friends.co.kr","1234","최기본","https://images.unsplash.com/photo-1624274515979-32afb09402a2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQyfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
+insert into oh_member (mid, pass, nickname, userimg, mdate) values("antapark@d-friends.co.kr","1234","박안타","https://images.unsplash.com/photo-1700123287639-b8ffc3f50f02?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM4fHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
+insert into oh_member (mid, pass, nickname, userimg, mdate) values("arilee@d-friends.co.kr","1234","이아리","https://images.unsplash.com/photo-1700123287437-e56517cb594e?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM3fHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
+insert into oh_member (mid, pass, nickname, userimg, mdate) values("arlee@d-friends.co.kr","1234","이어른","https://images.unsplash.com/photo-1699955980432-a2cebbbdd887?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM5fHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
+insert into oh_member (mid, pass, nickname, userimg, mdate) values("backkim@d-friends.co.kr","1234","김백제","https://images.unsplash.com/photo-1697664210419-63958ebae181?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQwfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
+insert into oh_member (mid, pass, nickname, userimg, mdate) values("@","1234","5조","https://images.unsplash.com/photo-1624274515979-32afb09402a2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQyfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
+
+select * from oh_member;
 
 -- oh_product insert
 -- 크리스마스
