@@ -11,6 +11,11 @@ drop table oh_product;
 drop table oh_category;
 drop table oh_member;
 
+select * from oh_review;
+select * from oh_member;
+select * from oh_product;
+select ov.rid,om.nickname,op.product_name,op.rating_avg,ov.review_content,ov.review_img,substring(reveiew_date,1,10) from oh_review ov inner join oh_product op, oh_member om where op.pid = ov.pid and om.mid = ov.mid;
+
 
 
 
@@ -72,16 +77,16 @@ create table oh_member(
 --     delivery_type varchar(20),
 --     constraint oh_product_cid_fk foreign key(category_id) references oh_category(category_id) on update cascade on delete cascade
 -- );
--- create table oh_review(
---     rid int auto_increment primary key,
--- 	mid varchar(100),
---     pid int,
---     review_content varchar(300),
---     review_img varchar(300),
---     review_date datetime,
---     constraint oh_review_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
--- 	constraint oh_review_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
--- );
+create table oh_review(
+    rid int auto_increment primary key,
+	mid varchar(100),
+    pid int,
+    review_content varchar(300),
+    review_img varchar(300),
+    review_date datetime,
+    constraint oh_review_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
+	constraint oh_review_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
+);
 create table oh_community(
 	hid int auto_increment primary key,
 	mid varchar(100),	
@@ -5941,7 +5946,14 @@ insert into oh_community (mid, house_img, house_title, house_content)  values (
 '질리지 않는 화이트&우드의 매력! 53평 내추럴 하우스',     '안녕하세요, 에이치디자인입니다 :) 오늘은 노원구 중계동에 위치한 53평 아파트 시공 현장을 소개해 드리려고 해요! 이번 현장은 포근하면서도 단정한 분위기의 화이트&우드 인테리어를 진행했어요.');
 
 
-
+select hid,SUBSTRING_INDEX(oc.mid,'@',1) as mid,om.userimg,oc.house_img,oc.house_title,oc.house_content,om.mdate from oh_community oc inner join oh_member om on oc.mid = om.mid order by mdate desc;
+select hid,SUBSTRING_INDEX(oc.mid,'@',1) as mid,om.userimg,oc.house_img,oc.house_title,oc.house_content,om.mdate from oh_community oc inner join oh_member om on oc.mid = om.mid order by mdate asc;
 
 
 select * from oh_product;
+select * from oh_review;
+select * from oh_member;
+insert into oh_review(mid,pid,review_content,review_img,review_date) values('@',1,'정말 좋아요','url',sysDate());
+select * from oh_review;
+
+

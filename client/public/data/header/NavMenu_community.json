@@ -3,7 +3,7 @@
   { "url" : "/topics/recommand", "menuName" : "추천"},
   { "url" : "/", "menuName" : "#채널"},
   { "url" : "/content/projects", "menuName" : "집들이"},
-  { "url" : "/", "menuName" : "집사진"},
+  { "url" : "/content/cardCollections", "menuName" : "집사진"},
   { "url" : "/", "menuName" : "3D인테리어"},
   { "url" : "/", "menuName" : "살림수납"},
   { "url" : "/", "menuName" : "콜렉터블"},

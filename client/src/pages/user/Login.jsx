@@ -62,7 +62,7 @@ export default function Login() {
     <div className="Login">
       <div className="LoginLogo">
         <Link to={"/"}>
-          <img src="http://localhost:3000/images/user/login.png" alt="logo" />
+          <img src="/images/user/login.png" alt="logo" />
         </Link>
       </div>
       <form onSubmit={handleSubmit}>
@@ -78,9 +78,9 @@ export default function Login() {
         <Link to="/users/password/new"><span>비밀번호 재설정</span> </Link><Link to="/normalUsers/new"><span>회원가입</span></Link>
         <div className="LoginSNS">SNS계정으로 간편 로그인/회원가입</div>
         <div className="LoginSNSLogo">
-          <img src="http://localhost:3000/images/user/facebook.png" alt="facebook" />
-          <img src="http://localhost:3000/images/user/kakao.png" alt="kakao" />
-          <img src="http://localhost:3000/images/user/naver.png" alt="naver" />
+          <img src="/images/user/facebook.png" alt="facebook" />
+          <img src="/images/user/kakao.png" alt="kakao" />
+          <img src="/images/user/naver.png" alt="naver" />
         </div>
         <div className="LoginErr">로그인에 문제가 있으신가요?</div>
       </div>

@@ -87,10 +87,6 @@ export default function ProjectsCateList(props) {
 
     }, [list])
 
-
-
-
-
     return (
         <>
             <ul className='house_cate_list'>

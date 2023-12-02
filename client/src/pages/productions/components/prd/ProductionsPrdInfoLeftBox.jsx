@@ -1,12 +1,69 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductionsPrdTitleBox from "./userstyle/ProductionsPrdTitleBox";
 import ProductionsPrdUserImgBox from "./userstyle/ProductionsPrdUserImgBox";
 import ProductionsPrdReviewWrap from "./review/ProductionsPrdReviewWrap";
 import ProductionContainerInqueryWrap from "./inquiry/ProductionContainerInqueryWrap";
-
-
+import axios from 'axios';
+import { getUser } from "../../../utill/sessionStorage";
+import { useParams } from "react-router-dom";
+import ImageUpload from "../../../components/ImageUpload";
 
 export default function ProductionsPrdInfoLeftBox() {
+
+    const [toggle, setToggle] = useState(false);
+    const userInfo = getUser();
+    const params = useParams();
+    const [image, setImage] = useState(null);
+
+    const getReview = (e) => {
+
+        setToggle(e.toggle)
+
+    }
+
+    const getImage = (e) => {
+        alert(`new file ==>> ${JSON.stringify(e)}`);
+        setImage(e)
+
+    }
+
+    const fnReviewSubmit = (e) => {
+
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+
+        const formDataObject = {};
+
+
+        formData.forEach((value, key) => {
+
+            formDataObject[key] = value
+
+        })
+
+        console.log(formDataObject);
+
+        axios({
+
+            method: "post",
+            url: `http://127.0.0.1:8000/review/product`,
+            data: { mid: userInfo.id, pid: params.pid, formObject: formDataObject }
+
+        }).then((result) => {
+
+            if (result.data === 'ok') {
+
+                alert("리뷰가 등록되었습니다.")
+
+            }
+
+        })
+
+    }
+
+
+
 
     return (
 
@@ -29,9 +86,40 @@ export default function ProductionsPrdInfoLeftBox() {
                     <li className="production_selling_prd_info_list_li">
                         <ProductionsPrdTitleBox title={"리뷰"}
                             count={" 502"}
-                            more={"리뷰쓰기"}
+                            more={userInfo ? "리뷰쓰기" : null}
                             deck={"active"}
+                            getReview={getReview}
                         />
+                        {
+                            toggle ?
+                                <form className="production_selling_review_input_wrap" onSubmit={fnReviewSubmit}>
+                                    <p className="production_selling_review_input_p">
+                                        <label id="content">리뷰내용</label>
+                                        <input type="text" id="content" name="content" className="production_selling_review_input" />
+                                    </p>
+                                    <p className="production_selling_review_input_p">
+                                        <label id="url">이미지업로드</label>
+                                        <input type="hidden" name="image" placeholder="image"
+                                            value={image} />
+                                        <ImageUpload getImage={getImage} />
+                                        {/* <input type="text" id="url" name="image" className="production_selling_review_input" onChange={handleChange} /> */}
+                                    </p>
+                                    <p className="production_selling_review_input_p">
+                                        <label id="score">별점</label>
+                                        <select name="score" id="score" className="production_review_score_box">
+                                            <option value="1">1점</option>
+                                            <option value="2">2점</option>
+                                            <option value="3">3점</option>
+                                            <option value="4">4점</option>
+                                            <option value="5">5점</option>
+                                        </select>
+                                    </p>
+                                    <button type="submit" className="production_selling_review_input_btn">
+                                        리뷰등록
+                                    </button>
+                                </form>
+                                : null
+                        }
                         <ProductionsPrdReviewWrap />
                     </li>
                     <li className="production_selling_prd_info_list_li">
@@ -44,6 +132,7 @@ export default function ProductionsPrdInfoLeftBox() {
                     </li>
                 </ul>
             </div >
+
         </>
 
     );
