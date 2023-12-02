@@ -1,4 +1,4 @@
-import { db } from './../data/database.js';
+import { db } from './../../data/database.js';
 
 export async function idCheck(id){
   return db
@@ -8,7 +8,7 @@ export async function idCheck(id){
 
 export async function nicknameCheck(nickname){
   return db
-  .execute("select count(mid) as cnt from oh_member where nickname = ?" , [nickname])
+  .execute("select count(nickname) as cnt from oh_member where nickname = ?" , [nickname])
   .then(rows => rows[0][0])
 }
 

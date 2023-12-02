@@ -1,0 +1,53 @@
+.channel_container {
+  padding-top: 32px;
+}
+.channel_container h2 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.channel_container > div {
+  display: flex;
+  flex-wrap: wrap;
+}
+.channel_container > div .channel_content {
+  width: 50%;
+  box-sizing: border-box;
+}
+.channel_container > div .channel_content:nth-child(odd) {
+  padding: 0 28px 40px 0;
+}
+.channel_container > div .channel_content:nth-child(even) {
+  padding: 0 0 40px 28px;
+}
+.channel_container > div a .channel_title_box {
+  width: 100%;
+  line-height: 22px;
+  position: relative;
+  margin-bottom: 10px;
+}
+.channel_container > div a .channel_title_box .channel_title_hash {
+  font-size: 18px;
+  font-weight: 700;
+}
+.channel_container > div a .channel_title_box .channel_title_sub {
+  color: #828C94;
+  font-size: 13px;
+}
+.channel_container > div a .channel_title_box::after {
+  content: ">";
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.channel_container > div a .channel_image_box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.channel_container > div a .channel_image_box img {
+  width: 24.5%;
+  overflow: hidden;
+}/*# sourceMappingURL=channel.css.map */

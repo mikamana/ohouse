@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-import * as repository from "../repository/signupRepository.js";
+import * as repository from "../../repository/oh_member/signupRepository.js";
 import bcript from "bcryptjs";
 
 const  mailer = nodemailer.createTransport({

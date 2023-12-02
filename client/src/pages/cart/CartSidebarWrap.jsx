@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function CartSidebarsWrap(){
+export default function CartSidebarsWrap({handleOrder}){
   return(
     <div className='cart_sidebar_wrap'>
       <div className="cart_sidebar_container">
@@ -32,7 +32,7 @@ export default function CartSidebarsWrap(){
             </div>
           </div>
           <div className="cart_sidebar_order">
-            <Link to='/orders' className="cart_sidebar_order_btn">3개 상품 구매하기</Link>
+            <button type="button" onClick={()=>handleOrder()} className="cart_sidebar_order_btn">3개 상품 구매하기</button>
           </div>
         </div>
       </div>

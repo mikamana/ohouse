@@ -91,7 +91,6 @@ div.shopitem_section .next_btn.swiper-button-disabled {
   line-height: 1;
   justify-content: center;
   align-items: center;
-  opacity: 1;
   transform: translateX(50%);
   z-index: 10;
   top: 65%;
@@ -240,9 +239,8 @@ div.shopitem_price {
   font-weight: 700;
 }
 
-.shopitem_today_start {
+div.shopitem_today_start {
   margin-top: 4px;
-  display: block;
 }
 
 .shopitem_today_start_img {

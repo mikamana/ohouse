@@ -13,10 +13,11 @@ export default function Header() {
   // }, [])
   const [isFixedDown, SetIsFixedDown] = useState(false);
   const [position, setPosition] = useState(window.scrollY);
+
   /* header_logo 메뉴 호버시 header_nav 메뉴 show */
   let [hovering, setHovering] = useState(1)
   let [showMenu, setShowMenu] = useState(1)
-  //
+
   useEffect(() => {
     const handleScroll = () => {
       const ScrollTop = window.scrollY;
@@ -33,8 +34,6 @@ export default function Header() {
       window.removeEventListener('scroll', handleScroll);
     }
   }, [position])
-
-
 
   useEffect(() => {
     switch (hovering) {
@@ -69,7 +68,6 @@ export default function Header() {
   }
 
   /* header_layout_up fixed일 때 메뉴 호버하면 header_navmenu 나타남 */
-
   function handleNavMenuon() {
     if (isFixed === true) {
       SetIsFixedDown(true)
@@ -79,11 +77,9 @@ export default function Header() {
   }
 
   function handleNavMenuoff() {
-
     if (isFixedDown === true) {
       SetIsFixedDown(false)
     }
-
   }
 
   // 헤더클릭시 글쓰기 사라지는거 나중에 

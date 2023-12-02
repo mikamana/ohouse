@@ -50,7 +50,7 @@ div.shopitem_section {
   line-height: 1;
   justify-content: center;
   align-items: center;
-  opacity: 1;
+  // opacity: 1;
   transform: translateX(50%);
   z-index: 10;
   //opacity: 0;
@@ -196,9 +196,8 @@ div.shopitem_price {
 }
 //shopitem_rating
 
-.shopitem_today_start {
+div.shopitem_today_start {
   margin-top: 4px;
-  display: block;
 }
 .shopitem_today_start_img {
   width: auto;

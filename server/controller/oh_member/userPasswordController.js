@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-import * as repository from "../repository/userPasswordRepository.js";
+import * as repository from "../../repository/oh_member/userPasswordRepository.js";
 import bcript from "bcryptjs";
 
 /* 

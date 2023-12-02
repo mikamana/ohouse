@@ -24,14 +24,17 @@ import Recommand from "./pages/subpage/topics/recommand/Recommand";
 import Signup from './pages/user/Signup';
 import Login from './pages/user/Login';
 import PasswordNew from "./pages/user/PasswordNew";
-import Cart from "./pages/cart/Cart";
-import Orders from "./pages/orders/Orders";
-import Channel from "./pages/subpage/topics/hashtag-channel/Channel";
+import Channel from "./pages/subpage/topics/hashtagChannel/Channel";
 import Event from "./pages/subpage/competitions/feed/Event";
 import Search from "./pages/subpage/search/Search";
 import ProjectsWrap from "./pages/subpage/contents/projects/ProjectsWrap";
 import CardCollections from "./pages/subpage/contents/cardCollections/CardCollections";
 import PasswordNewNew from './pages/user/PasswordNewNew';
+import Edit from './pages/user/Edit';
+import Withdrawals from './pages/user/Withdrawals';
+import Adminpage from "./pages/admin/Adminpage";
+import Cart from './pages/cart/Cart';
+import Orders from './pages/orders/Orders';
 
 const router = createBrowserRouter([
 
@@ -83,13 +86,13 @@ const router = createBrowserRouter([
           </Contents>
       },
       {
-        path: '/topics/hashtag-channel', element:
+        path: '/topics/hashtagChannel', element:
           <Contents>
             <Channel />
           </Contents>
       },
       {
-        path: '/feed/Event', element:
+        path: '/feed/event', element:
           <Contents>
             <Event />
           </Contents>
@@ -101,8 +104,15 @@ const router = createBrowserRouter([
           </Contents>
       },
       {
-        path: '/users/password/new',element:
+        path: '/search', element:
+          <Contents>
+            <Search />
+          </Contents>
+      },
+      { path: '/users/password/new',element:
+        <Contents>
           <PasswordNew/>
+        </Contents>
       },
       {
         path: '/cart', element:
@@ -114,6 +124,18 @@ const router = createBrowserRouter([
         path: '/orders', element:
           <Contents>
             <Orders/>
+          </Contents>
+      },
+      {
+        path: '/edit', element:
+          <Contents>
+            <Edit/>
+          </Contents>
+      },
+      {
+        path: '/withdrawals', element:
+          <Contents>
+            <Withdrawals/>
           </Contents>
       }
     ]
@@ -127,17 +149,15 @@ const router = createBrowserRouter([
       <Login />
   },
   {
-    path: '/users/password/new1',element:
-      <PasswordNewNew/>
-  },
-  {
     path: '/search', element:
       <Contents>
         <Search />
       </Contents>
+  },
+  {
+    path: '/admin', element:
+      <Adminpage />
   }
-
-
 ])
 
 function App() {

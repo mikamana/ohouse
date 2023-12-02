@@ -13,45 +13,47 @@ import ShopitemTag from "./components/Info/ShopitemTag";
 import ShopitemTitle from "./components/Info/ShopitemTitle";
 import ShopitemTodayStart from "./components/Info/ShopitemTodayStart";
 import "../../../css/main/shopitem/shopitem.css";
+import { Link } from "react-router-dom";
 
-export default function ShopitemContents({ shopitemList, index }) {
+export default function ShopitemContents({ shopitemList, index ,timecount, best}) {
   return (
     <div className="shopitem_contents">
-      <ShopitemImageWrap>
-        {shopitemList.best && <ShopitemBest rank={index} />}
-        {!shopitemList.time_count && <ShopitemTimeCount />}
-        <ShopitemImage
-          shopimg={shopitemList.shopimg}
-        />
-        <ShopitemMark />
-      </ShopitemImageWrap>
-      <ShopitemInfo>
-        <ShopitemTitle
-          company={shopitemList.title_company}
-          text={shopitemList.title_text}
-        />
-        <ShopitemPrice
-          sale={shopitemList.price_sale}
-          cost={shopitemList.price_cost}
-          another={shopitemList.price_another}
-        />
-        <ShopitemRating
-          avg={shopitemList.rating_avg}
-          review={shopitemList.rating_review}
-        />
-        <ShopitemTodayStart
-          ts={shopitemList.delivery_type}
-        />
-        {shopitemList.delivery_type === "todayDelivery" && <ShopitemStartSpan />}
-        <ShopitemTag
-          free={shopitemList.tag_free}
-          hotprice={shopitemList.tag_hotprice}
+      <Link to={`/production/${shopitemList.pid}`}>
+        <ShopitemImageWrap>
+          {best && <ShopitemBest rank={index} />}
+          {timecount && <ShopitemTimeCount />}
+          <ShopitemImage
+            shopimg={shopitemList.product_image}
           />
-          {shopitemList.coupon_sale && <ShopitemCoupon/>}
-          {shopitemList.coupon_percent && <ShopitemCouponMax
-          percent={shopitemList.coupon_percent}
-          />}
-        </ShopitemInfo>
+          <ShopitemMark />
+        </ShopitemImageWrap>
+        <ShopitemInfo>
+          <ShopitemTitle
+            company={shopitemList.brand_name}
+            text={shopitemList.product_name}
+          />
+          <ShopitemPrice
+            sale={shopitemList.price_sale}
+            cost={shopitemList.sale_price}
+          />
+          <ShopitemRating
+            avg={shopitemList.rating_avg}
+            review={shopitemList.rating_review}
+          />
+          <ShopitemTodayStart
+            ts={shopitemList.delivery_type}
+          />
+          {shopitemList.delivery_type === "td" && <ShopitemStartSpan />}
+          <ShopitemTag
+            free={shopitemList.tag_free}
+            hotprice={true}
+            />
+            {shopitemList.coupon_sale && <ShopitemCoupon/>}
+            {shopitemList.coupon_percent && <ShopitemCouponMax
+            percent={shopitemList.coupon_percent}
+            />}
+          </ShopitemInfo>
+      </Link>
       </div>
   );
 }

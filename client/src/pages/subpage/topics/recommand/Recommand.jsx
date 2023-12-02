@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ShopcateCategoryItem from "../../../main/shopcate/components/category/ShopcateCategoryItem";
 import RecommandImgContent from "./component/RecommandImgContent";
-import { SwiperSlide } from "swiper/react";
-import SnsImgImgBox from "../../../main/snsimg/SnsImgImgBox";
-import SubtitleMore from "../../../main/subtitle_more/Subtitle_more";
+import Recommandcontent from "./component/RecommandContent";
 import "../../../../css/sub/topics/recommand/recommand.css";
 
 export default function Recommand() {
@@ -28,28 +26,11 @@ export default function Recommand() {
           }
         </div>
       </div>
-      {/* RecommandImgContent.jsx */}
-      <div className="topics_recommand_content_section inner">
-        <RecommandImgContent />
-        <RecommandImgContent />
-      </div>
-      {/* subTitlemore.jsx SnsImg.jsx */}
-      <section className="snsimg_wrap">
-        <div className="snsimg_wrap_contentbox">
-          <SubtitleMore title={"산타들 주목 🎅🏼 이런 선물 어때요?"} />
-          <div className="snsimg_inner inner">
-          <SwiperSlide>
-            <SnsImgImgBox />
-            <SnsImgImgBox />
-            <SnsImgImgBox />
-            <SnsImgImgBox />
-            <SnsImgImgBox />
-            <SnsImgImgBox />
-            <SnsImgImgBox />
-          </SwiperSlide>
-          </div>
-        </div>
-      </section>
+      <Recommandcontent />
+      <Recommandcontent />
+      <Recommandcontent />
+      <Recommandcontent />
+      <RecommandImgContent />
     </section>
   );
 }

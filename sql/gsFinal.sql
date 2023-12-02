@@ -1,3 +1,6 @@
+ -- ohouse 데이터테이블 사용
+ use ohouse;
+ select database();
 
 drop table oh_order;
 drop table oh_cart;
@@ -8,10 +11,11 @@ drop table oh_product;
 drop table oh_category;
 drop table oh_member;
 
+update oh_product set price_sale = null,price_origin = 58900 where pid = 59;
+-- oh_product 오류 수정
 
-
-
-
+select price_origin, price_sale, ifnull(round(price_origin - (price_origin * price_sale / 100),-2),price_origin) sale_price from oh_product;
+select pid,category_id,product_image,brand_name,product_name,rating_avg,rating_review,price_sale,price_origin,ifnull(format(round(price_origin - (price_origin * price_sale / 100),-2),0),format(price_origin,0)) sale_price,tag_free,coupon_percent,pdate,delivery_type from oh_product order by rating_avg desc;
 
 desc oh_member;
 select * from oh_member;
@@ -1758,8 +1762,8 @@ delivery_type
 '[쿠폰가 50,065원] CLEAR 강화유리 거실테이블/타원형 소파테이블',
 '4.7',
 3810,
-58900,
 null,
+58900,
 0,
 15,
 sysdate(),

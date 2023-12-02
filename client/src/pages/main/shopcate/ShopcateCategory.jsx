@@ -6,13 +6,12 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { useEffect, useState } from "react";
-export default function ShopcateCategory(){
-  const [catelist,setCatelist] = useState([]);
-  useEffect(()=>{
-    fetch('/db/shopcate.json')
-    .then(res=>res.json())
-    .then(data=>setCatelist(data))
-  },[])
+import axios from "axios";
+export default function ShopcateCategory({catelist,getCategoryItem}){
+  const [activeBtn,SetActiveBtn] = useState(0)
+function handleClick(category_id){
+  SetActiveBtn(category_id)
+}
   return(
     <>
     <div className="shopcate_category">
@@ -28,13 +27,21 @@ export default function ShopcateCategory(){
                 className="mySwiper2"
         >
         <SwiperSlide style={{ width: 'auto' }}>
-          <ShopcateCategoryAll/>
+          <ShopcateCategoryAll
+          getCategoryItem={getCategoryItem}
+          handleClick={handleClick}
+          activeBtn={activeBtn}
+          />
         </SwiperSlide>
         {
           catelist.map((list)=>
         {return <SwiperSlide style={{ width: 'auto' }}>
           <ShopcateCategoryItem
           category_name={list.category_name}
+          category_id={list.category_id}
+          getCategoryItem={getCategoryItem}
+          handleClick={handleClick}
+          activeBtn={activeBtn}
           />
         </SwiperSlide>}
           )

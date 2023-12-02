@@ -1,5 +1,5 @@
 import React from "react";
-import SkyImgContent from './components/SkyImgContent';
+import SkyImgContent from "./components/SkyImgContent";
 import SubtitleMore from "../subtitle_more/Subtitle_more";
 import "../../../css/main/skyimg/skyimg.css";
 export default function SkyImg(props) {
