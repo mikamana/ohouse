@@ -38,7 +38,9 @@ export default function CartedProduct({checkedItemHandler,checked,id,delivery_ty
             </p>
           </div>
         </a>
-        <RemoveBtn/>
+        <RemoveBtn
+        weight={'bold'}
+        />
         <div className="carted_product_option_list">
           <div className="carted_product_option_list_item">
             <h2 className="carted_product_option_list_item_title">옵션이름 (옵션 하나만 할 거라 일부러 버튼 구현 X)</h2>
