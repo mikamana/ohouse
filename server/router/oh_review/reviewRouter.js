@@ -11,5 +11,6 @@ router.get('/product/count/:pid', reviewController.getReviewCount);
 router.get('/product/avg/:pid', reviewController.getReviewAvg);
 router.get('/product/best/:pid', reviewController.getReviewBest);
 router.get('/product/latest/:pid', reviewController.getReviewLatest);
+router.get('/product/:pid/:startIndex/:endIndex', reviewController.getReviewPage)
 router.post('/product', reviewController.createReview);
 export default router;

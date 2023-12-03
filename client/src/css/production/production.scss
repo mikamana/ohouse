@@ -859,6 +859,11 @@ div.production_selling_prd_info_wrap {
         }
       } //ul.production_selling_prd_info_list
     }
+    ul.rc-pagination {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0px;
+    }
     div.production_selling_prd_info_right {
       padding: 20px 10px;
       flex-grow: 1;

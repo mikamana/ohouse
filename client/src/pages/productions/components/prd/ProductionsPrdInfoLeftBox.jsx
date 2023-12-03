@@ -20,8 +20,6 @@ export default function ProductionsPrdInfoLeftBox(props) {
 
     useEffect(() => {
 
-        console.log(params.pid);
-
         axios({
 
             method: "get",
@@ -31,7 +29,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
 
             setList(result.data)
 
-        }).catch(console.log("error"))
+        })
 
 
 
@@ -178,7 +176,6 @@ export default function ProductionsPrdInfoLeftBox(props) {
                         }
                         <ProductionsPrdReviewWrap
                             avg={avgList.avg_score}
-                            review={list}
                             count={countList}
                             getList={getList}
                         />

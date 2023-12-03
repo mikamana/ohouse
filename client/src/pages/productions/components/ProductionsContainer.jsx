@@ -35,7 +35,7 @@ export default function ProductionsContainer(props) {
 
       setList(result.data[0])
 
-    }).catch(console.log("error"))
+    })
 
   }, [])
 

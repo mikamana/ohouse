@@ -67,3 +67,13 @@ export async function getReviewLatest(req, res) {
 
 }
 
+
+export async function getReviewPage(req, res) {
+
+    const { pid, startIndex, endIndex } = req.params
+
+    const rows = await reviewRepository.getReviewPage(pid, startIndex, endIndex);
+
+    res.json(rows);
+
+}

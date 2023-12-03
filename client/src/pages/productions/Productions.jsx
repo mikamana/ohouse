@@ -40,7 +40,7 @@ export default function Productions() {
 
       setList(result.data[0])
 
-    }).catch(console.log("error"))
+    })
 
   }, [])
 
