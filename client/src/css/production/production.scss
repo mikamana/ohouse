@@ -715,14 +715,8 @@ div.production_selling_prd_info_wrap {
                   color: #757575;
                   font-size: 13px;
                   font-weight: 700;
-                  &:nth-child(2) {
+                  &.active {
                     color: #35c5f0;
-                    &::after {
-                      content: "";
-                      border-right: 1px solid #bdbdbd;
-                      margin-left: 10px;
-                      margin-right: 5px;
-                    }
                   }
                   &:nth-child(3) {
                     color: #35c5f0;
@@ -1058,5 +1052,42 @@ form.production_selling_review_input_wrap {
     border: none;
     border-radius: 5px;
     color: #fff;
+  }
+}
+
+div.production_selling_prd_info_right {
+  div.production_qty_wrap {
+    position: sticky;
+    top: 170px;
+    width: 100%;
+    background-color: rgb(247, 249, 250);
+    padding: 15px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    p.production_qty_sub_title {
+      width: 70%;
+      word-break: keep-all;
+      margin-bottom: 10px;
+      line-height: 150%;
+    }
+    div.production_qty_price_wrap {
+      display: flex;
+      justify-content: space-between;
+      div.production_qty_btn_wrap {
+        border: 1px solid rgb(200, 200, 200);
+        padding: 10px;
+        border-radius: 5px;
+        > * {
+          padding: 10px 15px;
+          box-sizing: border-box;
+        }
+        span.production_qty_btn_total {
+        }
+        span.production_qty_btn_length {
+        }
+      }
+      span.production_qty_price {
+      }
+    }
   }
 }

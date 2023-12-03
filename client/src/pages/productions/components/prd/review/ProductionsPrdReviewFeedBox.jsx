@@ -11,7 +11,7 @@ export default function ProductionsPrdReviewFeedBox() {
             <div className="production_selling_prd_review_feed_wrap">
                 {/* <ProductionsPrdReviewFeedNav /> */}
                 <ul className="production_selling_prd_review_feed_list">
-                    <li className="production_selling_prd_review_feed_list_li">
+                    <li className="production_selling_prd_review_feed_list_li" >
                         <span>베스트순</span>
                     </li>
                     <li className="production_selling_prd_review_feed_list_li">

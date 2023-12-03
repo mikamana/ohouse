@@ -715,14 +715,8 @@ div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.p
   font-size: 13px;
   font-weight: 700;
 }
-div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(3) div.production_selling_prd_review_feed_wrap ul.production_selling_prd_review_feed_list li.production_selling_prd_review_feed_list_li:nth-child(2) {
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(3) div.production_selling_prd_review_feed_wrap ul.production_selling_prd_review_feed_list li.production_selling_prd_review_feed_list_li.active {
   color: #35c5f0;
-}
-div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(3) div.production_selling_prd_review_feed_wrap ul.production_selling_prd_review_feed_list li.production_selling_prd_review_feed_list_li:nth-child(2)::after {
-  content: "";
-  border-right: 1px solid #bdbdbd;
-  margin-left: 10px;
-  margin-right: 5px;
 }
 div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(3) div.production_selling_prd_review_feed_wrap ul.production_selling_prd_review_feed_list li.production_selling_prd_review_feed_list_li:nth-child(3) {
   color: #35c5f0;
@@ -1022,4 +1016,33 @@ form.production_selling_review_input_wrap button.production_selling_review_input
   border: none;
   border-radius: 5px;
   color: #fff;
+}
+
+div.production_selling_prd_info_right div.production_qty_wrap {
+  position: sticky;
+  top: 170px;
+  width: 100%;
+  background-color: rgb(247, 249, 250);
+  padding: 15px;
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+div.production_selling_prd_info_right div.production_qty_wrap p.production_qty_sub_title {
+  width: 70%;
+  word-break: keep-all;
+  margin-bottom: 10px;
+  line-height: 150%;
+}
+div.production_selling_prd_info_right div.production_qty_wrap div.production_qty_price_wrap {
+  display: flex;
+  justify-content: space-between;
+}
+div.production_selling_prd_info_right div.production_qty_wrap div.production_qty_price_wrap div.production_qty_btn_wrap {
+  border: 1px solid rgb(200, 200, 200);
+  padding: 10px;
+  border-radius: 5px;
+}
+div.production_selling_prd_info_right div.production_qty_wrap div.production_qty_price_wrap div.production_qty_btn_wrap > * {
+  padding: 10px 15px;
+  box-sizing: border-box;
 }/*# sourceMappingURL=production.css.map */

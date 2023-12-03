@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function ProductionsNavList() {
+export default function ProductionsNavList(props) {
   const [showList, setShowList] = useState(0);
   const [scrollList, setScrollList] = useState(0);
 
@@ -21,16 +21,9 @@ export default function ProductionsNavList() {
 
     }
 
-    if (scry >= 3800 && scry < 4500) {
+    if (scry >= 3800 && scry < 6000) {
 
       setShowList(1)
-
-    }
-
-    if (scry >= 4500 && scry < 5500) {
-
-      setShowList(2)
-
 
     }
 
@@ -45,8 +38,7 @@ export default function ProductionsNavList() {
   useEffect(() => {
 
     window.scrollTo({
-      top: scrollList,
-      behavior: 'smooth',
+      top: scrollList
     });
 
   }, [scrollList]);
@@ -68,15 +60,7 @@ export default function ProductionsNavList() {
           handleScroll(3800)
         }}>
           <Link to="#" className="production_selling_navigion_link">
-            <span className="production_selling_navigion_info_text">리뷰<span className="production_selling_navigion_point"> 282</span></span>
-          </Link>
-        </li>
-        <li className={showList === 2 ? 'production_selling_navigion_list_li active' : 'production_selling_navigion_list_li'} onClick={() => {
-          setShowList(2)
-          handleScroll(5500)
-        }}>
-          <Link to="#" className="production_selling_navigion_link">
-            <span className="production_selling_navigion_info_text">문의<span className="production_selling_navigion_point"> 27</span></span>
+            <span className="production_selling_navigion_info_text">리뷰<span className="production_selling_navigion_point"> {props.count}</span></span>
           </Link>
         </li>
       </ul>

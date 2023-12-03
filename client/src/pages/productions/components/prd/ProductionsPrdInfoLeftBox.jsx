@@ -1,19 +1,78 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ProductionsPrdTitleBox from "./userstyle/ProductionsPrdTitleBox";
 import ProductionsPrdUserImgBox from "./userstyle/ProductionsPrdUserImgBox";
 import ProductionsPrdReviewWrap from "./review/ProductionsPrdReviewWrap";
-import ProductionContainerInqueryWrap from "./inquiry/ProductionContainerInqueryWrap";
 import axios from 'axios';
 import { getUser } from "../../../utill/sessionStorage";
 import { useParams } from "react-router-dom";
 import ImageUpload from "../../../components/ImageUpload";
 
-export default function ProductionsPrdInfoLeftBox() {
+export default function ProductionsPrdInfoLeftBox(props) {
 
     const [toggle, setToggle] = useState(false);
     const userInfo = getUser();
-    const params = useParams();
+    let params = useParams();
+
     const [image, setImage] = useState(null);
+    const [list, setList] = useState([]);
+    const [countList, setCountList] = useState([]);
+    const [avgList, setAvgList] = useState([]);
+
+    useEffect(() => {
+
+        console.log(params.pid);
+
+        axios({
+
+            method: "get",
+            url: `http://127.0.0.1:8000/review/product/${params.pid}`
+
+        }).then((result) => {
+
+            setList(result.data)
+
+        }).catch(console.log("error"))
+
+
+
+    }, [])
+
+    useEffect(() => {
+
+        axios({
+
+            method: 'get',
+            url: `http://127.0.0.1:8000/review/product/count/${params.pid}`
+
+        }).then((result) => {
+
+            setCountList(result.data)
+
+        })
+
+    }, [])
+
+    useEffect(() => {
+
+        axios({
+
+            method: 'get',
+            url: `http://127.0.0.1:8000/review/product/avg/${params.pid}`
+
+        }).then((result) => {
+
+            setAvgList(result.data[0])
+            props.getCount(result.data[0])
+
+        })
+
+    }, [])
+
+    const getList = (e) => {
+
+        setList(e);
+
+    }
 
     const getReview = (e) => {
 
@@ -42,7 +101,6 @@ export default function ProductionsPrdInfoLeftBox() {
 
         })
 
-        console.log(formDataObject);
 
         axios({
 
@@ -52,8 +110,9 @@ export default function ProductionsPrdInfoLeftBox() {
 
         }).then((result) => {
 
-            if (result.data === 'ok') {
+            if (result.status === 204) {
 
+                window.location.reload();
                 alert("리뷰가 등록되었습니다.")
 
             }
@@ -62,9 +121,6 @@ export default function ProductionsPrdInfoLeftBox() {
 
     }
 
-
-
-
     return (
 
         <>
@@ -72,7 +128,7 @@ export default function ProductionsPrdInfoLeftBox() {
                 <ul className="production_selling_prd_info_list">
                     <li className="production_selling_prd_info_list_li">
                         <ProductionsPrdTitleBox title={"유저들의 스타일링샷"}
-                            count={" 675"}
+                            count={"240"}
                             more={true}
                         />
                         <ProductionsPrdUserImgBox />
@@ -85,7 +141,7 @@ export default function ProductionsPrdInfoLeftBox() {
                     </li>
                     <li className="production_selling_prd_info_list_li">
                         <ProductionsPrdTitleBox title={"리뷰"}
-                            count={" 502"}
+                            count={avgList.count}
                             more={userInfo ? "리뷰쓰기" : null}
                             deck={"active"}
                             getReview={getReview}
@@ -120,15 +176,12 @@ export default function ProductionsPrdInfoLeftBox() {
                                 </form>
                                 : null
                         }
-                        <ProductionsPrdReviewWrap />
-                    </li>
-                    <li className="production_selling_prd_info_list_li">
-                        <ProductionsPrdTitleBox title={"문의"}
-                            count={" 120"}
-                            more={"문의하기"}
-                            deck={"active"}
+                        <ProductionsPrdReviewWrap
+                            avg={avgList.avg_score}
+                            review={list}
+                            count={countList}
+                            getList={getList}
                         />
-                        <ProductionContainerInqueryWrap />
                     </li>
                 </ul>
             </div >

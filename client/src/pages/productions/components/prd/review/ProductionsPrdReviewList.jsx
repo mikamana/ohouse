@@ -5,14 +5,14 @@ import ProductionSvg from "../../ProductionSvg";
 
 export default function ProductionsPrdReviewList(props) {
 
-    
+
 
     return (
 
         <>
             <ul className="production_selling_prd_review_item_list">
-                {props.review.map((lst) =>
-                    <li className="production_selling_prd_review_item_list_li">
+                {props.review.map((lst, key) =>
+                    <li key={key} className="production_selling_prd_review_item_list_li">
                         <div className="production_selling_prd_review_item_box">
                             <div className="production_selling_prd_review_item_user">
                                 <Link to="#" className="production_selling_prd_review_item_user_img">
