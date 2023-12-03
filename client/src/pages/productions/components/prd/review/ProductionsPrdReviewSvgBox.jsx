@@ -1,7 +1,7 @@
 import React from "react";
 import ProductionSvg from "../../ProductionSvg";
 
-export default function ProductionsPrdReviewSvgBox() {
+export default function ProductionsPrdReviewSvgBox(props) {
 
     return (
 
@@ -13,7 +13,7 @@ export default function ProductionsPrdReviewSvgBox() {
                     <ProductionSvg />
                     <ProductionSvg />
                     <ProductionSvg />
-                    <span>2.0</span>
+                    <span>{props.avg}</span>
                 </span>
             </div>
         </>

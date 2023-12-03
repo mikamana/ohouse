@@ -109,33 +109,34 @@ const router = createBrowserRouter([
             <Search />
           </Contents>
       },
-      { path: '/users/password/new',element:
-        <Contents>
-          <PasswordNew/>
-        </Contents>
+      {
+        path: '/users/password/new', element:
+          <Contents>
+            <PasswordNew />
+          </Contents>
       },
       {
         path: '/cart', element:
-        <Contents>
-          <Cart/>
-        </Contents>
+          <Contents>
+            <Cart />
+          </Contents>
       },
       {
         path: '/orders', element:
           <Contents>
-            <Orders/>
+            <Orders />
           </Contents>
       },
       {
         path: '/edit', element:
           <Contents>
-            <Edit/>
+            <Edit />
           </Contents>
       },
       {
         path: '/withdrawals', element:
           <Contents>
-            <Withdrawals/>
+            <Withdrawals />
           </Contents>
       }
     ]

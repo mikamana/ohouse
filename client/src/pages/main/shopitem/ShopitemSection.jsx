@@ -14,9 +14,9 @@ export default function ShopitemSection() {
   useEffect(() => {
     axios('http://127.0.0.1:8000/product/shopitem')
       .then(result => {
-        console.log(result);
-        setShopArray(result.data)}
-        )
+        setShopArray(result.data)
+      }
+      )
   }, [])
   return (
     <>

@@ -17,7 +17,7 @@ export default function ProductionInfoReviewBox(props) {
           <ProductionSvg />
         </span>
         <span className="production-selling-header__review_text">
-          {props.rating + '개 리뷰'}
+          {props.count ? props.count + '개 리뷰' : '0개 리뷰'}
         </span>
       </p>
     </>

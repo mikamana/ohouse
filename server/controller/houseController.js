@@ -1,7 +1,7 @@
 import * as houseRepository from "../repository/houseRepository.js";
 
 
-export async function getHouse(req,res){
+export async function getHouse(req, res) {
 
     const rows = await houseRepository.getHouse();
 
@@ -9,7 +9,7 @@ export async function getHouse(req,res){
 
 }
 
-export async function getSortFirstHouse(req,res){
+export async function getSortFirstHouse(req, res) {
 
     const rows = await houseRepository.getSortFirstHouse();
 
@@ -17,11 +17,20 @@ export async function getSortFirstHouse(req,res){
 
 }
 
-export async function getSortLastHouse(req,res){
+export async function getSortLastHouse(req, res) {
 
     const rows = await houseRepository.getSortLastHouse();
 
     res.json(rows);
 
 }
+
+// export async function getCollection(req, res) {
+
+//     const rows = await houseRepository.getCollection();
+
+//     res.json(rows);
+
+// }
+
 
