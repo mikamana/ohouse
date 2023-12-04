@@ -8,7 +8,7 @@ export default function CartSection(){
   const userInfo = getUser();
   console.log(userInfo);
   useEffect(()=>{
-    axios(`http://127.0.0.1/cart/${userInfo.id}`)
+    axios(`http://127.0.0.1:8000/cart/${userInfo.id}`)
     .then(result=>console.log(result.data));
   },[])
   const checkList = [
