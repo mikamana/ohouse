@@ -1228,4 +1228,90 @@
   display: inline-block;
   font-size: 18px;
   line-height: 1;
+}
+
+.orders_sidebar_agreement_privacy_agree_wrap {
+  transition: height 300ms ease 0s;
+  height: 0px;
+  overflow: hidden;
+}
+.orders_sidebar_agreement_privacy_agree_wrap.open_agree {
+  height: 85px;
+}
+
+.orders_sidebar_agreement_pay_agree_wrap {
+  transition: height 300ms ease 0s;
+  height: 0px;
+  overflow: hidden;
+}
+.orders_sidebar_agreement_pay_agree_wrap.open_agree {
+  height: 105px;
+}
+
+.orders_sidebar_agreement_agree_container {
+  padding-top: 8px;
+  padding-left: 20px;
+  border-bottom: 1px solid rgb(234, 237, 239);
+}
+
+.orders_sidebar_agreement_agree_box {
+  margin: 12px 0px;
+}
+
+.orders_sidebar_agreement_agree_span {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  line-height: 16px;
+  color: rgb(130, 140, 148);
+}
+
+.orders_sidebar_agreement_agree_dot {
+  margin-right: 4px;
+}
+
+.orders_sidebar_agreement_agree_btn {
+  color: rgb(130, 140, 148);
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background-color: inherit;
+  outline: none;
+  padding: 0px;
+}
+
+.orders_sidebar_total_payment_btn_wrap {
+  display: flex;
+}
+
+.orders_sidebar_total_payment_btn {
+  margin: 0px;
+  border: none;
+  background: none rgb(53, 197, 240);
+  font-style: inherit;
+  font-variant: inherit;
+  font-stretch: inherit;
+  font-family: inherit;
+  font-optical-sizing: inherit;
+  font-kerning: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  font-size: 16px;
+  line-height: 20px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 50px;
+  border-radius: 4px;
+  padding: 0px 16px;
+  font-weight: 700;
+  box-sizing: border-box;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  flex: 1 1 0%;
+  cursor: pointer;
+}
+.orders_sidebar_total_payment_btn:hover {
+  background-color: rgb(0, 159, 206);
 }/*# sourceMappingURL=orders.css.map */

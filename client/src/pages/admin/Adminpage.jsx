@@ -29,16 +29,16 @@ export default function Adminpage() {
     let startindex = 0;
     let endindex = 0;
 
-    startindex = (currentPage-1) * pageSize + 1; // 1-1 * 3+1 : 1, 4, 
-    endindex = currentPage * pageSize; 
+    startindex = (currentPage - 1) * listPerPages + 1; 
+    endindex = currentPage * listPerPages; 
     
-    axios.get('http://localhost:8000/admin')
-    .then((result)=>{
-      console.log(result.data);
-      SetMemberList(result.data)
-    })
-    .catch(console.err);
-  },[])
+    axios.get(`http://localhost:8000/admin/${startindex}/${endindex}`)
+      .then((result) => {
+        SetMemberList(result.data);
+        //SetTotalPage(result.data[0].cnt);
+      })
+      .catch(console.err);
+  }, [])
 
 
   const handleChange = (e) => {
@@ -105,6 +105,13 @@ export default function Adminpage() {
             )}
           </tbody>
         </table>
+        <Pagination 
+          className="admin-pagination"
+          current = {currentPage}
+          total = {totalPage}
+          pageSize = {listPerPages}
+          onChange = {(page) => SetCurrentPage(page)}
+        />
       </div>
     </div>
   );

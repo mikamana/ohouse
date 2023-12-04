@@ -7,62 +7,60 @@ import OrdersPaymentDetail from "./components/OrdersPaymentDetail";
 
 
 
-export default function OrderFormWrap(){
-  const [display,setDisplay] = useState({"mailbox":"order_invisible","requestbox":"request_invisible"});
-  const [form, setForm] = useState({"orderer_id":"", "orderer_mail":"", "orderer_phead":"010","orderer_pbody":"","pass":"", "passcheck":"", "orderer_name":"","reciever_name":"","reciever_place":"","reciever_phead":"010","reciever_pbody":"","reciever_address_detail":"","reciever_request":""});
+export default function OrderFormWrap() {
+  const [display, setDisplay] = useState({ "mailbox": "order_invisible", "requestbox": "request_invisible" });
+  const [form, setForm] = useState({ "orderer_id": "", "orderer_mail": "", "orderer_phead": "010", "orderer_pbody": "", "pass": "", "passcheck": "", "orderer_name": "", "reciever_name": "", "reciever_place": "", "reciever_phead": "010", "reciever_pbody": "", "reciever_address_detail": "", "reciever_request": "" });
   const [domain, setDomain] = useState(false);
-  const [phead,setPhead] = useState('010');
-  const [base,setBase] = useState(false);
-  const [length,setLength] = useState(0);
-  function isFocus(e){
+  const [phead, setPhead] = useState('010');
+  const [base, setBase] = useState(false);
+  const [length, setLength] = useState(0);
+  function isFocus(e) {
     const parent = e.target.parentNode
     parent.classList.add('active')
   }
 
-  function isBlur(e){
+  function isBlur(e) {
     const parent = e.target.parentNode
     parent.classList.remove('active')
   }
   const handleChange = (e) => {
-    const {name, value} = e.target;
-    setForm({...form, [name] : value});
-    if(e.target.name === 'reciever_request'){
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+    if (e.target.name === 'reciever_request') {
       const letters = e.target.value.split("");
-      console.log(letters.length)
       setLength(letters.length < 51 ? letters.length : 50)
     }
   }
-  const selectChange= (e) => {
-    let {name, value} = e.target;
-    setForm({...form, [name] : value});
+  const selectChange = (e) => {
+    let { name, value } = e.target;
+    setForm({ ...form, [name]: value });
     setDomain(true);
-    console.log(display);
-    if(e.target.value !== 'selftype' && e.target.name === 'orderer_mail'){
-      setDisplay({...display, mailbox : "order_invisible"})
+    if (e.target.value !== 'selftype' && e.target.name === 'orderer_mail') {
+      setDisplay({ ...display, mailbox: "order_invisible" })
 
     }
-    else if(e.target.value !== 'selftype' && e.target.name === 'reciever_request'){
-      setDisplay({...display, requestbox : "request_invisible"})
+    else if (e.target.value !== 'selftype' && e.target.name === 'reciever_request') {
+      setDisplay({ ...display, requestbox: "request_invisible" })
     }
-    else if(e.target.value === 'selftype' && e.target.name === 'orderer_mail'){
-      setDisplay({...display,mailbox : ''})
-      setForm({...form, orderer_mail : ''});
+    else if (e.target.value === 'selftype' && e.target.name === 'orderer_mail') {
+      setDisplay({ ...display, mailbox: '' })
+      setForm({ ...form, orderer_mail: '' });
     }
-    else if(e.target.value === 'selftype' && e.target.name === 'reciever_request'){
-      setDisplay({...display, requestbox : ''})
-      setForm({...form, reciever_request : ''});
+    else if (e.target.value === 'selftype' && e.target.name === 'reciever_request') {
+      setDisplay({ ...display, requestbox: '' })
+      setForm({ ...form, reciever_request: '' });
     }
 
   }
 
-  const selectPhone= (e)=>{
-    let {value} = e.target;
+  const selectPhone = (e) => {
+    let { value } = e.target;
     setPhead(value)
   }
 
   const inputDomain = useRef(null);
 
-  return(
+  return (
     <div className="orders_form_wrap">
       <h1 className="orders_form_title">주문/결제</h1>
       <div className="orders_form_box">
@@ -73,7 +71,7 @@ export default function OrderFormWrap(){
           <div className="orders_form_box_input_title">이름</div>
           <div className="orders_form_box_input_contents_wrap">
             <div className="orders_form_box_input_contents_container">
-              <input className="orders_form_box_input" name="orderer_name" value={form.orderer_name ? form.orderer_name : ""} maxLength={10} onChange={handleChange} onFocus={isFocus} onBlur={isBlur}/>
+              <input className="orders_form_box_input" name="orderer_name" value={form.orderer_name ? form.orderer_name : ""} maxLength={10} onChange={handleChange} onFocus={isFocus} onBlur={isBlur} />
               <div></div>
             </div>
           </div>
@@ -85,17 +83,17 @@ export default function OrderFormWrap(){
             <div className="orders_form_box_input_contents_email_container">
               <div className="orders_form_box_input_contents_box_email_id">
                 <div className="orders_form_box_input_contents_container">
-                <input className="orders_form_box_input" name="orderer_id" value={form.orderer_id ? form.orderer_id : ""} maxLength={20} onChange={handleChange} onFocus={isFocus} onBlur={isBlur}/>
-                <div></div>
+                  <input className="orders_form_box_input" name="orderer_id" value={form.orderer_id ? form.orderer_id : ""} maxLength={20} onChange={handleChange} onFocus={isFocus} onBlur={isBlur} />
+                  <div></div>
                 </div>
                 <span className="orders_form_box_input_contents_box_email_span">@</span>
               </div>
               <div className="orders_form_box_input_contents_box_email_mail">
                 <div className={`orders_form_box_input_contents_box_email_mail_self_input ${display.mailbox}`}>
-                  <input className="orders_form_box_input" name="orderer_mail" value={form.orderer_mail ? form.orderer_mail : ""} maxLength={20} onChange={handleChange} onFocus={isFocus} onBlur={isBlur}/>
+                  <input className="orders_form_box_input" name="orderer_mail" value={form.orderer_mail ? form.orderer_mail : ""} maxLength={20} onChange={handleChange} onFocus={isFocus} onBlur={isBlur} />
                 </div>
                 <div className="orders_form_box_input_contents_box_email_mail_select_box">
-                  <span className="orders_form_box_input_contents_box_email_mail_select_box_downarrow"><IoMdArrowDropdown/></span>
+                  <span className="orders_form_box_input_contents_box_email_mail_select_box_downarrow"><IoMdArrowDropdown /></span>
                   <select className="orders_form_box_input_contents_box_email_mail_select" name="orderer_mail" onChange={selectChange} ref={inputDomain}>
                     <option value="default">선택해주세요</option>
                     <option value="naver.com">naver.com</option>
@@ -121,7 +119,7 @@ export default function OrderFormWrap(){
             <div className="orders_form_box_input_contents_phone_container">
               <div className="orders_form_box_input_contents_box_phone_head_wrap">
                 <div className="orders_form_box_input_contents_box_phone_head_box">
-                  <span className="orders_form_box_input_contents_box_email_mail_select_box_downarrow"><IoMdArrowDropdown/></span>
+                  <span className="orders_form_box_input_contents_box_email_mail_select_box_downarrow"><IoMdArrowDropdown /></span>
                   <select className="orders_form_box_input_contents_box_phone_head" name="orderer_phead" id="orderer_phead" onChange={selectChange}>
                     <option value="010">010</option>
                     <option value="011">011</option>
@@ -133,7 +131,7 @@ export default function OrderFormWrap(){
                 </div>
               </div>
               <div className="orders_form_box_input_contents_box_phone_body_wrap">
-              <input className="orders_form_box_input_phone" name="orderer_pbody" value={form.orderer_pbody ? form.orderer_pbody : ""} maxLength={20} onChange={handleChange} onFocus={isFocus} onBlur={isBlur}/>
+                <input className="orders_form_box_input_phone" name="orderer_pbody" value={form.orderer_pbody ? form.orderer_pbody : ""} maxLength={20} onChange={handleChange} onFocus={isFocus} onBlur={isBlur} />
               </div>
             </div>
           </div>
@@ -152,7 +150,7 @@ export default function OrderFormWrap(){
           <div className="orders_form_box_input_title">배송지명</div>
           <div className="orders_form_box_input_contents_wrap">
             <div className="orders_form_box_input_contents_container">
-              <input className="orders_form_box_input" name="reciever_place" value={form.reciever_place ? form.reciever_place : ""} maxLength={10} onChange={handleChange} onFocus={isFocus} onBlur={isBlur}/>
+              <input className="orders_form_box_input" name="reciever_place" value={form.reciever_place ? form.reciever_place : ""} maxLength={10} onChange={handleChange} onFocus={isFocus} onBlur={isBlur} />
               <div></div>
             </div>
           </div>
@@ -162,7 +160,7 @@ export default function OrderFormWrap(){
           <div className="orders_form_box_input_title">받는 사람</div>
           <div className="orders_form_box_input_contents_wrap">
             <div className="orders_form_box_input_contents_container">
-              <input className="orders_form_box_input" name="reciever_name" value={form.reciever_name ? form.reciever_name : ""} maxLength={10} onChange={handleChange} onFocus={isFocus} onBlur={isBlur}/>
+              <input className="orders_form_box_input" name="reciever_name" value={form.reciever_name ? form.reciever_name : ""} maxLength={10} onChange={handleChange} onFocus={isFocus} onBlur={isBlur} />
               <div></div>
             </div>
           </div>
@@ -174,7 +172,7 @@ export default function OrderFormWrap(){
             <div className="orders_form_box_input_contents_phone_container">
               <div className="orders_form_box_input_contents_box_phone_head_wrap">
                 <div className="orders_form_box_input_contents_box_phone_head_box">
-                  <span className="orders_form_box_input_contents_box_email_mail_select_box_downarrow"><IoMdArrowDropdown/></span>
+                  <span className="orders_form_box_input_contents_box_email_mail_select_box_downarrow"><IoMdArrowDropdown /></span>
                   <select className="orders_form_box_input_contents_box_phone_head" name="reciever_phead" id="reciever_phead" onChange={selectChange}>
                     <option value="010">010</option>
                     <option value="011">011</option>
@@ -186,7 +184,7 @@ export default function OrderFormWrap(){
                 </div>
               </div>
               <div className="orders_form_box_input_contents_box_phone_body_wrap">
-              <input className="orders_form_box_input_phone" name="reciever_pbody" value={form.reciever_pbody ? form.reciever_pbody : ""} maxLength={20} onChange={handleChange} onFocus={isFocus} onBlur={isBlur}/>
+                <input className="orders_form_box_input_phone" name="reciever_pbody" value={form.reciever_pbody ? form.reciever_pbody : ""} maxLength={20} onChange={handleChange} onFocus={isFocus} onBlur={isBlur} />
               </div>
             </div>
           </div>
@@ -206,11 +204,11 @@ export default function OrderFormWrap(){
               </div>
               <div className="orders_form_box_input_contents_address_title_wrap">
                 <div className="orders_form_box_input_contents_address_title_container">
-                  <input type="text" disabled className="orders_form_box_input_contents_address_title"/>
+                  <input type="text" disabled className="orders_form_box_input_contents_address_title" />
                 </div>
               </div>
               <div className="orders_form_box_input_contents_address_detail_wrap">
-                <input placeholder="상세주소 입력" name="reciever_address_detail" type="text" className="orders_form_box_input_contents_address_detail" value={form.reciever_address_detail ? form.reciever_address_detail : ""} maxLength={20} onChange={handleChange} onFocus={isFocus} onBlur={isBlur}/>
+                <input placeholder="상세주소 입력" name="reciever_address_detail" type="text" className="orders_form_box_input_contents_address_detail" value={form.reciever_address_detail ? form.reciever_address_detail : ""} maxLength={20} onChange={handleChange} onFocus={isFocus} onBlur={isBlur} />
               </div>
             </div>
           </div>
@@ -219,9 +217,9 @@ export default function OrderFormWrap(){
           <label className="orders_form_box_checkbox_label">
             <div className={`orders_form_box_checkbox_container ${base ? 'checkbox_active' : ''}`}>
               <div className={`orders_form_box_checkbox_box ${base ? 'checkbox_active' : ''}`}>
-                  <FaCheck className="orders_form_box_checkbox_span"/>
+                <FaCheck className="orders_form_box_checkbox_span" />
               </div>
-              <input className="orders_form_box_checkbox" type="checkbox" checked={base} onChange={(e)=>setBase(e.target.checked)}/>
+              <input className="orders_form_box_checkbox" type="checkbox" checked={base} onChange={(e) => setBase(e.target.checked)} />
             </div>
           </label>
           <span className="orders_form_box_checkbox_label_span">기본 배송지로 저장</span>
@@ -229,7 +227,7 @@ export default function OrderFormWrap(){
         <div className="orders_form_box_delivery_request_wrap">
           <div className={`orders_form_box_delivery_request_custom_container ${display.requestbox}`}>
             <div className="orders_form_box_delivery_request_custom_container_input_box">
-            <input placeholder="배송 요청사항을 입력해주세요." name="reciever_request" type="text" className="orders_form_box_input_contents_self_delivery_request" value={form.reciever_request ? form.reciever_request : ""} maxLength={50} onChange={handleChange} onFocus={isFocus} onBlur={isBlur}/>
+              <input placeholder="배송 요청사항을 입력해주세요." name="reciever_request" type="text" className="orders_form_box_input_contents_self_delivery_request" value={form.reciever_request ? form.reciever_request : ""} maxLength={50} onChange={handleChange} onFocus={isFocus} onBlur={isBlur} />
             </div>
             <div className="orders_form_box_delivery_request_custom_container_span_box">
               <span className="orders_form_box_delivery_request_custom_container_span_left"></span>
@@ -237,7 +235,7 @@ export default function OrderFormWrap(){
             </div>
           </div>
           <div className="orders_form_box_delivery_request_container">
-            <span className="orders_form_box_delivery_request_span"><IoMdArrowDropdown/></span>
+            <span className="orders_form_box_delivery_request_span"><IoMdArrowDropdown /></span>
             <select className="orders_form_box_delivery_request" name="reciever_request" id="reciever_request" onChange={selectChange}>
               <option value="">배송시 요청사항을 선택해주세요</option>
               <option value="부재시 문앞에 놓아주세요">부재시 문앞에 놓아주세요</option>
@@ -262,14 +260,14 @@ export default function OrderFormWrap(){
           </p>
         </div>
         <OrdersProductWrap
-        ts={'ohouseDelivery'}
+          ts={'ohouseDelivery'}
         />
         <OrdersProductWrap
-        ts={'todayDelivery'}
+          ts={'todayDelivery'}
         />
         {/* 오늘출발 시 시간제한도 출력해야함 */}
         <OrdersProductWrap
-        ts={'furnitureDelivery'}
+          ts={'furnitureDelivery'}
         />
       </div>
 
@@ -289,7 +287,7 @@ export default function OrderFormWrap(){
         <div className="orders_form_box_point_wrap">
           <div className="orders_form_box_point_container">
             <div className="orders_form_box_point_box">
-              <input placeholder="0" type="tel" max="100000000" className="orders_form_box_point" value="0" disabled={true}/>
+              <input placeholder="0" type="tel" max="100000000" className="orders_form_box_point" value="0" disabled={true} />
             </div>
             <button disabled type="button" className="orders_form_box_point_btn">
               전액 사용
@@ -360,7 +358,7 @@ export default function OrderFormWrap(){
             </div>
           </div>
           <OrdersPaymentDetail
-          paytype=''
+            paytype=''
           />
         </div>
       </div>

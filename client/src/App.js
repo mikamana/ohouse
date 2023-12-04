@@ -24,7 +24,7 @@ import Recommand from "./pages/subpage/topics/recommand/Recommand";
 import Signup from './pages/user/Signup';
 import Login from './pages/user/Login';
 import PasswordNew from "./pages/user/PasswordNew";
-import Channel from "./pages/subpage/topics/hashtag-channel/Channel";
+import Channel from "./pages/subpage/topics/hashtagChannel/Channel";
 import Event from "./pages/subpage/competitions/feed/Event";
 import Search from "./pages/subpage/search/Search";
 import ProjectsWrap from "./pages/subpage/contents/projects/ProjectsWrap";
@@ -86,51 +86,63 @@ const router = createBrowserRouter([
           </Contents>
       },
       {
-        path: '/topics/hashtag-channel', element:
+        path: '/topics/hashtagChannel', element:
           <Contents>
             <Channel />
           </Contents>
       },
       {
-        path: '/feed/Event', element:
+        path: '/feed/event', element:
           <Contents>
             <Event />
           </Contents>
       },
       {
-        path: '/production', element:
+        path: '/production/:pid', element:
           <Contents>
             <Productions />
           </Contents>
       },
       {
-        path: '/users/password/new',element:
-        <Contents>
-          <PasswordNew/>
-        </Contents>
+        path: '/search', element:
+          <Contents>
+            <Search />
+          </Contents>
+      },
+      {
+        path: '/users/password/new', element:
+          <Contents>
+            <PasswordNew />
+          </Contents>
+      },
+      {
+        path: '/cart/:mid', element:
+          <Contents>
+            <Cart />
+          </Contents>
       },
       {
         path: '/cart', element:
-        <Contents>
-          <Cart/>
-        </Contents>
+          <Contents>
+            <Cart />
+          </Contents>
       },
       {
         path: '/orders', element:
           <Contents>
-            <Orders/>
+            <Orders />
           </Contents>
       },
       {
         path: '/edit', element:
           <Contents>
-            <Edit/>
+            <Edit />
           </Contents>
       },
       {
         path: '/withdrawals', element:
           <Contents>
-            <Withdrawals/>
+            <Withdrawals />
           </Contents>
       }
     ]
@@ -142,6 +154,10 @@ const router = createBrowserRouter([
   {
     path: 'login', element:
       <Login />
+  },
+  {
+    path: '/users/password/new1', element:
+      <PasswordNewNew/>
   },
   {
     path: '/search', element:

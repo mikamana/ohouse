@@ -1,17 +1,25 @@
+import ShopitemTodayStart from "../../../main/shopitem/components/Info/ShopitemTodayStart";
 import CartQuantity from "../quantity/CartQuantity";
 import RemoveBtn from "./button/RemoveBtn";
 import CartCheckBox from "./checkbox/CartCheckBox";
 
-export default function CartedProduct(){
+export default function CartedProduct({checkedItemHandler,checked,id,delivery_type}){
   return(
       <div className="carted_product">
         <div className="carted_product_select">
-          <CartCheckBox/>
+          <CartCheckBox
+          checkedItemHandler={checkedItemHandler}
+          checked={checked}
+          id={id}
+          />
         </div>
-        <span className="carted_product_today_delivery">
-          (오늘출발 or 마감 오늘출발인 상품만 떠야함 없으면 삭제)
+        {delivery_type === 'td' && <span className="carted_product_today_delivery">
+          <ShopitemTodayStart
+          ts={delivery_type}
+          />
+          SCSS 수정 필요
           <span className="carted_product_today_deadline">11/23 (목) 발송 예정(날짜데이터필요)</span>
-        </span>
+        </span>}
         <a href="" className="carted_product_link">
           <div className="carted_product_link_small_item_image_wrap">
             <picture>
@@ -20,17 +28,19 @@ export default function CartedProduct(){
           </div>
           <div className="carted_product_link_small_item_content">
             <h1 className="carted_product_link_small_item_content_title">
-            회사명 :[오디너리라이프]
-            상품명 :[단하루 49,900원] 더월드시리즈 호텔 수건 40수 코마사200g 10장 5colors
+            {'brand_name'}
+            {'product_name'}
             </h1>
             <p className="carted_product_link_small_item_content_deltype">
               무료배송
               &nbsp;|&nbsp;
-              일반택배
+              {delivery_type === 'td' ? '일반택배' : <ShopitemTodayStart ts={delivery_type}/>}
             </p>
           </div>
         </a>
-        <RemoveBtn/>
+        <RemoveBtn
+        weight={'bold'}
+        />
         <div className="carted_product_option_list">
           <div className="carted_product_option_list_item">
             <h2 className="carted_product_option_list_item_title">옵션이름 (옵션 하나만 할 거라 일부러 버튼 구현 X)</h2>

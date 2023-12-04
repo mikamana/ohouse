@@ -15,6 +15,11 @@ drop table oh_category;
 drop table oh_member;
 
 
+
+
+insert into oh_member (mid, pass, nickname) values ("@","$2a$10$TcZs4tDeBpTJNAnVHg65U.m0DsqsTj0eH1gLkulWOfnNv1H96sfwG", "관리자");
+
+
 desc oh_member;
 select * from oh_member;
 desc oh_category;
@@ -31,6 +36,10 @@ desc oh_cart;
 select * from oh_cart;
 desc oh_order;
 select * from oh_order;
+
+select * from oh_review;
+drop table oh_review;
+delete from oh_member where mid = '@';
 
 create table oh_member(
 	mid varchar(100) primary key,
@@ -71,9 +80,11 @@ create table oh_review(
     review_content varchar(300),
     review_img varchar(300),
     review_date datetime,
+    review_score varchar(10),
     constraint oh_review_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
 	constraint oh_review_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
 );
+
 create table oh_community(
 	hid int auto_increment primary key,
 	mid varchar(100),	
@@ -136,7 +147,10 @@ insert into oh_category (category_name) values("캠핑·레저");
 insert into oh_category (category_name) values("공구·DIY");
 insert into oh_category (category_name) values("인테리어시공");
 insert into oh_category (category_name) values("렌탈");
+
+select * from oh_member;
 -- oh_member insert
+insert into oh_member (mid, pass, nickname, userimg, mdate) values("@","1234","5조테스트","https://images.unsplash.com/photo-1589734004790-885767bec2ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDF8dG93SlpGc2twR2d8fGVufDB8fHx8fA%3D%3D",sysdate());
 insert into oh_member (mid, pass, nickname, userimg, mdate) values("hong@d-friends.co.kr","1234","홍길동","https://images.unsplash.com/photo-1589734004790-885767bec2ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDF8dG93SlpGc2twR2d8fGVufDB8fHx8fA%3D%3D",sysdate());
 insert into oh_member (mid, pass, nickname, userimg, mdate) values("jimae@d-friends.co.kr","1234","일지매","https://images.unsplash.com/photo-1622898809226-eefe24316347?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDN8dG93SlpGc2twR2d8fGVufDB8fHx8fA%3D%3D",sysdate());
 insert into oh_member (mid, pass, nickname, userimg, mdate) values("woodong@d-friends.co.kr","1234","강우동","https://images.unsplash.com/photo-1594094808932-389a7932df10?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDR8dG93SlpGc2twR2d8fGVufDB8fHx8fA%3D%3D",sysdate());
@@ -167,6 +181,13 @@ insert into oh_member (mid, pass, nickname, userimg, mdate) values("arilee@d-fri
 insert into oh_member (mid, pass, nickname, userimg, mdate) values("arlee@d-friends.co.kr","1234","이어른","https://images.unsplash.com/photo-1699955980432-a2cebbbdd887?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM5fHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
 insert into oh_member (mid, pass, nickname, userimg, mdate) values("backkim@d-friends.co.kr","1234","김백제","https://images.unsplash.com/photo-1697664210419-63958ebae181?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQwfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
 insert into oh_member (mid, pass, nickname, userimg, mdate) values("basicchoi@d-friends.co.kr","1234","최기본","https://images.unsplash.com/photo-1624274515979-32afb09402a2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQyfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
+insert into oh_member (mid, pass, nickname, userimg, mdate) values("antapark@d-friends.co.kr","1234","박안타","https://images.unsplash.com/photo-1700123287639-b8ffc3f50f02?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM4fHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
+insert into oh_member (mid, pass, nickname, userimg, mdate) values("arilee@d-friends.co.kr","1234","이아리","https://images.unsplash.com/photo-1700123287437-e56517cb594e?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM3fHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
+insert into oh_member (mid, pass, nickname, userimg, mdate) values("arlee@d-friends.co.kr","1234","이어른","https://images.unsplash.com/photo-1699955980432-a2cebbbdd887?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM5fHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
+insert into oh_member (mid, pass, nickname, userimg, mdate) values("backkim@d-friends.co.kr","1234","김백제","https://images.unsplash.com/photo-1697664210419-63958ebae181?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQwfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
+insert into oh_member (mid, pass, nickname, userimg, mdate) values("@","1234","5조","https://images.unsplash.com/photo-1624274515979-32afb09402a2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQyfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
+
+select * from oh_member;
 
 -- oh_product insert
 -- 크리스마스
@@ -5920,3 +5941,8 @@ insert into oh_community (mid, house_img, house_title, house_content)
     'https://image.ohou.se/i/bucketplace-v2-development/uploads/projects/cover_images/169838188772822300.jpg',
     '우드와 컬러 패턴의 조화로 꾸며가는 빈티지 무드의 신혼집',
     '저는 최근에 제가 식물을 제법 잘 키우는 편이라는 뜻밖의 재능을 알게 됐어요. 사실 별로 해주는 건 없는데 무럭무럭 자라서 깜짝 깜짝 놀라요. 이 나비란도 자구가 너무 커져서 정리를 해줘야 하는데 아직 엄두를 내지 못하고 있어요.');insert into oh_community (mid, house_img, house_title, house_content)  values (     'samsoon_kim@d-friends.co.kr',     'https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168981484562138165.jpg',     '질리지 않는 화이트&우드의 매력! 53평 내추럴 하우스',     '안녕하세요, 에이치디자인입니다 :) 오늘은 노원구 중계동에 위치한 53평 아파트 시공 현장을 소개해 드리려고 해요! 이번 현장은 포근하면서도 단정한 분위기의 화이트&우드 인테리어를 진행했어요.')
+
+
+
+
+
