@@ -30,8 +30,8 @@ export default function IconMenuSlide() {
           modules={[Navigation]}
           className="mySwiper"
         >
-          {iconMenuSlide.map((icon) =>(
-            <SwiperSlide key={icon.imId} className="iconMenu iconMenu_slide" style={{ width: 'auto' }}> 
+          {iconMenuSlide.map((icon, imId) =>(
+            <SwiperSlide key={imId} className="iconMenu iconMenu_slide" style={{ width: 'auto' }}> 
               <IconMenuContent image={icon.image} name={icon.name}/>
             </SwiperSlide>
           ))}
