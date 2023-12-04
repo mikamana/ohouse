@@ -3,9 +3,10 @@ import ProductionsPrdReviewUserItem from '../../../productions/components/prd/re
 
 export default function ProjectsIntroBox(props) {
 
+
   return (
     <>
-      <div className='projects_house_intro_box'>
+      <div className='projects_house_intro_box' key={props.data}>
         <fieldset className='projects_house_intro_img_wrap'>
           <img src={props.houseImg} alt="유저인테리어이미지1" />
           <span className='projects_house_intro_img_span_new'>NEW</span>

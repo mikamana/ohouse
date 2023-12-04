@@ -28,21 +28,21 @@ export default function SubVisualSlideList() {
           className="mySwiper"
         >
           <li className="sub_visual_list_li">
-            <SwiperSlide>
+            <SwiperSlide key={123}>
               <Link to="#">
                 <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/store/banners/store_home_banners/169960560152478453.png?w=1920" alt="슬라이드이미지1" />
               </Link>
             </SwiperSlide>
           </li>
           <li className="sub_visual_list_li">
-            <SwiperSlide>
+            <SwiperSlide key={456}>
               <Link to="#">
                 <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/store/banners/store_home_banners/170012982237802200.png?w=1920" alt="슬라이드이미지1" />
               </Link>
             </SwiperSlide>
           </li>
           <li className="sub_visual_list_li">
-            <SwiperSlide>
+            <SwiperSlide >
               <Link to="#">
                 <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/store/banners/store_home_banners/169995935837483041.png?w=1920" alt="슬라이드이미지1" />
               </Link>

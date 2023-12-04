@@ -18,6 +18,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
     const [countList, setCountList] = useState([]);
     const [avgList, setAvgList] = useState([]);
 
+
     useEffect(() => {
 
         axios({
@@ -30,8 +31,6 @@ export default function ProductionsPrdInfoLeftBox(props) {
             setList(result.data)
 
         })
-
-
 
     }, [])
 
@@ -100,6 +99,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
         })
 
 
+
         axios({
 
             method: "post",
@@ -118,6 +118,8 @@ export default function ProductionsPrdInfoLeftBox(props) {
         })
 
     }
+
+
 
     return (
 
@@ -176,6 +178,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
                         }
                         <ProductionsPrdReviewWrap
                             avg={avgList.avg_score}
+                            totCount={avgList.sum}
                             count={countList}
                             getList={getList}
                         />

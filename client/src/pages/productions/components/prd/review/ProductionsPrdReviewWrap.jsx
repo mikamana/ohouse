@@ -13,11 +13,11 @@ export default function ProductionsPrdReviewWrap(props) {
     const [check, setCheck] = useState(0);
     //페이징 처리
     const [currentPage, setCurrentPage] = useState(1);
-    const [totalCount, setTotalCount] = useState(0);
+    // const [totalCount, setTotalCount] = useState(props.totCount);
     const [pageSize, setPageSize] = useState(5);
     const [list, setList] = useState([]);
 
-
+    // console.log(props.totCount);
     useEffect(() => {
 
         let startIndex = 0;
@@ -34,14 +34,12 @@ export default function ProductionsPrdReviewWrap(props) {
         }).then((result) => {
 
             setList(result.data);
-            // setTotalCount(result.data[0].cnt)
 
         })
 
-    }, [currentPage])
+    }, [currentPage]);
 
     const fnBestReview = (kind) => {
-
 
         if (kind === "best") {
 
@@ -72,8 +70,6 @@ export default function ProductionsPrdReviewWrap(props) {
             })
 
         }
-
-
     }
 
 
@@ -111,7 +107,7 @@ export default function ProductionsPrdReviewWrap(props) {
             <ProductionsPrdReviewReviewList review={list} />
             <Pagination
                 current={currentPage}
-                total={totalCount}
+                total={props.totCount}
                 pageSize={pageSize}
                 onChange={(page) => setCurrentPage(page)} />
         </>
