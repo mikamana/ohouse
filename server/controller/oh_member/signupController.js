@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 import * as repository from "../../repository/oh_member/signupRepository.js";
 import bcript from "bcryptjs";
-
+/* 
 const mailer = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -9,14 +9,14 @@ const mailer = nodemailer.createTransport({
     pass: "ygia zkmz umvc tepq"
   }
 })
-
+ */
 export async function emailCheck(req, res) {
   const { eid, domain } = req.body;
   const id = eid + "@" + domain;
   const result = await repository.idCheck(id);
   const number = Math.floor(Math.random() * 1E9);
   if (result.cnt === 0) {
-
+/* 
     const mailOptions = {
       from: "nodetest789@gmail.com",
       to: id,
@@ -31,7 +31,7 @@ export async function emailCheck(req, res) {
         console.log('Email Sent : ', info);
       }
     })
-
+ */
   }
   res.json({ result, number });
 }
