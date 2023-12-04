@@ -21,17 +21,19 @@ export default function Adminpage() {
   const [currentPage, SetCurrentPage] = useState(1);
   const [totalPage, SetTotalPage] = useState(0);
   const [listPerPages, SetListPerPages] = useState(10);
-  const offset = (currentPage - 1) * listPerPages
+
+  /*  페이지당 게시물 수 변경 함수  */
+  const handleChange = (e) => {
+    const {value} = e.target;
+    SetListPerPages(Number(value));
+    SetCurrentPage(1);
+  };
 
   useEffect(()=>{
     let startindex = 0;
     let endindex = 0;
-
     startindex = (currentPage - 1) * listPerPages + 1; 
     endindex = currentPage * listPerPages; 
-    
-    console.log(startindex)
-    console.log(endindex)
 
     axios.get(`http://localhost:8000/admin/${startindex}/${endindex}`)
       .then((result) => {
@@ -40,20 +42,11 @@ export default function Adminpage() {
         //console.log(result.data[0]);
       })
       .catch(console.err);
-  }, [currentPage])
-
-    /*  페이지당 게시물 수 변경 함수  */
-    const handleChange = (e) => {
-      const {value} = e.target;
-      SetListPerPages(Number(value));
-    }
-    console.log(listPerPages)
-
+  }, [memberList])
 
   const handleUpdate = () => {
     alert(``)
   }
-
 
   return (
     <div className="admin_section">
@@ -96,7 +89,6 @@ export default function Adminpage() {
             </tr>
           </thead>
           <tbody>
-            {/* {memberList.slice(offset, offset + listPerPages).map((member)=> */}
             {memberList.map((member)=>
             <tr key={member.mid}>
               <td>{member.rno}</td>
