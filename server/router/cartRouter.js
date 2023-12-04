@@ -7,7 +7,7 @@ router.use(express.json())
 router.use(express.urlencoded({extended:true}));
 
 router.post('/new',cartController.createCart);
-
+router.get('/:mid',cartController.getCart);
 
 export default router;
 

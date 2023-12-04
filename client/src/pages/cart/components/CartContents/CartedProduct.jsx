@@ -34,7 +34,7 @@ export default function CartedProduct({checkedItemHandler,checked,id,delivery_ty
             <p className="carted_product_link_small_item_content_deltype">
               무료배송
               &nbsp;|&nbsp;
-              일반택배
+              {delivery_type === 'td' ? '일반택배' : <ShopitemTodayStart ts={delivery_type}/>}
             </p>
           </div>
         </a>

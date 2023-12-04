@@ -12,3 +12,9 @@ export async function createCart(req, res) {
 
   }
 }
+
+export async function getCart(req,res){
+  const {mid} = req.params;
+  const result = cartRepository.getCart(mid);
+  res.json(result);
+}
