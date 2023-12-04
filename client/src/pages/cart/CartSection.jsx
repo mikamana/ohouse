@@ -6,25 +6,23 @@ import { getUser } from "../utill/sessionStorage";
 
 export default function CartSection(){
   const userInfo = getUser();
+  const [cartList,setCartList] = useState([]);
+  const checkList = [
+  ]
   console.log(userInfo);
   useEffect(()=>{
     axios(`http://127.0.0.1:8000/cart/${userInfo.id}`)
-    .then(result=>console.log(result.data));
+    .then(result=>{
+      setCartList(result.data)
+      console.log(result.data);
+      console.log(cartList);
+      cartList.map((item)=>{
+        checkList.push({id : item.check_id})
+        console.log(checkList);
+      })
+    });
   },[])
-  const checkList = [
-    {
-      id: '체크1',
-    }, 
-    {
-      id: '체크2',
-    }, 
-    {
-      id: '체크3',
-    }, 
-    {
-      id: '체크4',
-    }, 
-  ]
+
   const [checkedItems, setCheckedItems] = useState([])
 
   const checkedItemHandler = (id, isChecked) =>{

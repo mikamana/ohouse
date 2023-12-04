@@ -12,12 +12,11 @@ export default function ShopcateSection() {
     .then(result=>{setShopArray(result.data)})
     
     axios('http://127.0.0.1:8000/category')
-    .then(result=>setCatelist(result.data))
+    .then(result=>{setCatelist(result.data)
+      console.log(result.data)
+    })
   },[])
 
-  useEffect(()=>{
-
-  },[])
   function getCategoryItem(category_id){
     console.log(category_id);
     
@@ -37,6 +36,7 @@ export default function ShopcateSection() {
         <ShopcateCategory 
         catelist={catelist}
         getCategoryItem={getCategoryItem}
+        key={'ShopcateCategory'}
         />
         <ShopcateContents 
         shopArray={shopArray}

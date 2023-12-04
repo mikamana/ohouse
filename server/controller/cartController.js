@@ -17,5 +17,6 @@ export async function createCart(req,res){
 export async function getCart(req,res){
   const {mid} = req.params;
   const result = await cartRepository.getCart(mid);
+  console.log(result);
   res.json(result);
 }

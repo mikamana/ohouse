@@ -35,7 +35,7 @@ function handleClick(category_id){
         </SwiperSlide>
         {
           catelist.map((list)=>
-        {return <SwiperSlide style={{ width: 'auto' }}>
+        {return <SwiperSlide key={list.category_id} style={{ width: 'auto' }}>
           <ShopcateCategoryItem
           category_name={list.category_name}
           category_id={list.category_id}

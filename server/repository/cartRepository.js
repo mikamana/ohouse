@@ -9,7 +9,7 @@ export async function createCart(pid,id,qty){
 }
 
 export async function getCart(mid){
-  const sql = "select cart_id, pid, mid, cdate from oh_cart where mid = ?"
+  const sql = "select cart_id, pid, mid,qty, cdate from oh_cart where mid = ?"
   return db.execute(sql,[mid])
   .then((result)=>result[0])
 }
