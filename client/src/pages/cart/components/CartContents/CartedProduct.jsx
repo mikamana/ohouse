@@ -3,14 +3,14 @@ import CartQuantity from "../quantity/CartQuantity";
 import RemoveBtn from "./button/RemoveBtn";
 import CartCheckBox from "./checkbox/CartCheckBox";
 
-export default function CartedProduct({checkedItemHandler,checked,id,delivery_type}){
+export default function CartedProduct({checkedItemHandler,checked,cart_id,delivery_type}){
   return(
       <div className="carted_product">
         <div className="carted_product_select">
           <CartCheckBox
           checkedItemHandler={checkedItemHandler}
           checked={checked}
-          id={id}
+          cart_id={cart_id}
           />
         </div>
         {delivery_type === 'td' && <span className="carted_product_today_delivery">

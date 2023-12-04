@@ -114,6 +114,9 @@
   line-height: 1;
   color: #fff;
 }
+.cart_contents_checkbox_span_svg:hover .hover_color {
+  background-color: #f5f5f5;
+}
 
 .cart_contents_checkbox {
   position: absolute;

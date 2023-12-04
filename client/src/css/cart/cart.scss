@@ -125,6 +125,9 @@
   font-size: 16px;
   line-height: 1;
   color: #fff;
+  &:hover .hover_color{
+    background-color: #f5f5f5;
+  }
 }
 
 .cart_contents_checkbox{
