@@ -34,7 +34,7 @@ export default function ProductionsPrdReviewWrap(props) {
         }).then((result) => {
 
             setList(result.data);
-            setTotalCount(result.data[0].cnt)
+            // setTotalCount(result.data[0].cnt)
 
         })
 
