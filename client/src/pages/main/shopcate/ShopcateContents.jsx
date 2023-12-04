@@ -1,14 +1,9 @@
 import { useEffect, useState } from "react";
 import ShopitemContents from "../shopitem/ShopitemContents";
 import ShopcateContentsItem from "./components/contents/ShopcateContentsItem";
+import axios from "axios";
 
-export default function ShopcateContents(){
-  const [shopArray,setShopArray] = useState([]);
-  useEffect(()=>{
-    fetch('/db/shopbest.json')
-    .then(res=>res.json())
-    .then(data=>{setShopArray(data)})
-  },[])
+export default function ShopcateContents({shopArray}){
   return(
     <div className="shopcate_contents">
       {shopArray.map((list,i)=>{
@@ -16,6 +11,7 @@ export default function ShopcateContents(){
         <ShopitemContents
           shopitemList={list}
           index={i+1}
+          best={true}
         />
       </ShopcateContentsItem>
       })} 

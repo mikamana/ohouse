@@ -30,6 +30,11 @@ import Search from "./pages/subpage/search/Search";
 import ProjectsWrap from "./pages/subpage/contents/projects/ProjectsWrap";
 import CardCollections from "./pages/subpage/contents/cardCollections/CardCollections";
 import PasswordNewNew from './pages/user/PasswordNewNew';
+import Edit from './pages/user/Edit';
+import Withdrawals from './pages/user/Withdrawals';
+import Adminpage from "./pages/admin/Adminpage";
+import Cart from './pages/cart/Cart';
+import Orders from './pages/orders/Orders';
 
 const router = createBrowserRouter([
 
@@ -93,7 +98,7 @@ const router = createBrowserRouter([
           </Contents>
       },
       {
-        path: '/production', element:
+        path: '/production/:pid', element:
           <Contents>
             <Productions />
           </Contents>
@@ -104,8 +109,41 @@ const router = createBrowserRouter([
             <Search />
           </Contents>
       },
-      { path: '/users/password/new',element:
-          <PasswordNew/>
+      {
+        path: '/users/password/new', element:
+          <Contents>
+            <PasswordNew />
+          </Contents>
+      },
+      {
+        path: '/cart/:mid', element:
+          <Contents>
+            <Cart />
+          </Contents>
+      },
+      {
+        path: '/cart', element:
+          <Contents>
+            <Cart />
+          </Contents>
+      },
+      {
+        path: '/orders', element:
+          <Contents>
+            <Orders />
+          </Contents>
+      },
+      {
+        path: '/edit', element:
+          <Contents>
+            <Edit />
+          </Contents>
+      },
+      {
+        path: '/withdrawals', element:
+          <Contents>
+            <Withdrawals />
+          </Contents>
       }
     ]
   },
@@ -115,10 +153,10 @@ const router = createBrowserRouter([
   },
   {
     path: 'login', element:
-    <Login/>
+      <Login />
   },
   {
-    path: '/users/password/new1',element:
+    path: '/users/password/new1', element:
       <PasswordNewNew/>
   },
   {
@@ -126,9 +164,11 @@ const router = createBrowserRouter([
       <Contents>
         <Search />
       </Contents>
+  },
+  {
+    path: '/admin', element:
+      <Adminpage />
   }
-
-
 ])
 
 function App() {

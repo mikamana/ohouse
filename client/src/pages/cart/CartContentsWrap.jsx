@@ -1,15 +1,27 @@
+import { useState } from 'react';
 import CartContentsContainer from './components/CartContents/CartContentsContainer';
 import CartContentCoupon from './components/CartContents/CartContentsCouponWrap';
-import CartContentHeader from './components/CartContents/CartContentsHeaderWrap';
-import CartContentList from './components/CartContents/CartContentsListWrap';
+import CartContentItemWrap from './components/CartContents/CartContentsItemWrap';
+import CartContentsSimilarWrap from './components/CartContents/CartContentsSimilarWrap';
+import CartContentHeaderWrap from './components/CartContents/CartContentsHeaderWrap';
 
-export default function CartContentsWrap(){
+export default function CartContentsWrap({allCheckedHandler,checkedItems,checkList,checkedItemHandler}){
   return(
     <div className='cart_contents_wrap'>
       <CartContentsContainer>
-        <CartContentHeader/>
+        <CartContentHeaderWrap
+        allCheckedHandler={allCheckedHandler}
+        checkedItems={checkedItems}
+        checkList={checkList}
+        />
         <CartContentCoupon/>
-        <CartContentList/>
+        <CartContentItemWrap
+        checkedItemHandler={checkedItemHandler}
+        checkedItems={checkedItems}
+        checkList={checkList}
+        delivery_type={'td'}
+        />
+        <CartContentsSimilarWrap/>
       </CartContentsContainer>
     </div>
   );

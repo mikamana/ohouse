@@ -667,7 +667,6 @@ div.header_logo_right_loginver {
     top: 48px;
     left: 50px;
     width: 184px;
-    height: 294px;
     background: #fff;
     border: 1px solid rgb(218, 221, 224);
     border-radius: 6px;
@@ -683,7 +682,7 @@ div.header_logo_right_loginver {
     }
     ul {
       li {
-        .header_nav_menu_list3 {
+        a.header_nav_menu_list3 {
           display: inline-block;
           width: 100%;
           height: 42px;
@@ -693,7 +692,6 @@ div.header_logo_right_loginver {
           white-space: nowrap;
           border-radius: 2px;
           box-sizing: border-box;
-          cursor: pointer;
           &:hover {
             background: rgb(247, 249, 250);
           }

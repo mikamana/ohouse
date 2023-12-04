@@ -369,6 +369,38 @@ section.production_selling_wrap {
                   fill: #3eb9df;
                 }
               }
+              div.production_qty_wrap {
+                width: 100%;
+                background-color: rgb(247, 249, 250);
+                padding: 15px;
+                box-sizing: border-box;
+                margin-top: 20px;
+                p.production_qty_sub_title {
+                  width: 70%;
+                  word-break: keep-all;
+                  margin-bottom: 10px;
+                  line-height: 150%;
+                }
+                div.production_qty_price_wrap {
+                  display: flex;
+                  justify-content: space-between;
+                  div.production_qty_btn_wrap {
+                    border: 1px solid rgb(200, 200, 200);
+                    padding: 10px;
+                    border-radius: 5px;
+                    > * {
+                      padding: 10px 15px;
+                      box-sizing: border-box;
+                    }
+                    span.production_qty_btn_total {
+                    }
+                    span.production_qty_btn_length {
+                    }
+                  }
+                  span.production_qty_price {
+                  }
+                }
+              }
             } // nth-child(10)
             &:nth-child(11) {
               margin-bottom: 25px;
@@ -683,14 +715,8 @@ div.production_selling_prd_info_wrap {
                   color: #757575;
                   font-size: 13px;
                   font-weight: 700;
-                  &:nth-child(2) {
+                  &.active {
                     color: #35c5f0;
-                    &::after {
-                      content: "";
-                      border-right: 1px solid #bdbdbd;
-                      margin-left: 10px;
-                      margin-right: 5px;
-                    }
                   }
                   &:nth-child(3) {
                     color: #35c5f0;
@@ -833,6 +859,11 @@ div.production_selling_prd_info_wrap {
         }
       } //ul.production_selling_prd_info_list
     }
+    ul.rc-pagination {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0px;
+    }
     div.production_selling_prd_info_right {
       padding: 20px 10px;
       flex-grow: 1;
@@ -858,10 +889,12 @@ div.production_selling_prd_title_wrap {
       color: #35c5f0;
     }
   }
-  a.production_selling_prd_title_span {
+  button.production_selling_prd_title_span {
     font-size: 22px;
     font-weight: bold;
     color: #757575;
+    border: none;
+    background: none;
     &.active {
       color: #35c5f0;
       font-size: 15px;
@@ -982,4 +1015,84 @@ div.projects_house_intro_box {
 
 div.production_container_inquery_wrap {
   min-height: 800px;
+}
+
+form.production_selling_review_input_wrap {
+  p.production_selling_review_input_p {
+    margin-bottom: 30px;
+    input.production_selling_review_input {
+      display: block;
+      width: 100%;
+      height: 50px;
+      border: 1px solid #c9c9c9;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+    input[type="file"] {
+      width: 100%;
+      height: 50px;
+      margin-top: 10px;
+      border: 1px solid #c9c9c9;
+    }
+    input[type="file"]::file-selector-button {
+      // margin-top: 10px;
+      width: 100px;
+      height: 50px;
+      margin-right: 20px;
+      border: none;
+    }
+    select.production_review_score_box {
+      width: 100%;
+      margin-top: 10px;
+      border: 1px solid #c9c9c9;
+      height: 50px;
+      border-radius: 5px;
+    }
+  }
+  button.production_selling_review_input_btn {
+    display: block;
+    margin: 0 auto;
+    padding: 20px;
+    background: #35c5f0;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+  }
+}
+
+div.production_selling_prd_info_right {
+  div.production_qty_wrap {
+    position: sticky;
+    top: 170px;
+    width: 100%;
+    background-color: rgb(247, 249, 250);
+    padding: 15px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    p.production_qty_sub_title {
+      width: 70%;
+      word-break: keep-all;
+      margin-bottom: 10px;
+      line-height: 150%;
+    }
+    div.production_qty_price_wrap {
+      display: flex;
+      justify-content: space-between;
+      div.production_qty_btn_wrap {
+        border: 1px solid rgb(200, 200, 200);
+        padding: 10px;
+        border-radius: 5px;
+        > * {
+          padding: 10px 15px;
+          box-sizing: border-box;
+        }
+        span.production_qty_btn_total {
+        }
+        span.production_qty_btn_length {
+        }
+      }
+      span.production_qty_price {
+      }
+    }
+  }
 }

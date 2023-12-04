@@ -1,7 +1,7 @@
 import React from "react";
 import "../../../css/sub/search/search.css";
 import { Link } from "react-router-dom";
-
+import ShopitemSection from "../../main/shopitem/ShopitemSection";
 
 export default function Search (){
   return(
@@ -91,6 +91,7 @@ export default function Search (){
           <Link className="search_total_bttn" to={''}>크리스마스 기획전 바로가기</Link>
         </div>
       </div>
+      <ShopitemSection />
     </>
   );
 }

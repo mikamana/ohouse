@@ -1,9 +1,9 @@
 [
   { "url" : "/", "menuName" : "홈"},
   { "url" : "/topics/recommand", "menuName" : "추천"},
-  { "url" : "/topics/hashtagChannel", "menuName" : "#채널"},
-  { "url" : "/", "menuName" : "집들이"},
-  { "url" : "/", "menuName" : "집사진"},
+  { "url" : "/", "menuName" : "#채널"},
+  { "url" : "/content/projects", "menuName" : "집들이"},
+  { "url" : "/content/cardCollections", "menuName" : "집사진"},
   { "url" : "/", "menuName" : "3D인테리어"},
   { "url" : "/", "menuName" : "살림수납"},
   { "url" : "/", "menuName" : "콜렉터블"},
@@ -14,5 +14,5 @@
   { "url" : "/", "menuName" : "반려동물"},
   { "url" : "/", "menuName" : "캠핑"},
   { "url" : "/", "menuName" : "취미"},
-  { "url" : "/feed/event", "menuName" : "이벤트"}
+  { "url" : "/", "menuName" : "이벤트"}
 ]
