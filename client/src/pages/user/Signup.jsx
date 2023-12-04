@@ -83,7 +83,7 @@ export default function Signup(){
     if(form.passcheck === ""){
       setPasscheckText("확인을 위해 비밀번호를 한 번 더 입력해주세요.");
     }else{
-      if(form.pass == form.passcheck){
+      if(form.pass === form.passcheck){
         setPasscheckText("");
         setPassCheckValue(true);
       }else{
@@ -145,7 +145,7 @@ export default function Signup(){
   }
 
   const handleMailCheck = () => {
-    if(mailValue == mailuserValue){
+    if(mailValue === mailuserValue){
       alert("인증완료");
       setMailtext(false);
       setmailCheck(true);

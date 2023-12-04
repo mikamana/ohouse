@@ -69,7 +69,7 @@ export default function PasswordNew(){
 
   const handlePhoneCheck = () => {
     const userphone = phoneInput.first + phoneInput.middle + phoneInput.last
-    if(userphone == phone.phone){
+    if(userphone === phone.phone){
       alert("인증완료");
       setEmailButton(true);
     }else{
@@ -103,7 +103,7 @@ export default function PasswordNew(){
   }
 
   const handleEmailCheck = () => {
-    if(email == emailCode.code){
+    if(email === emailCode.code){
       setCookie("ohouse-new",id.id);
       navigate("/users/password/new1")
     }else{

@@ -115,7 +115,7 @@ export default function Edit(){
               <label>프로필이미지</label>
               <ImageUpload getImage={getImage}/>
             </div>
-            {form.userimg === "" ? <div></div> : <div className="editImageprofile"><img src={form.userimg === null ? "" : `http://localhost:8000/${form.userimg}`} alt="" /></div>}
+            {form.userimg === null ? <div></div> : <div className="editImageprofile"><img src={form.userimg === null ? "" : `http://localhost:8000/${form.userimg}`} alt="" /></div>}
           </div>
           <div className="editComment">
             <label>한줄소개</label>
