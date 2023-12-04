@@ -82,7 +82,7 @@ export default function Header() {
     }
   }
 
-  // 헤더클릭시 글쓰기 사라지는거 나중에 
+  // 헤더클릭시 글쓰기 사라지는거 나중에 추가하기
   // const headerBox = useRef();
   // ref={headerBox}
   // onClick={(e) => { if (e.target === headerBox.current) {setShowWrite("header_nav_popup_write"); setShowProfile("header_nav_popup_profile"); } }}
