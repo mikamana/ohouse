@@ -150,6 +150,10 @@ const router = createBrowserRouter([
       <Login />
   },
   {
+    path: '/users/password/new1', element:
+      <PasswordNewNew/>
+  },
+  {
     path: '/search', element:
       <Contents>
         <Search />
