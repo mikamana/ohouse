@@ -38,19 +38,23 @@ div.admin_section nav.admin_navmenu a:hover {
   background-color: var(--gray);
 }
 div.admin_section div.admin_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 10px auto;
   width: 95%;
   border: 1px solid var(--darkGray);
 }
+div.admin_section div.admin_content > * {
+  margin-bottom: 10px;
+}
 div.admin_section div.admin_content div.admin_content_count {
-  margin: 10px auto;
   width: 90%;
 }
 div.admin_section div.admin_content div.admin_content_count select.admin_count {
   margin-left: 5px;
 }
 div.admin_section div.admin_content table.admin_table {
-  margin: 0 auto;
   border: 1px solid #fff;
   width: 90%;
   text-align: center;
@@ -84,6 +88,12 @@ div.admin_section div.admin_content table.admin_table tbody td {
 }
 div.admin_section div.admin_content table.admin_table tbody td img.admin_userimg {
   width: 30px;
+}
+div.admin_section div.admin_content table.admin_table tbody td button {
+  margin-right: 10px;
+  background-color: #FFF;
+  border: 1px solid var(--darkGray);
+  cursor: pointer;
 }
 div.admin_section div.admin_content table.admin_table tr:nth-child(even) {
   background: #d0e4f5;

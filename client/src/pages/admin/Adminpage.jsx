@@ -4,27 +4,25 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Pagination from 'rc-pagination';
 import 'rc-pagination/assets/index.css';
+
 /* 
-회원관리 R, U, D (oh_member) : 정렬 (이름순, 주문순), 
+회원관리 R, U (oh_member) : 정렬 (이름순, 주문순) get order by~, 
   회원 : mid, nickname, phone, homepage, gender, birthday, userimg, mdate, 탈퇴일
 상품관리 C, R, U, D (oh_product) : 정렬(카테고리별, 갯수별)
-주문관리 R 만 (oh_order) : 정렬
-리뷰관리 R 만  
+주문관리 R, U, D (oh_order) : 정렬
+리뷰관리 R, D  
 */
 
 export default function Adminpage() {
+  /* get : 회원list */
+  const [memberList, SetMemberList] = useState([]); 
+
   /* 페이지당 게시물수 표시 */
   const [currentPage, SetCurrentPage] = useState(1);
+  const [totalPage, SetTotalPage] = useState(0);
   const [listPerPages, SetListPerPages] = useState(10);
   const offset = (currentPage - 1) * listPerPages
 
-  /* 페이징 처리 */
-  const [totalPage, SetTotalPage] = useState();
-
-  
-
-  /* get : 회원list */
-  const [memberList, SetMemberList] = useState([]);
   useEffect(()=>{
     let startindex = 0;
     let endindex = 0;
@@ -32,20 +30,30 @@ export default function Adminpage() {
     startindex = (currentPage - 1) * listPerPages + 1; 
     endindex = currentPage * listPerPages; 
     
+    console.log(startindex)
+    console.log(endindex)
+
     axios.get(`http://localhost:8000/admin/${startindex}/${endindex}`)
       .then((result) => {
         SetMemberList(result.data);
-        //SetTotalPage(result.data[0].cnt);
+        SetTotalPage(result.data[0].total);
+        //console.log(result.data[0]);
       })
       .catch(console.err);
-  }, [])
+  }, [currentPage])
+
+    /*  페이지당 게시물 수 변경 함수  */
+    const handleChange = (e) => {
+      const {value} = e.target;
+      SetListPerPages(Number(value));
+    }
+    console.log(listPerPages)
 
 
-  const handleChange = (e) => {
-    const {value} = e.target;
-    SetCurrentPage(1);
-    SetListPerPages(Number(value));
+  const handleUpdate = () => {
+    alert(``)
   }
+
 
   return (
     <div className="admin_section">
@@ -88,7 +96,8 @@ export default function Adminpage() {
             </tr>
           </thead>
           <tbody>
-            {memberList.slice(offset, offset + listPerPages).map((member)=>
+            {/* {memberList.slice(offset, offset + listPerPages).map((member)=> */}
+            {memberList.map((member)=>
             <tr key={member.mid}>
               <td>{member.rno}</td>
               <td>{member.nickname}</td>
@@ -99,11 +108,12 @@ export default function Adminpage() {
               <td>{member.count_order}</td>
               <td>{member.count_review}</td>
               <td>
-                <button /* onclick={handleRemoveCustomer} */>회원탈퇴</button>
+                <button className="admin_member_update" type="button" onClick={handleUpdate} data-id={member.mid}>정보수정</button>
+                <button>탈퇴승인</button>
               </td>
             </tr>
             )}
-          </tbody>
+          </tbody>  
         </table>
         <Pagination 
           className="admin-pagination"
