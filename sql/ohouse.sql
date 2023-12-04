@@ -46,6 +46,10 @@ select * from oh_cart;
 desc oh_order;
 select * from oh_order;
 
+select * from oh_review;
+drop table oh_review;
+delete from oh_member where mid = '@';
+
 create table oh_member(
 	mid varchar(100) primary key,
     pass varchar(100) not null,
@@ -152,7 +156,10 @@ insert into oh_category (category_name) values("캠핑·레저");
 insert into oh_category (category_name) values("공구·DIY");
 insert into oh_category (category_name) values("인테리어시공");
 insert into oh_category (category_name) values("렌탈");
+
+select * from oh_member;
 -- oh_member insert
+insert into oh_member (mid, pass, nickname, userimg, mdate) values("@","1234","5조테스트","https://images.unsplash.com/photo-1589734004790-885767bec2ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDF8dG93SlpGc2twR2d8fGVufDB8fHx8fA%3D%3D",sysdate());
 insert into oh_member (mid, pass, nickname, userimg, mdate) values("hong@d-friends.co.kr","1234","홍길동","https://images.unsplash.com/photo-1589734004790-885767bec2ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDF8dG93SlpGc2twR2d8fGVufDB8fHx8fA%3D%3D",sysdate());
 insert into oh_member (mid, pass, nickname, userimg, mdate) values("jimae@d-friends.co.kr","1234","일지매","https://images.unsplash.com/photo-1622898809226-eefe24316347?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDN8dG93SlpGc2twR2d8fGVufDB8fHx8fA%3D%3D",sysdate());
 insert into oh_member (mid, pass, nickname, userimg, mdate) values("woodong@d-friends.co.kr","1234","강우동","https://images.unsplash.com/photo-1594094808932-389a7932df10?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDR8dG93SlpGc2twR2d8fGVufDB8fHx8fA%3D%3D",sysdate());
@@ -5986,6 +5993,10 @@ GROUP BY
 
 select * from oh_member;
 insert into oh_review(mid,pid,review_content,review_img,review_date) values('@',1,'정말 좋아요','url',sysDate());
+
+select ov.rid,om.nickname,ifnull(om.userimg,'https://images.unsplash.com/photo-1624274515979-32afb09402a2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQyfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D') userimg,op.product_name,op.rating_avg,ov.review_content,ov.review_img,ov.review_score,substring(review_date,1,10) rdate, review_date, (select ifnull(count(*),1) as cnt from oh_review where pid = 1) cnt from oh_review ov inner join oh_product op, oh_member om where op.pid = ov.pid and om.mid = ov.mid and op.pid = 1 and rid between 1 and 3 order by review_date asc;
+
+
 
 /* 리뷰 총 개수와 평균 개수*/
 select sum(rcount) sum, ifnull((SELECT truncate(AVG(review_score),2) FROM oh_review where pid = ?),0) AS avg_score from 

@@ -47,7 +47,7 @@ export function upload(req, res) {
         } else {
             // console.log(`${JSON.stringify(res.req.file.path)}`);
             // res.json(res.req.file.path);
-            res.json(req.file);
+            res.json(res.req.file.path);
         }
     })
 

@@ -19,7 +19,7 @@ export default function ProjectsWrap() {
 
             setList(res.data)
 
-        }).catch(console.log('error'));
+        })
 
     }, [])
 
@@ -29,6 +29,7 @@ export default function ProjectsWrap() {
         setList(e.list)
 
     }
+
 
     return (
         <>
@@ -44,7 +45,9 @@ export default function ProjectsWrap() {
                     </div>
                     <div className="projects_house_intro_wrap">
                         {list.map((lst) => (
-                            <ProjectsIntroBox houseImg={lst.house_img}
+                            <ProjectsIntroBox
+                                key={lst.hid}
+                                houseImg={lst.house_img}
                                 userImg={lst.userimg}
                                 houseTitle={lst.house_title}
                                 houseContent={lst.house_content}

@@ -14,7 +14,7 @@ export async function getReview(req, res) {
 export async function createReview(req, res) {
 
     const { mid, pid, formObject } = req.body
-
+    
     const result = await reviewRepository.createReview(mid, pid, formObject.content, formObject.image, formObject.score);
 
     if (result === 'ok') {
