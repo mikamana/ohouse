@@ -18,8 +18,9 @@ select * from oh_product;
 select ov.rid,om.nickname,op.product_name,op.rating_avg,ov.review_content,ov.review_img,substring(review_date,1,10) rdate from oh_review ov inner join oh_product op, oh_member om where op.pid = ov.pid and om.mid = ov.mid;
 select ov.rid,om.nickname,ifnull(om.userimg,'https://images.unsplash.com/photo-1624274515979-32afb09402a2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQyfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D') userimg,op.product_name,op.rating_avg,ov.review_content,ov.review_img,substring(review_date,1,10) rdate from oh_review ov inner join oh_product op, oh_member om where op.pid = ov.pid and om.mid = ov.mid and op.pid = "1";
 
+select * from oh_community;
 
-
+select hid,SUBSTRING_INDEX(oc.mid,'@',1) as mid,om.userimg,oc.house_img,oc.house_title,oc.house_content,om.mdate from oh_community oc inner join oh_member om on oc.mid = om.mid;
 
 /*
 	업데이트 필요한 사항들
