@@ -48,9 +48,11 @@
         width: 100%;
         display: flex;
         justify-content: space-between;
-        img {
+        div {
           width: 24.5%;
-          overflow: hidden;
+          height: 177px;
+          background-size: cover;
+          background-position: center;
         }
       } //channel_image_box
     } //channel_container a
