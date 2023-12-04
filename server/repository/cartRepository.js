@@ -7,3 +7,9 @@ export async function createCart(pid,id,qty){
   .then((result)=>'ok');
 
 }
+
+export async function getCart(mid){
+  const sql = "select cart_id, pid, mid, cdate from oh_cart where mid = ?"
+  return db.execute(sql,[mid])
+  .then((result)=>result[0])
+}

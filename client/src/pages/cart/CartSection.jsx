@@ -1,7 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CartContentsWrap from './CartContentsWrap';
 import CartSidebarsWrap from './CartSidebarWrap';
+import axios from "axios";
+import { getUser } from "../utill/sessionStorage";
+
 export default function CartSection(){
+  const userInfo = getUser();
+  console.log(userInfo);
+  useEffect(()=>{
+    axios(`http://127.0.0.1/cart/${userInfo.id}`)
+    .then(result=>console.log(result.data));
+  },[])
   const checkList = [
     {
       id: '체크1',

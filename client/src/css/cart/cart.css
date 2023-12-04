@@ -272,6 +272,9 @@
   font-size: 12px;
   line-height: 16px;
 }
+.carted_product_today_delivery .shopitem_today_start {
+  margin: 0;
+}
 
 .carted_product_today_deadline {
   font-weight: 700;
