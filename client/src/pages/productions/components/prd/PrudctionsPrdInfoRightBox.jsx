@@ -2,19 +2,19 @@ import React from "react";
 import ProductionInfoOption from "../info/ProductionInfoOption";
 import ProductionInfoTotPrice from "../info/ProductionInfoTotPrice";
 import ProductionCartBtn from "../info/ProductionCartBtn";
+import ProductionsInfoQty from "../info/ProductionsInfoQty";
 
-export default function PrudctionsPrdInfoRightBox() {
+export default function PrudctionsPrdInfoRightBox(props) {
+
+
 
     return (
 
         <>
             <div className="production_selling_prd_info_right">
                 <ProductionInfoOption />
-                {/* <ul className="production_selling_prd_info_gap">
-
-                </ul> */}
                 <div className="production_selling_prd_info_right_btn_box">
-                    <ProductionInfoTotPrice />
+                    <ProductionInfoTotPrice price={props.price} priceOrigin={props.priceOrigin} />
                     <ProductionCartBtn />
                 </div>
             </div>

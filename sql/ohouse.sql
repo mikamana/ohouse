@@ -11,6 +11,12 @@ drop table oh_product;
 drop table oh_category;
 drop table oh_member;
 
+select * from oh_review;
+drop table oh_review;
+select * from oh_member;
+select * from oh_product;
+select ov.rid,om.nickname,op.product_name,op.rating_avg,ov.review_content,ov.review_img,substring(review_date,1,10) rdate from oh_review ov inner join oh_product op, oh_member om where op.pid = ov.pid and om.mid = ov.mid;
+select ov.rid,om.nickname,ifnull(om.userimg,'https://images.unsplash.com/photo-1624274515979-32afb09402a2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQyfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D') userimg,op.product_name,op.rating_avg,ov.review_content,ov.review_img,substring(review_date,1,10) rdate from oh_review ov inner join oh_product op, oh_member om where op.pid = ov.pid and om.mid = ov.mid and op.pid = "1";
 
 
 
@@ -79,9 +85,11 @@ create table oh_review(
     review_content varchar(300),
     review_img varchar(300),
     review_date datetime,
+    review_score varchar(10),
     constraint oh_review_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
 	constraint oh_review_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
 );
+
 create table oh_community(
 	hid int auto_increment primary key,
 	mid varchar(100),	
@@ -175,6 +183,13 @@ insert into oh_member (mid, pass, nickname, userimg, mdate) values("arilee@d-fri
 insert into oh_member (mid, pass, nickname, userimg, mdate) values("arlee@d-friends.co.kr","1234","이어른","https://images.unsplash.com/photo-1699955980432-a2cebbbdd887?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM5fHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
 insert into oh_member (mid, pass, nickname, userimg, mdate) values("backkim@d-friends.co.kr","1234","김백제","https://images.unsplash.com/photo-1697664210419-63958ebae181?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQwfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
 insert into oh_member (mid, pass, nickname, userimg, mdate) values("basicchoi@d-friends.co.kr","1234","최기본","https://images.unsplash.com/photo-1624274515979-32afb09402a2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQyfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
+insert into oh_member (mid, pass, nickname, userimg, mdate) values("antapark@d-friends.co.kr","1234","박안타","https://images.unsplash.com/photo-1700123287639-b8ffc3f50f02?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM4fHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
+insert into oh_member (mid, pass, nickname, userimg, mdate) values("arilee@d-friends.co.kr","1234","이아리","https://images.unsplash.com/photo-1700123287437-e56517cb594e?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM3fHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
+insert into oh_member (mid, pass, nickname, userimg, mdate) values("arlee@d-friends.co.kr","1234","이어른","https://images.unsplash.com/photo-1699955980432-a2cebbbdd887?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM5fHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
+insert into oh_member (mid, pass, nickname, userimg, mdate) values("backkim@d-friends.co.kr","1234","김백제","https://images.unsplash.com/photo-1697664210419-63958ebae181?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQwfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
+insert into oh_member (mid, pass, nickname, userimg, mdate) values("@","1234","5조","https://images.unsplash.com/photo-1624274515979-32afb09402a2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQyfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
+
+select * from oh_member;
 
 -- oh_product insert
 -- 크리스마스
@@ -5927,9 +5942,69 @@ insert into oh_community (mid, house_img, house_title, house_content)
     'basicchoi@d-friends.co.kr',
     'https://image.ohou.se/i/bucketplace-v2-development/uploads/projects/cover_images/169838188772822300.jpg',
     '우드와 컬러 패턴의 조화로 꾸며가는 빈티지 무드의 신혼집',
-    '저는 최근에 제가 식물을 제법 잘 키우는 편이라는 뜻밖의 재능을 알게 됐어요. 사실 별로 해주는 건 없는데 무럭무럭 자라서 깜짝 깜짝 놀라요. 이 나비란도 자구가 너무 커져서 정리를 해줘야 하는데 아직 엄두를 내지 못하고 있어요.');insert into oh_community (mid, house_img, house_title, house_content)  values (     'samsoon_kim@d-friends.co.kr',     'https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168981484562138165.jpg',     '질리지 않는 화이트&우드의 매력! 53평 내추럴 하우스',     '안녕하세요, 에이치디자인입니다 :) 오늘은 노원구 중계동에 위치한 53평 아파트 시공 현장을 소개해 드리려고 해요! 이번 현장은 포근하면서도 단정한 분위기의 화이트&우드 인테리어를 진행했어요.')
+    '저는 최근에 제가 식물을 제법 잘 키우는 편이라는 뜻밖의 재능을 알게 됐어요. 사실 별로 해주는 건 없는데 무럭무럭 자라서 깜짝 깜짝 놀라요. 이 나비란도 자구가 너무 커져서 정리를 해줘야 하는데 아직 엄두를 내지 못하고 있어요.');
+insert into oh_community (mid, house_img, house_title, house_content)  values (
+'samsoon_kim@d-friends.co.kr',
+'https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168981484562138165.jpg',
+'질리지 않는 화이트&우드의 매력! 53평 내추럴 하우스',     '안녕하세요, 에이치디자인입니다 :) 오늘은 노원구 중계동에 위치한 53평 아파트 시공 현장을 소개해 드리려고 해요! 이번 현장은 포근하면서도 단정한 분위기의 화이트&우드 인테리어를 진행했어요.');
 
 
+select hid,SUBSTRING_INDEX(oc.mid,'@',1) as mid,om.userimg,oc.house_img,oc.house_title,oc.house_content,om.mdate from oh_community oc inner join oh_member om on oc.mid = om.mid order by mdate desc;
+select hid,SUBSTRING_INDEX(oc.mid,'@',1) as mid,om.userimg,oc.house_img,oc.house_title,oc.house_content,om.mdate from oh_community oc inner join oh_member om on oc.mid = om.mid order by mdate asc;
 
+select count(ov.review_score), ov.rid, om.nickname,
+       op.product_name, op.rating_avg, ov.review_content, ov.review_img, ov.review_score,
+       substring(review_date, 1, 10) rdate
+from oh_review ov
+inner join oh_product op on op.pid = ov.pid
+inner join oh_member om on om.mid = ov.mid
+group by ov.review_score;
+select * from oh_product;
+select count(*) from oh_review group by review_score;
 
+select * from oh_review;
 
+SELECT
+    COUNT(*) AS review_count,
+    ov.rid,
+    om.nickname,
+    IFNULL(om.userimg, 'https://images.unsplash.com/photo-1624274515979-32afb09402a2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQyfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D') AS userimg,
+    op.product_name,
+    op.rating_avg,
+    ov.review_content,
+    ov.review_img,
+    ov.review_score,
+    SUBSTRING(review_date, 1, 10) AS rdate
+FROM
+    oh_review ov
+INNER JOIN
+    oh_product op ON op.pid = ov.pid
+INNER JOIN
+    oh_member om ON om.mid = ov.mid
+GROUP BY
+    ov.review_score, ov.rid, om.nickname, om.userimg, op.product_name, op.rating_avg, ov.review_content, ov.review_img, SUBSTRING(review_date, 1, 10);
+
+select * from oh_member;
+insert into oh_review(mid,pid,review_content,review_img,review_date) values('@',1,'정말 좋아요','url',sysDate());
+
+/* 리뷰 총 개수와 평균 개수*/
+select sum(rcount) sum, ifnull((SELECT truncate(AVG(review_score),2) FROM oh_review where pid = ?),0) AS avg_score from 
+(select count(review_score) as rcount, review_score 
+from oh_review ov 
+inner join oh_product op, oh_member om 
+where ov.pid = op.pid and om.mid = ov.mid and op.pid = ? 
+group by review_score) as m;
+
+/* 각 리뷰의 개수*/
+select count(review_score) as rcount, review_score
+from oh_review ov 
+inner join oh_product op, oh_member om 
+where ov.pid = op.pid and om.mid = ov.mid and op.pid = 28
+group by review_score;
+-- select count(*) from oh_review group by review_score;
+
+select ov.rid,om.nickname,ifnull(om.userimg,'https://images.unsplash.com/photo-1624274515979-32afb09402a2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQyfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D') userimg,op.product_name,op.rating_avg,ov.review_content,ov.review_img,ov.review_score,substring(review_date,1,10) rdate, review_date from oh_review ov inner join oh_product op, oh_member om where op.pid = ov.pid and om.mid = ov.mid and op.pid = 1 order by review_date desc;
+select count(review_score) as rcount, review_score from oh_review ov inner join oh_product op, oh_member om where ov.pid = op.pid and om.mid = ov.mid and op.pid = 1 group by review_score order by review_score asc;
+
+select * from oh_product;
+select * from oh_review;

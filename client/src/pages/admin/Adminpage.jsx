@@ -12,14 +12,13 @@ import axios from "axios";
 
 export default function Adminpage() {
   const [memberList, SetMemberList] = useState([]);
-  useEffect(()=>{
+  useEffect(() => {
     axios.get('http://localhost:8000/admin')
-    .then((result)=>{
-      console.log(result.data);
-      SetMemberList(result.data)
-    })
-    .catch(console.err);
-  },[])
+      .then((result) => {
+        SetMemberList(result.data)
+      })
+      .catch(console.err);
+  }, [])
 
   return (
     <div className="admin_section">
@@ -51,20 +50,20 @@ export default function Adminpage() {
             </tr>
           </thead>
           <tbody>
-            {memberList.map((member)=>
-            <tr key={member.mid}>
-              <td>{member.rno}</td>
-              <td>{member.nickname}</td>
-              <td>{member.mid}</td>
-              <td>{member.phone}</td>
-              <td>{member.birthday}</td>
-              <td>{member.mdate}</td>
-              <td>{member.count_order}</td>
-              <td>{member.count_review}</td>
-              <td>
-                <button>회원탈퇴</button>
-              </td>
-            </tr>
+            {memberList.map((member) =>
+              <tr key={member.mid}>
+                <td>{member.rno}</td>
+                <td>{member.nickname}</td>
+                <td>{member.mid}</td>
+                <td>{member.phone}</td>
+                <td>{member.birthday}</td>
+                <td>{member.mdate}</td>
+                <td>{member.count_order}</td>
+                <td>{member.count_review}</td>
+                <td>
+                  <button>회원탈퇴</button>
+                </td>
+              </tr>
             )}
             {/* <tr>
               <td>cell1_1</td>
