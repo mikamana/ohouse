@@ -1,4 +1,4 @@
-import OhouseDeliveryIcon from "../../../../orders/components/OhouseDeliveryIcon";
+import OhouseDeliveryIcon from './../../../../orders/components/OhouseDeliveryIcon';
 
 export default function ShopitemTodayStart({ ts }) {
 

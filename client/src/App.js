@@ -116,6 +116,12 @@ const router = createBrowserRouter([
           </Contents>
       },
       {
+        path: '/cart/:mid', element:
+          <Contents>
+            <Cart />
+          </Contents>
+      },
+      {
         path: '/cart', element:
           <Contents>
             <Cart />
@@ -148,6 +154,10 @@ const router = createBrowserRouter([
   {
     path: 'login', element:
       <Login />
+  },
+  {
+    path: '/users/password/new1', element:
+      <PasswordNewNew/>
   },
   {
     path: '/search', element:
