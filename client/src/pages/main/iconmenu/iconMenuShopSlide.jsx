@@ -9,11 +9,15 @@ import SubtitleMore from "../subtitle_more/Subtitle_more";
 import { useEffect, useState } from "react";
 
 export default function IconMenuSlide(){
-  const [iconMenuSlide, setIconMenuSlide] = useState([]);
+  const [iconMenu, setIconMenu] = useState([]);
   useEffect(()=>{
-    fetch(`data/iconMenu/iconMenuShopSlide.json`)
+    fetch(`data/iconMenu/iconMenu.json`)
     .then((res)=>res.json())
-    .then((data)=>setIconMenuSlide(data));
+    .then((data)=> {
+        const iconMenuSlice = data.slice(39, 58);
+        setIconMenu(iconMenuSlice);
+      }
+    );
   });
   return(
     <>
@@ -31,8 +35,8 @@ export default function IconMenuSlide(){
             modules={[Navigation]}
             className="mySwiper"
           >
-            {iconMenuSlide.map((icon) =>(
-              <SwiperSlide key={icon.imssID} className="iconMenu iconMenuShop_slide" style={{ width: 'auto' }}> 
+            {iconMenu.map((icon) =>(
+              <SwiperSlide key={icon.id} className="iconMenu iconMenuShop_slide" style={{ width: 'auto' }}> 
                 <IconMenuContent image={icon.image} name={icon.name}/>
               </SwiperSlide>
             ))}
