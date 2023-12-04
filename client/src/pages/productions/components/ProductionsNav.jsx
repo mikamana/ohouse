@@ -1,7 +1,7 @@
 import React from "react";
 import ProductionsNavList from "./ProductionsNavList";
 
-export default function ProductionsNav() {
+export default function ProductionsNav(props) {
 
 
   return (
@@ -10,7 +10,7 @@ export default function ProductionsNav() {
       <div className="production_selling_navigion_wrap">
         <div className="production_selling_navigion_inner inner">
           <nav className="production_selling_navigion">
-            <ProductionsNavList />
+            <ProductionsNavList count={props.count} />
           </nav>
         </div>
       </div>

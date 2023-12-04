@@ -1,7 +1,7 @@
 import multer from "multer";
 import * as repository from "../../repository/oh_member/editRepository.js";
 
-export async function profile(req, res){
+export async function profile(req, res) {
   const id = req.params.id;
   const result = await repository.profile(id)
   res.json(result)
@@ -19,20 +19,23 @@ const storage = multer.diskStorage({
 
 const fupload = multer({ storage: storage }).single("file");
 
-export function upload(req, res){
+export function upload(req, res) {
   fupload(req, res, err => {
-    if(err){
+    if (err) {
       console.log(err);
-    }else{
+    } else {
       res.json(res.req.file.path);
-      console.log(res.req.file.path);
     }
   })
 }
 
-export async function edit(req, res){
-  const {mid, nickname, homepage, gender, birthday, userimg, comment} = req.body;
+export async function edit(req, res) {
+  const { mid, nickname, homepage, gender, birthday, userimg, comment } = req.body;
   const params = [nickname, homepage, gender, birthday, userimg, comment, mid]
   const result = await repository.edit(params)
   res.json(result)
 }
+
+
+
+

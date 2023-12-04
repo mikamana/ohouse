@@ -25,38 +25,34 @@ export default function CartSection(){
 
   const [checkedItems, setCheckedItems] = useState([])
 
-  const checkedItemHandler = (id, isChecked) =>{
-    if(isChecked){
+  const checkedItemHandler = (id, isChecked) => {
+    if (isChecked) {
       setCheckedItems((prev) => [...prev, id])
-      console.log(checkedItems);
-    }else{
-      setCheckedItems(checkedItems.filter((item)=>item !== id))
-      console.log(checkedItems);
+    } else {
+      setCheckedItems(checkedItems.filter((item) => item !== id))
     }
   }
 
   const allCheckedHandler = (e) => {
-    if (e.target.checked) { 
+    if (e.target.checked) {
       setCheckedItems(checkList.map((item) => item.id))
     } else {
       setCheckedItems([]);
     }
-    console.log(`allCheck = `, e.target.checked)
   }
-  function handleOrder(){
-    if(!checkedItems.length){
+  function handleOrder() {
+    if (!checkedItems.length) {
       return alert('장바구니가 비어있습니다.')
     }
-    console.log(checkedItems);
   }
-  return(
+  return (
     <div className='cart_section sub_inner'>
       <div className='cart_section_container'>
         <CartContentsWrap
-                allCheckedHandler={allCheckedHandler}
-                checkedItemHandler={checkedItemHandler}
-                checkedItems={checkedItems}
-                checkList={checkList}
+          allCheckedHandler={allCheckedHandler}
+          checkedItemHandler={checkedItemHandler}
+          checkedItems={checkedItems}
+          checkList={checkList}
         />
         <CartSidebarsWrap
           handleOrder={handleOrder}

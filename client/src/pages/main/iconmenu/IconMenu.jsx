@@ -8,7 +8,11 @@ export default function IconMenu() {
   useEffect(() => {
     fetch(`data/iconMenu/iconMenu.json`)
       .then((res) => res.json())
-      .then((data) => setIconMenu(data));
+      .then((data) => {
+          const iconMenuSlice = data.slice(0, 10);
+          setIconMenu(iconMenuSlice);
+        }
+      );
   }, []);
 
   return (

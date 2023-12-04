@@ -40,7 +40,7 @@ export default function HeaderSearchRight() {
       <div className="header_logo_right_loginver">
         <Link to="/collections" className="header_logo_scrap"><PiBookmarkSimpleLight /></Link>
         <Link to="/notifications/feed" className="header_logo_feed"><PiBellLight /></Link>
-        <Link to="/cart" className="header_logo_cart">
+        <Link to={`/cart/${userInfo.id}`} className="header_logo_cart">
           <PiShoppingCartLight />
           <span className="header_logo_cart_num">26</span>
         </Link>

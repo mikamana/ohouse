@@ -11,6 +11,12 @@ drop table oh_product;
 drop table oh_category;
 drop table oh_member;
 
+select * from oh_review;
+drop table oh_review;
+select * from oh_member;
+select * from oh_product;
+select ov.rid,om.nickname,op.product_name,op.rating_avg,ov.review_content,ov.review_img,substring(review_date,1,10) rdate from oh_review ov inner join oh_product op, oh_member om where op.pid = ov.pid and om.mid = ov.mid;
+select ov.rid,om.nickname,ifnull(om.userimg,'https://images.unsplash.com/photo-1624274515979-32afb09402a2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQyfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D') userimg,op.product_name,op.rating_avg,ov.review_content,ov.review_img,substring(review_date,1,10) rdate from oh_review ov inner join oh_product op, oh_member om where op.pid = ov.pid and om.mid = ov.mid and op.pid = "1";
 
 
 
@@ -40,90 +46,96 @@ select * from oh_cart;
 desc oh_order;
 select * from oh_order;
 
--- create table oh_member(
--- 	mid varchar(100) primary key,
---     pass varchar(100) not null,
---     nickname varchar(50) not null,
--- 	phone varchar(20),
---     homepage varchar(300),
---     gender varchar(10),
---     birthday varchar(30),
--- 	userimg varchar(300),
---     comment varchar(100),
---     mdate datetime
--- );
--- create table oh_category (
---     category_id int auto_increment primary key,
---     category_name varchar(20) not null
--- );
--- create table oh_product(
---     pid int auto_increment primary key,
---     category_id int,
---     product_image varchar(500),
---     brand_name varchar(20),
---     product_name varchar(100),
---     rating_avg char(5),
---     rating_review int,
---     price_sale int,
---     price_origin int,
---     tag_free boolean,
---     coupon_percent int,
---     pdate datetime,
---     delivery_type varchar(20),
---     constraint oh_product_cid_fk foreign key(category_id) references oh_category(category_id) on update cascade on delete cascade
--- );
--- create table oh_review(
---     rid int auto_increment primary key,
--- 	mid varchar(100),
---     pid int,
---     review_content varchar(300),
---     review_img varchar(300),
---     review_date datetime,
---     constraint oh_review_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
--- 	constraint oh_review_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
--- );
--- create table oh_community(
--- 	hid int auto_increment primary key,
--- 	mid varchar(100),	
--- 	house_img varchar(300),
--- 	house_title varchar(100),
--- 	house_content varchar(500),
--- 	constraint oh_community_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
--- );
--- create table oh_channel (
---     channel_id int auto_increment primary key,
---     channel_title varchar(20),
---     channel_image varchar(900),
---     channel_member int,
---     channel_content int
--- );
--- create table oh_cart(
--- 	cart_id int auto_increment primary key,
---     pid int,
---     mid varchar(100),
---     qty int not null,
---     cdate datetime,
---     constraint cart_pid_fk foreign key(pid) references oh_product(pid),
---     constraint cart_mid_fk foreign key(mid) references oh_member(mid)
--- );
--- create table oh_order(
--- 	oid int auto_increment primary key,
--- 	cart_id int,
--- 	pid int,
--- 	mid varchar(100),
--- 	orderer_phone varchar(20),
--- 	reciever_place varchar(50),
--- 	reciever_name varchar(20),
--- 	reciever_phone varchar(20),
--- 	reciever_address varchar(100),
--- 	reciever_request varchar(100),
--- 	payment varchar(10),
--- 	installment varchar(20),
--- 	last_pay_price int,
--- 	constraint car_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
--- 	constraint car_cart_id_fk foreign key(cart_id) references oh_cart(cart_id) on update cascade on delete cascade,
--- 	constraint car_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
--- );
+select * from oh_review;
+drop table oh_review;
+delete from oh_member where mid = '@';
+
+create table oh_member(
+	mid varchar(100) primary key,
+    pass varchar(100) not null,
+    nickname varchar(50) not null,
+	phone varchar(20),
+    homepage varchar(300),
+    gender varchar(10),
+    birthday varchar(30),
+	userimg varchar(300),
+    comment varchar(100),
+    mdate datetime
+);
+create table oh_category (
+    category_id int auto_increment primary key,
+    category_name varchar(20) not null
+);
+create table oh_product(
+    pid int auto_increment primary key,
+    category_id int,
+    product_image varchar(500),
+    brand_name varchar(20),
+    product_name varchar(100),
+    rating_avg char(5),
+    rating_review int,
+    price_sale int,
+    price_origin int,
+    tag_free boolean,
+    coupon_percent int,
+    pdate datetime,
+    delivery_type varchar(20),
+    constraint oh_product_cid_fk foreign key(category_id) references oh_category(category_id) on update cascade on delete cascade
+);
+create table oh_review(
+    rid int auto_increment primary key,
+	mid varchar(100),
+    pid int,
+    review_content varchar(300),
+    review_img varchar(300),
+    review_date datetime,
+    review_score varchar(10),
+    constraint oh_review_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
+	constraint oh_review_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
+);
+
+create table oh_community(
+	hid int auto_increment primary key,
+	mid varchar(100),	
+	house_img varchar(300),
+	house_title varchar(100),
+	house_content varchar(500),
+	constraint oh_community_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
+);
+create table oh_channel (
+    channel_id int auto_increment primary key,
+    channel_title varchar(20),
+    channel_image varchar(900),
+    channel_member int,
+    channel_content int
+);
+create table oh_cart(
+	cart_id int auto_increment primary key,
+    pid int,
+    mid varchar(100),
+    qty int not null,
+    cdate datetime,
+    constraint cart_pid_fk foreign key(pid) references oh_product(pid),
+    constraint cart_mid_fk foreign key(mid) references oh_member(mid)
+);
+create table oh_order(
+	oid int auto_increment primary key,
+	cart_id int,
+	pid int,
+	mid varchar(100),
+	orderer_phone varchar(20),
+	reciever_place varchar(50),
+	reciever_name varchar(20),
+	reciever_phone varchar(20),
+	reciever_address varchar(100),
+	reciever_request varchar(100),
+	payment varchar(10),
+	installment varchar(20),
+	last_pay_price int,
+	constraint car_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
+	constraint car_cart_id_fk foreign key(cart_id) references oh_cart(cart_id) on update cascade on delete cascade,
+	constraint car_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
+);
 
 -- oh_category insert
 insert into oh_category (category_name) values("크리스마스");
@@ -144,7 +156,10 @@ insert into oh_category (category_name) values("캠핑·레저");
 insert into oh_category (category_name) values("공구·DIY");
 insert into oh_category (category_name) values("인테리어시공");
 insert into oh_category (category_name) values("렌탈");
+
+select * from oh_member;
 -- oh_member insert
+insert into oh_member (mid, pass, nickname, userimg, mdate) values("@","1234","5조테스트","https://images.unsplash.com/photo-1589734004790-885767bec2ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDF8dG93SlpGc2twR2d8fGVufDB8fHx8fA%3D%3D",sysdate());
 insert into oh_member (mid, pass, nickname, userimg, mdate) values("hong@d-friends.co.kr","1234","홍길동","https://images.unsplash.com/photo-1589734004790-885767bec2ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDF8dG93SlpGc2twR2d8fGVufDB8fHx8fA%3D%3D",sysdate());
 insert into oh_member (mid, pass, nickname, userimg, mdate) values("jimae@d-friends.co.kr","1234","일지매","https://images.unsplash.com/photo-1622898809226-eefe24316347?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDN8dG93SlpGc2twR2d8fGVufDB8fHx8fA%3D%3D",sysdate());
 insert into oh_member (mid, pass, nickname, userimg, mdate) values("woodong@d-friends.co.kr","1234","강우동","https://images.unsplash.com/photo-1594094808932-389a7932df10?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDR8dG93SlpGc2twR2d8fGVufDB8fHx8fA%3D%3D",sysdate());
@@ -175,6 +190,13 @@ insert into oh_member (mid, pass, nickname, userimg, mdate) values("arilee@d-fri
 insert into oh_member (mid, pass, nickname, userimg, mdate) values("arlee@d-friends.co.kr","1234","이어른","https://images.unsplash.com/photo-1699955980432-a2cebbbdd887?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM5fHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
 insert into oh_member (mid, pass, nickname, userimg, mdate) values("backkim@d-friends.co.kr","1234","김백제","https://images.unsplash.com/photo-1697664210419-63958ebae181?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQwfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
 insert into oh_member (mid, pass, nickname, userimg, mdate) values("basicchoi@d-friends.co.kr","1234","최기본","https://images.unsplash.com/photo-1624274515979-32afb09402a2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQyfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
+insert into oh_member (mid, pass, nickname, userimg, mdate) values("antapark@d-friends.co.kr","1234","박안타","https://images.unsplash.com/photo-1700123287639-b8ffc3f50f02?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM4fHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
+insert into oh_member (mid, pass, nickname, userimg, mdate) values("arilee@d-friends.co.kr","1234","이아리","https://images.unsplash.com/photo-1700123287437-e56517cb594e?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM3fHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
+insert into oh_member (mid, pass, nickname, userimg, mdate) values("arlee@d-friends.co.kr","1234","이어른","https://images.unsplash.com/photo-1699955980432-a2cebbbdd887?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM5fHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
+insert into oh_member (mid, pass, nickname, userimg, mdate) values("backkim@d-friends.co.kr","1234","김백제","https://images.unsplash.com/photo-1697664210419-63958ebae181?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQwfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
+insert into oh_member (mid, pass, nickname, userimg, mdate) values("@","1234","5조","https://images.unsplash.com/photo-1624274515979-32afb09402a2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQyfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
+
+select * from oh_member;
 
 -- oh_product insert
 -- 크리스마스
@@ -5934,7 +5956,66 @@ insert into oh_community (mid, house_img, house_title, house_content)  values (
 '질리지 않는 화이트&우드의 매력! 53평 내추럴 하우스',     '안녕하세요, 에이치디자인입니다 :) 오늘은 노원구 중계동에 위치한 53평 아파트 시공 현장을 소개해 드리려고 해요! 이번 현장은 포근하면서도 단정한 분위기의 화이트&우드 인테리어를 진행했어요.');
 
 
+select hid,SUBSTRING_INDEX(oc.mid,'@',1) as mid,om.userimg,oc.house_img,oc.house_title,oc.house_content,om.mdate from oh_community oc inner join oh_member om on oc.mid = om.mid order by mdate desc;
+select hid,SUBSTRING_INDEX(oc.mid,'@',1) as mid,om.userimg,oc.house_img,oc.house_title,oc.house_content,om.mdate from oh_community oc inner join oh_member om on oc.mid = om.mid order by mdate asc;
+
+select count(ov.review_score), ov.rid, om.nickname,
+       op.product_name, op.rating_avg, ov.review_content, ov.review_img, ov.review_score,
+       substring(review_date, 1, 10) rdate
+from oh_review ov
+inner join oh_product op on op.pid = ov.pid
+inner join oh_member om on om.mid = ov.mid
+group by ov.review_score;
+select * from oh_product;
+select count(*) from oh_review group by review_score;
+
+select * from oh_review;
+
+SELECT
+    COUNT(*) AS review_count,
+    ov.rid,
+    om.nickname,
+    IFNULL(om.userimg, 'https://images.unsplash.com/photo-1624274515979-32afb09402a2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQyfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D') AS userimg,
+    op.product_name,
+    op.rating_avg,
+    ov.review_content,
+    ov.review_img,
+    ov.review_score,
+    SUBSTRING(review_date, 1, 10) AS rdate
+FROM
+    oh_review ov
+INNER JOIN
+    oh_product op ON op.pid = ov.pid
+INNER JOIN
+    oh_member om ON om.mid = ov.mid
+GROUP BY
+    ov.review_score, ov.rid, om.nickname, om.userimg, op.product_name, op.rating_avg, ov.review_content, ov.review_img, SUBSTRING(review_date, 1, 10);
+
+select * from oh_member;
+insert into oh_review(mid,pid,review_content,review_img,review_date) values('@',1,'정말 좋아요','url',sysDate());
+
+select ov.rid,om.nickname,ifnull(om.userimg,'https://images.unsplash.com/photo-1624274515979-32afb09402a2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQyfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D') userimg,op.product_name,op.rating_avg,ov.review_content,ov.review_img,ov.review_score,substring(review_date,1,10) rdate, review_date, (select ifnull(count(*),1) as cnt from oh_review where pid = 1) cnt from oh_review ov inner join oh_product op, oh_member om where op.pid = ov.pid and om.mid = ov.mid and op.pid = 1 and rid between 1 and 3 order by review_date asc;
 
 
+
+/* 리뷰 총 개수와 평균 개수*/
+select sum(rcount) sum, ifnull((SELECT truncate(AVG(review_score),2) FROM oh_review where pid = ?),0) AS avg_score from 
+(select count(review_score) as rcount, review_score 
+from oh_review ov 
+inner join oh_product op, oh_member om 
+where ov.pid = op.pid and om.mid = ov.mid and op.pid = ? 
+group by review_score) as m;
+
+/* 각 리뷰의 개수*/
+select count(review_score) as rcount, review_score
+from oh_review ov 
+inner join oh_product op, oh_member om 
+where ov.pid = op.pid and om.mid = ov.mid and op.pid = 28
+group by review_score;
+-- select count(*) from oh_review group by review_score;
+
+select ov.rid,om.nickname,ifnull(om.userimg,'https://images.unsplash.com/photo-1624274515979-32afb09402a2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQyfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D') userimg,op.product_name,op.rating_avg,ov.review_content,ov.review_img,ov.review_score,substring(review_date,1,10) rdate, review_date from oh_review ov inner join oh_product op, oh_member om where op.pid = ov.pid and om.mid = ov.mid and op.pid = 1 order by review_date desc;
+select count(review_score) as rcount, review_score from oh_review ov inner join oh_product op, oh_member om where ov.pid = op.pid and om.mid = ov.mid and op.pid = 1 group by review_score order by review_score asc;
 
 select * from oh_product;
+select * from oh_review;

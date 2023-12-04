@@ -19,7 +19,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import ProductionsInfoQty from "./info/ProductionsInfoQty";
 // import ProductionContainerInfoList from "./ProductionContainerInfoList";
-export default function ProductionsContainer() {
+export default function ProductionsContainer(props) {
   const params = useParams();
   const [list, setList] = useState([]);
   const [prc, setPrc] = useState(list.sale_price);
@@ -35,7 +35,7 @@ export default function ProductionsContainer() {
 
       setList(result.data[0])
 
-    }).catch(console.log("error"))
+    })
 
   }, [])
 
@@ -44,22 +44,17 @@ export default function ProductionsContainer() {
   // const pricePercent = (list.price_origin / 100) * list.price_sale
   // const price = list.price_origin - pricePercent
 
+
+
   const getQty = (e) => {
 
-    // console.log(e.qtyFlag);
-    // console.log(e.qty);
     setqty(e.qty);
     setPrc(e.price);
 
-    // const price = e.price * e.qty;
-    // const result = list.sale_price * parseInt(e.qty)
-
-    // console.log(result);
-    // setPrc(price);
+    props.getPrice({ price: e.price, qty: e.qty })
 
   }
 
-  console.log(qty);
 
 
 
@@ -84,7 +79,7 @@ export default function ProductionsContainer() {
               </h4>
             </li>
             <li className="production_selling_container_info_list_li">
-              <ProductionInfoReviewBox rating={list.rating_review} />
+              <ProductionInfoReviewBox count={props.count} />
             </li>
             <li className="production_selling_container_info_list_li">
               <ProductionInfoSeilBox prcSale={list.price_sale}
@@ -107,14 +102,17 @@ export default function ProductionsContainer() {
               <ProductionInfoLife />
             </li>
             <li className="production_selling_container_info_list_li">
-              <ProductionInfoOption />
+              {/* <ProductionInfoOption /> */}
               <ProductionsInfoQty subTitle={list.product_name}
                 price={list.sale_price}
                 getQty={getQty}
+                priceOrigin={list.sale_price}
               />
             </li>
             <li className="production_selling_container_info_list_li">
-              <ProductionInfoTotPrice price={prc} />
+              <ProductionInfoTotPrice price={prc}
+                priceOrigin={list.sale_price}
+              />
             </li>
             <li className="production_selling_container_info_list_li">
               <ProductionCartBtn price={prc}

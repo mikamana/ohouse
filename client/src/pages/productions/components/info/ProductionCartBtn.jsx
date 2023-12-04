@@ -35,7 +35,6 @@ export default function ProductionCartBtn(props) {
 
   }
 
-  console.log(list);
 
 
 
