@@ -4,7 +4,7 @@ export async function createCart(req, res) {
 
   const { id, pid, qty, price } = req.body;
 
-  const result = cartRepository.createCart(pid, id, qty);
+  const result = await cartRepository.createCart(pid, id, qty);
 
   if (result === 'ok') {
 
@@ -15,6 +15,6 @@ export async function createCart(req, res) {
 
 export async function getCart(req,res){
   const {mid} = req.params;
-  const result = cartRepository.getCart(mid);
+  const result = await cartRepository.getCart(mid);
   res.json(result);
 }

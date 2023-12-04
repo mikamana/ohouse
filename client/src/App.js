@@ -116,6 +116,12 @@ const router = createBrowserRouter([
           </Contents>
       },
       {
+        path: '/cart/:mid', element:
+          <Contents>
+            <Cart />
+          </Contents>
+      },
+      {
         path: '/cart', element:
           <Contents>
             <Cart />
