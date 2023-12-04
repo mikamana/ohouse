@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { removeUser } from "../../../pages/utill/sessionStorage";
 
 export default function HeaderProfile() {
+  const handleLogout = () => {
+    removeUser();
+    window.location.reload();
+  }
 
   return (
     <ul className="header_nav_popup_profile_ul">
@@ -24,7 +29,7 @@ export default function HeaderProfile() {
         <Link to="/" className="header_nav_menu_list3">고객센터</Link>
       </li>
       <li>
-        <Link to="/" className="header_nav_menu_list3">로그아웃</Link>
+        <div to="/" className="header_nav_menu_list3" onClick={handleLogout}>로그아웃</div>
       </li>
       <li>
         <Link to="/admin" className="header_nav_menu_list3">관리자페이지</Link>

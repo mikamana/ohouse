@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "../../css/admin/adminpage.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Pagination from 'rc-pagination';
+import 'rc-pagination/assets/index.css';
 /* 
 회원관리 R, U, D (oh_member) : 정렬 (이름순, 주문순), 
   회원 : mid, nickname, phone, homepage, gender, birthday, userimg, mdate, 탈퇴일
@@ -11,8 +13,25 @@ import axios from "axios";
 */
 
 export default function Adminpage() {
+  /* 페이지당 게시물수 표시 */
+  const [currentPage, SetCurrentPage] = useState(1);
+  const [listPerPages, SetListPerPages] = useState(10);
+  const offset = (currentPage - 1) * listPerPages
+
+  /* 페이징 처리 */
+  const [totalPage, SetTotalPage] = useState();
+
+  
+
+  /* get : 회원list */
   const [memberList, SetMemberList] = useState([]);
   useEffect(()=>{
+    let startindex = 0;
+    let endindex = 0;
+
+    startindex = (currentPage-1) * pageSize + 1; // 1-1 * 3+1 : 1, 4, 
+    endindex = currentPage * pageSize; 
+    
     axios.get('http://localhost:8000/admin')
     .then((result)=>{
       console.log(result.data);
@@ -21,11 +40,20 @@ export default function Adminpage() {
     .catch(console.err);
   },[])
 
+
+  const handleChange = (e) => {
+    const {value} = e.target;
+    SetCurrentPage(1);
+    SetListPerPages(Number(value));
+  }
+
   return (
     <div className="admin_section">
       <div className="admin_banner">
         <div className="admin_logowrap">
-          <img className="admin_logo" src="http://localhost:3000/images/user/signup.png" alt="ohouse logo" />
+          <Link to ="/">
+            <img className="admin_logo" src="http://localhost:3000/images/user/signup.png" alt="ohouse logo" />
+          </Link>
         </div>
         <h1 className="admin_title">Admin</h1>
         <nav className="admin_navmenu">
@@ -36,6 +64,15 @@ export default function Adminpage() {
         </nav>
       </div>
       <div className="admin_content">
+        <div className="admin_content_count">
+          <label htmlFor="displaycount">페이지 당 게시물 수</label>
+          <select className="admin_count" id="displaycount" onChange={handleChange}>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="50">50</option>
+          </select>
+        </div>
         <table className="admin_table">
           <thead>
             <tr>
@@ -51,7 +88,7 @@ export default function Adminpage() {
             </tr>
           </thead>
           <tbody>
-            {memberList.map((member)=>
+            {memberList.slice(offset, offset + listPerPages).map((member)=>
             <tr key={member.mid}>
               <td>{member.rno}</td>
               <td>{member.nickname}</td>
@@ -62,40 +99,10 @@ export default function Adminpage() {
               <td>{member.count_order}</td>
               <td>{member.count_review}</td>
               <td>
-                <button>회원탈퇴</button>
+                <button /* onclick={handleRemoveCustomer} */>회원탈퇴</button>
               </td>
             </tr>
             )}
-            {/* <tr>
-              <td>cell1_1</td>
-              <td>cell2_1</td>
-              <td>cell3_1</td>
-              <td>cell4_1</td>
-              <td>cell2_1</td>
-              <td>cell3_1</td>
-              <td>cell4_1</td>
-              <td>cell4_1</td>
-            </tr>
-            <tr>
-              <td>cell1_1</td>
-              <td>cell2_1</td>
-              <td>cell3_1</td>
-              <td>cell4_1</td>
-              <td>cell2_1</td>
-              <td>cell3_1</td>
-              <td>cell4_1</td>
-              <td>cell4_1</td>
-            </tr>
-            <tr>
-              <td>cell1_1</td>
-              <td>cell2_1</td>
-              <td>cell3_1</td>
-              <td>cell4_1</td>
-              <td>cell2_1</td>
-              <td>cell3_1</td>
-              <td>cell4_1</td>
-              <td>cell4_1</td>
-            </tr> */}
           </tbody>
         </table>
       </div>

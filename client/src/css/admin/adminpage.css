@@ -42,6 +42,13 @@ div.admin_section div.admin_content {
   width: 95%;
   border: 1px solid var(--darkGray);
 }
+div.admin_section div.admin_content div.admin_content_count {
+  margin: 10px auto;
+  width: 90%;
+}
+div.admin_section div.admin_content div.admin_content_count select.admin_count {
+  margin-left: 5px;
+}
 div.admin_section div.admin_content table.admin_table {
   margin: 0 auto;
   border: 1px solid #fff;

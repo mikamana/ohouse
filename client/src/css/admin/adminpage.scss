@@ -44,6 +44,13 @@ div.admin_section {
     margin: 10px auto;
     width: 95%;
     border: 1px solid var(--darkGray);
+    div.admin_content_count{
+      margin: 10px auto;
+      width: 90%;
+      select.admin_count{
+        margin-left: 5px;
+      }
+    }
     table.admin_table {
       margin: 0 auto;
       border: 1px solid #fff;
