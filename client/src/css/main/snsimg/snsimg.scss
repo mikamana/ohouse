@@ -78,6 +78,11 @@ section.snsimg_wrap {
               bottom: 15px;
               display: flex;
               align-items: center;
+              svg {
+                position: absolute;
+                right: -20px;
+                bottom: 0px;
+              }
               span.snsimg_img_list_user_img {
                 display: block;
                 width: 24px;

@@ -121,6 +121,11 @@ section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fi
   display: flex;
   align-items: center;
 }
+section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fieldset.snsimg_img_fieldset .snsimg_img_list_link p.snsimg_img_list_user svg {
+  position: absolute;
+  right: -20px;
+  bottom: 0px;
+}
 section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fieldset.snsimg_img_fieldset .snsimg_img_list_link p.snsimg_img_list_user span.snsimg_img_list_user_img {
   display: block;
   width: 24px;

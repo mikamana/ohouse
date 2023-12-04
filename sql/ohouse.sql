@@ -22,6 +22,10 @@ select * from oh_community;
 
 select hid,SUBSTRING_INDEX(oc.mid,'@',1) as mid,om.userimg,oc.house_img,oc.house_title,oc.house_content,om.mdate from oh_community oc inner join oh_member om on oc.mid = om.mid;
 
+select 
+ov.rid,om.nickname,ifnull(om.userimg,0) userimg,op.product_name,op.rating_avg,ov.review_content,ov.review_img,ov.review_score,substring(review_date,1,10) rdate, review_date,(select ifnull(count(*),1) as cnt from oh_review where pid = 1) cnt
+from oh_review ov inner join oh_product op, oh_member om where op.pid = ov.pid and om.mid = ov.mid and op.pid = 1 and rid between 1 and 3 order by review_date asc;
+
 /*
 	업데이트 필요한 사항들
 */
