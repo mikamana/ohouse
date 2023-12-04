@@ -8,7 +8,7 @@ router.use(express.urlencoded({ extended: true }));
 router.get('/', houseController.getHouse);
 router.get('/first', houseController.getSortFirstHouse);
 router.get('/last', houseController.getSortLastHouse);
-// router.get('/collections', houseController.getCollection);
+router.get('/collections', houseController.getCollection);
 
 export default router;
 

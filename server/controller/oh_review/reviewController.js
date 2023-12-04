@@ -49,9 +49,9 @@ export async function getReviewAvg(req, res) {
 
 export async function getReviewBest(req, res) {
 
-    const pid = req.params.pid
+    const { pid, startIndex, endIndex } = req.params
 
-    const rows = await reviewRepository.getReviewBest(pid);
+    const rows = await reviewRepository.getReviewBest(pid,startIndex,endIndex);
 
     res.json(rows);
 
@@ -59,9 +59,9 @@ export async function getReviewBest(req, res) {
 
 export async function getReviewLatest(req, res) {
 
-    const pid = req.params.pid
+    const { pid, startIndex, endIndex } = req.params
 
-    const rows = await reviewRepository.getReviewLatest(pid);
+    const rows = await reviewRepository.getReviewLatest(pid,startIndex,endIndex);
 
     res.json(rows);
 
