@@ -58,26 +58,26 @@ create table oh_member(
     comment varchar(100),
     mdate datetime
 );
--- create table oh_category (
---     category_id int auto_increment primary key,
---     category_name varchar(20) not null
--- );
--- create table oh_product(
---     pid int auto_increment primary key,
---     category_id int,
---     product_image varchar(500),
---     brand_name varchar(20),
---     product_name varchar(100),
---     rating_avg char(5),
---     rating_review int,
---     price_sale int,
---     price_origin int,
---     tag_free boolean,
---     coupon_percent int,
---     pdate datetime,
---     delivery_type varchar(20),
---     constraint oh_product_cid_fk foreign key(category_id) references oh_category(category_id) on update cascade on delete cascade
--- );
+create table oh_category (
+    category_id int auto_increment primary key,
+    category_name varchar(20) not null
+);
+create table oh_product(
+    pid int auto_increment primary key,
+    category_id int,
+    product_image varchar(500),
+    brand_name varchar(20),
+    product_name varchar(100),
+    rating_avg char(5),
+    rating_review int,
+    price_sale int,
+    price_origin int,
+    tag_free boolean,
+    coupon_percent int,
+    pdate datetime,
+    delivery_type varchar(20),
+    constraint oh_product_cid_fk foreign key(category_id) references oh_category(category_id) on update cascade on delete cascade
+);
 create table oh_review(
     rid int auto_increment primary key,
 	mid varchar(100),
@@ -89,6 +89,7 @@ create table oh_review(
     constraint oh_review_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
 	constraint oh_review_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
 );
+
 create table oh_community(
 	hid int auto_increment primary key,
 	mid varchar(100),	
@@ -97,40 +98,40 @@ create table oh_community(
 	house_content varchar(500),
 	constraint oh_community_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
 );
--- create table oh_channel (
---     channel_id int auto_increment primary key,
---     channel_title varchar(20),
---     channel_image varchar(900),
---     channel_member int,
---     channel_content int
--- );
--- create table oh_cart(
--- 	cart_id int auto_increment primary key,
---     pid int,
---     mid varchar(100),
---     qty int not null,
---     cdate datetime,
---     constraint cart_pid_fk foreign key(pid) references oh_product(pid),
---     constraint cart_mid_fk foreign key(mid) references oh_member(mid)
--- );
--- create table oh_order(
--- 	oid int auto_increment primary key,
--- 	cart_id int,
--- 	pid int,
--- 	mid varchar(100),
--- 	orderer_phone varchar(20),
--- 	reciever_place varchar(50),
--- 	reciever_name varchar(20),
--- 	reciever_phone varchar(20),
--- 	reciever_address varchar(100),
--- 	reciever_request varchar(100),
--- 	payment varchar(10),
--- 	installment varchar(20),
--- 	last_pay_price int,
--- 	constraint car_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
--- 	constraint car_cart_id_fk foreign key(cart_id) references oh_cart(cart_id) on update cascade on delete cascade,
--- 	constraint car_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
--- );
+create table oh_channel (
+    channel_id int auto_increment primary key,
+    channel_title varchar(20),
+    channel_image varchar(900),
+    channel_member int,
+    channel_content int
+);
+create table oh_cart(
+	cart_id int auto_increment primary key,
+    pid int,
+    mid varchar(100),
+    qty int not null,
+    cdate datetime,
+    constraint cart_pid_fk foreign key(pid) references oh_product(pid),
+    constraint cart_mid_fk foreign key(mid) references oh_member(mid)
+);
+create table oh_order(
+	oid int auto_increment primary key,
+	cart_id int,
+	pid int,
+	mid varchar(100),
+	orderer_phone varchar(20),
+	reciever_place varchar(50),
+	reciever_name varchar(20),
+	reciever_phone varchar(20),
+	reciever_address varchar(100),
+	reciever_request varchar(100),
+	payment varchar(10),
+	installment varchar(20),
+	last_pay_price int,
+	constraint car_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
+	constraint car_cart_id_fk foreign key(cart_id) references oh_cart(cart_id) on update cascade on delete cascade,
+	constraint car_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
+);
 
 -- oh_category insert
 insert into oh_category (category_name) values("크리스마스");
@@ -5961,6 +5962,7 @@ group by ov.review_score;
 select * from oh_product;
 select count(*) from oh_review group by review_score;
 
+select * from oh_review;
 
 SELECT
     COUNT(*) AS review_count,
@@ -6006,7 +6008,3 @@ select count(review_score) as rcount, review_score from oh_review ov inner join 
 
 select * from oh_product;
 select * from oh_review;
-
-
-(select ov.rid,om.nickname,ifnull(om.userimg,'https://images.unsplash.com/photo-1624274515979-32afb09402a2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQyfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D') userimg,op.product_name,op.rating_avg,ov.review_content,ov.review_img,ov.review_score,substring(review_date,1,10) rdate, review_date, (select count(*) as cnt from oh_review where pid = 1) cnt) where rno between 1 and 3 as m;
-from oh_review ov inner join oh_product op, oh_member om where op.pid = ov.pid and om.mid = ov.mid and op.pid = 1 order by review_date asc;
