@@ -107,15 +107,13 @@
   font-size: 16px;
   line-height: 1;
   transition: color 0.1s, border-color 0.1s, background-color 0.1s;
+  color: #FFF;
 }
 
 .cart_contents_checkbox_span_svg {
   font-size: 16px;
   line-height: 1;
-  color: #fff;
-}
-.cart_contents_checkbox_span_svg:hover .hover_color {
-  background-color: #f5f5f5;
+  color: inherit;
 }
 
 .cart_contents_checkbox {
