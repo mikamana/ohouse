@@ -5,7 +5,7 @@ import login from "./router/oh_member/loginRouter.js"
 import userPass from "./router/oh_member/userPasswordRouter.js"
 import edit from "./router/oh_member/editRouter.js"
 import path from "path"
-import admin from "./router/adminRouter.js"
+import admin from "./router/adminRouter.js";
 import product from "./router/oh_product/productRouter.js"
 import category from "./router/oh_category/categoryRouter.js"
 import house from "./router/oh_community/houseRouter.js";
