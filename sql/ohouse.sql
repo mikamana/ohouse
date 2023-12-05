@@ -18,7 +18,9 @@ select * from oh_product;
 select ov.rid,om.nickname,op.product_name,op.rating_avg,ov.review_content,ov.review_img,substring(review_date,1,10) rdate from oh_review ov inner join oh_product op, oh_member om where op.pid = ov.pid and om.mid = ov.mid;
 select ov.rid,om.nickname,ifnull(om.userimg,'https://images.unsplash.com/photo-1624274515979-32afb09402a2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQyfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D') userimg,op.product_name,op.rating_avg,ov.review_content,ov.review_img,substring(review_date,1,10) rdate from oh_review ov inner join oh_product op, oh_member om where op.pid = ov.pid and om.mid = ov.mid and op.pid = "1";
 
-
+select cart_id, op.pid, om.mid ,qty ,cdate, ifnull(format(round(op.price_origin - (op.price_origin * op.price_sale / 100),-2),0),format(op.price_origin,0)) sale_price, ifnull(format((round(op.price_origin - (op.price_origin * op.price_sale / 100),-2) * oc.qty),0),round(op.price_origin - (op.price_origin * op.price_sale / 100),-2)) total_price 
+  , op.category_id, op.product_image,op.brand_name,op.delivery_type,op.product_name,op.tag_free,cnt
+  from oh_cart oc, oh_product op, oh_member om,(select count(*) as cnt from oh_cart where mid = '@') cart where oc.pid = op.pid and oc.mid = om.mid and oc.mid = '@';
 
 
 /*
@@ -26,6 +28,7 @@ select ov.rid,om.nickname,ifnull(om.userimg,'https://images.unsplash.com/photo-1
 */
 insert into oh_member (mid, pass, nickname) values ("@","$2a$10$TcZs4tDeBpTJNAnVHg65U.m0DsqsTj0eH1gLkulWOfnNv1H96sfwG", "관리자");
 update oh_product set price_sale = null,price_origin = 58900 where pid = 59;
+update oh_product set tag_free = 1;
 -- 관리자 계정 mid = @, pass = 1234, nickname = 관리자 insert
 -- oh_product 오류 수정
 

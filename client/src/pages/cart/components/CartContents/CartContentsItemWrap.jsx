@@ -1,7 +1,6 @@
 import CartedProduct from "./CartedProduct";
 
-export default function CartContentItemWrap({checkedItemHandler,checkedItems,cartList}){
-  let cart_id;
+export default function CartContentItemWrap({checkedItemHandler,checkedItems,cartList,removeCart,getQty}){
   return(
     <div className='cart_contents_item_wrap'>
       <div className='cart_contents_item'>
@@ -14,10 +13,12 @@ export default function CartContentItemWrap({checkedItemHandler,checkedItems,car
                 cartList.map((item)=>
                 {return <CartedProduct
                 key={item.cart_id}
-                cart_id={item.cart_id}
                 checkedItemHandler={checkedItemHandler}
                 checked={checkedItems.includes(`${item.cart_id}`) ? true : false}
                 delivery_type={item.delivery_type}
+                cartList={item}
+                removeCart={removeCart}
+                getQty={getQty}
                 />
                 }
                 )

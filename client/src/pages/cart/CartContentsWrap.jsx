@@ -5,7 +5,7 @@ import CartContentItemWrap from './components/CartContents/CartContentsItemWrap'
 import CartContentsSimilarWrap from './components/CartContents/CartContentsSimilarWrap';
 import CartContentHeaderWrap from './components/CartContents/CartContentsHeaderWrap';
 
-export default function CartContentsWrap({allCheckedHandler,checkedItems,checkList,checkedItemHandler,cartList}){
+export default function CartContentsWrap({allCheckedHandler,checkedItems,checkList,checkedItemHandler,cartList,removeCart,getQty}){
   return(
     <div className='cart_contents_wrap'>
       <CartContentsContainer>
@@ -13,12 +13,15 @@ export default function CartContentsWrap({allCheckedHandler,checkedItems,checkLi
         allCheckedHandler={allCheckedHandler}
         checkedItems={checkedItems}
         checkList={checkList}
+        removeCart={removeCart}
         />
-        <CartContentCoupon/>
+        {/* <CartContentCoupon/> */}
         <CartContentItemWrap
         checkedItemHandler={checkedItemHandler}
         checkedItems={checkedItems}
         cartList={cartList}
+        removeCart={removeCart}
+        getQty={getQty}
         />
         <CartContentsSimilarWrap/>
       </CartContentsContainer>

@@ -1,54 +1,83 @@
+import { Link } from "react-router-dom";
 import ShopitemTodayStart from "../../../main/shopitem/components/Info/ShopitemTodayStart";
 import CartQuantity from "../quantity/CartQuantity";
 import RemoveBtn from "./button/RemoveBtn";
 import CartCheckBox from "./checkbox/CartCheckBox";
+import { useEffect, useState } from "react";
 
-export default function CartedProduct({checkedItemHandler,checked,cart_id,delivery_type}){
+export default function CartedProduct({checkedItemHandler,checked,delivery_type,cartList,removeCart,getQty}){
+  const [endTime,setEndTime] = useState(false)
+  const todayMonth = new Date().getMonth() + 1 ;
+  const tomorrow = new Date().getDate() + 1;
+  const now = new Date();
+  const day = new Date();
+  day.setDate(day.getDate() + +1 );
+  console.log(day.getDay());
+  const days = ["일", "월", "화", "수", "목", "금", "토"]
+  const hours = now.getHours();
+  let endTimeCheck = false
+  console.log(hours);
+  useEffect(()=>{
+    function handleEnd(){
+      if(hours >= 14){
+        return endTimeCheck = false
+      }else{
+        return endTimeCheck = true
+      }
+    }
+    setEndTime(handleEnd());
+  },[])
+
   return(
       <div className="carted_product">
         <div className="carted_product_select">
           <CartCheckBox
           checkedItemHandler={checkedItemHandler}
           checked={checked}
-          cart_id={cart_id}
+          cart_id={cartList.cart_id}
           />
         </div>
-        {delivery_type === 'td' && <span className="carted_product_today_delivery">
-          <ShopitemTodayStart
-          ts={delivery_type}
-          />
-          SCSS 수정 필요
-          <span className="carted_product_today_deadline">11/23 (목) 발송 예정(날짜데이터필요)</span>
+        {delivery_type === 'td' && <span className="carted_product_today_delivery"> {endTime ? <ShopitemTodayStart ts={delivery_type} /> : ''} <span className="carted_product_today_deadline_time">{endTime ? '평일 14:00까지 결제시' : '오늘출발 마감'}</span>
+          {endTime ? <span className="carted_product_today_deadline">오늘출발</span> : <span className="carted_product_today_deadline">{`${todayMonth}/${tomorrow}`} ({days[day.getDay()]}) 발송 예정</span>}
         </span>}
-        <a href="" className="carted_product_link">
+        <Link to={`/production/${cartList.pid}`} className="carted_product_link">
           <div className="carted_product_link_small_item_image_wrap">
             <picture>
-              <img className="carted_product_link_small_item_image" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162324120930876959.jpg?w=360&h=360&c=c&webp=1"/>
+              <img className="carted_product_link_small_item_image" src={cartList.product_image}/>
             </picture>
           </div>
           <div className="carted_product_link_small_item_content">
             <h1 className="carted_product_link_small_item_content_title">
-            {'brand_name'}
-            {'product_name'}
+            [{cartList.brand_name}]
+            {cartList.product_name}
             </h1>
             <p className="carted_product_link_small_item_content_deltype">
               무료배송
               &nbsp;|&nbsp;
-              {delivery_type === 'td' ? '일반택배' : <ShopitemTodayStart ts={delivery_type}/>}
+              {delivery_type ? delivery_type === 'td' ? '일반택배' : <ShopitemTodayStart ts={delivery_type}/> : '일반택배'}
             </p>
           </div>
-        </a>
+        </Link>
         <RemoveBtn
         weight={'bold'}
+        removeCart={removeCart}
+        cart_id={cartList.cart_id}
         />
         <div className="carted_product_option_list">
           <div className="carted_product_option_list_item">
-            <h2 className="carted_product_option_list_item_title">옵션이름 (옵션 하나만 할 거라 일부러 버튼 구현 X)</h2>
+            <h2 className="carted_product_option_list_item_title">단일상품</h2>
             <div className="carted_product_option_list_item_info">
-              <CartQuantity/>
+              <CartQuantity
+              cart_id={cartList.cart_id}
+              getQty={getQty}
+              qty={cartList.qty}
+              price_origin={cartList.price_origin}
+              sale_price={cartList.sale_price}
+              price_change={cartList.price_change}
+              />
               <div className="carted_product_option_list_item_price">
                 <span className="carted_product_option_list_item_price_span">
-                  59,000원
+                  {cartList.sale_price}
                 </span>
               </div>
             </div>

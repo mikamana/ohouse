@@ -35,6 +35,7 @@ import Withdrawals from './pages/user/Withdrawals';
 import Adminpage from "./pages/admin/Adminpage";
 import Cart from './pages/cart/Cart';
 import Orders from './pages/orders/Orders';
+import CartEmptyPage from "./pages/cart/CartEmptyPage";
 
 const router = createBrowserRouter([
 
@@ -124,7 +125,7 @@ const router = createBrowserRouter([
       {
         path: '/cart', element:
           <Contents>
-            <Cart />
+            <CartEmptyPage />
           </Contents>
       },
       {
