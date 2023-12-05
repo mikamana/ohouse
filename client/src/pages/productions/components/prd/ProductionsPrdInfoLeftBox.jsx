@@ -17,6 +17,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
     const [list, setList] = useState([]);
     const [countList, setCountList] = useState([]);
     const [avgList, setAvgList] = useState([]);
+    const [quiryToggle, setQuiryToggle] = useState(false);
 
 
     useEffect(() => {
@@ -74,10 +75,12 @@ export default function ProductionsPrdInfoLeftBox(props) {
     const getReview = (e) => {
 
         setToggle(e.toggle)
+        setQuiryToggle(e.queryToggle)
 
     }
 
     const getImage = (e) => {
+
         alert(`new file ==>> ${JSON.stringify(e)}`);
         setImage(e)
 
@@ -145,6 +148,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
                             more={userInfo ? "리뷰쓰기" : null}
                             deck={"active"}
                             getReview={getReview}
+                            kind={"review"}
                         />
                         {
                             toggle ?
@@ -154,7 +158,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
                                         <input type="text" id="content" name="content" className="production_selling_review_input" />
                                     </p>
                                     <p className="production_selling_review_input_p">
-                                        <label id="url">이미지업로드</label>
+                                        <label id="image">이미지업로드</label>
                                         <input type="hidden" name="image" placeholder="image"
                                             value={image} />
                                         <ImageUpload getImage={getImage} />
@@ -182,6 +186,63 @@ export default function ProductionsPrdInfoLeftBox(props) {
                             count={countList}
                             getList={getList}
                         />
+                    </li>
+                    <li className="production_selling_prd_info_list_li">
+                        <ProductionsPrdTitleBox title={"문의"}
+                            more={userInfo ? "문의하기" : null}
+                            kind={"quiry"}
+                            getReview={getReview}
+                        />
+                        {
+                            quiryToggle
+                                ?
+                                <div className="production_quiry_modal_wrap">
+                                    <div className="production_quiry_modal">
+                                        <span className="quiry_modal_close"></span>
+                                        <h3 className="production_quiry_modal_title">
+                                            상품 문의하기
+                                        </h3>
+                                        <ul className="production_quiry_modal_list">
+                                            <li className="production_quiry_modal_list_li">
+                                                <p className="production_quiry_modal_list_type">
+                                                    문의유형
+                                                </p>
+                                                <ul className="production_quiry_modal_type_list">
+                                                    <li className="production_quiry_modal_type_list_li">
+                                                        상품
+                                                    </li>
+                                                    <li className="production_quiry_modal_type_list_li">
+                                                        배송
+                                                    </li>
+                                                    <li className="production_quiry_modal_type_list_li">
+                                                        반품
+                                                    </li>
+                                                    <li className="production_quiry_modal_type_list_li">
+                                                        교환
+                                                    </li>
+                                                    <li className="production_quiry_modal_type_list_li">
+                                                        환불
+                                                    </li>
+                                                    <li className="production_quiry_modal_type_list_li">
+                                                        기타
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li className="production_quiry_modal_list_li">
+                                                <p className="production_quiry_modal_list_type">
+                                                    문의내용
+                                                </p>
+                                                <input className="production_quiry_modal_list_content" type="text" placeholder="문의 내용을 입력하세요" />
+                                            </li>
+                                        </ul>
+                                        <button className="production_quiry_modal_btn">
+                                            완료
+                                        </button>
+                                    </div>
+                                </div>
+                                :
+                                <div>없음</div>
+                        }
                     </li>
                 </ul>
             </div >

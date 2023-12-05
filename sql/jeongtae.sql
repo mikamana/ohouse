@@ -37,3 +37,32 @@ where ov.pid = op.pid and om.mid = ov.mid and op.pid = 28
 group by review_score;
 -- select count(*) from oh_review group by review_score;
 
+/* 문의 테이블 생성 */
+
+	-- purchase 구매여부 (구매,비구매) 
+    -- 상품과 기타여부
+
+create table oh_inquiry(
+
+	qid int auto_increment primary key not null, -- 문의id
+    mid varchar(100),-- 유저아이디
+	pid int, -- 상품아이디
+	qtype varchar(50), -- 문의유형
+    qdate datetime,-- 문의시간
+    qcontent varchar(500), -- 문의내용
+    adate datetime, -- 답변날짜 
+    acontent varchar(500), -- 답변내용
+    secret_check boolean, -- 비밀글여부
+    
+	constraint oh_inquery_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade,
+    constraint oh_inquery_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade
+    
+);
+
+/* 문의 insert 예시 */
+insert into oh_inquiry(mid,pid,qtype,qdate,qcontent,adate,acontent,secret_check) values('@','1','상품',sysdate(),'문의내용',sysdate(),'문의에 대한 답변입니다.',1);
+
+
+
+
+
