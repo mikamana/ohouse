@@ -35,6 +35,11 @@ import Withdrawals from './pages/user/Withdrawals';
 import Adminpage from "./pages/admin/Adminpage";
 import Cart from './pages/cart/Cart';
 import Orders from './pages/orders/Orders';
+import AdminMember from "./pages/admin/AdminMember";
+import AdminProduct from "./pages/admin/AdminProduct";
+import AdminOrder from "./pages/admin/AdminOrder";
+import AdminReview from "./pages/admin/AdminReview";
+import AdminInquery from "./pages/admin/AdminInquery";
 
 const router = createBrowserRouter([
 
@@ -166,8 +171,16 @@ const router = createBrowserRouter([
       </Contents>
   },
   {
-    path: '/admin', element:
-      <Adminpage />
+    path: '/admin', 
+    element: <Adminpage />,
+    children : [
+      { path : '/admin', element : <AdminMember />},
+      { path : '/admin/oh_member', element : <AdminMember />},
+      { path : '/admin/oh_product', element : <AdminProduct /> },
+      { path : '/admin/oh_order', element : <AdminOrder /> },
+      { path : '/admin/oh_review', element : <AdminReview /> },
+      { path : '/admin/oh_review', element : <AdminInquery /> }
+    ]
   }
 ])
 

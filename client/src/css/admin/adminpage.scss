@@ -1,45 +1,62 @@
 @use "../common/mixin.scss" as m;
 
-div.admin_section {
-  div.admin_banner {
-    padding: 10px 0;
-    display: flex;
-    align-items: center;
-    height: 100px;
-    box-sizing: border-box;
-    div.admin_logowrap {
-      width: 100px;
-      margin: 10px 20px;
-      img {
-        width: 100%;
-      }
-    }
-    h1.admin_title {
-      width: 50%;
-      font-size: 25px;
-      font-weight: 600;
-    }
-  } //div.admin_banner
-  nav.admin_navmenu {
-    display: flex;
-    margin: 0 auto;
-    width: 40%;
-    a {
-      margin-left: 5px;
-      flex: 1;
-      display: inline-block;
-      text-align: center;
-      height: 35px;
-      line-height: 35px;
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--sky);
-      border-bottom: 2px solid var(--darkGray);
-      &:hover {
-        background-color: var(--gray);
-      }
+div.admin_navbar {
+  display: flex;
+  align-items: center;
+  padding: 10px 30px;
+  width: 100%;
+  height: 100px;
+  border-bottom: 1px solid #EAEDEF;
+  box-sizing: border-box;
+  div.admin_logowrap {
+    width: 100px;
+    margin: 10px 20px;
+    img {
+      width: 100%;
     }
   }
+  h1.admin_title {
+    width: 50%;
+    font-size: 25px;
+    font-weight: 600;
+    a.admin_titlelink {
+      padding: 11px 10px;
+      text-align: center;
+      width: 290px;
+      line-height: 26px;
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--sky);
+      background-color: var(--gray);
+      border: none;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+  }
+} //div.admin_banner
+nav.admin_navmenu {
+  display: flex;
+  margin: 0 auto;
+  width: 40%;
+  a {
+    margin-left: 5px;
+    flex: 1;
+    display: inline-block;
+    text-align: center;
+    height: 35px;
+    line-height: 35px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--sky);
+    border-bottom: 2px solid var(--darkGray);
+    &:hover {
+      background-color: var(--gray);
+    }
+  }
+}
+
+div.admin_section {
+  padding: 30px 0;
   div.admin_content {
     position: relative;
     display: flex;
@@ -47,16 +64,21 @@ div.admin_section {
     align-items: center;
     margin: 10px auto;
     width: 95%;
-    border: 1px solid var(--darkGray);
     & > * {
       margin-bottom: 10px;
     }
-    div.admin_content_count {
+    div.admin_content_option {
+      display: flex;
+      justify-content: space-between;
       width: 90%;
-      select.admin_count {
+      select {
         margin-left: 5px;
+        font-size: 15px;
+        border: 1px solid #d9d9d9;
       }
-    }
+    } //div.admin_content_count
+    div.admin_content_sort {
+    } //div.admin_content_sort
     table.admin_table {
       border: 1px solid #fff;
       width: 90%;
@@ -96,9 +118,8 @@ div.admin_section {
               width: 30px;
             }
             button {
-              margin-right: 10px;
               background-color: #fff;
-              border: 1px solid var(--darkGray);
+              border: 1px solid #d9d9d9;
               cursor: pointer;
             }
           } //td
@@ -137,7 +158,7 @@ div.admin_section {
         display: flex;
         flex-direction: column;
         align-items: center;
-        div.admin_update_contentwrap{
+        div.admin_update_contentwrap {
           div.admin_update_contentbox {
             display: flex;
             margin-bottom: 15px;
@@ -181,90 +202,3 @@ div.admin_section {
     } //div.admin_update_popup
   } //div.admin_content
 } //div.admin_section
-
-
-ul.house_cate_list {
-  display: flex;
-  li.house_cate_list_li {
-      margin-right: 5px;
-      position: relative;
-      &.active div.house_cate_list_modal {
-          visibility: visible;
-          opacity: 1;
-          transition: all 0.2s;
-      }
-      div.house_cate_list_box {
-          margin-top: 5px;
-          padding: 15px 0px;
-          button.house_cate_list_btn {
-              color: #757575;
-              border: none;
-              padding: 7px 8px 6px;
-              border-radius: 5px;
-              font-weight: bold;
-              font-size: 15px;
-              span.house_cate_list_span {
-                  &::after {
-                      content: "\f078";
-                      font-family: "Font Awesome 6 Free"; /*폰트어썸 fas, far 글꼴 연결*/
-                      font-weight: 800;
-                      font-size: 14px;
-                      margin-left: 5px;
-                      color: #757575;
-                  }
-              }
-          }
-      }
-      div.house_cate_list_modal {
-          opacity: 0;
-          position: absolute;
-          visibility: hidden;
-          width: 200px;
-          z-index: 1;
-          left: 50%;
-          transform: translateX(-50%);
-          // border-radius: 50px;
-          border-radius: 5px;
-          // overflow: hidden;
-          transition: all 0.2s;
-          box-shadow: 2px 2px 21px -4px rgba(0, 0, 0, 0.73);
-          -webkit-box-shadow: 2px 2px 21px -4px rgba(0, 0, 0, 0.73);
-          -moz-box-shadow: 2px 2px 21px -4px rgba(0, 0, 0, 0.73);
-
-          &::before {
-              content: "";
-              display: block;
-              position: absolute;
-              left: 50%;
-              transform: translateX(-50%);
-              top: -10px;
-              background-color: rgb(255, 255, 255);
-              width: 10px;
-              height: 10px;
-              clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-          }
-
-          ul.house_cate_list_modal_list {
-              width: 100%;
-              li.house_cate_list_modal_list_li {
-                  width: 100%;
-                  &:hover button.house_cate_list_modal_list_li_btn {
-                      background: rgb(247, 247, 247);
-                  }
-                  button.house_cate_list_modal_list_li_btn {
-                      padding: 20px 20px;
-                      width: 100%;
-                      border: none;
-                      font-size: 15px;
-                      font-weight: bold;
-                      background-color: #fff;
-                      text-align: left;
-                      &.active {
-                          color: #35c5f0;
-                      }
-                  }
-              }
-          }
-      }
-  }
-}

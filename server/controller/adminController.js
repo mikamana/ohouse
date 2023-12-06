@@ -3,7 +3,7 @@ import * as repository from "../repository/adminRepository.js"
 /* 회원리스트 조회 */
 export async function getMemberList(req, res) {
   const {value, startindex, endindex} = req.params;
-  console.log({value, startindex, endindex});
+  //console.log({value, startindex, endindex});
   const result = await repository.getMemberList({value, startindex, endindex});
   res.json(result)
 };
