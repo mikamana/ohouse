@@ -28,15 +28,30 @@ export default function AdminContent({ category, menuList, titleList }) {
     setListPerPages(Number(value));
   };
 
+  let alist = new Array();
+
   useEffect(() => {
     axios.get(`http://127.0.0.1:8000/admin/${category}/${startindex}/${endindex}/${value}`)
       .then((result) => {
         setMemberList(result.data);
-        console.log(result.data);
         setTotalPage(result.data[0].total);
+        console.log(result.data);
+        result.data.map((list)=>{
+          for(var key in list){
+            //alist.push({key:list[key]})
+            alist.push(key)
+            //console.log(key, list[key]);
+            // console.log(alist);
+            const set = new Set(alist);
+            //console.log(set);
+          }
+        })
+
       })
       .catch(console.err);
   }, [value, listPerPages, currentPage])
+
+  //console.log(alist);
 
   const [toggle, setToggle] = useState(false);
   const handleToggle = (e) => {
@@ -91,7 +106,6 @@ export default function AdminContent({ category, menuList, titleList }) {
 
   </table>` */
 
-  
 
   return (
     <>
@@ -140,6 +154,18 @@ export default function AdminContent({ category, menuList, titleList }) {
             <tbody>
               {memberList.map((member) =>
                 <tr key={member.mid}>
+                  {/* {Object.values(member)[0] !== null && <td>{Object.values(member)[0]}</td>}
+                  {Object.values(member)[1] !== null && <td>{Object.values(member)[1]}</td>}
+                  {Object.values(member)[2] !== null && <td>{Object.values(member)[2]}</td>}
+                  {Object.values(member)[3] !== null && <td>{Object.values(member)[3]}</td>}
+                  {Object.values(member)[4] !== null && <td>{Object.values(member)[4]}</td>}
+                  {Object.values(member)[5] !== null && <td>{Object.values(member)[5]}</td>}
+                  {Object.values(member)[6] !== null && <td>{Object.values(member)[6]}</td>}
+                  {Object.values(member)[7] !== null && <td>{Object.values(member)[7]}</td>}
+                  {Object.values(member)[8] !== null && <td>{Object.values(member)[8]}</td>}
+                  {Object.values(member)[9] !== null && <td>{Object.values(member)[9]}</td>}
+                  {Object.values(member)[10] !== null && <td>{Object.values(member)[10]}</td>}
+                  {Object.values(member)[11] !== null && <td>{Object.values(member)[11]}</td>} */}
                   <td>{member.rno}</td>
                   <td>{member.nickname}</td>
                   <td>{member.mid}</td>
@@ -147,7 +173,7 @@ export default function AdminContent({ category, menuList, titleList }) {
                   <td>{member.birthday}</td>
                   <td>{member.mdate}</td>
                   <td>{member.count_order}</td>
-                  <td>{member.count_review}</td>
+                  <td>{member.count_review}</td> 
                   <td>
                     <button className="admin_update_togglebtn" type="button" onClick={handleToggle} data-id={member.mid}>정보수정</button>
                   </td>
