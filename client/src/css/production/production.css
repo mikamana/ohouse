@@ -500,6 +500,9 @@ div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.p
   padding: 40px 20px 0;
   box-sizing: border-box;
 }
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li {
+  margin-top: 40px;
+}
 div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(1) {
   margin-bottom: 80px;
 }
@@ -835,8 +838,68 @@ div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.p
   color: #424242;
   margin-top: 8px;
 }
-div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li {
-  margin-top: 40px;
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(4) ul.production_inquiry_list_box li.production_inquiry_list_box_li {
+  margin: 40px 0px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(4) ul.production_inquiry_list_box li.production_inquiry_list_box_li div.production_inquiry_list_box_purchase_check {
+  display: flex;
+  margin-bottom: 8px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(4) ul.production_inquiry_list_box li.production_inquiry_list_box_li div.production_inquiry_list_box_purchase_check span.production_inquiry_list_box_purchase_check_span {
+  color: #424242;
+  font-size: 12px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(4) ul.production_inquiry_list_box li.production_inquiry_list_box_li div.production_inquiry_list_box_purchase_check span.production_inquiry_list_box_purchase_check_span:last-child.actvie {
+  color: #35c5f0;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(4) ul.production_inquiry_list_box li.production_inquiry_list_box_li div.production_inquiry_list_box_purchase_check span.production_inquiry_list_box_purchase_check_span:not(:last-child)::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 80%;
+  margin: 0px 5px;
+  background-color: #424242;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(4) ul.production_inquiry_list_box li.production_inquiry_list_box_li div.production_inquiry_list_box_user {
+  display: flex;
+  margin-bottom: 12px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(4) ul.production_inquiry_list_box li.production_inquiry_list_box_li div.production_inquiry_list_box_user span.production_inquiry_list_box_user {
+  font-size: 12px;
+  color: #bdbdbd;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(4) ul.production_inquiry_list_box li.production_inquiry_list_box_li div.production_inquiry_list_box_user span.production_inquiry_list_box_user:first-child::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 80%;
+  margin: 0px 5px;
+  background-color: #bdbdbd;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(4) ul.production_inquiry_list_box li.production_inquiry_list_box_li div.production_inquiry_list_box_qna div.production_inquiry_list_icon_box {
+  display: flex;
+  margin-bottom: 15px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(4) ul.production_inquiry_list_box li.production_inquiry_list_box_li div.production_inquiry_list_box_qna div.production_inquiry_list_icon_box span.production_inquiry_list_icon_text {
+  color: #35c5f0;
+  font-weight: bold;
+  margin-right: 5px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(4) ul.production_inquiry_list_box li.production_inquiry_list_box_li div.production_inquiry_list_box_qna div.production_inquiry_list_icon_box span.production_inquiry_list_box_qna_content {
+  font-size: 15px;
+  color: #424242;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(4) ul.production_inquiry_list_box li.production_inquiry_list_box_li div.production_inquiry_list_box_qna div.production_inquiry_list_icon_box div.production_inquiry_list_answer_box span.production_inquiry_list_answer_brand span.production_inquiry_list_answer_date {
+  color: #bdbdbd;
+  font-size: 12px;
+  margin-left: 5px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(4) ul.production_inquiry_list_box li.production_inquiry_list_box_li div.production_inquiry_list_box_qna div.production_inquiry_list_icon_box div.production_inquiry_list_answer_box span.production_inquiry_list_answer_span {
+  display: block;
+  font-size: 15px;
+  color: #424242;
+  word-break: keep-all;
+  margin-top: 7px;
 }
 div.production_selling_prd_info_wrap div.production_selling_prd_info_inner ul.rc-pagination {
   display: flex;
@@ -869,8 +932,6 @@ div.production_selling_prd_title_wrap button.production_selling_prd_title_span {
   color: #757575;
   border: none;
   background: none;
-}
-div.production_selling_prd_title_wrap button.production_selling_prd_title_span.active {
   color: #35c5f0;
   font-size: 15px;
 }
@@ -1098,8 +1159,17 @@ div.production_quiry_modal_wrap div.production_quiry_modal ul.production_quiry_m
   box-sizing: border-box;
   border-radius: 4px;
   outline: none !important;
+}
+div.production_quiry_modal_wrap div.production_quiry_modal ul.production_quiry_modal_list li.production_quiry_modal_list_li input.production_quiry_modal_list_content.active {
   border-color: #35c5f0;
   box-shadow: 0 0 10px #35c5f0;
+}
+div.production_quiry_modal_wrap div.production_quiry_modal ul.production_quiry_modal_list li.production_quiry_modal_list_li p.production_quiry_modal_list_checkbox_wrap {
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
 }
 div.production_quiry_modal_wrap div.production_quiry_modal ul.production_quiry_modal_list li.production_quiry_modal_list_li ul.production_quiry_modal_type_list {
   display: flex;
@@ -1121,6 +1191,11 @@ div.production_quiry_modal_wrap div.production_quiry_modal ul.production_quiry_m
 }
 div.production_quiry_modal_wrap div.production_quiry_modal ul.production_quiry_modal_list li.production_quiry_modal_list_li ul.production_quiry_modal_type_list li.production_quiry_modal_type_list_li:hover {
   background-color: #f5f5f5;
+}
+div.production_quiry_modal_wrap div.production_quiry_modal ul.production_quiry_modal_list li.production_quiry_modal_list_li ul.production_quiry_modal_type_list li.production_quiry_modal_type_list_li.actvie {
+  background-color: #35c5f0;
+  color: #fff;
+  font-weight: bold;
 }
 div.production_quiry_modal_wrap div.production_quiry_modal ul.production_quiry_modal_list li.production_quiry_modal_list_li ul.production_quiry_modal_type_list li.production_quiry_modal_type_list_li:nth-child(3n+3) {
   border-right: none;
