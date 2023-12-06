@@ -36,7 +36,7 @@ export default function PasswordNew(){
 
   const handleIdCheck = () => {
     if(idCheck){
-      axios.post("http://localhost:8000/users/password/new", id)
+      axios.post("http://127.0.0.1:8000/users/password/new", id)
       .then(result => {
         if(result.data.cntid === 1){
           setIdValue(result.data.cntid);
@@ -79,7 +79,7 @@ export default function PasswordNew(){
 
   const handleEmail = () => {
     if(emailButton){
-      axios.post("http://localhost:8000/users/password/new/email", id)
+      axios.post("http://127.0.0.1:8000/users/password/new/email", id)
       .then(result => {
         console.log(result.data);
         setEmai(result.data);
@@ -103,7 +103,7 @@ export default function PasswordNew(){
   }
 
   const handleEmailCheck = () => {
-    if(email === emailCode.code){
+    if(email == emailCode.code){
       setCookie("ohouse-new",id.id);
       navigate("/users/password/new1")
     }else{
