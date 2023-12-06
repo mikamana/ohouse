@@ -184,6 +184,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
 
         }).then((result) => {
 
+            window.location.reload();
             alert("문의가 등록되었습니다.")
 
         })
