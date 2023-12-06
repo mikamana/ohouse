@@ -10,6 +10,7 @@ import axios from "axios";
 export default function Productions() {
 
   const [count, setCount] = useState('');
+  const [quiryCount, setQuiryCount] = useState('');
   const [price, setPrice] = useState(0);
   const [qty, setQty] = useState(1);
   const [priceOrigin, setPriceOrigin] = useState(0);
@@ -18,6 +19,7 @@ export default function Productions() {
   const getCount = (e) => {
 
     setCount(e.sum)
+
 
   }
 
