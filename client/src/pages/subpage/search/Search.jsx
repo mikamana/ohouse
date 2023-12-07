@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import "../../../css/sub/search/search.css";
 import { Link } from "react-router-dom";
-import ShopitemSection from "../../main/shopitem/ShopitemSection";
 
 export default function Search (){
+
+  const [searchTotal, setSearchTotal] = useState([]);
+  useEffect(()=>{
+    fetch(`/data/iconMenu/search.json`)
+    .then((res) => res.json())
+    .then((data) => setSearchTotal(data));
+  }, []);
+
   return(
     <>
       <div className="search_container inner">
@@ -30,30 +37,15 @@ export default function Search (){
               <span>올해는 더 예쁜 기억을 만들어보세요.</span>
             </div>
             <ul className="search_total_image">
-              <li>
-                <Link to={''}>
-                  <figure></figure>
-                  <p>홈데코트렌드</p>
-                </Link>
-              </li>
-              <li>
-                <Link to={''}>
-                  <figure></figure>
-                  <p>홈데코트렌드</p>
-                </Link>
-              </li>
-              <li>
-                <Link to={''}>
-                  <figure></figure>
-                  <p>홈데코트렌드</p>
-                </Link>
-              </li>
-              <li>
-                <Link to={''}>
-                  <figure></figure>
-                  <p>홈데코트렌드</p>
-                </Link>
-              </li>
+              {searchTotal.slice(0,3).map((total) => (
+                <li key={total.id}>
+                  <Link to={''}>
+                    <figure style={{backgroundImage: `url(${total.image})`}}>
+                    </figure>
+                    <p>{total.name}</p>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="search_total_item">
@@ -62,36 +54,21 @@ export default function Search (){
               <span>많이 찾는 상품들을 모았어요.</span>
             </div>
             <ul className="search_total_image">
-              <li>
-                <Link to={''}>
-                  <figure></figure>
-                  <p>홈데코트렌드</p>
-                </Link>
-              </li>
-              <li>
-                <Link to={''}>
-                  <figure></figure>
-                  <p>홈데코트렌드</p>
-                </Link>
-              </li>
-              <li>
-                <Link to={''}>
-                  <figure></figure>
-                  <p>홈데코트렌드</p>
-                </Link>
-              </li>
-              <li>
-                <Link to={''}>
-                  <figure></figure>
-                  <p>홈데코트렌드</p>
-                </Link>
-              </li>
+              {searchTotal.slice(4,12).map((total) => (
+                <li key={total.id}>
+                  <Link to={''}>
+                    <figure style={{backgroundImage: `url(${total.image})`}}>
+                    </figure>
+                    <p>{total.name}</p>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <Link className="search_total_bttn" to={''}>크리스마스 기획전 바로가기</Link>
         </div>
       </div>
-      <ShopitemSection />
+
     </>
   );
 }

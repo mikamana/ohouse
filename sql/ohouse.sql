@@ -5957,3 +5957,15 @@ select hid,SUBSTRING_INDEX(oc.mid,'@',1) as mid,om.userimg,oc.house_img,oc.house
 select hid,SUBSTRING_INDEX(oc.mid,'@',1) as mid,om.userimg,oc.house_img,oc.house_title,oc.house_content,om.mdate from oh_community oc inner join oh_member om on oc.mid = om.mid order by mdate asc;
 
 insert into oh_review(mid,pid,review_content,review_img,review_date) values('@',1,'정말 좋아요','url',sysDate());
+
+
+
+
+
+
+
+
+
+
+
+select * from oh_product;

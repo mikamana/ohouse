@@ -14,6 +14,7 @@ import cart from "./router/cartRouter.js";
 import review from "./router/oh_review/reviewRouter.js";
 import upload from "./router/uploadRouter.js";
 import channel from "./router/channelRouter.js";
+import search from "./router/searchRouter.js";
 
 const PORT = 8000;
 const server = express();
@@ -35,6 +36,7 @@ server.use('/category', category);
 server.use('/review', review);
 server.use('/upload', upload);
 server.use('/channel', channel);
+server.use('/search', search);
 
 server.listen(PORT, () => {
   console.log(`server start --->> ${PORT}`);
