@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 
 export default function AdminMember() {
 
-  const {category} = useParams();
+  //const {category} = useParams();
   //console.log(category);
 
   /* get : list */
@@ -34,7 +34,7 @@ export default function AdminMember() {
   };
 
   useEffect(() => {
-    axios.get(`http://127.0.0.1:8000/admin/${category}/${startindex}/${endindex}/${value}`)
+    axios.get(`http://127.0.0.1:8000/admin/member/${startindex}/${endindex}/${value}`)
       .then((result) => {
         if(result.data.length !== 0){
           setList(result.data);
@@ -42,7 +42,7 @@ export default function AdminMember() {
         }
       })
       .catch(console.err);
-  }, [value, listPerPages, currentPage, category])
+  }, [value, listPerPages, currentPage])
 
   const [toggle, setToggle] = useState(false);
   const handleToggle = (e) => {

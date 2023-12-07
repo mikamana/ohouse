@@ -190,7 +190,7 @@ const router = createBrowserRouter([
     element: <Adminpage />,
     children : [
       { path : '/admin', element : <AdminMember />},
-      { path : '/admin/:category', element : <AdminMember />},
+      { path : '/admin/member', element : <AdminMember />},
       { path : '/admin/product', element : <AdminProduct /> },
       /*{ path : '/admin/:category', element : <AdminOrder /> },
       { path : '/admin/:category', element : <AdminInquery /> } */
