@@ -14,6 +14,7 @@ export default function CartSection() {
   const [sumPrice, setSumPrice] = useState(0);
   const [totalPrice,setTotalPrice] = useState(0);
   const [salePrice,setSalePrice] = useState(0);
+  const [qtyCheck,setQtyCheck] = useState(0);
   const cl = [];
   let totPriceOrigin = 0;
   let totPrice = 0;
@@ -21,7 +22,7 @@ export default function CartSection() {
 const navigate = useNavigate();
 
   useEffect(() => {
-    axios(`http://127.0.0.1:8000/cart/${userInfo.id}`)
+    axios.get(`http://127.0.0.1:8000/cart/${userInfo.id}`)
       .then(result => {
         if(!result.data.length){
           return navigate('/cart')
@@ -82,16 +83,21 @@ useEffect(()=>{
 
 
   const getQty = (e) =>{
-    if(e.checkFlag === 'plus' && e.qtyFlag){
-      setSumPrice(sumPrice + e.price_origin)
-      setSalePrice(salePrice + Math.ceil(e.price_change / 100) * 100)
-      setTotalPrice(totalPrice + parseInt(e.sale_price.replace(/,/g, '')))
-    }else if(e.checkFlag === 'minus' && e.qtyFlag){
-      setSumPrice(sumPrice - e.price_origin)
-      setSalePrice(salePrice - Math.ceil(e.price_change / 100) * 100)
-      setTotalPrice(totalPrice - parseInt(e.sale_price.replace(/,/g, '')))
-    }
     updateCart(e.cart_id,e.qty);
+    setQtyCheck(!qtyCheck);
+    if(!checkedItems.includes(`${e.cart_id}`)){
+      return
+    }
+      if(e.checkFlag === 'plus' && e.qtyFlag){
+        setSumPrice(sumPrice + e.price_origin)
+        setSalePrice(salePrice + Math.ceil(e.price_change / 100) * 100)
+        setTotalPrice(totalPrice + parseInt(e.sale_price.replace(/,/g, '')))
+      }else if(e.checkFlag === 'minus' && e.qtyFlag){
+        setSumPrice(sumPrice - e.price_origin)
+        setSalePrice(salePrice - Math.ceil(e.price_change / 100) * 100)
+        setTotalPrice(totalPrice - parseInt(e.sale_price.replace(/,/g, '')))
+      }
+    
   }
 
   function removeCart(cart_id){
@@ -118,9 +124,11 @@ useEffect(()=>{
 
 
   function handleOrder() {
-    if (!checkedItems.length) {
+    if (!checkedItems.length || checkedItems.length === 0) {
       return alert('장바구니가 비어있습니다.')
     }
+    axios.post(`http://127.0.0.1:8000/orders/neworder/${userInfo.id}`, [checkedItems,totalPrice])
+    .then(result=>{navigate('/orders')});
   }
 
 

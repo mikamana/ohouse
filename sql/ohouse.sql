@@ -2,6 +2,7 @@
  use ohouse;
  select database();
  
+drop table oh_pay;
 drop table oh_order;
 drop table oh_cart;
 drop table oh_review;
@@ -11,16 +12,12 @@ drop table oh_product;
 drop table oh_category;
 drop table oh_member;
 
+
 select * from oh_review;
 drop table oh_review;
 select * from oh_member;
 select * from oh_product;
-select ov.rid,om.nickname,op.product_name,op.rating_avg,ov.review_content,ov.review_img,substring(review_date,1,10) rdate from oh_review ov inner join oh_product op, oh_member om where op.pid = ov.pid and om.mid = ov.mid;
-select ov.rid,om.nickname,ifnull(om.userimg,'https://images.unsplash.com/photo-1624274515979-32afb09402a2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQyfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D') userimg,op.product_name,op.rating_avg,ov.review_content,ov.review_img,substring(review_date,1,10) rdate from oh_review ov inner join oh_product op, oh_member om where op.pid = ov.pid and om.mid = ov.mid and op.pid = "1";
-
-select cart_id, op.pid, om.mid ,qty ,cdate, ifnull(format(round(op.price_origin - (op.price_origin * op.price_sale / 100),-2),0),format(op.price_origin,0)) sale_price, ifnull(format((round(op.price_origin - (op.price_origin * op.price_sale / 100),-2) * oc.qty),0),round(op.price_origin - (op.price_origin * op.price_sale / 100),-2)) total_price 
-  , op.category_id, op.product_image,op.brand_name,op.delivery_type,op.product_name,op.tag_free,cnt
-  from oh_cart oc, oh_product op, oh_member om,(select count(*) as cnt from oh_cart where mid = '@') cart where oc.pid = op.pid and oc.mid = om.mid and oc.mid = '@';
+select * from oh_cart;
 
 
 /*
@@ -31,6 +28,7 @@ update oh_product set price_sale = null,price_origin = 58900 where pid = 59;
 update oh_product set tag_free = 1;
 -- 관리자 계정 mid = @, pass = 1234, nickname = 관리자 insert
 -- oh_product 오류 수정
+-- 기존 oh_order table >> oh_pay table로 변경, oh_order table 추가
 
 desc oh_member;
 select * from oh_member;
@@ -118,12 +116,21 @@ create table oh_cart(
     mid varchar(100),
     qty int not null,
     cdate datetime,
-    constraint cart_pid_fk foreign key(pid) references oh_product(pid),
-    constraint cart_mid_fk foreign key(mid) references oh_member(mid)
+    constraint cart_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
+    constraint cart_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
 );
 create table oh_order(
-	oid int auto_increment primary key,
-	cart_id int,
+	order_id int auto_increment primary key,
+    cart_id int,
+    mid varchar(20) not null,
+    odate datetime,
+    total_price int,
+    constraint order_cart_id_fk foreign key(cart_id) references oh_cart(cart_id) on update cascade on delete cascade,
+    constraint order_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
+);
+create table oh_pay(
+	pay_id int auto_increment primary key,
+	order_id int,
 	pid int,
 	mid varchar(100),
 	orderer_phone varchar(20),
@@ -136,9 +143,10 @@ create table oh_order(
 	installment varchar(20),
 	last_pay_price int,
 	constraint car_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
-	constraint car_cart_id_fk foreign key(cart_id) references oh_cart(cart_id) on update cascade on delete cascade,
+	constraint car_order_id_fk foreign key(order_id) references oh_order(order_id) on update cascade on delete cascade,
 	constraint car_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
 );
+
 
 -- oh_category insert
 insert into oh_category (category_name) values("크리스마스");
