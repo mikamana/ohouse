@@ -38,13 +38,17 @@ const navigate = useNavigate();
           cl.push(item.cart_id);
         })
         setCheckList(cl);
-        setCount(countFlag(result));
+        // setCount(countFlag(result));
         
       })
   }, [])
+
 useEffect(()=>{
+  
   const newData = cartList.filter(item => checkedItems.includes(`${item.cart_id}`));
   fnCalc(newData)
+  setCount(checkedItems.length);
+
 },[checkedItems])
 
   function fnCalc(calcList){
