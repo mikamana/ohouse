@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { getUser } from './../utill/sessionStorage';
-import "../../css/user/edit.css"
+import "../../css/user/Edit.css"
 import axios from "axios";
 import ImageUpload from "./ImageUpload";
 import { Link } from "react-router-dom";
 
 export default function Edit(){
   const userinfo = getUser();
-  const [form, setForm] = useState({mid : "", nickname : "", homepage : "", gender : "", birthday : "", userimg : null , comment : ""});
+  const [form, setForm] = useState({mid : "", nickname : "", phone: "", homepage : "", gender : "", birthday : "", userimg : null , comment : ""});
   const [user, setUser] = useState([])
   const [nicknameValue, setNickNameValue] = useState(true);
   const [nicknameText, setNickNameText] = useState("");
 
   useEffect(() => {
     if(userinfo !== null){
-      axios.get(`http://localhost:8000/edit/${userinfo.id}`)
+      axios.get(`http://127.0.0.1:8000/edit/${userinfo.id}`)
       .then(result => {
         setForm(result.data);
         setUser(result.data);
@@ -28,7 +28,7 @@ export default function Edit(){
 
     const nicknameRegExp =/^.*(?=^.{2,15}$).*$/;
     if(name === "nickname" && value.match(nicknameRegExp) != null){
-      axios.post("http://localhost:8000/normalUsers/new/nickname", {nickname : value})
+      axios.post("http://127.0.0.1:8000/normalUsers/new/nickname", {nickname : value})
       .then(result => {
         if(result.data.cnt === 0 || user.nickname == value){
           setNickNameText("");
@@ -57,7 +57,7 @@ export default function Edit(){
   const handleSubmit = (e) => {
     e.preventDefault();
     if(nicknameValue){
-      axios.post("http://localhost:8000/edit", form)
+      axios.post("http://127.0.0.1:8000/edit", form)
       .then(result => {
         if(result.data === "ok"){
           window.location.reload();
@@ -95,6 +95,13 @@ export default function Edit(){
               <span className="editNicknameText">{nicknameText}</span>
             </div>
           </div>
+          <div className="editPhone">
+            <div>
+              <label>전화번호</label>
+              <input type="tel" name="phone" value={form.phone} onChange={handleChange}/>
+            </div>
+            <span>하이픈은빼고적어주세요</span>
+          </div>
           <div className="editHompage">
             <label>홈페이지</label>
             <input type="text" placeholder="https://ohou.se/" name="homepage" value={form.homepage} onChange={handleChange}/>
@@ -115,7 +122,7 @@ export default function Edit(){
               <label>프로필이미지</label>
               <ImageUpload getImage={getImage}/>
             </div>
-            {form.userimg === "" ? <div></div> : <div className="editImageprofile"><img src={form.userimg === null ? "" : `http://localhost:8000/${form.userimg}`} alt="" /></div>}
+            {form.userimg === null ? <div></div> : <div className="editImageprofile"><img src={form.userimg === null ? "" : `http://127.0.0.1:8000/${form.userimg}`} alt="" /></div>}
           </div>
           <div className="editComment">
             <label>한줄소개</label>

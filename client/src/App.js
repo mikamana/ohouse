@@ -35,6 +35,9 @@ import Withdrawals from './pages/user/Withdrawals';
 import Adminpage from "./pages/admin/Adminpage";
 import Cart from './pages/cart/Cart';
 import Orders from './pages/orders/Orders';
+import Interior3ds from './pages/subpage/interior3ds/Interior3ds';
+import EditPassword from './pages/user/EditPassword';
+
 
 const router = createBrowserRouter([
 
@@ -140,11 +143,23 @@ const router = createBrowserRouter([
           </Contents>
       },
       {
+        path: '/editpassword', element:
+          <Contents>
+            <EditPassword />
+          </Contents>
+      },
+      {
         path: '/withdrawals', element:
           <Contents>
             <Withdrawals />
           </Contents>
-      }
+      },
+      {
+        path: '/interior3ds', element:
+          <Contents>
+            <Interior3ds/>
+          </Contents>
+      },
     ]
   },
   {

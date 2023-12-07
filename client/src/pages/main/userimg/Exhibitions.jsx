@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SubtitleMore from './../subtitle_more/Subtitle_more';
 import Userimg_Image from './components/UserImg_Imag';
 import UserImg_Text from "./components/UserImg_Text";
@@ -8,8 +8,16 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import axios from "axios";
 
 export default function Exhibitions(){
+  const [exhibitionsList, setExhibitionsList] = useState([])
+
+  useEffect(()=>{
+    axios.get("data/userimg/exhibitions.json")
+    .then(result => setExhibitionsList(result.data))
+  },[])
+
   return(
   <>
     <SubtitleMore title={"오늘의 기획전"}/>
@@ -29,45 +37,15 @@ export default function Exhibitions(){
         >
 
       <div className="exhibitionsform">
-
-      <SwiperSlide> 
+      {exhibitionsList.map(list =>
+      <SwiperSlide key={list.text}> 
         <div className="exhibitions">
-          <Userimg_Image />
-          <UserImg_Text text={"오직 이번주 한정 특가!"}/>
-          <UserImg_Title name={"exhibitions_title"} title={"가전/디지털 BLACK FRIDAY ~81%"}/>
+          <Userimg_Image img={list.image}/>
+          <UserImg_Text text={list.text}/>
+          <UserImg_Title name={"exhibitions_title"} title={list.title}/>
         </div>
       </SwiperSlide>
-      
-      <SwiperSlide> 
-        <div className="exhibitions">
-          <Userimg_Image />
-          <UserImg_Text text={"오직 이번주 한정 특가!"}/>
-          <UserImg_Title name={"exhibitions_title"} title={"가전/디지털 BLACK FRIDAY ~81%"}/>
-        </div>
-      </SwiperSlide>
-
-      <SwiperSlide> 
-        <div className="exhibitions">
-          <Userimg_Image />
-          <UserImg_Text text={"오직 이번주 한정 특가!"}/>
-          <UserImg_Title name={"exhibitions_title"} title={"가전/디지털 BLACK FRIDAY ~81%"}/>
-        </div>
-      </SwiperSlide>
-
-      <SwiperSlide> 
-        <div className="exhibitions">
-          <Userimg_Image />
-          <UserImg_Text text={"오직 이번주 한정 특가!"}/>
-          <UserImg_Title name={"exhibitions_title"} title={"가전/디지털 BLACK FRIDAY ~81%"}/>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide> 
-        <div className="exhibitions">
-          <Userimg_Image />
-          <UserImg_Text text={"오직 이번주 한정 특가!"}/>
-          <UserImg_Title name={"exhibitions_title"} title={"가전/디지털 BLACK FRIDAY ~81%"}/>
-        </div>
-      </SwiperSlide>
+      )}
       
       <SwiperSlide> 
       <div className="exhibitions_button_wrap">

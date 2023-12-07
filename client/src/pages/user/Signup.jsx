@@ -21,7 +21,7 @@ export default function Signup(){
   const [allCheck, setAllCheck] = useState(false);
   const [check, setCheck] = useState({"q":false, "w": false, "e":false, "r":false, "t":false})
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const inputEid = useRef(null);
   const inputDomain = useRef(null);
   const inputPass = useRef(null);
@@ -37,7 +37,7 @@ export default function Signup(){
     }
     const nicknameRegExp =/^.*(?=^.{2,15}$).*$/;
     if(name === "nickname" && value.match(nicknameRegExp) != null){
-      axios.post("http://localhost:8000/normalUsers/new/nickname", {nickname : value})
+      axios.post("http://127.0.0.1:8000/normalUsers/new/nickname", {nickname : value})
       .then(result => {
         if(result.data.cnt === 0){
           setNickNameText("");
@@ -68,8 +68,9 @@ export default function Signup(){
     }
   }
 
+  const passRegExp = /^.*(?=^.{8,14}$)(?=.*\d)(?=.*[a-zA-Z]).*$/;
+
   const handlePass = () => {
-    const passRegExp = /^.*(?=^.{8,14}$)(?=.*\d)(?=.*[a-zA-Z]).*$/;
     if(form.pass.match(passRegExp) == null){
       setPassText("필수 입력 항목입니다.");
       setPassValue(false);
@@ -80,10 +81,10 @@ export default function Signup(){
   }
 
   const handlePassCheck = () => {
-    if(form.passcheck === ""){
+    if(form.passcheck.match(passRegExp) == null){
       setPasscheckText("확인을 위해 비밀번호를 한 번 더 입력해주세요.");
     }else{
-      if(form.pass == form.passcheck){
+      if(form.pass === form.passcheck){
         setPasscheckText("");
         setPassCheckValue(true);
       }else{
@@ -130,7 +131,7 @@ export default function Signup(){
 
   const handelMail = (e) => {
     if(form.eid !== "" && form.domain !== ""){
-      axios.post("http://localhost:8000/normalUsers/new/email", {eid : form.eid, domain : form.domain})
+      axios.post("http://127.0.0.1:8000/normalUsers/new/email", {eid : form.eid, domain : form.domain})
       .then(result => {
         console.log(result.data);
         if(result.data.result.cnt === 0){
@@ -157,7 +158,7 @@ export default function Signup(){
   const handleSubmit = (e) => {
     e.preventDefault();    
     if(mailCheck && nickNameValue && passValue && passCheckValue && check.q && check.w && check.e){
-      axios.post("http://localhost:8000/normalUsers/new", form)
+      axios.post("http://127.0.0.1:8000/normalUsers/new", form)
       .then(result => {
         if(result.data === "ok"){
           navigate("/")
@@ -184,7 +185,7 @@ export default function Signup(){
     <div className="Signup">
       <div className="SignupLogo">
         <Link to={"/"}>
-          <img src="http://localhost:3000/images/user/signup.png" alt="" />
+          <img src="http://127.0.0.1:3000/images/user/signup.png" alt="" />
         </Link>
       </div>
 
@@ -193,9 +194,9 @@ export default function Signup(){
       <div className="SignupSNS">
         <div className="SignupSNSText">SNS계정으로 간편하게 회원가입</div>
         <div className="SignupSNSImg">
-          <img src="http://localhost:3000/images/user/facebook.png" alt="" />
-          <img src="http://localhost:3000/images/user/kakao.png" alt="" />
-          <img src="http://localhost:3000/images/user/naver.png" alt="" />
+          <img src="http://127.0.0.1:3000/images/user/facebook.png" alt="" />
+          <img src="http://127.0.0.1:3000/images/user/kakao.png" alt="" />
+          <img src="http://127.0.0.1:3000/images/user/naver.png" alt="" />
         </div>
       </div>
 
