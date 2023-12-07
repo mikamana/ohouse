@@ -2,7 +2,7 @@ import nodemailer from 'nodemailer';
 import * as repository from "../../repository/oh_member/userPasswordRepository.js";
 import bcript from "bcryptjs";
 
-/* 
+
 const  mailer = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -10,7 +10,7 @@ const  mailer = nodemailer.createTransport({
     pass: "ygia zkmz umvc tepq"
   }
 })
- */
+
 
 export async function userPasswordNew(req, res){
   const {id} = req.body;
@@ -21,7 +21,7 @@ export async function userPasswordNew(req, res){
 export function email(req, res){
   const {id} = req.body;
   const number = Math.floor(Math.random()*1E9);
-  /* 
+  
   const mailOptions = {
     from : "nodetest789@gmail.com",
     to: id,
@@ -36,7 +36,7 @@ export function email(req, res){
       console.log('Email Sent : ', info);
     }
   })
-  */
+
   res.json(number);
 }
 

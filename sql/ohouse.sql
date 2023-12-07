@@ -19,6 +19,11 @@ select * from oh_community;
 
 select hid,SUBSTRING_INDEX(oc.mid,'@',1) as mid,om.userimg,oc.house_img,oc.house_title,oc.house_content,om.mdate from oh_community oc inner join oh_member om on oc.mid = om.mid;
 
+select count(mid) as cntid, count(phone) as cnt, any_value(phone) as phone, any_value(left(phone,3))
+                as phoneleft, any_value(right(phone,2)) as phoneright
+                from oh_member where not phone like "% %";
+
+
 /*
 	업데이트 필요한 사항들
 */

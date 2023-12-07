@@ -81,7 +81,6 @@ export default function PasswordNew(){
     if(emailButton){
       axios.post("http://127.0.0.1:8000/users/password/new/email", id)
       .then(result => {
-        console.log(result.data);
         setEmai(result.data);
         setEmaiPage(true)
       })
