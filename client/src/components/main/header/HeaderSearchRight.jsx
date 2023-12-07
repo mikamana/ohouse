@@ -45,6 +45,14 @@ export default function HeaderSearchRight() {
     }
   };
   {/* 추가작업부분 끝 */}
+  const [cartCnt, setCartCnt] = useState();
+  useEffect(()=>{
+    axios.get('http://127.0.0.1:8000/cart/new')
+    .then((result)=>{
+      setCartCnt(result.data.length);
+    })
+    .catch(console.err);
+  },[cartCnt]);
 
   return (
     <>
@@ -108,7 +116,7 @@ export default function HeaderSearchRight() {
         <Link to="/notifications/feed" className="header_logo_feed"><PiBellLight /></Link>
         <Link to={`/cart/${userInfo.id}`} className="header_logo_cart">
           <PiShoppingCartLight />
-          <span className="header_logo_cart_num">26</span>
+          {cartCnt !== 0 ? <span className="header_logo_cart_num">{cartCnt}</span> : null}
         </Link>
         <button className="header_logo_profile" onClick={toggleProfileMenu}>
           <img className="header_logo_profile_icon" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?w=72&h=72&c=c&webp=1" alt="프로필 사진" />

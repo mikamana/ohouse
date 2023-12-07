@@ -68,6 +68,8 @@ export default function Edit(){
     }
   }
 
+  console.log(form);
+
   return(
     <div className="edit">
       {userinfo === null ? (<div>잘못된 경로로 접속하셨습니다.</div>) 
