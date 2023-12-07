@@ -75,10 +75,11 @@ header.main_header {
         }
         input.header_logo_search {
           margin-left: 28px;
-          padding-right: 6px;
+          padding-right: 26px;
           width: 237px;
           height: 38px;
           border: none;
+          font-size: 16px;
           outline: none;
           box-sizing: border-box;
           &::placeholder {
@@ -88,6 +89,77 @@ header.main_header {
             color: #c2c8cc;
           }
         }
+        // 검색용 추가 부분
+        .header_search_keyword {
+          width: 100%;
+          background: #fff;
+          border: 1px solid #edefea;
+          border-radius: 4px;
+          position: absolute;
+          top: 42px;
+          left: 0;
+          ul {
+            max-height: 360px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            li {
+              cursor: pointer;
+              font-size: 14px;
+              padding: 13px;
+              &.header_search_keyword_cate {
+                position: relative;
+                border-bottom: 1px solid #edefea;
+                span {
+                  color: #82948c;
+                  font-size: 12px;
+                  &::before {
+                    content: '';
+                    width: 1px;
+                    height: 8px;
+                    background: var(--headerBorder);
+                    margin: 0 4px;
+                    display: inline-block;
+                  }
+                }
+                &::after {
+                  content: '\f054';
+                  color: #C2C8CC;
+                  font-family: "Font Awesome 5 Free";
+                  font-weight: 900;
+                  position: absolute;
+                  right: 12px;
+                  top: 50%;
+                  transform: translateY(-50%);
+                }
+              }
+              &::before {
+                content: '\f002';
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                margin-right: 8px;
+              }
+              &:hover {
+                background: rgb(247, 249, 250);
+              }
+            } //header_search_keyword li
+          }// header_search_keyword ul
+        }//header_search_keyword
+        .search_del_bttn{
+          border: 0;
+          cursor: pointer;
+          background: transparent;
+          position: absolute;
+          right: 8px;
+          top: 50%;
+          transform: translateY(-50%);
+          &::after {
+            content: '\f057';
+            color: #828C94;
+            font-size: 20px;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+          }
+        }///search_del_bttn
       } //div.header_logo_searchBox
       div.header_logo_right {
         display: flex;
