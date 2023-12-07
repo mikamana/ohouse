@@ -111,6 +111,8 @@ export default function PasswordNew(){
     }
   }
 
+  console.log(phone);
+
   return(
     <div className="PasswordNew">
     {!emailPage ? (
