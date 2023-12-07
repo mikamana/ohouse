@@ -37,13 +37,10 @@ export default function ProductionsContainer(props) {
 
     })
 
+
   }, [])
 
-
-
-  // const pricePercent = (list.price_origin / 100) * list.price_sale
-  // const price = list.price_origin - pricePercent
-
+  // console.log(list.sale_price);
 
 
   const getQty = (e) => {
@@ -100,13 +97,14 @@ export default function ProductionsContainer(props) {
             <li className="production_selling_container_info_list_li">
               {/* <ProductionInfoOption /> */}
               <ProductionsInfoQty subTitle={list.product_name}
-                price={list.sale_price}
+                price={props.price}
                 getQty={getQty}
+                qty={props.qty}
                 priceOrigin={list.sale_price}
               />
             </li>
             <li className="production_selling_container_info_list_li">
-              <ProductionInfoTotPrice price={prc}
+              <ProductionInfoTotPrice price={props.price}
                 priceOrigin={list.sale_price}
               />
             </li>

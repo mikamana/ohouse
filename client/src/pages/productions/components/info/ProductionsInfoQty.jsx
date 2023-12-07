@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 export default function ProductionsInfoQty(props) {
 
-  let [qty, setQty] = useState(1);
+  let [qty, setQty] = useState(props.qty);
   let [price, setPrice] = useState(props.price);
 
   const handlerQty = (checkFlag) => {
@@ -27,16 +27,15 @@ export default function ProductionsInfoQty(props) {
       }
     }
 
-    let prc = parseInt(props.price.replace(/,/g, "")) * qty;
+
+    // let prc = props.price.replace(/,/g, "") * qty;
+    let prc = props.price * qty;
 
     setPrice(prc)
     // let prc = parseInt(props.price) * qty;
-
-    props.getQty({ qtyFlag: qtyFlag, qty: qty, price: prc });
+    props.getQty({ qtyFlag: qtyFlag, qty: qty, price: price });
 
   }
-
-
 
   return (
     <>
@@ -47,12 +46,12 @@ export default function ProductionsInfoQty(props) {
             <span className='production_qty_btn_total' onClick={() => {
               handlerQty("minus")
             }}>-</span>
-            <span className='production_qty_btn_length'>{qty}</span>
+            <span className='production_qty_btn_length'>{props.qty}</span>
             <span className='production_qty_btn_total' onClick={() => {
               handlerQty("plus")
             }}>+</span>
           </div>
-          <span className='production_qty_price'>{price ? price : props.priceOrigin} 원</span>
+          <span className='production_qty_price'>{props.price ? props.price : props.priceOrigin} 원</span>
         </div>
       </div>
     </>

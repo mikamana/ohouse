@@ -168,8 +168,8 @@ create table oh_inquiry(
 	constraint oh_inquery_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade,
     constraint oh_inquery_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade
     
-);
-
+);ifnull(format(round(price_origin - (price_origin * price_sale / 100),-2),0),format(price_origin,0)) sale_price;
+select pid,category_id,product_image,brand_name,product_name,rating_avg,rating_review,price_sale,price_origin,ifnull(round(price_origin - (price_origin * price_sale / 100),-2),0) sale_price,tag_free,coupon_percent,pdate,delivery_type from oh_product where pid = 1;
 
 -- oh_category insert
 insert into oh_category (category_name) values("크리스마스");
