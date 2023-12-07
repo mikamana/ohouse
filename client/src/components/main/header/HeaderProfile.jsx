@@ -14,13 +14,13 @@ export default function HeaderProfile() {
   return (
     <ul className="header_nav_popup_profile_ul">
       <li>
-        <Link to="/" className="header_nav_menu_list3">마이페이지</Link>
+        <Link to="/edit" className="header_nav_menu_list3">마이페이지</Link>
       </li>
       <li>
         <Link to="/" className="header_nav_menu_list3">나의 쇼핑</Link>
       </li>
       <li>
-        <Link to="/" className="header_nav_menu_list3">이벤트</Link>
+        <Link to="/editpassword" className="header_nav_menu_list3">비밀번호변경</Link>
       </li>
       <li>
         <Link to="/" className="header_nav_menu_list3">전문가 신청</Link>
@@ -32,7 +32,7 @@ export default function HeaderProfile() {
         <Link to="/" className="header_nav_menu_list3">고객센터</Link>
       </li>
       <li>
-        <div to="/" className="header_nav_menu_list3" onClick={handleLogout}>로그아웃</div>
+        <div className="header_nav_menu_list3" onClick={handleLogout}>로그아웃</div>
       </li>
       {manager !== undefined &&
       <li>

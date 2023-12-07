@@ -78,12 +78,12 @@ export default function PasswordNew() {
   }
 
   const handleEmail = () => {
-    if (emailButton) {
-      axios.post("http://localhost:8000/users/password/new/email", id)
-        .then(result => {
-          setEmai(result.data);
-          setEmaiPage(true)
-        })
+    if(emailButton){
+      axios.post("http://127.0.0.1:8000/users/password/new/email", id)
+      .then(result => {
+        setEmai(result.data);
+        setEmaiPage(true)
+      })
     }
   }
 

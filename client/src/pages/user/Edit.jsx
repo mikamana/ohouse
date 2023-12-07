@@ -7,11 +7,10 @@ import { Link } from "react-router-dom";
 
 export default function Edit(){
   const userinfo = getUser();
-  const [form, setForm] = useState({mid : "", nickname : "", phone: "", homepage : "", gender : "", birthday : "", userimg : null , comment : ""});
+  const [form, setForm] = useState({mid : "", nickname : "", phone: null, homepage : "", gender : "", birthday : "", userimg : null , comment : ""});
   const [user, setUser] = useState([])
   const [nicknameValue, setNickNameValue] = useState(true);
   const [nicknameText, setNickNameText] = useState("");
-
   useEffect(() => {
     if(userinfo !== null){
       axios.get(`http://127.0.0.1:8000/edit/${userinfo.id}`)
@@ -56,6 +55,9 @@ export default function Edit(){
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(form.phone === ""){
+      form.phone = null
+    }
     if(nicknameValue){
       axios.post("http://127.0.0.1:8000/edit", form)
       .then(result => {
