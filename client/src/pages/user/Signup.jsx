@@ -21,7 +21,7 @@ export default function Signup() {
   const [allCheck, setAllCheck] = useState(false);
   const [check, setCheck] = useState({ "q": false, "w": false, "e": false, "r": false, "t": false })
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const inputEid = useRef(null);
   const inputDomain = useRef(null);
   const inputPass = useRef(null);
@@ -67,6 +67,8 @@ export default function Signup() {
       setIdText("필수 입력 항목입니다.")
     }
   }
+
+  const passRegExp = /^.*(?=^.{8,14}$)(?=.*\d)(?=.*[a-zA-Z]).*$/;
 
   const handlePass = () => {
     const passRegExp = /^.*(?=^.{8,14}$)(?=.*\d)(?=.*[a-zA-Z]).*$/;
@@ -132,6 +134,7 @@ export default function Signup() {
     if (form.eid !== "" && form.domain !== "") {
       axios.post("http://localhost:8000/normalUsers/new/email", { eid: form.eid, domain: form.domain })
         .then(result => {
+          console.log(result.data);
           if (result.data.result.cnt === 0) {
             setMailValue(result.data.number);
             setMailtext(true);
@@ -183,7 +186,7 @@ export default function Signup() {
     <div className="Signup">
       <div className="SignupLogo">
         <Link to={"/"}>
-          <img src="http://localhost:3000/images/user/signup.png" alt="" />
+          <img src="http://127.0.0.1:3000/images/user/signup.png" alt="" />
         </Link>
       </div>
 
@@ -192,9 +195,9 @@ export default function Signup() {
       <div className="SignupSNS">
         <div className="SignupSNSText">SNS계정으로 간편하게 회원가입</div>
         <div className="SignupSNSImg">
-          <img src="http://localhost:3000/images/user/facebook.png" alt="" />
-          <img src="http://localhost:3000/images/user/kakao.png" alt="" />
-          <img src="http://localhost:3000/images/user/naver.png" alt="" />
+          <img src="http://127.0.0.1:3000/images/user/facebook.png" alt="" />
+          <img src="http://127.0.0.1:3000/images/user/kakao.png" alt="" />
+          <img src="http://127.0.0.1:3000/images/user/naver.png" alt="" />
         </div>
       </div>
 

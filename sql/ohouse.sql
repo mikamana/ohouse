@@ -48,30 +48,6 @@ select * from oh_review;
 drop table oh_review;
 delete from oh_member where mid = '@';
 
-create table oh_inquiry(
-
-	-- 문의id
-	-- purchase 구매여부 (구매,비구매)
-    -- 상품과 기타여부
-    -- 답변과 미답변여부 체크
-    -- 유저아이디
-    -- 문의시간
-    -- 문의내용
-    -- 답변날짜 
-    -- 답변내용
-    -- 비밀글여부
-    -- 문의유형
-    
-);
-
-
-
-
-
-
-
-
-
 create table oh_member(
 	mid varchar(100) primary key,
     pass varchar(100) not null,
@@ -157,23 +133,6 @@ create table oh_order(
 	constraint car_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
 	constraint car_cart_id_fk foreign key(cart_id) references oh_cart(cart_id) on update cascade on delete cascade,
 	constraint car_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
-);
-
-create table oh_inquiry(
-
-	qid int auto_increment primary key not null, -- 문의id
-    mid varchar(100),-- 유저아이디
-	pid int, -- 상품아이디
-	qtype varchar(50), -- 문의유형
-    qdate datetime,-- 문의시간
-    qcontent varchar(500), -- 문의내용
-    adate datetime, -- 답변날짜 
-    acontent varchar(500), -- 답변내용
-    secret_check boolean, -- 비밀글여부
-    
-	constraint oh_inquery_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade,
-    constraint oh_inquery_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade
-    
 );
 
 -- oh_category insert
@@ -5998,3 +5957,15 @@ select hid,SUBSTRING_INDEX(oc.mid,'@',1) as mid,om.userimg,oc.house_img,oc.house
 select hid,SUBSTRING_INDEX(oc.mid,'@',1) as mid,om.userimg,oc.house_img,oc.house_title,oc.house_content,om.mdate from oh_community oc inner join oh_member om on oc.mid = om.mid order by mdate asc;
 
 insert into oh_review(mid,pid,review_content,review_img,review_date) values('@',1,'정말 좋아요','url',sysDate());
+
+
+
+
+
+
+
+
+
+
+
+select * from oh_product;

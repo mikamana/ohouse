@@ -5,7 +5,7 @@ import login from "./router/oh_member/loginRouter.js"
 import userPass from "./router/oh_member/userPasswordRouter.js"
 import edit from "./router/oh_member/editRouter.js"
 import path from "path"
-import admin from "./router/adminRouter.js"
+import admin from "./router/adminRouter.js";
 import product from "./router/oh_product/productRouter.js"
 import category from "./router/oh_category/categoryRouter.js"
 import house from "./router/oh_community/houseRouter.js";
@@ -13,7 +13,10 @@ import production from "./router/productionRouter.js";
 import cart from "./router/cartRouter.js";
 import review from "./router/oh_review/reviewRouter.js";
 import upload from "./router/uploadRouter.js";
+import channel from "./router/channelRouter.js";
 import inquiry from "./router/oh_inquiry/inquiryRouter.js";
+import order from "./router/oh_order/orderRouter.js"
+import search from "./router/searchRouter.js";
 
 const PORT = 8000;
 const server = express();
@@ -34,7 +37,10 @@ server.use('/product', product);
 server.use('/category', category);
 server.use('/review', review);
 server.use('/upload', upload);
+server.use('/channel', channel);
 server.use('/inquiry', inquiry);
+server.use('/orders', order);
+server.use('/search', search);
 
 server.listen(PORT, () => {
   console.log(`server start --->> ${PORT}`);

@@ -49,7 +49,7 @@ export default function ShowMenu({ menuName, headerBox }) {
           <ul className="header_nav_popup_write_ul">
             {hiddenMenu.map(menu =>
               <li key={menu}>
-                <Link to="/" className="header_nav_menu_list2">{menu}</Link>
+                <Link to="/feed/event" className="header_nav_menu_list2">{menu}</Link>
               </li>
             )}
           </ul>
