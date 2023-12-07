@@ -3,7 +3,7 @@ import axios from "axios";
 import Pagination from 'rc-pagination';
 import 'rc-pagination/assets/index.css';
 
-export default function AdminMember() {
+export default function AdminMember2() {
   /* get : list */
   const [list, setList] = useState([]);
 

@@ -2,10 +2,16 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Pagination from 'rc-pagination';
 import 'rc-pagination/assets/index.css';
+import { useParams } from 'react-router-dom';
 
 export default function AdminMember() {
+
+  const {category} = useParams();
+  //console.log(category);
+
   /* get : list */
   const [list, setList] = useState([]);
+  //console.log(list);
 
   /* 정보수정 */
   const [form, setForm] = useState({ mid: "", nickname: "", phone: "", birthday: "" });
@@ -28,7 +34,7 @@ export default function AdminMember() {
   };
 
   useEffect(() => {
-    axios.get(`http://127.0.0.1:8000/admin/member/${startindex}/${endindex}/${value}`)
+    axios.get(`http://127.0.0.1:8000/admin/${category}/${startindex}/${endindex}/${value}`)
       .then((result) => {
         if(result.data.length !== 0){
           setList(result.data);
@@ -36,7 +42,7 @@ export default function AdminMember() {
         }
       })
       .catch(console.err);
-  }, [value, listPerPages, currentPage])
+  }, [value, listPerPages, currentPage, category])
 
   const [toggle, setToggle] = useState(false);
   const handleToggle = (e) => {

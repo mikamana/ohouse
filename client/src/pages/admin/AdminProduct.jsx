@@ -34,6 +34,8 @@ export default function AdminProduct() {
         if (result.data.length !== 0) {
           setList(result.data);
           setTotalPage(result.data[0].total);
+          console.log(result.data);
+        
         }
       })
       .catch(console.err);
