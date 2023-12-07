@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getUser } from './../utill/sessionStorage';
-import "../../css/user/Edit.css"
+import "../../css/user/edit.css"
 import axios from "axios";
 import ImageUpload from "./ImageUpload";
 import { Link } from "react-router-dom";
