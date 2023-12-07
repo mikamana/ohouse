@@ -6,9 +6,8 @@ import { useParams } from 'react-router-dom';
 
 export default function AdminContent() {
 
-  const {category} = useParams();
+  const { category } = useParams();
 
-  console.log(category);
 
   // menuList = {[' ', '회원이름', '회원아이디', '휴대폰번호', '생일', '가입일시', '주문건수', '리뷰수', '비고']}
   /* get : list */
@@ -46,14 +45,12 @@ export default function AdminContent() {
     })
   }
 
-  console.log(newDataList);
 
   useEffect(() => {
     axios.get(`http://127.0.0.1:8000/admin/${category}/${startindex}/${endindex}/${value}`)
       .then((result) => {
         if (result.data.length !== 0) {
           setList(result.data);
-          //console.log(result.data);
           setTotalPage(result.data[0].total);
           createNewData(result.data);
         }
@@ -94,7 +91,6 @@ export default function AdminContent() {
   /* 정보수정 */
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form);
     axios.put('http://127.0.0.1:8000/admin/update/', form)
       .then((result) => {
         alert('회원정보 수정이 완료되었습니다')
@@ -109,7 +105,6 @@ export default function AdminContent() {
 
     // axios.get(`http://127.0.0.1:8000/admin/${startindex}/${endindex}/${value}`)
     // .then((result)=>{
-    //   console.log(result.data);
     //   setmenuList(result.data)
     // })
   }

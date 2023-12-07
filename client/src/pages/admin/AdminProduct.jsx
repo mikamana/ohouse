@@ -9,7 +9,7 @@ export default function AdminProduct() {
   const [list, setList] = useState([]);
 
   /* 정보수정 */
-  const [form, setForm] = useState({  product_name: "", product_image: "", price_sale: "", price_origin: "" , coupon_percent: "" });
+  const [form, setForm] = useState({ product_name: "", product_image: "", price_sale: "", price_origin: "", coupon_percent: "" });
 
   /* 페이지네이션 */
   const [currentPage, setCurrentPage] = useState(1);
@@ -34,8 +34,7 @@ export default function AdminProduct() {
         if (result.data.length !== 0) {
           setList(result.data);
           setTotalPage(result.data[0].total);
-          console.log(result.data);
-        
+
         }
       })
       .catch(console.err);
@@ -70,7 +69,6 @@ export default function AdminProduct() {
   /* 정보수정 */
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form);
     axios.put('http://127.0.0.1:8000/admin/update/', form)
       .then((result) => {
         alert('회원정보 수정이 완료되었습니다')
@@ -85,7 +83,6 @@ export default function AdminProduct() {
 
     // axios.get(`http://127.0.0.1:8000/admin/${startindex}/${endindex}/${value}`)
     // .then((result)=>{
-    //   console.log(result.data);
     //   setmenuList(result.data)
     // })
   }
@@ -112,20 +109,19 @@ export default function AdminProduct() {
   };//handleUpdate
 
   const getImage = (e) => {
-    setForm({...form, product_image:e})
+    setForm({ ...form, product_image: e })
   }
 
   const handleSubmitReg = (e) => {
     e.preventDefault();
     axios({
-      method : 'post',
-      url : 'http://127.0.0.1:8000/admin/product/register/',
-      body : form
+      method: 'post',
+      url: 'http://127.0.0.1:8000/admin/product/register/',
+      body: form
     })
-    .then((result)=>{
-      console.log(result.data);
-    })
-    .catch(console.err);
+      .then((result) => {
+      })
+      .catch(console.err);
   };
 
 

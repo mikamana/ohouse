@@ -77,7 +77,6 @@ export default function ProductionsPrdInfoLeftBox(props) {
 
         const formDataObject = {};
 
-
         formData.forEach((value, key) => {
 
             formDataObject[key] = value

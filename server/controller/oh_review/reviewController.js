@@ -7,7 +7,6 @@ export async function createReview(req, res) {
 
     const { mid, pid, formObject } = req.body
 
-    console.log(req.body);
     
     const result = await reviewRepository.createReview(mid, pid, formObject.content, formObject.image, formObject.score);
 
@@ -45,11 +44,7 @@ export async function getReviewPage(req, res) {
 
     const { pid, startIndex, endIndex } = req.params
 
-    console.log(req.params);
-
     const rows = await reviewRepository.getReviewPage(pid, startIndex, endIndex);
-
-    console.log(rows);
 
     res.json(rows);
 

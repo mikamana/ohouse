@@ -131,17 +131,17 @@ export default function Signup() {
   }
 
   const handelMail = (e) => {
-    if(form.eid !== "" && form.domain !== ""){
-      axios.post("http://127.0.0.1:8000/normalUsers/new/email", {eid : form.eid, domain : form.domain})
-      .then(result => {
-        if(result.data.result.cnt === 0){
-        setMailValue(result.data.number);
-        setMailtext(true);
-        setIdText("");
-      }else{
-        setIdText("아이디 중복");
-      }
-      })
+    if (form.eid !== "" && form.domain !== "") {
+      axios.post("http://127.0.0.1:8000/normalUsers/new/email", { eid: form.eid, domain: form.domain })
+        .then(result => {
+          if (result.data.result.cnt === 0) {
+            setMailValue(result.data.number);
+            setMailtext(true);
+            setIdText("");
+          } else {
+            setIdText("아이디 중복");
+          }
+        })
     }
   }
 
