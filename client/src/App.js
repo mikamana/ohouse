@@ -38,7 +38,6 @@ import Orders from './pages/orders/Orders';
 import AdminMember from "./pages/admin/AdminMember";
 import AdminProduct from "./pages/admin/AdminProduct";
 import AdminOrder from "./pages/admin/AdminOrder";
-import AdminReview from "./pages/admin/AdminReview";
 import AdminInquery from "./pages/admin/AdminInquery";
 
 const router = createBrowserRouter([
@@ -175,11 +174,10 @@ const router = createBrowserRouter([
     element: <Adminpage />,
     children : [
       { path : '/admin', element : <AdminMember />},
-      { path : '/admin/oh_member', element : <AdminMember />},
-      { path : '/admin/oh_product', element : <AdminProduct /> },
-      { path : '/admin/oh_order', element : <AdminOrder /> },
-      { path : '/admin/oh_review', element : <AdminReview /> },
-      { path : '/admin/oh_review', element : <AdminInquery /> }
+      { path : '/admin/member', element : <AdminMember />},
+      { path : '/admin/product', element : <AdminProduct /> },
+      { path : '/admin/order', element : <AdminOrder /> },
+      { path : '/admin/inquery', element : <AdminInquery /> }
     ]
   }
 ])

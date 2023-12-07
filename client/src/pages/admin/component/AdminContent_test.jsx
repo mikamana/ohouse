@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Pagination from 'rc-pagination';
 import 'rc-pagination/assets/index.css';
-import ImageUpload from '../user/ImageUpload';
 
-export default function AdminProduct() {
+export default function AdminContent({ category, menuList, titleList }) {
+
   /* get : 회원list */
-  const [list, setList] = useState([]);
+  const [memberList, setMemberList] = useState([]);
 
   /* 회원정보수정 */
-  const [form, setForm] = useState({  product_name: "", product_image: "", price_sale: "", price_origin: "" , coupon_percent: "" });
+  const [form, setForm] = useState({ mid: "", nickname: "", phone: "", birthday: "" });
 
   /* 페이지네이션 */
   const [currentPage, setCurrentPage] = useState(1);
@@ -28,16 +28,30 @@ export default function AdminProduct() {
     setListPerPages(Number(value));
   };
 
+  let alist = new Array();
+
   useEffect(() => {
-    axios.get(`http://127.0.0.1:8000/admin/product/${startindex}/${endindex}/${value}`)
+    axios.get(`http://127.0.0.1:8000/admin/${category}/${startindex}/${endindex}/${value}`)
       .then((result) => {
-        if (result.data.length !== 0) {
-          setList(result.data);
-          setTotalPage(result.data[0].total);
-        }
+        setMemberList(result.data);
+        setTotalPage(result.data[0].total);
+        console.log(result.data);
+        result.data.map((list)=>{
+          for(var key in list){
+            //alist.push({key:list[key]})
+            alist.push(key)
+            //console.log(key, list[key]);
+            // console.log(alist);
+            const set = new Set(alist);
+            //console.log(set);
+          }
+        })
+
       })
       .catch(console.err);
   }, [value, listPerPages, currentPage])
+
+  //console.log(alist);
 
   const [toggle, setToggle] = useState(false);
   const handleToggle = (e) => {
@@ -88,69 +102,14 @@ export default function AdminProduct() {
     // })
   }
 
-  const [register, setRegister] = useState(false);
-  const handleRegister = (e) => {
-    const mid = e.target.dataset.id;
-    //alert(`${mid}`)
-    if (register === false) {
-      setRegister(true)
-    } else {
-      setRegister(false)
-    }//if
+  /* const table = `<table>
 
-    axios({
-      method: 'get',
-      url: `http://127.0.0.1:8000/admin/${mid}/`
-    })
-      .then((result) => {
-        //alert(JSON.stringify(result))
-        setForm(result.data);
-      })
-      .catch(console.err);
-  };//handleUpdate
+  </table>` */
 
-  const getImage = (e) => {
-    setForm({...form, product_image:e})
-  }
-  console.log(form);
 
   return (
     <>
       <div className="admin_section">
-        <div className="admin_register">
-          <button type="button" className="admin_regbtn" onClick={handleRegister}>상품등록</button>
-          <div className={register ? "admin_update_popup active" : "admin_update_popup"}>
-            <p>신규상품 등록</p>
-            
-            <form className="admin_update_content" onSubmit={handleSubmit}>
-              <div className="admin_update_contentwrap">
-                <div className="admin_update_contentbox">
-                  <label htmlFor="">상품명</label>
-                  <input type="text" name="product_name" value={form.product_name} onChange={handleChange} />
-                </div>
-                <div className="admin_update_contentbox">
-                  <label htmlFor="">상품이미지</label>
-                  <ImageUpload getImage={getImage} />
-                  <input type="url" name="product_image" value={form.product_image} onChange={handleChange} />
-                </div>
-                <div className="admin_update_contentbox">
-                  <label htmlFor="">정상가</label>
-                  <input type="number" name="price_origin" value={form.price_origin} onChange={handleChange} />
-                </div>
-                <div className="admin_update_contentbox">
-                  <label htmlFor="">할인가</label>
-                  <input type="number" name="price_sale" value={form.price_sale} onChange={handleChange} />
-                </div>
-                <div className="admin_update_contentbox">
-                  <label htmlFor="">쿠폰할인</label>
-                  <input type="number" name="coupon_percent" value={form.coupon_percent} onChange={handleChange} />
-                </div>
-              </div>
-              <button className="admin_editbtn">수정완료</button>
-            </form>
-          </div>
-        </div>
-
         <div className="admin_content">
           <div className="admin_content_option">
             <div className="admin_content_count">
@@ -175,7 +134,13 @@ export default function AdminProduct() {
           <table className="admin_table">
             <thead>
               <tr>
-                <th>번호</th>
+                {menuList.map((menu) =>
+                  <th key={menu}>{menu}</th>
+                )}
+              </tr>
+
+              {/* <tr>
+                <th> </th>
                 <th>회원이름</th>
                 <th>회원아이디</th>
                 <th>휴대폰번호</th>
@@ -184,11 +149,23 @@ export default function AdminProduct() {
                 <th>주문건수</th>
                 <th>리뷰수</th>
                 <th>비고</th>
-              </tr>
+              </tr> */}
             </thead>
             <tbody>
-              {list.map((member) =>
+              {memberList.map((member) =>
                 <tr key={member.mid}>
+                  {/* {Object.values(member)[0] !== null && <td>{Object.values(member)[0]}</td>}
+                  {Object.values(member)[1] !== null && <td>{Object.values(member)[1]}</td>}
+                  {Object.values(member)[2] !== null && <td>{Object.values(member)[2]}</td>}
+                  {Object.values(member)[3] !== null && <td>{Object.values(member)[3]}</td>}
+                  {Object.values(member)[4] !== null && <td>{Object.values(member)[4]}</td>}
+                  {Object.values(member)[5] !== null && <td>{Object.values(member)[5]}</td>}
+                  {Object.values(member)[6] !== null && <td>{Object.values(member)[6]}</td>}
+                  {Object.values(member)[7] !== null && <td>{Object.values(member)[7]}</td>}
+                  {Object.values(member)[8] !== null && <td>{Object.values(member)[8]}</td>}
+                  {Object.values(member)[9] !== null && <td>{Object.values(member)[9]}</td>}
+                  {Object.values(member)[10] !== null && <td>{Object.values(member)[10]}</td>}
+                  {Object.values(member)[11] !== null && <td>{Object.values(member)[11]}</td>} */}
                   <td>{member.rno}</td>
                   <td>{member.nickname}</td>
                   <td>{member.mid}</td>
@@ -196,7 +173,7 @@ export default function AdminProduct() {
                   <td>{member.birthday}</td>
                   <td>{member.mdate}</td>
                   <td>{member.count_order}</td>
-                  <td>{member.count_review}</td>
+                  <td>{member.count_review}</td> 
                   <td>
                     <button className="admin_update_togglebtn" type="button" onClick={handleToggle} data-id={member.mid}>정보수정</button>
                   </td>

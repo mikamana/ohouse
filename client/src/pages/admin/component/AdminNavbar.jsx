@@ -13,11 +13,10 @@ export default function AdminNavbar() {
         <Link to="/admin" className="admin_titlelink">Admin</Link>
       </h1>
       <nav className="admin_navmenu">
-        <Link to="/admin/oh_member">회원관리</Link>
-        <Link to="/admin/oh_product">상품관리</Link>
-        <Link to="/admin/oh_order">주문관리</Link>
-        <Link to="/admin/oh_review">리뷰관리</Link>
-        <Link to="/admin/oh_review">문의관리</Link>
+        <Link to="/admin/member">회원관리</Link>
+        <Link to="/admin/product">상품관리</Link>
+        <Link to="/admin/order">주문관리</Link>
+        <Link to="/admin/inquery">문의관리</Link>
       </nav>
     </div>
   );
