@@ -47,9 +47,10 @@ export default function HeaderSearchRight() {
   {/* 추가작업부분 끝 */}
   const [cartCnt, setCartCnt] = useState();
   useEffect(()=>{
-    axios.get('http://127.0.0.1:8000/cart/new')
+    axios.get(`http://127.0.0.1:8000/cart/${userInfo.id}/`)
     .then((result)=>{
       setCartCnt(result.data.length);
+      console.log(result.data);
     })
     .catch(console.err);
   },[cartCnt]);
