@@ -27,8 +27,8 @@ export default function ShopitemSection() {
           slidesPerGroup={4}
           spaceBetween={25}
           navigation={{
-            prevEl: ".prev_btn",
-            nextEl: ".next_btn",
+            prevEl: ".shopitem_prev_btn",
+            nextEl: ".shopitem_next_btn",
           }}
           modules={[Navigation]}
           className="mySwiper"
@@ -47,8 +47,8 @@ export default function ShopitemSection() {
             <ShopitemMore />
           </SwiperSlide>
         </Swiper>
-        <button className="prev_btn prev_style_opactiy"></button>
-        <button className="next_btn next_style_opactiy"></button>
+        <button className="shopitem_prev_btn prev_style_opactiy"></button>
+        <button className="shopitem_next_btn next_style_opactiy"></button>
       </div>
     </>
 
