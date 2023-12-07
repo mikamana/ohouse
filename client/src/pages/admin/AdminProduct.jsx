@@ -34,7 +34,6 @@ export default function AdminProduct() {
         if (result.data.length !== 0) {
           setList(result.data);
           setTotalPage(result.data[0].total);
-
         }
       })
       .catch(console.err);
@@ -97,15 +96,15 @@ export default function AdminProduct() {
       setRegister(false)
     }//if
 
-    axios({
-      method: 'get',
-      url: `http://127.0.0.1:8000/admin/${mid}/`
-    })
-      .then((result) => {
-        //alert(JSON.stringify(result))
-        setForm(result.data);
-      })
-      .catch(console.err);
+    // axios({
+    //   method: 'post',
+    //   url: `http://127.0.0.1:8000/admin/${mid}/`
+    // })
+    //   .then((result) => {
+    //     //alert(JSON.stringify(result))
+    //     setForm(result.data);
+    //   })
+    //   .catch(console.err);
   };//handleUpdate
 
   const getImage = (e) => {
@@ -114,14 +113,14 @@ export default function AdminProduct() {
 
   const handleSubmitReg = (e) => {
     e.preventDefault();
-    axios({
-      method: 'post',
-      url: 'http://127.0.0.1:8000/admin/product/register/',
-      body: form
-    })
-      .then((result) => {
-      })
-      .catch(console.err);
+    // axios({
+    //   method: 'post',
+    //   url: 'http://127.0.0.1:8000/admin/product/register/',
+    //   body: form
+    // })
+    //   .then((result) => {
+    //   })
+    //   .catch(console.err);
   };
 
 

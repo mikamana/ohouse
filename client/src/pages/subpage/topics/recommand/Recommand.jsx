@@ -13,7 +13,6 @@ export default function Recommand() {
       .then(data => setCatelist(data))
     /* axios.get('http://127.0.0.1:8000/community/')
     .then((result)=>{
-      console.log(result.data);
     })
     .catch(console.err); */
   }, [])
@@ -26,7 +25,7 @@ export default function Recommand() {
           {
             catelist.map((list) =>
               <ShopcateCategoryItem
-              key={list.category_name}
+                key={list.category_name}
                 category_name={list.category_name}
               />)
           }

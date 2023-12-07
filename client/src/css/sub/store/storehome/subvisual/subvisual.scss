@@ -33,6 +33,7 @@ section.sub_visual_section {
         height: 100%;
         left: 50%;
         transform: translateX(-50%);
+        pointer-events: none;
         button.prev_btn {
             position: absolute;
             left: 10px;

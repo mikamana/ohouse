@@ -15,13 +15,17 @@ select * from oh_review;
 select * from oh_member;
 select * from oh_product;
 select * from oh_cart;
+select * from oh_review;
 select * from oh_community;
+
+drop table oh_review;
 
 select hid,SUBSTRING_INDEX(oc.mid,'@',1) as mid,om.userimg,oc.house_img,oc.house_title,oc.house_content,om.mdate from oh_community oc inner join oh_member om on oc.mid = om.mid;
 
 select count(mid) as cntid, count(phone) as cnt, any_value(phone) as phone, any_value(left(phone,3))
                 as phoneleft, any_value(right(phone,2)) as phoneright
                 from oh_member where not phone like "% %";
+
 
 
 /*
@@ -122,8 +126,17 @@ create table oh_cart(
     constraint cart_mid_fk foreign key(mid) references oh_member(mid)
 );
 create table oh_order(
-	oid int auto_increment primary key,
-	cart_id int,
+	order_id int auto_increment primary key,
+    cart_id int,
+    mid varchar(20) not null,
+    odate datetime,
+    total_price int,
+    constraint order_cart_id_fk foreign key(cart_id) references oh_cart(cart_id) on update cascade on delete cascade,
+    constraint order_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
+);
+create table oh_pay(
+	pay_id int auto_increment primary key,
+	order_id int,
 	pid int,
 	mid varchar(100),
 	orderer_phone varchar(20),
@@ -136,9 +149,10 @@ create table oh_order(
 	installment varchar(20),
 	last_pay_price int,
 	constraint car_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
-	constraint car_cart_id_fk foreign key(cart_id) references oh_cart(cart_id) on update cascade on delete cascade,
+	constraint car_order_id_fk foreign key(order_id) references oh_order(order_id) on update cascade on delete cascade,
 	constraint car_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
 );
+
 
 -- oh_category insert
 insert into oh_category (category_name) values("크리스마스");

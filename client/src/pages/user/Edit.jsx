@@ -6,8 +6,9 @@ import ImageUpload from "./ImageUpload";
 import { Link } from "react-router-dom";
 
 export default function Edit() {
+
   const userinfo = getUser();
-  const [form, setForm] = useState({ mid: "", nickname: "", phone: null, homepage: "", gender: "", birthday: "", userimg: null, comment: "" });
+  const [form, setForm] = useState({ mid: "", nickname: "", phone: '', homepage: "", gender: "", birthday: "", userimg: null, comment: "" });
   const [user, setUser] = useState([])
   const [nicknameValue, setNickNameValue] = useState(true);
   const [nicknameText, setNickNameText] = useState("");

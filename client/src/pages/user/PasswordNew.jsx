@@ -78,12 +78,12 @@ export default function PasswordNew() {
   }
 
   const handleEmail = () => {
-    if(emailButton){
+    if (emailButton) {
       axios.post("http://127.0.0.1:8000/users/password/new/email", id)
-      .then(result => {
-        setEmai(result.data);
-        setEmaiPage(true)
-      })
+        .then(result => {
+          setEmai(result.data);
+          setEmaiPage(true)
+        })
     }
   }
 
@@ -125,11 +125,11 @@ export default function PasswordNew() {
               <div className="PasswordNewPhoneTitle">오늘의집에서 사용한 휴대폰 번호를 입력해주세요.</div>
               <div className="PasswordNewPhoneHint">{"힌트:(" + phone.phoneleft + "-" + "****" + "-" + "**" + phone.phoneright + ")"}</div>
               <div className="PasswordNewPhoneDiv" onBlur={handlePhoneValue}>
-                <input type="text" name="first" id="" maxLength={3} placeholder="010" onChange={handlePhone} value={phoneInput.first} readOnly={emailButton} className={phoneText === "" || "PasswordNewPhoneInput"} />
+                <input type="text" name="first" id="" maxLength={3} placeholder="010" onChange={handlePhone} value={phoneInput.first} readOnly={emailButton} className={phoneText === "" ? '' : 'PasswordNewPhoneInput'} />
                 <span>-</span>
-                <input type="text" name="middle" id="" maxLength={4} placeholder="0000" onChange={handlePhone} value={phoneInput.middle} readOnly={emailButton} className={phoneText === "" || "PasswordNewPhoneInput"} />
+                <input type="text" name="middle" id="" maxLength={4} placeholder="0000" onChange={handlePhone} value={phoneInput.middle} readOnly={emailButton} className={phoneText === "" ? '' : 'PasswordNewPhoneInput'} />
                 <span>-</span>
-                <input type="text" name="last" id="" maxLength={4} placeholder="0000" onChange={handlePhone} value={phoneInput.last} readOnly={emailButton} className={phoneText === "" || "PasswordNewPhoneInput"} />
+                <input type="text" name="last" id="" maxLength={4} placeholder="0000" onChange={handlePhone} value={phoneInput.last} readOnly={emailButton} className={phoneText === "" ? '' : 'PasswordNewPhoneInput'} /* className={phoneText === "" || "PasswordNewPhoneInput"} */ />
                 <button type="button" onClick={handlePhoneCheck} disabled={emailButton}>확인</button>
                 <div className="PasswordNewPhoneText">{phoneText}</div>
               </div>

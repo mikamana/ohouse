@@ -33,6 +33,7 @@ section.sub_visual_section div.sub_visual_inner {
   height: 100%;
   left: 50%;
   transform: translateX(-50%);
+  pointer-events: none;
 }
 section.sub_visual_section div.sub_visual_inner button.prev_btn {
   position: absolute;
