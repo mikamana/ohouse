@@ -1,13 +1,17 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { FaCheck } from "react-icons/fa6";
 import OrdersProductWrap from "./components/OrdersProductWrap";
 import OhouseDeliveryIcon from "./components/OhouseDeliveryIcon";
 import OrdersPaymentDetail from "./components/OrdersPaymentDetail";
+import axios from "axios";
+import { getUser } from "../utill/sessionStorage";
+import { useNavigate } from "react-router-dom";
 
 
 
 export default function OrderFormWrap() {
+  const userInfo = getUser();
   const [display, setDisplay] = useState({ "mailbox": "order_invisible", "requestbox": "request_invisible" });
   const [form, setForm] = useState({ "orderer_id": "", "orderer_mail": "", "orderer_phead": "010", "orderer_pbody": "", "pass": "", "passcheck": "", "orderer_name": "", "reciever_name": "", "reciever_place": "", "reciever_phead": "010", "reciever_pbody": "", "reciever_address_detail": "", "reciever_request": "" });
   const [domain, setDomain] = useState(false);
@@ -59,7 +63,16 @@ export default function OrderFormWrap() {
   }
 
   const inputDomain = useRef(null);
+  const navigate = useNavigate();
+  
+  useEffect(()=>{
+    if(!userInfo.id){
+      return navigate('/login')
+    }
+    // axios.get(`http://127.0.0.1:8000/orders/${userInfo.id}`)
+    // .then(result => 'success')
 
+  },[])
   return (
     <div className="orders_form_wrap">
       <h1 className="orders_form_title">주문/결제</h1>
@@ -260,14 +273,14 @@ export default function OrderFormWrap() {
           </p>
         </div>
         <OrdersProductWrap
-          ts={'ohouseDelivery'}
+          ts={'od'}
         />
         <OrdersProductWrap
-          ts={'todayDelivery'}
+          ts={'td'}
         />
         {/* 오늘출발 시 시간제한도 출력해야함 */}
         <OrdersProductWrap
-          ts={'furnitureDelivery'}
+          ts={'fd'}
         />
       </div>
 

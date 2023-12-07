@@ -24,7 +24,7 @@ export default function HeaderSearchRight() {
         <input className="header_logo_search" type="text" placeholder="통합검색" name="header_logo_search" />
       </div>
       <div className="header_logo_right">
-        <Link to="/cart" className="header_logo_cart"><PiShoppingCartLight className="header_logo_cart_icon" /></Link>
+        <Link to="/login" className="header_logo_cart"><PiShoppingCartLight className="header_logo_cart_icon" /></Link>
         <Link to="/login" className="header_logo_menu">로그인</Link>
         <Link to="/normalUsers/new" className="header_logo_menu">회원가입</Link>
         <Link to="/customer_center" className="header_logo_menu">고객센터</Link>

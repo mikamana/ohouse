@@ -5,6 +5,7 @@
 -- 관리자 아이디 @, 1234 
 insert into oh_member (mid, pass, nickname) values ("@","$2a$10$TcZs4tDeBpTJNAnVHg65U.m0DsqsTj0eH1gLkulWOfnNv1H96sfwG", "관리자");
  
+drop table oh_pay;
 drop table oh_order;
 drop table oh_cart;
 drop table oh_review;
@@ -14,21 +15,23 @@ drop table oh_product;
 drop table oh_category;
 drop table oh_member;
 
+
 select * from oh_review;
 drop table oh_review;
 select * from oh_member;
 select * from oh_product;
-select ov.rid,om.nickname,op.product_name,op.rating_avg,ov.review_content,ov.review_img,substring(review_date,1,10) rdate from oh_review ov inner join oh_product op, oh_member om where op.pid = ov.pid and om.mid = ov.mid;
-select ov.rid,om.nickname,ifnull(om.userimg,'https://images.unsplash.com/photo-1624274515979-32afb09402a2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQyfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D') userimg,op.product_name,op.rating_avg,ov.review_content,ov.review_img,substring(review_date,1,10) rdate from oh_review ov inner join oh_product op, oh_member om where op.pid = ov.pid and om.mid = ov.mid and op.pid = "1";
-
-
+select * from oh_cart;
 
 
 /*
 	업데이트 필요한 사항들
 */
 insert into oh_member (mid, pass, nickname) values ("@","$2a$10$TcZs4tDeBpTJNAnVHg65U.m0DsqsTj0eH1gLkulWOfnNv1H96sfwG", "관리자");
-
+update oh_product set price_sale = null,price_origin = 58900 where pid = 59;
+update oh_product set tag_free = 1;
+-- 관리자 계정 mid = @, pass = 1234, nickname = 관리자 insert
+-- oh_product 오류 수정
+-- 기존 oh_order table >> oh_pay table로 변경, oh_order table 추가
 
 desc oh_member;
 select * from oh_member;
@@ -50,29 +53,6 @@ select * from oh_order;
 select * from oh_review;
 drop table oh_review;
 delete from oh_member where mid = '@';
-
-create table oh_inquiry(
-
-	-- 문의id
-	-- purchase 구매여부 (구매,비구매)
-    -- 상품과 기타여부
-    -- 답변과 미답변여부 체크
-    -- 유저아이디
-    -- 문의시간
-    -- 문의내용
-    -- 답변날짜 
-    -- 답변내용
-    -- 비밀글여부
-    -- 문의유형
-    
-);
-
-
-
-
-
-
-
 
 
 create table oh_member(
@@ -140,12 +120,21 @@ create table oh_cart(
     mid varchar(100),
     qty int not null,
     cdate datetime,
-    constraint cart_pid_fk foreign key(pid) references oh_product(pid),
-    constraint cart_mid_fk foreign key(mid) references oh_member(mid)
+    constraint cart_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
+    constraint cart_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
 );
 create table oh_order(
-	oid int auto_increment primary key,
-	cart_id int,
+	order_id int auto_increment primary key,
+    cart_id int,
+    mid varchar(20) not null,
+    odate datetime,
+    total_price int,
+    constraint order_cart_id_fk foreign key(cart_id) references oh_cart(cart_id) on update cascade on delete cascade,
+    constraint order_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
+);
+create table oh_pay(
+	pay_id int auto_increment primary key,
+	order_id int,
 	pid int,
 	mid varchar(100),
 	orderer_phone varchar(20),
@@ -158,7 +147,7 @@ create table oh_order(
 	installment varchar(20),
 	last_pay_price int,
 	constraint car_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
-	constraint car_cart_id_fk foreign key(cart_id) references oh_cart(cart_id) on update cascade on delete cascade,
+	constraint car_order_id_fk foreign key(order_id) references oh_order(order_id) on update cascade on delete cascade,
 	constraint car_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
 );
 

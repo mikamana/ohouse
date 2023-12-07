@@ -43,6 +43,7 @@ import Interior3ds from './pages/subpage/interior3ds/Interior3ds';
 import EditPassword from './pages/user/EditPassword';
 import AdminContent from "./pages/admin/component/AdminContent";
 
+import CartEmptyPage from "./pages/cart/CartEmptyPage";
 
 const router = createBrowserRouter([
 
@@ -132,7 +133,7 @@ const router = createBrowserRouter([
       {
         path: '/cart', element:
           <Contents>
-            <Cart />
+            <CartEmptyPage />
           </Contents>
       },
       {

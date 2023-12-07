@@ -8,6 +8,8 @@ router.use(express.urlencoded({extended:true}));
 
 router.post('/new',cartController.createCart);
 router.get('/:mid',cartController.getCart);
-
+router.post('/:mid/remove',cartController.removeCart);
+router.put('/update/:cart_id/:qty',cartController.updateCart);
 export default router;
+
 

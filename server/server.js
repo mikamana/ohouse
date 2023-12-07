@@ -15,7 +15,7 @@ import review from "./router/oh_review/reviewRouter.js";
 import upload from "./router/uploadRouter.js";
 import channel from "./router/channelRouter.js";
 import inquiry from "./router/oh_inquiry/inquiryRouter.js";
-
+import order from "./router/oh_order/orderRouter.js"
 const PORT = 8000;
 const server = express();
 
@@ -37,6 +37,7 @@ server.use('/review', review);
 server.use('/upload', upload);
 server.use('/channel', channel);
 server.use('/inquiry', inquiry);
+server.use('/orders', order);
 
 server.listen(PORT, () => {
   console.log(`server start --->> ${PORT}`);

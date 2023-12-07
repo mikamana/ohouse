@@ -12,7 +12,7 @@ import axios from 'axios'
 export default function ShopitemSection() {
   const [shopArray, setShopArray] = useState([]);
   useEffect(() => {
-    axios('http://127.0.0.1:8000/product/shopitem')
+    axios.get('http://127.0.0.1:8000/product/shopitem')
       .then(result => {
         setShopArray(result.data)
       }

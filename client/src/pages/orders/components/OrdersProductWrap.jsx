@@ -4,15 +4,11 @@ import ShopitemTodayStart from '../../main/shopitem/components/Info/ShopitemToda
 export default function OrdersProductWrap({ts}) {
   return (
     <div className='orders_product_wrap'>
-      <div className='orders_product_delivery_type_wrap'>
+      {ts && <div className='orders_product_delivery_type_wrap'>
         <div className='orders_product_delivery_type_container'>
-          <div className='orders_product_delivery_type_box'>
-            <ShopitemTodayStart
-            ts={ts}
-            />
-          </div>
+          <div className='orders_product_delivery_type_box'><ShopitemTodayStart ts={ts}/></div>
         </div>
-      </div>
+      </div>}
       <div className='orders_product_company_wrap'>
         <div className='orders_product_company_container'>
           <h3 className='orders_product_company_title'>
