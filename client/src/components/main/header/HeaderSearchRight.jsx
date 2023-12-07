@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { PiBellLight, PiBookmarkSimpleLight, PiShoppingCartLight } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import HeaderProfile from "./HeaderProfile";
 import { getUser } from './../../../pages/utill/sessionStorage';
 import { TfiSearch } from 'react-icons/tfi';
 import axios from "axios";
+import Search from "../../../pages/subpage/search/Search";
 
 export default function HeaderSearchRight() {
   const userInfo = getUser();
@@ -20,9 +21,20 @@ export default function HeaderSearchRight() {
   {/* 추가작업 부분 */}
   const [inputValue, setInputValue] = useState('');
   const [autoKeyWord, setAutoKeyWord] = useState([]);
-  const [saveKeyWord, setSaveKeyWord] = useState([]);
+
+  const [searchResults, setSearchResults] = useState([]);
+
+  const fetchSearchResults = async (query) => {
+    try {
+      const response = await axios.get(`http://127.0.0.1:8000/search?q=${query}`);
+        setSearchResults(response.data);
+    } catch (error) {
+      console.error('오류발생:', error);
+    }
+  };
 
   const handleInputChange = (e) => {
+    
     const value = e.target.value;
     setInputValue(value);
     const autoKeyWord = ['러그', '시계', '크리스마스', '크리스마스 트리', '크리스마스 산타', '크리스마스 리스', '크리스마스 케이크', '크리스마스 장식', '크리스마스 트리 장식', '벽시계', '알람시계', '크리스마스 산타 모자', '크리스마스 순록', '크리스마스 오너먼트']
@@ -30,20 +42,29 @@ export default function HeaderSearchRight() {
       autoComplete => autoComplete.toLowerCase().includes(value.toLowerCase())
     );
     setAutoKeyWord(autoKeyWord);
-    setSaveKeyWord(prevSearches => [inputValue, ...prevSearches.slice(0, 4)]);
+
+    fetchSearchResults(value);
+    
   };
   const handleAutoKeyWord = (value) => {
     setInputValue(value);
-    window.location.href = `/search`;
+    window.location.href = `/search?q=${value}`;
   };
   const handleClearClick = () => {
     setInputValue('');
   };
   const searchEnter = (e) => {
     if (e.key === 'Enter') {
-      window.location.href = `/search/${inputValue}`;
+      window.location.href = `/search?q=${inputValue}`;
     }
   };
+  // const searchEnter = (e) => {
+  //   if (e.key === 'Enter') {
+  //     window.location.href = `/search/${inputValue}`;
+  //   }
+  // };
+
+  
   {/* 추가작업부분 끝 */}
 
   return (
@@ -74,14 +95,7 @@ export default function HeaderSearchRight() {
                   ))}
                 </ul>
               </div>
-              {/* <div> */}
-                {/* <p>검색어</p> */}
-                {/* <ul>
-                {saveKeyWord.map((search, index) => (
-                  <li key={index}>{search}</li>
-                ))}
-                </ul> */}
-              {/* </div> */}
+              
             </div>
           </>
         )}

@@ -135,6 +135,24 @@ create table oh_order(
 	constraint car_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
 );
 
+create table oh_inquiry(
+
+	qid int auto_increment primary key not null, -- 문의id
+    mid varchar(100),-- 유저아이디
+	pid int, -- 상품아이디
+	qtype varchar(50), -- 문의유형
+    qdate datetime,-- 문의시간
+    qcontent varchar(500), -- 문의내용
+    adate datetime, -- 답변날짜 
+    acontent varchar(500), -- 답변내용
+    secret_check boolean, -- 비밀글여부
+    
+	constraint oh_inquery_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade,
+    constraint oh_inquery_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade
+    
+);
+
+
 -- oh_category insert
 insert into oh_category (category_name) values("크리스마스");
 insert into oh_category (category_name) values("겨울용품");
