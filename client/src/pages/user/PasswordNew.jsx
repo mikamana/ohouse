@@ -36,7 +36,7 @@ export default function PasswordNew(){
 
   const handleIdCheck = () => {
     if(idCheck){
-      axios.post("http://localhost:8000/users/password/new", id)
+      axios.post("http://127.0.0.1:8000/users/password/new", id)
       .then(result => {
         if(result.data.cntid === 1){
           setIdValue(result.data.cntid);
@@ -69,7 +69,7 @@ export default function PasswordNew(){
 
   const handlePhoneCheck = () => {
     const userphone = phoneInput.first + phoneInput.middle + phoneInput.last
-    if(userphone == phone.phone){
+    if(userphone === phone.phone){
       alert("인증완료");
       setEmailButton(true);
     }else{
@@ -79,7 +79,7 @@ export default function PasswordNew(){
 
   const handleEmail = () => {
     if(emailButton){
-      axios.post("http://localhost:8000/users/password/new/email", id)
+      axios.post("http://127.0.0.1:8000/users/password/new/email", id)
       .then(result => {
         console.log(result.data);
         setEmai(result.data);

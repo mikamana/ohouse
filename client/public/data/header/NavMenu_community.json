@@ -4,7 +4,7 @@
   { "url" : "/", "menuName" : "#채널"},
   { "url" : "/content/projects", "menuName" : "집들이"},
   { "url" : "/content/cardCollections", "menuName" : "집사진"},
-  { "url" : "/", "menuName" : "3D인테리어"},
+  { "url" : "/interior3ds", "menuName" : "3D인테리어"},
   { "url" : "/", "menuName" : "살림수납"},
   { "url" : "/", "menuName" : "콜렉터블"},
   { "url" : "/", "menuName" : "홈스토랑"},

@@ -47,7 +47,9 @@
   display: flex;
   justify-content: space-between;
 }
-.channel_container > div a .channel_image_box img {
+.channel_container > div a .channel_image_box div {
   width: 24.5%;
-  overflow: hidden;
+  height: 177px;
+  background-size: cover;
+  background-position: center;
 }/*# sourceMappingURL=channel.css.map */

@@ -57,9 +57,13 @@ nav.admin_navmenu a:hover {
 div.admin_section {
   padding: 30px 0;
 }
+div.admin_section div.admin_register {
+  padding-bottom: 30px;
+  width: 100%;
+  text-align: center;
+}
 div.admin_section div.admin_register button.admin_regbtn {
   display: inline-block;
-  margin-top: 30px;
   padding: 11px 10px;
   text-align: center;
   width: 290px;
@@ -72,13 +76,14 @@ div.admin_section div.admin_register button.admin_regbtn {
   border-radius: 4px;
   box-sizing: border-box;
 }
-div.admin_section div.admin_register div.admin_update_popup {
+div.admin_section div.admin_register div.admin_register_popup {
   position: absolute;
   margin: 0 auto;
   padding: 30px;
   visibility: hidden;
   opacity: 0;
   top: 20%;
+  left: 0;
   width: 45%;
   background: #fff;
   border: 1px solid rgb(218, 221, 224);
@@ -88,35 +93,35 @@ div.admin_section div.admin_register div.admin_update_popup {
   transition: all 0.2s;
   z-index: 10;
 }
-div.admin_section div.admin_register div.admin_update_popup.active {
+div.admin_section div.admin_register div.admin_register_popup.active {
   visibility: visible;
   opacity: 1;
   transform: none;
   transition: all 0.2s ease;
   z-index: 100;
 }
-div.admin_section div.admin_register div.admin_update_popup p {
+div.admin_section div.admin_register div.admin_register_popup p {
   text-align: center;
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 50px;
 }
-div.admin_section div.admin_register div.admin_update_popup form.admin_update_content {
+div.admin_section div.admin_register div.admin_register_popup form.admin_register_content {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-div.admin_section div.admin_register div.admin_update_popup form.admin_update_content div.admin_update_contentwrap div.admin_update_contentbox {
+div.admin_section div.admin_register div.admin_register_popup form.admin_register_content div.admin_register_contentwrap div.admin_register_contentbox {
   display: flex;
   margin-bottom: 15px;
 }
-div.admin_section div.admin_register div.admin_update_popup form.admin_update_content div.admin_update_contentwrap div.admin_update_contentbox label {
+div.admin_section div.admin_register div.admin_register_popup form.admin_register_content div.admin_register_contentwrap div.admin_register_contentbox label {
   display: block;
   height: 40px;
   line-height: 40px;
   width: 100px;
 }
-div.admin_section div.admin_register div.admin_update_popup form.admin_update_content div.admin_update_contentwrap div.admin_update_contentbox input {
+div.admin_section div.admin_register div.admin_register_popup form.admin_register_content div.admin_register_contentwrap div.admin_register_contentbox input {
   display: block;
   padding: 0 15px;
   width: 368px;
@@ -129,7 +134,7 @@ div.admin_section div.admin_register div.admin_update_popup form.admin_update_co
   border-radius: 6px;
   box-sizing: border-box;
 }
-div.admin_section div.admin_register div.admin_update_popup form.admin_update_content button.admin_editbtn {
+div.admin_section div.admin_register div.admin_register_popup form.admin_register_content button.admin_editbtn {
   display: inline-block;
   margin-top: 30px;
   padding: 11px 10px;
@@ -279,4 +284,8 @@ div.admin_section div.admin_content div.admin_update_popup form.admin_update_con
   border: none;
   border-radius: 4px;
   box-sizing: border-box;
+}
+
+img.admin_image {
+  width: 100px;
 }/*# sourceMappingURL=adminpage.css.map */

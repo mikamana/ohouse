@@ -1,15 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-export default function SnsImgImgBox() {
+export default function SnsImgImgBox(props) {
   return (
     <>
       <div className="snsimg_img_list_div">
         <fieldset className="snsimg_img_fieldset">
           <Link to="#" className="snsimg_img_list_link">
-            <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/snapshots/169954136277703289.jpeg?w=256&amp;h=341.3333333333333&amp;c=c" />
+            <img src={props.img} />
             <p className="snsimg_img_list_user">
               <span className="snsimg_img_list_user_img">
-                <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images1577181681_416337.jpeg?w=36" />
+                <img src={props.userImg} />
               </span>
               <span className="snsimg_img_list_user_text">
                 예진문

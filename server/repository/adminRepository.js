@@ -1,4 +1,4 @@
-import { db } from "../data/database.js"
+import { db } from "../data/database.js";
 
 export async function getMemberList({value, startindex, endindex }) {
   let sql = ''
@@ -20,7 +20,7 @@ export async function getMemberList({value, startindex, endindex }) {
 		from (select count(*) as total from oh_member) as member,
 			  oh_member m left outer join oh_review r on m.mid = r.mid  left outer join oh_order o
 			  on m.mid = o.mid group by m.mid, member.total, r.mid, o.mid) as memberList
-		 where rno between ? and ? group by mid, memberList.total, count_review, count_order order by nickname asc`
+		  where rno between ? and ? group by mid, memberList.total, count_review, count_order order by nickname asc`
   }else{
     sql = `
     select rno, mid, nickname, userimg, phone, homepage, gender, birthday, left(mdate,19) as mdate, total, count_review, count_order from 
@@ -39,7 +39,7 @@ export async function getMemberList({value, startindex, endindex }) {
 		from (select count(*) as total from oh_member) as member,
 			  oh_member m left outer join oh_review r on m.mid = r.mid  left outer join oh_order o
 			  on m.mid = o.mid group by m.mid, member.total, r.mid, o.mid) as memberList
-		 where rno between ? and ? group by mid, memberList.total, count_review, count_order order by nickname desc`
+		  where rno between ? and ? group by mid, memberList.total, count_review, count_order order by nickname desc`
   }
 
   return db.execute(sql, [startindex, endindex])
@@ -106,4 +106,25 @@ export async function getAscList(value, startindex, endindex){
   }
   return db.execute(sql, [startindex, endindex])
   .then(rows => rows[0])
+};
+
+/* 상품리스트 조회 */
+export async function getProductList({value, startindex, endindex }) {
+  let sql = ''
+  if(value == 'asc'){
+    sql = `
+    select rno, pid, total, category_name, product_image, brand_name, product_name, price_sale, price_origin, tag_free, coupon_percent, left(pdate,10) as pdate, delivery_type from
+(select row_number() over(order by product_name asc) rno, pid, total, category_name, product_image, brand_name, product_name, price_sale, price_origin, tag_free, coupon_percent, pdate, delivery_type 
+	from (select count(*) as total from oh_product) as products, oh_product p inner join oh_category c on p.category_id=c.category_id) a 
+    where rno between ? and ? order by product_name asc`
+  }else{
+    sql = `
+    select rno, pid, total, category_name, product_image, brand_name, product_name, price_sale, price_origin, tag_free, coupon_percent, left(pdate,10) as pdate, delivery_type from
+(select row_number() over(order by product_name desc) rno, pid, total, category_name, product_image, brand_name, product_name, price_sale, price_origin, tag_free, coupon_percent, pdate, delivery_type 
+	from (select count(*) as total from oh_product) as products, oh_product p inner join oh_category c on p.category_id=c.category_id) a 
+    where rno between ? and ? order by product_name desc`
+  }
+
+  return db.execute(sql, [startindex, endindex])
+    .then(rows => rows[0])
 };

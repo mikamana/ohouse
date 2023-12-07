@@ -541,7 +541,7 @@ div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.p
   z-index: 10;
   border: none;
   left: -20px;
-  top: 50%;
+  top: 42%;
   transform: translateY(-50%);
 }
 div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(1) div.production_selling_prd_userimg_wrap button.prev_btn::before {
@@ -577,7 +577,7 @@ div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.p
   z-index: 10;
   border: none;
   right: -20px;
-  top: 50%;
+  top: 42%;
   z-index: 2;
   transform: translateY(-50%);
 }

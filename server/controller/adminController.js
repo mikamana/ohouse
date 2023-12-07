@@ -36,3 +36,11 @@ export async function getAscList(req,res){
   res.json(result)
 }
 
+/* 상품리스트 조회 */
+export async function getProductList(req, res) {
+  const {value, startindex, endindex} = req.params;
+  //console.log({value, startindex, endindex});
+  const result = await repository.getProductList({value, startindex, endindex});
+  //console.log(result);
+  res.json(result)
+};

@@ -16,8 +16,9 @@ export default function ProductionsPrdReviewWrap(props) {
     // const [totalCount, setTotalCount] = useState(props.totCount);
     const [pageSize, setPageSize] = useState(5);
     const [list, setList] = useState([]);
-
     // console.log(props.totCount);
+
+
     useEffect(() => {
 
         let startIndex = 0;
@@ -41,12 +42,18 @@ export default function ProductionsPrdReviewWrap(props) {
 
     const fnBestReview = (kind) => {
 
+        let startIndex = 0;
+        let endIndex = 0;
+
+        startIndex = (currentPage - 1) * pageSize + 1; //1-1*3+1 : 1, 4 .. 몇번째 데이터부터 몇개를 보여줄 것인지(데이터기준)
+        endIndex = currentPage * pageSize; //1*3 : 3, 6 ..
+
         if (kind === "best") {
 
             axios({
 
                 method: "get",
-                url: `http://127.0.0.1:8000/review/product/best/${params.pid}`
+                url: `http://127.0.0.1:8000/review/product/best/${params.pid}/${startIndex}/${endIndex}`
 
             }).then((result) => {
 
@@ -58,10 +65,16 @@ export default function ProductionsPrdReviewWrap(props) {
 
         if (kind === "latest") {
 
+            let startIndex = 0;
+            let endIndex = 0;
+
+            startIndex = (currentPage - 1) * pageSize + 1; //1-1*3+1 : 1, 4 .. 몇번째 데이터부터 몇개를 보여줄 것인지(데이터기준)
+            endIndex = currentPage * pageSize; //1*3 : 3, 6 ..
+
             axios({
 
                 method: "get",
-                url: `http://127.0.0.1:8000/review/product/latest/${params.pid}`
+                url: `http://127.0.0.1:8000/review/product/latest/${params.pid}/${startIndex}/${endIndex}`
 
             }).then((result) => {
 
@@ -71,8 +84,6 @@ export default function ProductionsPrdReviewWrap(props) {
 
         }
     }
-
-
 
     return (
 

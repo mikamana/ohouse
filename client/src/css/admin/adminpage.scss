@@ -58,9 +58,11 @@ nav.admin_navmenu {
 div.admin_section {
   padding: 30px 0;
   div.admin_register {
+    padding-bottom: 30px;
+    width: 100%;
+    text-align: center;
     button.admin_regbtn {
       display: inline-block;
-      margin-top: 30px;
       padding: 11px 10px;
       text-align: center;
       width: 290px;
@@ -73,13 +75,14 @@ div.admin_section {
       border-radius: 4px;
       box-sizing: border-box;
     } //button.admin_regbtn
-    div.admin_update_popup {
+    div.admin_register_popup {
       position: absolute;
       margin: 0 auto;
       padding: 30px;
       visibility: hidden;
       opacity: 0;
       top: 20%;
+      left: 0;
       width: 45%;
       background: #fff;
       border: 1px solid rgb(218, 221, 224);
@@ -101,12 +104,12 @@ div.admin_section {
         font-weight: 700;
         margin-bottom: 50px;
       }
-      form.admin_update_content {
+      form.admin_register_content {
         display: flex;
         flex-direction: column;
         align-items: center;
-        div.admin_update_contentwrap {
-          div.admin_update_contentbox {
+        div.admin_register_contentwrap {
+          div.admin_register_contentbox {
             display: flex;
             margin-bottom: 15px;
             label {
@@ -128,7 +131,7 @@ div.admin_section {
               border-radius: 6px;
               box-sizing: border-box;
             }
-          } //div.admin_update_contentbox
+          } //div.admin_register_contentbox
         }
         button.admin_editbtn {
           display: inline-block;
@@ -145,8 +148,8 @@ div.admin_section {
           border-radius: 4px;
           box-sizing: border-box;
         }
-      } //div.admin_update_content
-    } //div.admin_update_popup
+      } //div.admin_register_content
+    } //div.admin_register_popup
   }
   div.admin_content {
     position: relative;
@@ -168,8 +171,6 @@ div.admin_section {
         border: 1px solid #d9d9d9;
       }
     } //div.admin_content_count
-    div.admin_content_sort {
-    } //div.admin_content_sort
     table.admin_table {
       border: 1px solid #fff;
       width: 90%;
@@ -293,3 +294,7 @@ div.admin_section {
     } //div.admin_update_popup
   } //div.admin_content
 } //div.admin_section
+
+img.admin_image{
+  width: 100px;
+}

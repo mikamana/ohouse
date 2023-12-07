@@ -25,12 +25,12 @@ export async function getSortLastHouse(req, res) {
 
 }
 
-// export async function getCollection(req, res) {
+export async function getCollection(req, res) {
+    
+    const rows = await houseRepository.getCollection();
 
-//     const rows = await houseRepository.getCollection();
+    res.json(rows);
 
-//     res.json(rows);
-
-// }
+}
 
 
