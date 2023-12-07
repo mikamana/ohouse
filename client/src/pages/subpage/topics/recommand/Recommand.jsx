@@ -26,6 +26,7 @@ export default function Recommand() {
           {
             catelist.map((list) =>
               <ShopcateCategoryItem
+              key={list.category_name}
                 category_name={list.category_name}
               />)
           }

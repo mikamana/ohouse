@@ -15,7 +15,7 @@ export default function RecommandImgBox() {
   return (
     <>
       {recommandImgList.map((list) =>
-        <div className="snsimg_img_list_div">
+        <div className="snsimg_img_list_div" key={list.url}>
           <fieldset className="snsimg_img_fieldset">
             <Link to="/" className="snsimg_img_list_link">
               <div className="snsimg_img_list_link_imgwrap">
