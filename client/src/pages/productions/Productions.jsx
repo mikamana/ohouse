@@ -10,6 +10,7 @@ import axios from "axios";
 export default function Productions() {
 
   const [count, setCount] = useState('');
+  const [quiryCount, setQuiryCount] = useState('');
   const [price, setPrice] = useState(0);
   const [qty, setQty] = useState(1);
   const [priceOrigin, setPriceOrigin] = useState(0);
@@ -17,7 +18,13 @@ export default function Productions() {
   const [list, setList] = useState([]);
   const getCount = (e) => {
 
-    setCount(e.sum)
+    setCount(e.sum.sum)
+
+  }
+
+  const getQuiryCount = (e) => {
+
+    setQuiryCount(e)
 
   }
 
@@ -27,6 +34,8 @@ export default function Productions() {
     setQty(e.qty)
 
   }
+
+
 
 
 
@@ -44,7 +53,6 @@ export default function Productions() {
 
   }, [])
 
-
   return (
 
     <>
@@ -56,11 +64,15 @@ export default function Productions() {
             price={price}
           />
         </div>
-        <ProductionsNav count={count} />
+        <ProductionsNav count={count}
+          quiryCount={quiryCount}
+        />
         <ProductionsPrdWrap
           getCount={getCount}
+          getQuiryCount={getQuiryCount}
           price={price}
           priceOrigin={list.sale_price}
+
         />
       </section >
     </>

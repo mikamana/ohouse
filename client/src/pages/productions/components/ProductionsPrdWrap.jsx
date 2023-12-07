@@ -11,7 +11,9 @@ export default function ProductionsPrdWrap(props) {
         <>
             <div className="production_selling_prd_info_wrap">
                 <div className="production_selling_prd_info_inner inner">
-                    <ProductionsPrdInfoLeftBox getCount={props.getCount} />
+                    <ProductionsPrdInfoLeftBox getCount={props.getCount}
+                        getQuiryCount={props.getQuiryCount}
+                    />
                     <PrudctionsPrdInfoRightBox
                         priceOrigin={props.priceOrigin}
                         price={props.price}

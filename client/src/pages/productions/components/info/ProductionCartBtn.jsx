@@ -14,10 +14,12 @@ export default function ProductionCartBtn(props) {
   const handlerFetch = () => {
 
     const cartProduct = {
+
       id: userInfo.id,
       pid: params.pid,
       qty: props.qty,
       price: props.price
+
     };
 
 

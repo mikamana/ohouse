@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function ProductionInfoIconWrap() {
+  const [toggle, setToggle] = useState(false);
 
   return (
 
     <>
       <p className="production_selling_info_title_div">
-        <Link to="#" className="production_selling_scrap_icon">
-          <svg className="icon--stroke" aria-label="스크랩" width="24" height="24" fill="currentColor" stroke="currentColor" strokeWidth="0.5" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path d="M11.53 18.54l-8.06 4.31A1 1 0 0 1 2 21.97V3.5A1.5 1.5 0 0 1 3.5 2h17A1.5 1.5 0 0 1 22 3.5v18.47a1 1 0 0 1-1.47.88l-8.06-4.31a1 1 0 0 0-.94 0z"></path></svg>
+        <Link to="#" className={toggle ? "production_selling_scrap_icon active" : "production_selling_scrap_icon"} onClick={() => {
+
+          setToggle((toggle) => !toggle)
+
+        }}>
+          <svg className="icon--stroke active" aria-label="스크랩" width="24" height="24" fill="currentColor" stroke="currentColor" strokeWidth="0.5" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path d="M11.53 18.54l-8.06 4.31A1 1 0 0 1 2 21.97V3.5A1.5 1.5 0 0 1 3.5 2h17A1.5 1.5 0 0 1 22 3.5v18.47a1 1 0 0 1-1.47.88l-8.06-4.31a1 1 0 0 0-.94 0z"></path></svg>
           <span>223</span>
         </Link>
         <Link to="#" className="production_selling_scrap_icon">

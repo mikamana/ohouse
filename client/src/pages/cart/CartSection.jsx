@@ -4,13 +4,12 @@ import CartSidebarsWrap from './CartSidebarWrap';
 import axios from "axios";
 import { getUser } from "../utill/sessionStorage";
 
-export default function CartSection(){
+export default function CartSection() {
   const userInfo = getUser();
-  console.log(userInfo);
-  useEffect(()=>{
+  useEffect(() => {
     axios(`http://127.0.0.1:8000/cart/${userInfo.id}`)
-    .then(result=>console.log(result.data));
-  },[])
+      .then(result => console.log(result.data));
+  }, [])
   const checkList = [
     {
       id: '체크1',

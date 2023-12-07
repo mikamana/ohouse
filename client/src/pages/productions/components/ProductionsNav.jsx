@@ -10,7 +10,9 @@ export default function ProductionsNav(props) {
       <div className="production_selling_navigion_wrap">
         <div className="production_selling_navigion_inner inner">
           <nav className="production_selling_navigion">
-            <ProductionsNavList count={props.count} />
+            <ProductionsNavList count={props.count}
+              quiryCount={props.quiryCount}
+            />
           </nav>
         </div>
       </div>
