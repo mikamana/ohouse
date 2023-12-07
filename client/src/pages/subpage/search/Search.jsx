@@ -1,8 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import "../../../css/sub/search/search.css";
 import { Link } from "react-router-dom";
+import ShopitemContents from '../../main/shopitem/ShopitemContents';
+import SubtitleMore from '../../main/subtitle_more/Subtitle_more';
+import axios from 'axios'
+
 
 export default function Search (){
+
+  const [shopArray, setShopArray] = useState([]);
+  useEffect(() => {
+    axios('http://127.0.0.1:8000/product/shopitem')
+      .then(result => {
+        setShopArray(result.data)
+      }
+      )
+  }, [])
+
+  const [searchResults, setSearchResults] = useState([]);
 
   const [searchTotal, setSearchTotal] = useState([]);
   useEffect(()=>{
@@ -10,6 +25,7 @@ export default function Search (){
     .then((res) => res.json())
     .then((data) => setSearchTotal(data));
   }, []);
+  console.log(searchResults);
 
   return(
     <>
@@ -66,6 +82,16 @@ export default function Search (){
             </ul>
           </div>
           <Link className="search_total_bttn" to={''}>크리스마스 기획전 바로가기</Link>
+        </div>
+        <div className="searchResults">
+          <SubtitleMore title={"쇼핑"} />
+            {shopArray.map((list, i) =>
+              <ShopitemContents
+                key={i}
+                shopitemList={list}
+                timecount={false}
+              />
+            )}
         </div>
       </div>
 

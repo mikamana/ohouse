@@ -74,4 +74,13 @@
 }
 .search_total .search_total_bttn:hover {
   background: var(--lightGray);
+}
+
+.searchResults {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.searchResults > div {
+  padding: 10px 7.5px;
 }/*# sourceMappingURL=search.css.map */
