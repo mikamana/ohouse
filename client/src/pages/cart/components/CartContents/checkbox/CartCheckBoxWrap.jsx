@@ -1,10 +1,8 @@
 // import CartAllCheckBox from "./CartAllCheckBox";
 
 export default function CartCheckBoxWrap({ allCheckedHandler, checkedItems, checkList }) {
-  console.log(checkedItems);
-  console.log(checkList);
-  function listCheck(){
-    if(checkList){
+  function listCheck() {
+    if (checkList) {
       return checkedItems.length === checkList.length ? true : false
     }
   }

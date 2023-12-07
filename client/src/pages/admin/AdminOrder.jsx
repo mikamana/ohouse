@@ -30,7 +30,7 @@ export default function AdminOrder() {
   useEffect(() => {
     axios.get(`http://127.0.0.1:8000/admin/order/${startindex}/${endindex}/${value}`)
       .then((result) => {
-        if(result.data.length !== 0){
+        if (result.data.length !== 0) {
           setList(result.data);
           setTotalPage(result.data[0].total);
         }
@@ -67,7 +67,6 @@ export default function AdminOrder() {
   /* 정보수정 */
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form);
     axios.put('http://127.0.0.1:8000/admin/update/', form)
       .then((result) => {
         alert('회원정보 수정이 완료되었습니다')
@@ -82,7 +81,6 @@ export default function AdminOrder() {
 
     // axios.get(`http://127.0.0.1:8000/admin/${startindex}/${endindex}/${value}`)
     // .then((result)=>{
-    //   console.log(result.data);
     //   setMemberList(result.data)
     // })
   }
@@ -135,7 +133,7 @@ export default function AdminOrder() {
                   <td>{member.birthday}</td>
                   <td>{member.mdate}</td>
                   <td>{member.count_order}</td>
-                  <td>{member.count_review}</td> 
+                  <td>{member.count_review}</td>
                   <td>
                     <button className="admin_update_togglebtn" type="button" onClick={handleToggle} data-id={member.mid}>정보수정</button>
                   </td>

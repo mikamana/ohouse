@@ -134,7 +134,6 @@ export default function Signup() {
     if (form.eid !== "" && form.domain !== "") {
       axios.post("http://localhost:8000/normalUsers/new/email", { eid: form.eid, domain: form.domain })
         .then(result => {
-          console.log(result.data);
           if (result.data.result.cnt === 0) {
             setMailValue(result.data.number);
             setMailtext(true);

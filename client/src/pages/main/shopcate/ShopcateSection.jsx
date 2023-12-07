@@ -15,10 +15,9 @@ export default function ShopcateSection() {
       .then(result => setCatelist(result.data))
   }, [])
 
-  function getCategoryItem(category_id){
-    console.log(category_id);
-    
-    if(category_id === 0){
+  function getCategoryItem(category_id) {
+
+    if (category_id === 0) {
       axios.get('http://127.0.0.1:8000/product/bestitem')
         .then(result => setShopArray(result.data))
     } else {

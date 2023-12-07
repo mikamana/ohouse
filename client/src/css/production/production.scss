@@ -439,10 +439,12 @@ section.production_selling_wrap {
                 button.production_selling_button_cart {
                   background: none;
                   color: #3eb9df;
+                  cursor: pointer;
                 }
                 button.production_selling_button_buy {
                   background-color: #35c5f0;
                   color: #fff;
+                  cursor: pointer;
                 }
               }
             } //nth-child(12)
@@ -1037,10 +1039,12 @@ div.production_selling_prd_info_right {
       button.production_selling_button_cart {
         background: none;
         color: #3eb9df;
+        cursor: pointer;
       }
       button.production_selling_button_buy {
         background-color: #35c5f0;
         color: #fff;
+        cursor: pointer;
       }
     }
   }

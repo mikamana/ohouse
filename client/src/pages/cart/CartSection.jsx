@@ -12,25 +12,25 @@ export default function CartSection() {
   const [checkList, setCheckList] = useState([]);
   const [count, setCount] = useState(0);
   const [sumPrice, setSumPrice] = useState(0);
-  const [totalPrice,setTotalPrice] = useState(0);
-  const [salePrice,setSalePrice] = useState(0);
-  const [qtyCheck,setQtyCheck] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [salePrice, setSalePrice] = useState(0);
+  const [qtyCheck, setQtyCheck] = useState(0);
   const cl = [];
   let totPriceOrigin = 0;
   let totPrice = 0;
   let totPriceSale = 0;
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get(`http://127.0.0.1:8000/cart/${userInfo.id}`)
       .then(result => {
-        if(!result.data.length){
+        if (!result.data.length) {
           return navigate('/cart')
         }
-        const countFlag = (result)=>{
-          if(result.data.length !== 0){
+        const countFlag = (result) => {
+          if (result.data.length !== 0) {
             return result.data[0].cnt
-          }else{
+          } else {
             return undefined
           }
         }
@@ -40,26 +40,25 @@ const navigate = useNavigate();
         })
         setCheckList(cl);
         // setCount(countFlag(result));
-        
+
       })
   }, [])
 
-useEffect(()=>{
-  
-  const newData = cartList.filter(item => checkedItems.includes(`${item.cart_id}`));
-  fnCalc(newData)
-  setCount(checkedItems.length);
+  useEffect(() => {
 
-},[checkedItems])
+    const newData = cartList.filter(item => checkedItems.includes(`${item.cart_id}`));
+    fnCalc(newData)
+    setCount(checkedItems.length);
 
-  function fnCalc(calcList){
-    console.log(calcList);
-    totPriceOrigin = calcList.reduce((total,item)=>total+(item.price_origin*item.qty),0)
-    totPriceSale = calcList.reduce((total,item)=>total+(Math.ceil(item.price_change / 100) * 100 *item.qty),0)
-    totPrice = calcList.reduce((total,item)=>total+(parseInt(item.sale_price.replace(/,/g, ''))*item.qty),0)
+  }, [checkedItems])
+
+  function fnCalc(calcList) {
+    totPriceOrigin = calcList.reduce((total, item) => total + (item.price_origin * item.qty), 0)
+    totPriceSale = calcList.reduce((total, item) => total + (Math.ceil(item.price_change / 100) * 100 * item.qty), 0)
+    totPrice = calcList.reduce((total, item) => total + (parseInt(item.sale_price.replace(/,/g, '')) * item.qty), 0)
     setSumPrice(totPriceOrigin);
     setSalePrice(totPriceSale);
-    setTotalPrice(totPrice); 
+    setTotalPrice(totPrice);
   }
 
   const checkedItemHandler = (id, isChecked) => {
@@ -77,48 +76,46 @@ useEffect(()=>{
     } else {
       setCheckedItems([]);
     }
-    console.log(`allCheck = `, e.target.checked)
   }
 
 
 
-  const getQty = (e) =>{
-    updateCart(e.cart_id,e.qty);
+  const getQty = (e) => {
+    updateCart(e.cart_id, e.qty);
     setQtyCheck(!qtyCheck);
-    if(!checkedItems.includes(`${e.cart_id}`)){
+    if (!checkedItems.includes(`${e.cart_id}`)) {
       return
     }
-      if(e.checkFlag === 'plus' && e.qtyFlag){
-        setSumPrice(sumPrice + e.price_origin)
-        setSalePrice(salePrice + Math.ceil(e.price_change / 100) * 100)
-        setTotalPrice(totalPrice + parseInt(e.sale_price.replace(/,/g, '')))
-      }else if(e.checkFlag === 'minus' && e.qtyFlag){
-        setSumPrice(sumPrice - e.price_origin)
-        setSalePrice(salePrice - Math.ceil(e.price_change / 100) * 100)
-        setTotalPrice(totalPrice - parseInt(e.sale_price.replace(/,/g, '')))
-      }
-    
+    if (e.checkFlag === 'plus' && e.qtyFlag) {
+      setSumPrice(sumPrice + e.price_origin)
+      setSalePrice(salePrice + Math.ceil(e.price_change / 100) * 100)
+      setTotalPrice(totalPrice + parseInt(e.sale_price.replace(/,/g, '')))
+    } else if (e.checkFlag === 'minus' && e.qtyFlag) {
+      setSumPrice(sumPrice - e.price_origin)
+      setSalePrice(salePrice - Math.ceil(e.price_change / 100) * 100)
+      setTotalPrice(totalPrice - parseInt(e.sale_price.replace(/,/g, '')))
+    }
+
   }
 
-  function removeCart(cart_id){
-    if(checkedItems.length === 0){
-      console.log(cart_id);
-      axios.post(`http://127.0.0.1:8000/cart/${userInfo.id}/remove`, {cart_id})
-    .then(result=>{window.location.reload()})
-    return
+  function removeCart(cart_id) {
+    if (checkedItems.length === 0) {
+      axios.post(`http://127.0.0.1:8000/cart/${userInfo.id}/remove`, { cart_id })
+        .then(result => { window.location.reload() })
+      return
     }
 
 
   }
 
-  function removeSelectCart(){
+  function removeSelectCart() {
     axios.post(`http://127.0.0.1:8000/cart/${userInfo.id}/remove`, checkedItems)
-    .then(result=>{window.location.reload()})
+      .then(result => { window.location.reload() })
   }
 
-  const updateCart = (cart_id,qty)=>{
-  axios.put(`http://127.0.0.1:8000/cart/update/${cart_id}/${qty}`)
-  .then(result=>{})
+  const updateCart = (cart_id, qty) => {
+    axios.put(`http://127.0.0.1:8000/cart/update/${cart_id}/${qty}`)
+      .then(result => { })
   };
 
 
@@ -127,33 +124,33 @@ useEffect(()=>{
     if (!checkedItems.length || checkedItems.length === 0) {
       return alert('장바구니가 비어있습니다.')
     }
-    axios.post(`http://127.0.0.1:8000/orders/neworder/${userInfo.id}`, [checkedItems,totalPrice])
-    .then(result=>{navigate('/orders')});
+    axios.post(`http://127.0.0.1:8000/orders/neworder/${userInfo.id}`, [checkedItems, totalPrice])
+      .then(result => { navigate('/orders') });
   }
 
 
   return (
-        <div className='cart_section sub_inner'>
-          <div className='cart_section_container'>
-            <CartContentsWrap
-              allCheckedHandler={allCheckedHandler}
-              checkedItemHandler={checkedItemHandler}
-              checkedItems={checkedItems}
-              checkList={checkList}
-              cartList={cartList}
-              removeCart={removeCart}
-              removeSelectCart={removeSelectCart}
-              getQty={getQty}
-            />
-            <CartSidebarsWrap
-              handleOrder={handleOrder}
-              cartList={cartList}
-              count={count}
-              sumPrice={sumPrice}
-              totalPrice={totalPrice}
-              salePrice={salePrice}
-            />
-          </div>
-        </div>
+    <div className='cart_section sub_inner'>
+      <div className='cart_section_container'>
+        <CartContentsWrap
+          allCheckedHandler={allCheckedHandler}
+          checkedItemHandler={checkedItemHandler}
+          checkedItems={checkedItems}
+          checkList={checkList}
+          cartList={cartList}
+          removeCart={removeCart}
+          removeSelectCart={removeSelectCart}
+          getQty={getQty}
+        />
+        <CartSidebarsWrap
+          handleOrder={handleOrder}
+          cartList={cartList}
+          count={count}
+          sumPrice={sumPrice}
+          totalPrice={totalPrice}
+          salePrice={salePrice}
+        />
+      </div>
+    </div>
   );
 }

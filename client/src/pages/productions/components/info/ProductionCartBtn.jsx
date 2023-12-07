@@ -10,31 +10,41 @@ export default function ProductionCartBtn(props) {
   const userInfo = getUser();
   const [list, setList] = useState([]);
 
-
   const handlerFetch = () => {
 
-    const cartProduct = {
-
-      id: userInfo.id,
-      pid: params.pid,
-      qty: props.qty,
-      price: props.price
-
-    };
+    if (userInfo) {
 
 
-    axios({
+      const cartProduct = {
 
-      method: "post",
-      url: `http://127.0.0.1:8000/cart/new`,
-      data: cartProduct
+        id: userInfo.id,
+        pid: params.pid,
+        qty: props.qty,
+        price: props.price
 
-    }).then((result) => {
+      };
 
-      setList(result.data)
-      alert("장바구니에 추가되었습니다.")
+      axios({
 
-    })
+        method: "post",
+        url: `http://127.0.0.1:8000/cart/new`,
+        data: cartProduct
+
+      }).then((result) => {
+
+        setList(result.data)
+        alert("장바구니에 추가되었습니다.")
+
+      })
+
+    } else {
+
+      alert("로그인 후 이용 가능합니다.")
+      navigate("/login")
+
+    }
+
+
 
   }
 
