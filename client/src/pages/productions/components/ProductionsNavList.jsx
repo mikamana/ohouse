@@ -16,7 +16,6 @@ export default function ProductionsNavList(props) {
     let scry = window.scrollY
 
 
-    console.log(scry);
     if (scry >= 1000 && scry < 3800) {
 
       setShowList(0)
@@ -74,7 +73,7 @@ export default function ProductionsNavList(props) {
           handleScroll(5500)
         }}>
           <Link to="#" className="production_selling_navigion_link">
-            <span className="production_selling_navigion_info_text">문의<span className="production_selling_navigion_point"></span></span>
+            <span className="production_selling_navigion_info_text">문의<span className="production_selling_navigion_point"> {props.quiryCount}</span></span>
           </Link>
         </li>
       </ul>

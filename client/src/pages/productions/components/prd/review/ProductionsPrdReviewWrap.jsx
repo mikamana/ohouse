@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ProductionsPrdReviewBox from "./ProductionsPrdReviewBox";
-import ProductionsPrdReviewFeedBox from "./ProductionsPrdReviewFeedBox";
+// import ProductionsPrdReviewFeedBox from "./ProductionsPrdReviewFeedBox";
 import ProductionsPrdReviewReviewList from "./ProductionsPrdReviewList";
 import axios from 'axios';
 import { useParams } from "react-router-dom";
@@ -11,12 +11,11 @@ export default function ProductionsPrdReviewWrap(props) {
 
     const params = useParams();
     const [check, setCheck] = useState(0);
+
     //페이징 처리
     const [currentPage, setCurrentPage] = useState(1);
-    // const [totalCount, setTotalCount] = useState(props.totCount);
     const [pageSize, setPageSize] = useState(5);
     const [list, setList] = useState([]);
-    // console.log(props.totCount);
 
 
     useEffect(() => {
@@ -24,13 +23,13 @@ export default function ProductionsPrdReviewWrap(props) {
         let startIndex = 0;
         let endIndex = 0;
 
-        startIndex = (currentPage - 1) * pageSize + 1; //1-1*3+1 : 1, 4 .. 몇번째 데이터부터 몇개를 보여줄 것인지(데이터기준)
-        endIndex = currentPage * pageSize; //1*3 : 3, 6 ..
+        startIndex = (currentPage - 1) * pageSize; //1-1*3+1 : 1, 4 .. 몇번째 데이터부터 몇개를 보여줄 것인지(데이터기준)
+        // endIndex = currentPage * pageSize; //1*3 : 3, 6 ..
 
         axios({
 
             method: "get",
-            url: `http://127.0.0.1:8000/review/product/${params.pid}/${startIndex}/${endIndex}`
+            url: `http://127.0.0.1:8000/review/product/${params.pid}/${startIndex}/5`
 
         }).then((result) => {
 
@@ -40,59 +39,13 @@ export default function ProductionsPrdReviewWrap(props) {
 
     }, [currentPage]);
 
-    const fnBestReview = (kind) => {
-
-        let startIndex = 0;
-        let endIndex = 0;
-
-        startIndex = (currentPage - 1) * pageSize + 1; //1-1*3+1 : 1, 4 .. 몇번째 데이터부터 몇개를 보여줄 것인지(데이터기준)
-        endIndex = currentPage * pageSize; //1*3 : 3, 6 ..
-
-        if (kind === "best") {
-
-            axios({
-
-                method: "get",
-                url: `http://127.0.0.1:8000/review/product/best/${params.pid}/${startIndex}/${endIndex}`
-
-            }).then((result) => {
-
-                props.getList(result.data)
-
-            })
-
-        }
-
-        if (kind === "latest") {
-
-            let startIndex = 0;
-            let endIndex = 0;
-
-            startIndex = (currentPage - 1) * pageSize + 1; //1-1*3+1 : 1, 4 .. 몇번째 데이터부터 몇개를 보여줄 것인지(데이터기준)
-            endIndex = currentPage * pageSize; //1*3 : 3, 6 ..
-
-            axios({
-
-                method: "get",
-                url: `http://127.0.0.1:8000/review/product/latest/${params.pid}/${startIndex}/${endIndex}`
-
-            }).then((result) => {
-
-                props.getList(result.data)
-
-            })
-
-        }
-    }
-
     return (
 
         <>
             <ProductionsPrdReviewBox count={props.count} avg={props.avg} />
             {/* <ProductionsPrdReviewFeedBox /> */}
             <div className="production_selling_prd_review_feed_wrap">
-                {/* <ProductionsPrdReviewFeedNav /> */}
-                <ul className="production_selling_prd_review_feed_list">
+                {/* <ul className="production_selling_prd_review_feed_list">
                     <li className={check === 0 ? "production_selling_prd_review_feed_list_li active" : "production_selling_prd_review_feed_list_li"} onClick={() => {
                         setCheck(0)
                         fnBestReview('best')
@@ -105,15 +58,15 @@ export default function ProductionsPrdReviewWrap(props) {
                     }}>
                         <span>최신순</span>
                     </li>
-                </ul>
-                <ul className="production_selling_prd_review_feed_option_list">
+                </ul> */}
+                {/* <ul className="production_selling_prd_review_feed_option_list">
                     <li className="production_selling_prd_review_feed_option_list_li">
                         <button className="production_selling_prd_review_feed_asterion_btn">별점</button>
                     </li>
                     <li className="production_selling_prd_review_feed_option_list_li">
                         <button className="production_selling_prd_review_feed_option_btn">옵션</button>
                     </li>
-                </ul>
+                </ul> */}
             </div >
             <ProductionsPrdReviewReviewList review={list} />
             <Pagination

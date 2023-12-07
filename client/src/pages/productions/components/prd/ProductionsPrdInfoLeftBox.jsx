@@ -16,7 +16,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
     const userInfo = getUser();
     let params = useParams();
 
-    const [image, setImage] = useState(null);
+    const [image, setImage] = useState('');
     const [list, setList] = useState([]);
     const [countList, setCountList] = useState([]);
     const [avgList, setAvgList] = useState([]);
@@ -28,25 +28,10 @@ export default function ProductionsPrdInfoLeftBox(props) {
     const [check, setCheck] = useState(false);
     //문의
     const [currentPage, setCurrentPage] = useState(1);
-    const [totalPage, setTotalPage] = useState(0);
+    const [totalPage, setTotalPage] = useState(1);
     const [pageSize, setPageSize] = useState(5);
     const [quiryList, setQuiryList] = useState([]);
     const [totalCount, setTotalCount] = useState(0);
-
-    useEffect(() => {
-
-        axios({
-
-            method: "get",
-            url: `http://127.0.0.1:8000/review/product/${params.pid}`
-
-        }).then((result) => {
-
-            setList(result.data)
-
-        })
-
-    }, [])
 
     useEffect(() => {
 
@@ -58,22 +43,6 @@ export default function ProductionsPrdInfoLeftBox(props) {
         }).then((result) => {
 
             setCountList(result.data)
-
-        })
-
-    }, [])
-
-    useEffect(() => {
-
-        axios({
-
-            method: 'get',
-            url: `http://127.0.0.1:8000/review/product/avg/${params.pid}`
-
-        }).then((result) => {
-
-            setAvgList(result.data[0])
-            props.getCount(result.data[0])
 
         })
 
@@ -92,13 +61,14 @@ export default function ProductionsPrdInfoLeftBox(props) {
 
     }
 
+    //리뷰파일등록
     const getImage = (e) => {
 
-        alert(`new file ==>> ${JSON.stringify(e)}`);
         setImage(e)
 
     }
 
+    //리뷰등록
     const fnReviewSubmit = (e) => {
 
         e.preventDefault();
@@ -113,8 +83,6 @@ export default function ProductionsPrdInfoLeftBox(props) {
             formDataObject[key] = value
 
         })
-
-
 
         axios({
 
@@ -173,7 +141,6 @@ export default function ProductionsPrdInfoLeftBox(props) {
 
     };//input onChange > content에 데이터 삽입
 
-
     const fnSubmitModal = (e) => {
 
         axios({
@@ -191,28 +158,50 @@ export default function ProductionsPrdInfoLeftBox(props) {
 
     };
 
+    //문의
     useEffect(() => {
 
         let startIndex = 0;
-        let endIndex = 0;
+        // let endIndex = 0;
 
-        startIndex = (currentPage - 1) * pageSize + 1; //1-1*3+1 : 1, 4 .. 몇번째 데이터부터 몇개를 보여줄 것인지(데이터기준)
-        endIndex = currentPage * pageSize; //1*3 : 3, 6 ..
+        startIndex = (currentPage - 1) * pageSize; //1-1*3+1 : 1, 4 .. 몇번째 데이터부터 몇개를 보여줄 것인지(데이터기준)
+        // endIndex = currentPage * pageSize; //1*3 : 3, 6 ..
 
         axios({
 
             method: 'get',
-            url: `http://127.0.0.1:8000/inquiry/${params.pid}/${startIndex}/${endIndex}`
+            url: `http://127.0.0.1:8000/inquiry/${params.pid}/${startIndex}/5`
 
         }).then((result) => {
 
-            setQuiryList(result.data)
-            setTotalPage(result.data[0].cnt)
+            if (result.data.length !== 0) {
+                setQuiryList(result.data);
+                setTotalPage(result.data[0].cnt);
+                props.getQuiryCount(result.data[0].cnt)
+
+            }
+
 
         })
 
     }, [currentPage])
 
+    //리뷰 토탈, 평균가져오기
+    useEffect(() => {
+
+        axios({
+
+            method: 'get',
+            url: `http://127.0.0.1:8000/review/product/avg/${params.pid}`
+
+        }).then((result) => {
+
+            setAvgList(result.data[0])
+            props.getCount({ sum: result.data[0] })
+
+        })
+
+    }, [])
 
     return (
 
@@ -249,8 +238,8 @@ export default function ProductionsPrdInfoLeftBox(props) {
                                     </p>
                                     <p className="production_selling_review_input_p">
                                         <label id="image">이미지업로드</label>
-                                        <input type="hidden" name="image" placeholder="image"
-                                            value={image} />
+                                        {<input type="hidden" name="image" placeholder="image"
+                                            value={image} />}
                                         <ImageUpload getImage={getImage} />
                                         {/* <input type="text" id="url" name="image" className="production_selling_review_input" onChange={handleChange} /> */}
                                     </p>
@@ -364,9 +353,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
                                             </li>
                                         </ul>
                                         <button className="production_quiry_modal_btn" onClick={() => {
-
                                             fnSubmitModal();
-
                                         }}>
                                             완료
                                         </button>
@@ -381,7 +368,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
                                     <div className="production_inquiry_list_box_purchase_check">
                                         <span className="production_inquiry_list_box_purchase_check_span">구매</span>
                                         <span className="production_inquiry_list_box_purchase_check_span">{lst.qtype}</span>
-                                        <span className="production_inquiry_list_box_purchase_check_span">{lst.adate ? "답변완료" : "대기중"}</span>
+                                        <span className="production_inquiry_list_box_purchase_check_span">{lst.acontent === "답변 대기중입니다." ? "대기중" : "답변완료"}</span>
                                     </div>
                                     <div className="production_inquiry_list_box_user">
                                         <span className="production_inquiry_list_box_user">{lst.nickname}***</span>
@@ -393,15 +380,15 @@ export default function ProductionsPrdInfoLeftBox(props) {
                                                 Q
                                             </span>
                                             <span className="production_inquiry_list_box_qna_content">
-                                                {lst.qcontent}
+                                                {lst.secret_check === 1 ? "비밀 글입니다." : lst.qcontent}
                                             </span>
                                         </div>
                                         <div className="production_inquiry_list_icon_box">
                                             <span className="production_inquiry_list_icon_text">
-                                                A
+                                                {lst.secret_check === 1 ? null : 'A'}
                                             </span>
                                             <div className="production_inquiry_list_answer_box">
-                                                <span className="production_inquiry_list_answer_brand">{lst.acontent} <span className="production_inquiry_list_answer_date">2023년 11월 22일 09시 48분</span></span>
+                                                <span className="production_inquiry_list_answer_brand">{lst.secret_check === 1 ? null : lst.acontent} <span className="production_inquiry_list_answer_date">{/* 관리자 답변날짜,시간 */}</span></span>
                                                 {/* <span className="production_inquiry_list_answer_span">
                                                     {lst.acontent}
                                                 </span> */}
@@ -409,11 +396,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
                                         </div>
                                     </div>
                                 </li>
-
-
-
                             )}
-
                         </ul>
                         <Pagination
                             current={currentPage}

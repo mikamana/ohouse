@@ -132,6 +132,10 @@ section.production_selling_wrap {
                   justify-content: flex-end;
                   a.production_selling_scrap_icon {
                     margin-left: 10px;
+                    &.active svg.icon--stroke path {
+                      fill: #35c5f0;
+                      stroke: none;
+                    }
                     svg.icon--stroke {
                       path {
                         &:hover {

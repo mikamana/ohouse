@@ -12,10 +12,9 @@ export async function createInquiry(mid,pid,type,content,check){
 
 export async function getInquiry(pid,startIndex,endIndex){
 
-  const sql = "select rno,pid,nickname,qtype,qdate,secret_check,qcontent,adate,acontent,total from (select row_number() over(order by qdate desc) rno,nickname,qtype,qdate,secret_check,qcontent,adate,acontent,total,pid  from (select count(*) as total from oh_member) as member ,oh_inquiry oi inner join oh_member om on oi.mid = om.mid order by qdate desc) as m where pid = ? and rno between ? and ?";
+  const sql = `select rno,nickname,qtype,secret_check,qcontent,substring(qdate,1,10) qdate,ifnull(adate,0) adate,acontent,cnt from (select row_number() over (order by qdate desc) as rno,om.nickname,substring(oi.qdate,1,10) as qdate,secret_check,qtype,qcontent,adate,acontent,(select count(pid) as cnt from oh_inquiry where pid = ? group by pid) cnt from oh_inquiry oi inner join oh_member om on oi.mid = om.mid where pid = ? order by qdate desc) as m limit ?,?`;
 
-  return db.execute(sql,[pid,startIndex,endIndex])
+  return db.execute(sql,[pid,pid,startIndex,endIndex])
   .then((rows)=>rows[0])
 
 }
-

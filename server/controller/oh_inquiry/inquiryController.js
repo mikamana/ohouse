@@ -18,8 +18,6 @@ export async function getInquiry(req,res){
 
   const {pid,startIndex,endIndex} = req.params;
 
-  console.log(req.params);
-
   const result = await inquiryRepository.getInquiry(pid,startIndex,endIndex);
 
   res.json(result);
