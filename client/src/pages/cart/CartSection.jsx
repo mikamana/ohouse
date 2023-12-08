@@ -101,13 +101,11 @@ export default function CartSection() {
   }
 
   function removeCart(cart_id) {
-    if (checkedItems.length === 0) {
+    if (!checkedItems.includes(cart_id)) {
       axios.post(`http://127.0.0.1:8000/cart/${userInfo.id}/remove`, { cart_id })
         .then(result => { window.location.reload() })
       return
     }
-
-
   }
 
   function removeSelectCart() {
