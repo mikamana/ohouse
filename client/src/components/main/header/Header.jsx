@@ -4,8 +4,52 @@ import ShowMenu from "./ShowMenu";
 import HeaderSearchRight from './HeaderSearchRight';
 import HeaderLogoWrite from "./HeaderLogoWrite";
 import HeaderNavPopular from "./HeaderNavPopular";
+import axios from "axios";
 
 export default function Header() {
+
+  {/* 검색 추가작업 부분 */ }
+  const [searchList, setSearchList] = useState([]);
+  useEffect (() => {
+    axios
+    .get(`http://127.0.0.1:8000/search`)
+    .then((result) => {
+      setSearchList(result.data)
+      console.log(setSearchList);
+    })
+    .catch((err) => console.log(err));
+  }, []);
+
+  const [inputValue, setInputValue] = useState('');
+  const [autoKeyWord, setAutoKeyWord] = useState([]);
+
+  const handleInputChange = (e) => {
+    
+    const value = e.target.value;
+    setInputValue(value);
+    const autoKeyWord = ['러그', '시계', '크리스마스', '크리스마스 트리', '크리스마스 산타', '크리스마스 리스', '크리스마스 케이크', '크리스마스 장식', '크리스마스 트리 장식', '벽시계', '알람시계', '크리스마스 산타 모자', '크리스마스 순록', '크리스마스 오너먼트']
+      .filter(
+        autoComplete => autoComplete.toLowerCase().includes(value.toLowerCase())
+      );
+    setAutoKeyWord(autoKeyWord);
+  };
+  const handleAutoKeyWord = (inputValue) => {
+    setInputValue(inputValue);
+    window.location.href = `/search/${inputValue}`;
+  };
+  const handleClearClick = () => {
+    setInputValue('');
+  };
+  const searchEnter = (e) => {
+    if (e.key === 'Enter') {
+      window.location.href = `/search/${inputValue}`;
+    }
+  };
+  {/* 검색 추가작업부분 끝 */ }
+
+
+
+
   /* 스크롤할 때 헤더 고정 */
   const [isFixed, SetIsFixed] = useState(false);
   // useEffect(() => {
@@ -109,6 +153,40 @@ export default function Header() {
                 </li>
               </ul>
             </div>
+
+            {/* 검색창 추가작업부분 */}
+            <div className="header_logo_searchBox">
+              <img className="header_logo_search_img" src="/images/headers/search.png" alt="이미지1" />            
+
+              <input className="header_logo_search" type="text" placeholder="통합검색" name="header_logo_search"
+                onChange={handleInputChange}
+                onKeyPress={searchEnter}
+                value={inputValue} />
+
+              {inputValue && (
+                <>
+                  <button className="search_del_bttn" type="button" onClick={handleClearClick}></button>
+                  <div className="header_search_keyword">
+                    <div>
+                      <ul>
+                        <li className="header_search_keyword_cate">
+                          {inputValue} <span>카테고리</span>
+                        </li>
+                        {autoKeyWord.map((autoComplete, index) => (
+                          <li key={index} onClick={() => handleAutoKeyWord(autoComplete)}>{autoComplete}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  <div>
+                    {searchList.map((list) => 
+                      <div>{list.product_name}</div>
+                    )}</div>
+                </>
+              )}
+            </div>
+          {/* 검색창 추가작업부분 끝 */}
+
             <HeaderSearchRight />
             <HeaderLogoWrite />
           </div>

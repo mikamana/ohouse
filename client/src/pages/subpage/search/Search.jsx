@@ -3,7 +3,7 @@ import "../../../css/sub/search/search.css";
 import { Link } from "react-router-dom";
 import ShopitemContents from '../../main/shopitem/ShopitemContents';
 import SubtitleMore from '../../main/subtitle_more/Subtitle_more';
-import axios from 'axios'
+import axios from 'axios';
 
 
 export default function Search (){
@@ -14,7 +14,7 @@ export default function Search (){
       .then(result => {
         setShopArray(result.data)
       }
-      )
+    )
   }, [])
 
   const [searchResults, setSearchResults] = useState([]);
@@ -26,6 +26,15 @@ export default function Search (){
     .then((data) => setSearchTotal(data));
   }, []);
   console.log(searchResults);
+
+  const [searchArray, setSearchArray] = useState([]);
+  useEffect(() => {
+    axios('http://127.0.0.1:8000/search')
+      .then(result => {
+        setSearchArray(result.data)
+      }
+    )
+  }, [])
 
   return(
     <>
