@@ -64,6 +64,7 @@ export default function Edit() {
         .then(result => {
           if (result.data === "ok") {
             window.location.reload();
+            alert("회원정보가 수정되었습니다.")
           }
         })
     }
