@@ -3,13 +3,17 @@ import axios from "axios";
 import Pagination from 'rc-pagination';
 import 'rc-pagination/assets/index.css';
 import { useParams } from 'react-router-dom';
+import { PiCarLight } from "react-icons/pi";
 
 export default function AdminContent() {
 
   const { category } = useParams();
+  console.log(category);
 
+  const [menuList, setMenuList] = useState([]);
 
-  // menuList = {[' ', '회원이름', '회원아이디', '휴대폰번호', '생일', '가입일시', '주문건수', '리뷰수', '비고']}
+  //const menuList = [' ', '회원이름', '회원아이디', '생일', '가입일시', '주문건수', '리뷰수', '비고'];
+
   /* get : list */
   const [list, setList] = useState([]);
 
@@ -36,30 +40,37 @@ export default function AdminContent() {
   const [newDataList, setNewDataList] = useState([]);
 
   function createNewData(obj) {
+    // setNewDataList();
+    newDataList.length = 0;
+
     obj.map((person) => {
       const newData = [];
       Object.getOwnPropertyNames(person).forEach(function (val, idx, array) {
         newData.push(JSON.stringify(person[val]));
       });
       newDataList.push(newData);
+      // setNewDataList([newData])
     })
+    console.log(newDataList);
   }
 
-
   useEffect(() => {
+    if(category === 'member'){
+      setMenuList(['No.', '회원이름', '회원아이디', '생일', '가입일시', '주문건수', '리뷰수', '비고']);
+    }else if(category === 'product'){
+      setMenuList(['No.', '카테고리명', '상품명', '브랜드명','대표이미지','정상가','할인율(%)','쿠폰할인가', '배송유형', '등록일', '비고']);
+    }
     axios.get(`http://127.0.0.1:8000/admin/${category}/${startindex}/${endindex}/${value}`)
       .then((result) => {
         if (result.data.length !== 0) {
           setList(result.data);
           setTotalPage(result.data[0].total);
           createNewData(result.data);
+          console.log(result.data);
         }
       })
       .catch(console.err);
   }, [value, listPerPages, currentPage, category])
-
-
-
 
 
   const [toggle, setToggle] = useState(false);
@@ -135,30 +146,31 @@ export default function AdminContent() {
 
           <table className="admin_table">
             <thead>
-              <tr>
+              {/* <tr>
                 <th>NO.</th>
-                <th>회원이름</th>
-                <th>회원아이디</th>
+                <th>닉네임</th>
+                <th>아이디</th>
                 <th>휴대폰번호</th>
                 <th>생일</th>
                 <th>가입일시</th>
                 <th>주문건수</th>
                 <th>리뷰수</th>
                 <th>비고</th>
-              </tr>
-              {/* <tr>
+              </tr> */}
+              <tr>
                 {menuList.map((menu) =>
                   <th key={menu}>{menu}</th>
                 )}
-              </tr> */}
+              </tr>
             </thead>
             <tbody>
               {newDataList.map((obj1) =>
-                obj1.map((person) =>
-                  <tr key={person.rno}>
-                    <td>person : {person}</td>
-                  </tr>
-                )
+                <tr>
+                  {obj1.map((person) =>
+                    person.includes("image") ? (<td key={person.rno}><img className="admin_image" src={person.replace(/"/g,"")} alt="dd" /></td>) : <td key={person.rno}>{person.replace(/"/g,"")}</td>
+                    
+                  )} 
+                </tr>
               )}
 
               {/* {list.map((menu) =>

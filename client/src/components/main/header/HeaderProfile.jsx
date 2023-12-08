@@ -36,7 +36,7 @@ export default function HeaderProfile() {
       </li>
       {manager !== undefined &&
       <li>
-        <Link to="/admin" className="header_nav_menu_list3">관리자페이지</Link>
+        <Link to="/admin/member" className="header_nav_menu_list3">관리자페이지</Link>
       </li>
       }
     </ul>

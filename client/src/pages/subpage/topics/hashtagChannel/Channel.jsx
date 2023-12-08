@@ -16,6 +16,7 @@ export default function Channel(){
     })
   }, []);
 
+
   return(
     <>
       <div className="channel_container inner">

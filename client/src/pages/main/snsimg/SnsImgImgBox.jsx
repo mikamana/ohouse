@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 export default function SnsImgImgBox(props) {
+  console.log(props.img);
   return (
     <>
       <div className="snsimg_img_list_div">

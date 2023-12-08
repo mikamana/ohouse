@@ -10,7 +10,7 @@ export default function AdminNavbar() {
         </Link>
       </div>
       <h1 className="admin_title">
-        <Link to="/admin" className="admin_titlelink">Admin</Link>
+        <Link to="/admin/member" className="admin_titlelink">Admin</Link>
       </h1>
       <nav className="admin_navmenu">
         <Link to="/admin/member">회원관리</Link>
