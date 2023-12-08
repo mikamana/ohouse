@@ -38,51 +38,6 @@
   -webkit-box-orient: vertical;
 }
 
-.userimg_sub {
-  display: flex;
-  flex-wrap: wrap;
-}
-.userimg_sub .userimg_sub_form {
-  width: 368px;
-  margin: 15px 5px;
-}
-.userimg_sub .userimg_sub_form .userimg_image_frame {
-  overflow: hidden;
-  height: 260px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
-.userimg_sub .userimg_sub_form .userimg_image_frame img {
-  width: 100%;
-  transition: all 0.3s;
-  height: 100%;
-  border-radius: 5px;
-}
-.userimg_sub .userimg_sub_form .userimg_image_frame img:hover {
-  transform: scale(1.1);
-}
-.userimg_sub .userimg_sub_form .userimg_subtitle {
-  text-align: center;
-  font-size: 17px;
-  line-height: 26px;
-  font-weight: 700;
-  color: #2f3438;
-}
-.userimg_sub .userimg_sub_form .userimg_address {
-  font-size: 13px;
-  line-height: 16px;
-  margin-top: 6px;
-  color: #2f3438;
-  text-align: center;
-}
-.userimg_sub .userimg_sub_form .userimg_rewie {
-  color: rgb(130, 140, 148);
-  font-size: 13px;
-  line-height: 16px;
-  margin-top: 10px;
-  text-align: center;
-}
-
 .exhibitions_main {
   margin-bottom: 40px;
 }

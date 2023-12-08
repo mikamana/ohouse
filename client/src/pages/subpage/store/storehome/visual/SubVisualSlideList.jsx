@@ -11,12 +11,17 @@ export default function SubVisualSlideList() {
   return (
 
     <>
+      <div className="sub_visual_inner inner">
+        <button className="prev_btn"></button>
+        <button className="next_btn"></button>
+      </div>
       <ul className="sub_visual_list_ul">
         <Swiper
           slidesPerView={1}
           spaceBetween={30}
           loop={true}
           autoplay={{ delay: 5000, disableOnInteraction: false }}
+          modules={[Navigation, Autoplay, Pagination]}
           pagination={{
             type: 'fraction',
           }}
@@ -24,7 +29,7 @@ export default function SubVisualSlideList() {
             prevEl: ".prev_btn",
             nextEl: ".next_btn",
           }}
-          modules={[Navigation, Autoplay, Pagination]}
+
           className="mySwiper"
         >
           <li className="sub_visual_list_li">
@@ -50,10 +55,7 @@ export default function SubVisualSlideList() {
           </li>
         </Swiper >
       </ul>
-      <div className="sub_visual_inner inner">
-        <button className="prev_btn"></button>
-        <button className="next_btn"></button>
-      </div>
+
     </>
 
   )

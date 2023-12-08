@@ -4,7 +4,7 @@ import { FiMinus, FiPlus } from "react-icons/fi";
 export default function CartQuantity({ cart_id, getQty, qty, price_origin, sale_price, price_change, getCalcQty }) {
   let itemQty;
   (qty === undefined) ? itemQty = 1 : itemQty = qty;
-  let [count, setCount] = useState(qty)
+  let [count, setCount] = useState(itemQty)
   let qtyFlag = false
   const quantityCheck = ((checkFlag) => {
     if (checkFlag === 'minus') {

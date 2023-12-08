@@ -15,15 +15,22 @@ export default function ProductionsNavList(props) {
 
     let scry = window.scrollY
 
+
     if (scry >= 1000 && scry < 3800) {
 
       setShowList(0)
 
     }
 
-    if (scry >= 3800 && scry < 6000) {
+    if (scry >= 3800 && scry < 4500) {
 
       setShowList(1)
+
+    }
+
+    if (scry >= 4500) {
+
+      setShowList(2)
 
     }
 
@@ -36,11 +43,9 @@ export default function ProductionsNavList(props) {
   }
 
   useEffect(() => {
-
     window.scrollTo({
       top: scrollList
     });
-
   }, [scrollList]);
 
   return (
@@ -61,6 +66,14 @@ export default function ProductionsNavList(props) {
         }}>
           <Link to="#" className="production_selling_navigion_link">
             <span className="production_selling_navigion_info_text">리뷰<span className="production_selling_navigion_point"> {props.count}</span></span>
+          </Link>
+        </li>
+        <li className={showList === 2 ? 'production_selling_navigion_list_li active' : 'production_selling_navigion_list_li'} onClick={() => {
+          setShowList(2)
+          handleScroll(5500)
+        }}>
+          <Link to="#" className="production_selling_navigion_link">
+            <span className="production_selling_navigion_info_text">문의<span className="production_selling_navigion_point"> {props.quiryCount}</span></span>
           </Link>
         </li>
       </ul>

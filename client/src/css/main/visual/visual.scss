@@ -63,10 +63,10 @@ main.main_contents {
         float: left;
         border-radius: 5px;
         position: relative;
-        &:hover button.next_btn {
+        &:hover button.visual_next_btn {
           opacity: 1;
         }
-        &:hover button.prev_btn {
+        &:hover button.visual_prev_btn {
           opacity: 1;
         }
         div.swiper {
@@ -127,7 +127,7 @@ main.main_contents {
           color: #fff;
         }
       }
-      button.next_btn {
+      button.visual_next_btn {
         position: absolute;
         display: block;
         border-radius: 50%;
@@ -150,7 +150,7 @@ main.main_contents {
           color: #000;
         }
       }
-      button.prev_btn {
+      button.visual_prev_btn {
         @include m.swiper_btn;
         position: absolute;
         display: block;

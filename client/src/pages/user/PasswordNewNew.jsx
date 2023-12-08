@@ -49,7 +49,7 @@ export default function PasswordNewNew(){
   const handleSubmit = (e) => {
     e.preventDefault();
     if(passValue && passCheckValue){
-      axios.post("http://localhost:8000/users/password/new/new", {id : id, pass : form.pass})
+      axios.post("http://127.0.0.1:8000/users/password/new/new", {id : id, pass : form.pass})
       .then(result => {
         if(result.data === "ok"){
           removeCookie("ohouse-new");
@@ -65,7 +65,7 @@ export default function PasswordNewNew(){
     <div className="PasswordNewNew">
       <div className="PasswordNewNewLogo">
         <Link to={"/"}>
-          <img src="http://localhost:3000/images/user/login.png" alt="logo" />
+          <img src="http://127.0.0.1:3000/images/user/login.png" alt="logo" />
         </Link>
       </div>
 

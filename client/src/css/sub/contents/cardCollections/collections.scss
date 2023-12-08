@@ -1,0 +1,84 @@
+div.card_collections_wrap {
+  div.card_collections_inner_wrap {
+    div.card_collections_house {
+      margin-top: 40px;
+      ul.card_collections_house_list {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        li.card_collections_house_list_li {
+          width: 24%;
+          margin-bottom: 30px;
+          &:not(:nth-child(4n + 4)) {
+            margin-right: 13px;
+          }
+          div.card_collections_house_list_div {
+            width: 100%;
+            div.card_collections_house_list_user_info {
+              width: 100%;
+              a.card_collections_house_list_user_info_p {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                img {
+                  border-radius: 50%;
+                  width: 24px;
+                  height: 24px;
+                }
+                div.card_collections_house_list_user_info_div {
+                  margin-left: 10px;
+                  p.card_collections_house_list_user_info_name {
+                    font-size: 15px;
+                    color: #424242;
+                    span.house_user_info_flw {
+                      color: #35c5f0;
+                      font-weight: bold;
+                    }
+                  }
+                  span.card_collections_house_list_user_info_content {
+                    font-size: 12px;
+                  }
+                }
+              }
+            }
+            fieldset.card_collections_house_list_img_wrap {
+              width: 100%;
+              height: 270px;
+              margin: 10px 0px;
+              img {
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+              }
+            }
+            p.card_collections_house_list_content {
+              color: #424242;
+              width: 100%;
+              height: 50px;
+              padding: 0 5px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+            div.card_collections_house_list_icon_wrap {
+              display: flex;
+              justify-content: space-evenly;
+              margin: 15px 0px;
+              > span > span {
+                display: block;
+                text-align: center;
+                font-size: 13px;
+                color: #424242;
+              }
+              svg {
+                fill: #fff;
+                stroke: #848484 !important;
+                stroke-width: 1px !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

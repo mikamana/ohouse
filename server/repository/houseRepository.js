@@ -25,11 +25,11 @@ export async function getSortLastHouse() {
 
 }
 
-// export async function getCollection() {
+export async function getCollection() {
 
-//   const sql = "";
-//   return db.execute(sql)
-//     .then((rows) => rows[0])
+  const sql = "select hid,SUBSTRING_INDEX(oc.mid,'@',1) as mid,om.userimg,om.nickname,oc.house_img,oc.house_title,oc.house_content,om.mdate from oh_community oc inner join oh_member om on oc.mid = om.mid";
+  return db.execute(sql)
+    .then((rows) => rows[0])
 
-// }
+}
 

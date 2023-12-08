@@ -5,44 +5,71 @@ import axios from "axios";
 import { useEffect } from "react";
 
 export default function ProductionCartBtn(props) {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const params = useParams();
   const userInfo = getUser();
   const [list, setList] = useState([]);
 
-  let handlerFetch = () => {
+  const handlerFetch = () => {
 
-    const cartProduct = {
-      id: userInfo.id,
-      pid: params.pid,
-      qty: props.qty,
-      price: props.price
-    };
+    if (userInfo) {
 
 
-    axios({
+      const cartProduct = {
 
-      method: "post",
-      url: `http://127.0.0.1:8000/cart/new`,
-      data: cartProduct
+        id: userInfo.id,
+        pid: params.pid,
+        qty: props.qty,
+        price: props.price
 
-    }).then((result) => {
+      };
 
-      setList(result.data)
+      axios({
 
-    })
+        method: "post",
+        url: `http://127.0.0.1:8000/cart/new`,
+        data: cartProduct
+
+      }).then((result) => {
+
+        setList(result.data)
+        alert("장바구니에 추가되었습니다.")
+
+      })
+
+    } else {
+
+      alert("로그인 후 이용 가능합니다.")
+      navigate("/login")
+
+    }
+
 
 
   }
 
+  const fnpurchase = () => {
+
+    if (userInfo) {
 
 
+      alert("결제 페이지로 이동합니다.")
+      navigate("/orders")
+
+
+    } else {
+      alert("로그인 후 이용 가능합니다.")
+      navigate("/login")
+    }
+
+
+  }
 
   return (
     <>
       <p className="production_selling_button_wrap">
         <button className="production_selling_button_cart" onClick={handlerFetch}>장바구니</button>
-        <button className="production_selling_button_buy">바로구매</button>
+        <button className="production_selling_button_buy" onClick={fnpurchase}>바로구매</button>
       </p>
     </>
 

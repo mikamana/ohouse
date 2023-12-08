@@ -5,8 +5,6 @@ import ProductionSvg from "../../ProductionSvg";
 
 export default function ProductionsPrdReviewList(props) {
 
-
-
     return (
 
         <>

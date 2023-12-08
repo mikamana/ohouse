@@ -8,5 +8,6 @@ export const getUser = () => {
 
 export const removeUser = () => {
   removeCookie("ohouse-jwt");
+  removeCookie("ohouse-manager");
   sessionStorage.clear();
 }

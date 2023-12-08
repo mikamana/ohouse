@@ -5,7 +5,6 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-
 export default function MainVisualSlideBox() {
   return (
     <>
@@ -20,8 +19,8 @@ export default function MainVisualSlideBox() {
             type: 'fraction',
           }}
           navigation={{
-            prevEl: ".prev_btn",
-            nextEl: ".next_btn",
+            prevEl: ".visual_prev_btn",
+            nextEl: ".visual_next_btn",
           }}
           modules={[Navigation, Autoplay, Pagination]}
           className="mySwiper"
@@ -39,8 +38,8 @@ export default function MainVisualSlideBox() {
             <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/banners/home_banner/169900287105005230.png?w=360" alt="슬라이드이미지1" />
           </SwiperSlide>
         </Swiper >
-        <button className="prev_btn"></button>
-        <button className="next_btn"></button>
+        <button className="visual_prev_btn"></button>
+        <button className="visual_next_btn"></button>
       </div >
     </>
 

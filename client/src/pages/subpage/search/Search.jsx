@@ -1,9 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import "../../../css/sub/search/search.css";
 import { Link } from "react-router-dom";
+import ShopitemContents from '../../main/shopitem/ShopitemContents';
+import SubtitleMore from '../../main/subtitle_more/Subtitle_more';
+import axios from 'axios'
 
 
 export default function Search (){
+
+  const [shopArray, setShopArray] = useState([]);
+  useEffect(() => {
+    axios('http://127.0.0.1:8000/product/shopitem')
+      .then(result => {
+        setShopArray(result.data)
+      }
+      )
+  }, [])
+
+  const [searchResults, setSearchResults] = useState([]);
+
+  const [searchTotal, setSearchTotal] = useState([]);
+  useEffect(()=>{
+    fetch(`/data/iconMenu/search.json`)
+    .then((res) => res.json())
+    .then((data) => setSearchTotal(data));
+  }, []);
+  console.log(searchResults);
+
   return(
     <>
       <div className="search_container inner">
@@ -30,30 +53,15 @@ export default function Search (){
               <span>올해는 더 예쁜 기억을 만들어보세요.</span>
             </div>
             <ul className="search_total_image">
-              <li>
-                <Link to={''}>
-                  <figure></figure>
-                  <p>홈데코트렌드</p>
-                </Link>
-              </li>
-              <li>
-                <Link to={''}>
-                  <figure></figure>
-                  <p>홈데코트렌드</p>
-                </Link>
-              </li>
-              <li>
-                <Link to={''}>
-                  <figure></figure>
-                  <p>홈데코트렌드</p>
-                </Link>
-              </li>
-              <li>
-                <Link to={''}>
-                  <figure></figure>
-                  <p>홈데코트렌드</p>
-                </Link>
-              </li>
+              {searchTotal.slice(0,3).map((total) => (
+                <li key={total.id}>
+                  <Link to={''}>
+                    <figure style={{backgroundImage: `url(${total.image})`}}>
+                    </figure>
+                    <p>{total.name}</p>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="search_total_item">
@@ -62,35 +70,31 @@ export default function Search (){
               <span>많이 찾는 상품들을 모았어요.</span>
             </div>
             <ul className="search_total_image">
-              <li>
-                <Link to={''}>
-                  <figure></figure>
-                  <p>홈데코트렌드</p>
-                </Link>
-              </li>
-              <li>
-                <Link to={''}>
-                  <figure></figure>
-                  <p>홈데코트렌드</p>
-                </Link>
-              </li>
-              <li>
-                <Link to={''}>
-                  <figure></figure>
-                  <p>홈데코트렌드</p>
-                </Link>
-              </li>
-              <li>
-                <Link to={''}>
-                  <figure></figure>
-                  <p>홈데코트렌드</p>
-                </Link>
-              </li>
+              {searchTotal.slice(4,12).map((total) => (
+                <li key={total.id}>
+                  <Link to={''}>
+                    <figure style={{backgroundImage: `url(${total.image})`}}>
+                    </figure>
+                    <p>{total.name}</p>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <Link className="search_total_bttn" to={''}>크리스마스 기획전 바로가기</Link>
         </div>
+        <div className="searchResults">
+          <SubtitleMore title={"쇼핑"} />
+            {shopArray.map((list, i) =>
+              <ShopitemContents
+                key={i}
+                shopitemList={list}
+                timecount={false}
+              />
+            )}
+        </div>
       </div>
+
     </>
   );
 }

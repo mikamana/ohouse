@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ShopcateCategoryItem from "../../../main/shopcate/components/category/ShopcateCategoryItem";
 import RecommandImgContent from "./component/RecommandImgContent";
-import Recommandcontent from "./component/RecommandContent";
+import RecommandContent from "./component/RecommandContent";
 import "../../../../css/sub/topics/recommand/recommand.css";
 
 export default function Recommand() {
@@ -11,6 +11,10 @@ export default function Recommand() {
     fetch('/data/topics/recommandMenu.json')
       .then(res => res.json())
       .then(data => setCatelist(data))
+    /* axios.get('http://127.0.0.1:8000/community/')
+    .then((result)=>{
+    })
+    .catch(console.err); */
   }, [])
 
   return (
@@ -21,15 +25,16 @@ export default function Recommand() {
           {
             catelist.map((list) =>
               <ShopcateCategoryItem
+                key={list.category_name}
                 category_name={list.category_name}
               />)
           }
         </div>
       </div>
-      <Recommandcontent />
-      <Recommandcontent />
-      <Recommandcontent />
-      <Recommandcontent />
+      <RecommandContent />
+      <RecommandContent />
+      <RecommandContent />
+      <RecommandContent />
       <RecommandImgContent />
     </section>
   );
