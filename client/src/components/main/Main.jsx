@@ -9,10 +9,16 @@ import "../../css/layout/header.css";
 
 export default function Main() {
 
+  const getSearch = (e) => {
+
+
+
+  }
+
   return (
     <>
       <Banner />
-      <Header />
+      <Header getSearch={getSearch} />
       <Outlet />
       <Footer />
     </>

@@ -2,12 +2,12 @@ import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../../css/user/Login.css"
-import axios  from 'axios';
+import axios from 'axios';
 import { jwtDecode } from "jwt-decode"
 import { setCookie } from './../utill/cookie';
 
-export default function Login(){
-  const [form, setForm] = useState({id : "", pass : ""});
+export default function Login() {
+  const [form, setForm] = useState({ id: "", pass: "" });
   const navigate = useNavigate()
 
   const handleChange = (e) => {
@@ -16,10 +16,10 @@ export default function Login(){
   }
 
   const handleBlur = (e) => {
-    const {value} = e.target;
-    if(value === ""){
+    const { value } = e.target;
+    if (value === "") {
       e.target.className = "LoginNotValue"
-    }else{
+    } else {
       e.target.className = ""
     }
   }
@@ -27,29 +27,29 @@ export default function Login(){
   const handleSubmit = (e) => {
     e.preventDefault();
     const idregExp = /^.*(?=.*[@]).*$/;
-    if(form.id.match(idregExp) != null && form.pass !== ""){
+    if (form.id.match(idregExp) != null && form.pass !== "") {
       axios.post("http://127.0.0.1:8000/login", form)
-      .then(result => {
-        if(result.data.login_result){
-          setCookie("ohouse-jwt",result.data.token);
-          const userid = jwtDecode(result.data.token);
-          sessionStorage.setItem("userInfo", JSON.stringify(userid));
-          navigate("/");
-          if(userid.id === "@"){
-            setCookie("ohouse-manager",userid.id);
+        .then(result => {
+          if (result.data.login_result) {
+            setCookie("ohouse-jwt", result.data.token);
+            const userid = jwtDecode(result.data.token);
+            sessionStorage.setItem("userInfo", JSON.stringify(userid));
+            navigate("/");
+            if (userid.id === "@") {
+              setCookie("ohouse-manager", userid.id);
+            }
+          } else {
+            alert("이메일 주소나 비밀번호가 틀립니다")
+            e.target.childNodes[1].firstChild.value = ""
           }
-        }else{
-          alert("이메일 주소나 비밀번호가 틀립니다")
-          e.target.childNodes[1].firstChild.value = ""
-        }
-      })
-    }else{
+        })
+    } else {
       e.target.firstChild.firstChild.className = "LoginNotValue"
       e.target.childNodes[1].firstChild.className = "LoginNotValue"
     }
   }
 
-  return(
+  return (
     <div className="Login">
       <div className="LoginLogo">
         <Link to={"/"}>
@@ -58,10 +58,10 @@ export default function Login(){
       </div>
       <form onSubmit={handleSubmit}>
         <div>
-          <input type="text" name="id" placeholder="이메일" onChange={handleChange} value={form.id} onBlur={handleBlur}/>
+          <input type="text" name="id" placeholder="이메일" onChange={handleChange} value={form.id} onBlur={handleBlur} />
         </div>
         <div>
-          <input type="password" name="pass" placeholder="비밀번호" onChange={handleChange} value={form.pass} onBlur={handleBlur}/>
+          <input type="password" name="pass" placeholder="비밀번호" onChange={handleChange} value={form.pass} onBlur={handleBlur} />
         </div>
         <button className="LoginButton">로그인</button>
       </form>

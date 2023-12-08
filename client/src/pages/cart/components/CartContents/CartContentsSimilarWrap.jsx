@@ -6,14 +6,14 @@ import 'swiper/css/navigation';
 import React, { useEffect, useState } from 'react'
 import ShopitemContents from '../../../main/shopitem/ShopitemContents';
 import axios from 'axios'
-export default function CartContentsSimilarWrap(){
-  const [shopArray,setShopArray] = useState([]);
-  useEffect(()=>{
+export default function CartContentsSimilarWrap() {
+  const [shopArray, setShopArray] = useState([]);
+  useEffect(() => {
     axios('http://127.0.0.1:8000/product/shopitem')
-    .then(result=>setShopArray(result.data.slice(0,9)))
-  },[])
+      .then(result => setShopArray(result.data.slice(0, 9)))
+  }, [])
 
-  return(
+  return (
     <div className="cart_contents_similar_wrap">
       <h2 className='cart_contents_similar_title'>다른 고객이 함께 구매한 상품</h2>
       <div className='cart_contents_similar_container'>
@@ -29,12 +29,12 @@ export default function CartContentsSimilarWrap(){
           className="mySwiper"
         >
           {
-            shopArray.map((list,i)=>
-          <SwiperSlide key={i}>
-            <ShopitemContents
-            shopitemList={list}
-            />
-          </SwiperSlide>
+            shopArray.map((list, i) =>
+              <SwiperSlide key={i}>
+                <ShopitemContents
+                  shopitemList={list}
+                />
+              </SwiperSlide>
             )
           }
         </Swiper>

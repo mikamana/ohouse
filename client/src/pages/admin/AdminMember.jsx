@@ -75,6 +75,7 @@ export default function AdminMember() {
       .then((result) => {
         alert('회원정보 수정이 완료되었습니다')
         setToggle(false);
+        window.location.reload();
       })
       .catch(console.err);
   };

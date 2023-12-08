@@ -2,6 +2,13 @@
  use ohouse;
  select database();
  
+ create user 'root'@'127.0.0.1' identified by '1234';
+ grant all privileges on *.* to root@127.0.0.1;
+ flush privileges;
+ show grants for 'root'@'127.0.0.1';
+ commit;
+ 
+drop table oh_pay;
 drop table oh_order;
 drop table oh_cart;
 drop table oh_review;
@@ -10,6 +17,7 @@ drop table oh_community;
 drop table oh_product;
 drop table oh_category;
 drop table oh_member;
+
 
 select * from oh_review;
 select * from oh_member;
@@ -26,15 +34,41 @@ select count(mid) as cntid, count(phone) as cnt, any_value(phone) as phone, any_
                 as phoneleft, any_value(right(phone,2)) as phoneright
                 from oh_member where not phone like "% %";
 
-
-
 /*
 	업데이트 필요한 사항들
 */
 insert into oh_member (mid, pass, nickname) values ("@","$2a$10$TcZs4tDeBpTJNAnVHg65U.m0DsqsTj0eH1gLkulWOfnNv1H96sfwG", "관리자");
 update oh_product set price_sale = null,price_origin = 58900 where pid = 59;
+update oh_product set tag_free = 1;
 -- 관리자 계정 mid = @, pass = 1234, nickname = 관리자 insert
 -- oh_product 오류 수정
+
+create view oh_member_view  as
+select rno, mid, nickname, userimg, phone, homepage, gender, birthday, left(mdate,19) as mdate, total, count_review, count_order from
+(select row_number() over(order by mid) rno,
+m.mid,
+m.nickname,
+m.userimg,
+m.phone,
+m.homepage,
+m.gender,
+m.birthday,
+left(m.mdate,19) as mdate,
+total,
+count(r.mid) as count_review,
+count(o.mid) as count_order
+from (select count(*) as total from oh_member) as member,
+oh_member m left outer join oh_review r on m.mid = r.mid  left outer join oh_order o
+on m.mid = o.mid group by m.mid, member.total, r.mid, o.mid) as memberList
+group by mid, memberList.total, count_review, count_order;
+
+
+select rno, pid, total, category_name, product_image, brand_name, product_name, price_sale, price_origin, tag_free, coupon_percent, left(pdate,10) as pdate, delivery_type,ifnull(format(round(price_origin - (price_origin * price_sale / 100),-2),0),format(price_origin,0)) sale_price from
+(select row_number() over(order by product_name asc) rno, pid, total, category_name, product_image, brand_name, product_name, price_sale, price_origin, tag_free, coupon_percent, pdate, delivery_type 
+	from (select count(*) as total from oh_product) as products, oh_product p inner join oh_category c on p.category_id=c.category_id) a 
+    where rno between ? and ? order by product_name asc;
+    
+     ifnull(format(round(p.price_origin - (p.price_origin * p.price_sale / 100),-2),0),format(p.price_origin,0)) sale_price
 
 desc oh_member;
 select * from oh_member;
@@ -122,8 +156,8 @@ create table oh_cart(
     mid varchar(100),
     qty int not null,
     cdate datetime,
-    constraint cart_pid_fk foreign key(pid) references oh_product(pid),
-    constraint cart_mid_fk foreign key(mid) references oh_member(mid)
+    constraint cart_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
+    constraint cart_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
 );
 create table oh_order(
 	order_id int auto_increment primary key,
@@ -153,23 +187,7 @@ create table oh_pay(
 	constraint car_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
 );
 
-create table oh_inquiry(
 
-	qid int auto_increment primary key not null, -- 문의id
-    mid varchar(100),-- 유저아이디
-	pid int, -- 상품아이디
-	qtype varchar(50), -- 문의유형
-    qdate datetime,-- 문의시간
-    qcontent varchar(500), -- 문의내용
-    adate datetime, -- 답변날짜 
-    acontent varchar(500), -- 답변내용
-    secret_check boolean, -- 비밀글여부
-    
-	constraint oh_inquery_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade,
-    constraint oh_inquery_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade
-    
-);ifnull(format(round(price_origin - (price_origin * price_sale / 100),-2),0),format(price_origin,0)) sale_price;
-select pid,category_id,product_image,brand_name,product_name,rating_avg,rating_review,price_sale,price_origin,ifnull(round(price_origin - (price_origin * price_sale / 100),-2),0) sale_price,tag_free,coupon_percent,pdate,delivery_type from oh_product where pid = 1;
 
 -- oh_category insert
 insert into oh_category (category_name) values("크리스마스");

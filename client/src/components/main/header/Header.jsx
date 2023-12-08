@@ -5,7 +5,7 @@ import HeaderSearchRight from './HeaderSearchRight';
 import HeaderLogoWrite from "./HeaderLogoWrite";
 import HeaderNavPopular from "./HeaderNavPopular";
 
-export default function Header() {
+export default function Header(props) {
   /* 스크롤할 때 헤더 고정 */
   const [isFixed, SetIsFixed] = useState(false);
   // useEffect(() => {
@@ -105,7 +105,7 @@ export default function Header() {
                   <Link to="/store" onMouseEnter={() => { hoverMenu(2) }}>쇼핑</Link>
                 </li>
                 <li className="header_logo_left_ul_li">
-                  <Link to="/experts" onMouseEnter={() => { hoverMenu(3) }}>이사/시공/생활</Link>
+                  <Link to="/" onMouseEnter={() => { hoverMenu(3) }}>이사/시공/생활</Link>
                 </li>
               </ul>
             </div>

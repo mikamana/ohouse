@@ -64,15 +64,15 @@ export default function OrderFormWrap() {
 
   const inputDomain = useRef(null);
   const navigate = useNavigate();
-  
-  useEffect(()=>{
-    if(!userInfo.id){
+
+  useEffect(() => {
+    if (!userInfo.id) {
       return navigate('/login')
     }
     // axios.get(`http://127.0.0.1:8000/orders/${userInfo.id}`)
     // .then(result => 'success')
 
-  },[])
+  }, [])
   return (
     <div className="orders_form_wrap">
       <h1 className="orders_form_title">주문/결제</h1>

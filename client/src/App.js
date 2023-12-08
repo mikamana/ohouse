@@ -49,7 +49,7 @@ const router = createBrowserRouter([
 
   {
     path: "/",
-    element: <Main />,
+    element: <Main/>,
     children: [
       {
         path: '/', element:
@@ -115,7 +115,7 @@ const router = createBrowserRouter([
       {
         path: '/search', element:
           <Contents>
-            <Search />
+            <Search/>
           </Contents>
       },
       {

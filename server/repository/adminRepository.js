@@ -113,13 +113,13 @@ export async function getProductList({value, startindex, endindex }) {
   let sql = ''
   if(value == 'asc'){
     sql = `
-    select rno, pid, total, category_name, product_image, brand_name, product_name, price_sale, price_origin, tag_free, coupon_percent, left(pdate,10) as pdate, delivery_type from
+    select rno, pid, total, category_name, product_image, brand_name, product_name, price_sale, price_origin, tag_free, coupon_percent, left(pdate,10) as pdate, delivery_type,ifnull(format(round(price_origin - (price_origin * price_sale / 100),-2),0),format(price_origin,0)) sale_price from
 (select row_number() over(order by product_name asc) rno, pid, total, category_name, product_image, brand_name, product_name, price_sale, price_origin, tag_free, coupon_percent, pdate, delivery_type 
 	from (select count(*) as total from oh_product) as products, oh_product p inner join oh_category c on p.category_id=c.category_id) a 
     where rno between ? and ? order by product_name asc`
   }else{
     sql = `
-    select rno, pid, total, category_name, product_image, brand_name, product_name, price_sale, price_origin, tag_free, coupon_percent, left(pdate,10) as pdate, delivery_type from
+    select rno, pid, total, category_name, product_image, brand_name, product_name, price_sale, price_origin, tag_free, coupon_percent, left(pdate,10) as pdate, delivery_type,ifnull(format(round(price_origin - (price_origin * price_sale / 100),-2),0),format(price_origin,0)) sale_price from
 (select row_number() over(order by product_name desc) rno, pid, total, category_name, product_image, brand_name, product_name, price_sale, price_origin, tag_free, coupon_percent, pdate, delivery_type 
 	from (select count(*) as total from oh_product) as products, oh_product p inner join oh_category c on p.category_id=c.category_id) a 
     where rno between ? and ? order by product_name desc`

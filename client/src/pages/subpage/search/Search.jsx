@@ -6,7 +6,7 @@ import SubtitleMore from '../../main/subtitle_more/Subtitle_more';
 import axios from 'axios'
 
 
-export default function Search (){
+export default function Search() {
 
   const [shopArray, setShopArray] = useState([]);
   useEffect(() => {
@@ -20,14 +20,13 @@ export default function Search (){
   const [searchResults, setSearchResults] = useState([]);
 
   const [searchTotal, setSearchTotal] = useState([]);
-  useEffect(()=>{
+  useEffect(() => {
     fetch(`/data/iconMenu/search.json`)
-    .then((res) => res.json())
-    .then((data) => setSearchTotal(data));
+      .then((res) => res.json())
+      .then((data) => setSearchTotal(data));
   }, []);
-  console.log(searchResults);
 
-  return(
+  return (
     <>
       <div className="search_container inner">
         <div className="search_keyword">
@@ -53,10 +52,10 @@ export default function Search (){
               <span>올해는 더 예쁜 기억을 만들어보세요.</span>
             </div>
             <ul className="search_total_image">
-              {searchTotal.slice(0,3).map((total) => (
+              {searchTotal.slice(0, 3).map((total) => (
                 <li key={total.id}>
                   <Link to={''}>
-                    <figure style={{backgroundImage: `url(${total.image})`}}>
+                    <figure style={{ backgroundImage: `url(${total.image})` }}>
                     </figure>
                     <p>{total.name}</p>
                   </Link>
@@ -70,10 +69,10 @@ export default function Search (){
               <span>많이 찾는 상품들을 모았어요.</span>
             </div>
             <ul className="search_total_image">
-              {searchTotal.slice(4,12).map((total) => (
+              {searchTotal.slice(4, 12).map((total) => (
                 <li key={total.id}>
                   <Link to={''}>
-                    <figure style={{backgroundImage: `url(${total.image})`}}>
+                    <figure style={{ backgroundImage: `url(${total.image})` }}>
                     </figure>
                     <p>{total.name}</p>
                   </Link>
@@ -85,13 +84,13 @@ export default function Search (){
         </div>
         <div className="searchResults">
           <SubtitleMore title={"쇼핑"} />
-            {shopArray.map((list, i) =>
-              <ShopitemContents
-                key={i}
-                shopitemList={list}
-                timecount={false}
-              />
-            )}
+          {shopArray.map((list, i) =>
+            <ShopitemContents
+              key={i}
+              shopitemList={list}
+              timecount={false}
+            />
+          )}
         </div>
       </div>
 

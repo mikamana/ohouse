@@ -113,7 +113,7 @@ header.main_header {
                   color: #82948c;
                   font-size: 12px;
                   &::before {
-                    content: '';
+                    content: "";
                     width: 1px;
                     height: 8px;
                     background: var(--headerBorder);
@@ -122,8 +122,8 @@ header.main_header {
                   }
                 }
                 &::after {
-                  content: '\f054';
-                  color: #C2C8CC;
+                  content: "\f054";
+                  color: #c2c8cc;
                   font-family: "Font Awesome 5 Free";
                   font-weight: 900;
                   position: absolute;
@@ -133,7 +133,7 @@ header.main_header {
                 }
               }
               &::before {
-                content: '\f002';
+                content: "\f002";
                 font-family: "Font Awesome 5 Free";
                 font-weight: 900;
                 margin-right: 8px;
@@ -142,9 +142,9 @@ header.main_header {
                 background: rgb(247, 249, 250);
               }
             } //header_search_keyword li
-          }// header_search_keyword ul
-        }//header_search_keyword
-        .search_del_bttn{
+          } // header_search_keyword ul
+        } //header_search_keyword
+        .search_del_bttn {
           border: 0;
           cursor: pointer;
           background: transparent;
@@ -153,13 +153,13 @@ header.main_header {
           top: 50%;
           transform: translateY(-50%);
           &::after {
-            content: '\f057';
-            color: #828C94;
+            content: "\f057";
+            color: #828c94;
             font-size: 20px;
             font-family: "Font Awesome 5 Free";
             font-weight: 900;
           }
-        }///search_del_bttn
+        } ///search_del_bttn
       } //div.header_logo_searchBox
       div.header_logo_right {
         display: flex;
@@ -294,11 +294,11 @@ header.main_header {
     width: 100%;
     height: 52px;
     top: 0;
-    background-color: #FFF;
+    background-color: #fff;
     border-bottom: 1px solid var(--headerBorder);
     box-sizing: border-box;
     z-index: 1000;
-    &.active{ 
+    &.active {
       position: fixed;
       top: 29px;
       transition: top 0.1s;
@@ -323,7 +323,7 @@ header.main_header {
           content: "";
           position: absolute;
           right: 0px;
-          height: 52px;
+          height: 50px;
           width: 100px;
           pointer-events: none;
           background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 50%);

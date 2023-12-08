@@ -24,7 +24,6 @@ export default function ProductionsInfoQty(props) {
     }
 
     let prc = props.price * qty;
-    console.log(props.qty);
     setPrice(prc)
     props.getQty({ qty: qty, price: price });
 
@@ -50,7 +49,7 @@ export default function ProductionsInfoQty(props) {
               handlerQty("plus")
             }}>+</span>
           </div>
-          <span className='production_qty_price'>{props.price ? props.price : props.priceOrigin} 원</span>
+          <span className='production_qty_price'>{props.price ? parseInt(props.price).toLocaleString() : parseInt(props.priceOrigin).toLocaleString()} 원</span>
         </div>
       </div>
     </>
