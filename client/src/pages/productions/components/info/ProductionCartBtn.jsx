@@ -34,6 +34,7 @@ export default function ProductionCartBtn(props) {
 
         setList(result.data)
         alert("장바구니에 추가되었습니다.")
+        window.location.reload();
 
       })
 
