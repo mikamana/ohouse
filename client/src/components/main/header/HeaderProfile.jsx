@@ -37,9 +37,9 @@ export default function HeaderProfile() {
         <div className="header_nav_menu_list3" onClick={handleLogout}>로그아웃</div>
       </li>
       {manager !== undefined &&
-        <li>
-          <Link to="/admin" className="header_nav_menu_list3">관리자페이지</Link>
-        </li>
+      <li>
+        <Link to="/admin/member" className="header_nav_menu_list3">관리자페이지</Link>
+      </li>
       }
     </ul>
   );

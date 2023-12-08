@@ -4,7 +4,7 @@ export async function getMemberList({value, startindex, endindex }) {
   let sql = ''
   if(value == 'asc' || value == 'value'){
     sql = `
-    select rno, mid, nickname, userimg, phone, homepage, gender, birthday, left(mdate,19) as mdate, total, count_review, count_order from 
+    select rno, nickname, mid, birthday, left(mdate,19) as mdate, total, count_review, count_order from 
 	(select row_number() over(order by nickname asc) rno, 
 			  m.mid, 
 			  m.nickname, 
@@ -23,7 +23,7 @@ export async function getMemberList({value, startindex, endindex }) {
 		  where rno between ? and ? group by mid, memberList.total, count_review, count_order order by nickname asc`
   }else{
     sql = `
-    select rno, mid, nickname, userimg, phone, homepage, gender, birthday, left(mdate,19) as mdate, total, count_review, count_order from 
+    select rno, nickname, mid, birthday, left(mdate,19) as mdate, total, count_review, count_order from 
 	(select row_number() over(order by nickname desc) rno, 
 			  m.mid, 
 			  m.nickname, 
@@ -110,10 +110,11 @@ export async function getAscList(value, startindex, endindex){
 
 /* 상품리스트 조회 */
 export async function getProductList({value, startindex, endindex }) {
+  //['No.', '카테고리명', '상품명', '브랜드명','대표이미지','정상가','할인율(%)','쿠폰할인(%)', '배송유형', '등록일', '비고']
   let sql = ''
   if(value == 'asc'){
     sql = `
-    select rno, pid, total, category_name, product_image, brand_name, product_name, price_sale, price_origin, tag_free, coupon_percent, left(pdate,10) as pdate, delivery_type,ifnull(format(round(price_origin - (price_origin * price_sale / 100),-2),0),format(price_origin,0)) sale_price from
+    select rno, category_name, product_name, brand_name, product_image, price_origin, price_sale, coupon_percent, delivery_type, total, left(pdate,10) as pdate, pid from
 (select row_number() over(order by product_name asc) rno, pid, total, category_name, product_image, brand_name, product_name, price_sale, price_origin, tag_free, coupon_percent, pdate, delivery_type 
 	from (select count(*) as total from oh_product) as products, oh_product p inner join oh_category c on p.category_id=c.category_id) a 
     where rno between ? and ? order by product_name asc`
