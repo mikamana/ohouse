@@ -16,6 +16,7 @@ export default function Productions() {
   const [qty, setQty] = useState(1);
   const [priceOrigin, setPriceOrigin] = useState(0);
   const params = useParams();
+  const [qtyFlag, setQtyFlag] = useState(false);
 
   const getCount = (e) => {
 
@@ -33,12 +34,12 @@ export default function Productions() {
 
     setPrice(list.sale_price * e.qty)
     setQty(e.qty)
-
+    setQtyFlag(e.qtyFlag)
 
   }
 
-  console.log(price);
-  console.log(qty);
+
+
 
 
 
@@ -66,6 +67,7 @@ export default function Productions() {
             getPrice={getPrice}
             price={price}
             qty={qty}
+            qtyFlag={qtyFlag}
           />
         </div>
         <ProductionsNav count={count}
@@ -79,6 +81,7 @@ export default function Productions() {
           subTitle={list.product_name}
           getPrice={getPrice}
           qty={qty}
+          qtyFlag={qtyFlag}
         />
       </section >
     </>

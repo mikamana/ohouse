@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export default function ProductionsInfoQty(props) {
 
@@ -7,11 +7,8 @@ export default function ProductionsInfoQty(props) {
 
   const handlerQty = (checkFlag) => {
 
-    let qtyFlag = false;
-
     if (checkFlag === "minus") {
       if (qty > 1) {
-        qtyFlag = true
         setQty(--qty)
       } else {
         alert('최소 수량은 1개 입니다.')
@@ -20,22 +17,24 @@ export default function ProductionsInfoQty(props) {
 
     if (checkFlag === "plus") {
       if (qty < 10) {
-        qtyFlag = true
         setQty(++qty)
       } else {
         alert('최대 수량은 10개 입니다.')
       }
     }
 
-
-    // let prc = props.price.replace(/,/g, "") * qty;
     let prc = props.price * qty;
-
+    console.log(props.qty);
     setPrice(prc)
-    // let prc = parseInt(props.price) * qty;
-    props.getQty({ qtyFlag: qtyFlag, qty: qty, price: price });
+    props.getQty({ qty: qty, price: price });
 
   }
+
+  useEffect(() => {
+
+    setQty(props.qty)
+
+  }, [props.qty]);
 
   return (
     <>
@@ -46,7 +45,7 @@ export default function ProductionsInfoQty(props) {
             <span className='production_qty_btn_total' onClick={() => {
               handlerQty("minus")
             }}>-</span>
-            <span className='production_qty_btn_length'>{props.qty}</span>
+            <span className='production_qty_btn_length'>{qty}</span>
             <span className='production_qty_btn_total' onClick={() => {
               handlerQty("plus")
             }}>+</span>

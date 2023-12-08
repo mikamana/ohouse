@@ -21,6 +21,7 @@ export default function ProductionsPrdWrap(props) {
                         price={props.price}
                         qty={props.qty}
                         subTitle={props.subTitle}
+                        qtyFlag={props.qtyFlag}
                     />
                 </div>
             </div>
