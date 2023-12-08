@@ -1,16 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { removeUser } from "../../../pages/utill/sessionStorage";
 import { getCookie } from "../../../pages/utill/cookie";
 
 export default function HeaderProfile() {
+  const navigate = useNavigate();
   const handleLogout = () => {
+    navigate("/");
     removeUser();
     window.location.reload();
   }
 
   const manager = getCookie("ohouse-manager")
-  
+
   return (
     <ul className="header_nav_popup_profile_ul">
       <li>
@@ -35,9 +37,9 @@ export default function HeaderProfile() {
         <div className="header_nav_menu_list3" onClick={handleLogout}>로그아웃</div>
       </li>
       {manager !== undefined &&
-      <li>
-        <Link to="/admin" className="header_nav_menu_list3">관리자페이지</Link>
-      </li>
+        <li>
+          <Link to="/admin" className="header_nav_menu_list3">관리자페이지</Link>
+        </li>
       }
     </ul>
   );
