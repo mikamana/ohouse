@@ -33,6 +33,7 @@ select count(mid) as cntid, count(phone) as cnt, any_value(phone) as phone, any_
 */
 insert into oh_member (mid, pass, nickname) values ("@","$2a$10$TcZs4tDeBpTJNAnVHg65U.m0DsqsTj0eH1gLkulWOfnNv1H96sfwG", "관리자");
 update oh_product set price_sale = null,price_origin = 58900 where pid = 59;
+update oh_product set tag_free = 1;
 -- 관리자 계정 mid = @, pass = 1234, nickname = 관리자 insert
 -- oh_product 오류 수정
 
@@ -122,8 +123,8 @@ create table oh_cart(
     mid varchar(100),
     qty int not null,
     cdate datetime,
-    constraint cart_pid_fk foreign key(pid) references oh_product(pid),
-    constraint cart_mid_fk foreign key(mid) references oh_member(mid)
+    constraint cart_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
+    constraint cart_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
 );
 create table oh_order(
 	order_id int auto_increment primary key,

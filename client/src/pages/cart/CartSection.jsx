@@ -105,12 +105,15 @@ export default function CartSection() {
       axios.post(`http://127.0.0.1:8000/cart/${userInfo.id}/remove`, { cart_id })
         .then(result => { window.location.reload() })
       return
+    }else{
+      axios.post(`http://127.0.0.1:8000/cart/${userInfo.id}/remove`, checkedItems)
+      .then(result => { window.location.reload() })
     }
   }
 
   function removeSelectCart() {
     axios.post(`http://127.0.0.1:8000/cart/${userInfo.id}/remove`, checkedItems)
-      .then(result => { window.location.reload() })
+    .then(result => { window.location.reload() })
   }
 
   const updateCart = (cart_id, qty) => {
