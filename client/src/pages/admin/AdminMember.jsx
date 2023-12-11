@@ -2,12 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Pagination from 'rc-pagination';
 import 'rc-pagination/assets/index.css';
-import { useParams } from 'react-router-dom';
 
 export default function AdminMember() {
-
-  //const {category} = useParams();
-
   /* get : list */
   const [list, setList] = useState([]);
 
@@ -118,14 +114,12 @@ export default function AdminMember() {
             <thead>
               <tr>
                 <th>NO.</th>
-                <th>회원이름</th>
-                <th>회원아이디</th>
-                <th>휴대폰번호</th>
+                <th>아이디</th>
+                <th>닉네임</th>
                 <th>생일</th>
                 <th>가입일시</th>
                 <th>주문건수</th>
                 <th>리뷰수</th>
-                <th>비고</th>
               </tr>
             </thead>
             <tbody>
@@ -134,14 +128,10 @@ export default function AdminMember() {
                   <td>{menu.rno}</td>
                   <td>{menu.nickname}</td>
                   <td>{menu.mid}</td>
-                  <td>{menu.phone}</td>
                   <td>{menu.birthday}</td>
                   <td>{menu.mdate}</td>
                   <td>{menu.count_order}</td>
                   <td>{menu.count_review}</td>
-                  <td>
-                    <button className="admin_update_togglebtn" type="button" onClick={handleToggle} data-id={menu.mid}>정보수정</button>
-                  </td>
                 </tr>
               )}
             </tbody>

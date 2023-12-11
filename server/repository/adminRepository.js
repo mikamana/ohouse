@@ -125,3 +125,19 @@ export async function getProductList({value, startindex, endindex }) {
   return db.execute(sql, [startindex, endindex])
     .then(rows => rows[0])
 };
+
+/* 상품정보 조회 */
+export async function getProduct(pid){
+  const sql = `select pid, p.category_id as category_id, c.category_name as category_name, product_name, price_sale, price_origin, ifnull(delivery_type,'') as delivery_type
+  from oh_product p, oh_category c where p.category_id =  c.category_id and pid = ?`
+  return db.execute(sql,[pid])
+  .then(rows => rows[0][0])
+};
+
+/* 상품정보 수정 */
+export async function updateProduct(params){
+  //category_id, product_name, price_origin, price_sale, delivery_type, pid
+  const sql = `update oh_product set category_id = ?, product_name = ?, price_origin = ?, price_sale = ?, delivery_type = ? where pid = ?`
+  return db.execute(sql, params)
+  .then(result => 'ok')
+};
