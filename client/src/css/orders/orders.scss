@@ -115,6 +115,9 @@
   &.active{
     border: 1px solid #35c5f0;
   }
+  &.valcheck{
+    border: 1px solid rgb(255, 119, 119)
+  }
 
 }
 .orders_form_box_input_contents_email_container{
@@ -165,6 +168,9 @@
   &.active{
     border: 1px solid #35c5f0;
   }
+  &.valcheck{
+    border: 1px solid rgb(255, 119, 119)
+  }
 }
 
 .orders_form_box_input_contents_box_email_mail_select_box{
@@ -213,6 +219,9 @@
   }
   &:focus-visible{
     outline: 0;
+  }
+  &.valcheck{
+    border: 1px solid rgb(255, 119, 119)
   }
 }
 
@@ -329,6 +338,9 @@
   &.active{
     border: 1px solid #35c5f0;
   }
+  &.valcheck{
+    border: 1px solid rgb(255, 119, 119)
+  }
 }
 
 .orders_form_box_input_contents_address_container{
@@ -362,6 +374,9 @@
   }
   &.active{
     border: 1px solid #35c5f0;
+  }
+  &.valcheck{
+    border: 1px solid rgb(255, 119, 119)
   }
 }
 .orders_form_box_input_contents_address_search_btn{
@@ -629,6 +644,9 @@
   }
   &.active{
     border: 1px solid #35c5f0;
+  }
+  &.valcheck{
+    border: 1px solid rgb(255, 119, 119)
   }
 }
 .orders_form_box_input_contents_self_delivery_request{
@@ -928,6 +946,7 @@
   transition: background-color 0.2s ease 0s;
 }
 .orders_form_box_payment_btn{
+  cursor: pointer;
   display: flex;
   width: 100%;
   height: 100%;

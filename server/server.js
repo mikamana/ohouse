@@ -17,7 +17,7 @@ import channel from "./router/channelRouter.js";
 import inquiry from "./router/oh_inquiry/inquiryRouter.js";
 import order from "./router/oh_order/orderRouter.js"
 import search from "./router/searchRouter.js";
-
+import pay from "./router/oh_pay/payRouter.js"
 const PORT = 8000;
 const server = express();
 
@@ -41,6 +41,9 @@ server.use('/channel', channel);
 server.use('/inquiry', inquiry);
 server.use('/orders', order);
 server.use('/search', search);
+server.use('/pay', pay);
+
+
 
 server.listen(PORT, () => {
   console.log(`server start --->> ${PORT}`);

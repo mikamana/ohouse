@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaCheck } from 'react-icons/fa6';
 import { IoIosArrowDown } from "react-icons/io";
 
-export default function OrdersAgreementWrap({ paytype, base, setBase }) {
+export default function OrdersAgreementWrap({ paytype, base, setBase, orderList }) {
   const [rotateBtn1,setRotateBtn1] = useState(true);
   const [rotateBtn2,setRotateBtn2] = useState(true);
+  const [checkList,setCheckList] = useState([]);
+  const [checkedItems,setCheckedItems] = useState([]);
   const handleClick1 = () => {
     setRotateBtn1(!rotateBtn1);
   };
@@ -12,6 +14,38 @@ export default function OrdersAgreementWrap({ paytype, base, setBase }) {
   const handleClick2 = () => {
     setRotateBtn2(!rotateBtn2);
   };
+
+  useEffect(()=>{
+    setCheckList(['agree1','agree2'])
+  },[])
+
+  const checkedItemHandler = (id, isChecked) => {
+    if (isChecked) {
+      setCheckedItems((prev) => [...prev, id])
+    } else {
+      setCheckedItems(checkedItems.filter((item) => item !== id))
+    }
+  }
+
+  const allCheckedHandler = (e) => {
+    if (e.target.checked) {
+      setCheckedItems(checkList.map((item) => `${item}`))
+    } else {
+      setCheckedItems([]);
+    }
+  }
+
+  function listCheck() {
+    if (checkList) {
+      return checkedItems.length === checkList.length ? true : false
+    }
+  }
+
+  const checkHandled = (e) => {
+    checkedItemHandler(e.target.id, e.target.checked);
+  }
+
+
   function agreementType(paytype) {
     if (paytype === '') {
       return (
@@ -21,11 +55,11 @@ export default function OrdersAgreementWrap({ paytype, base, setBase }) {
               <span className='orders_sidebar_agreement_all_container'>
                 <span className='orders_sidebar_agreement_all_span'>
                   <label className="orders_form_box_checkbox_agreement_label">
-                    <div className={`orders_form_box_checkbox_container ${base ? 'checkbox_active' : ''}`}>
-                      <div className={`orders_form_box_checkbox_box ${base ? 'checkbox_active' : ''}`}>
+                    <div className={`orders_form_box_checkbox_container ${listCheck() ? 'checkbox_active' : ''}`}>
+                      <div className={`orders_form_box_checkbox_box ${listCheck() ? 'checkbox_active' : ''}`}>
                         <FaCheck className="orders_form_box_checkbox_span" />
                       </div>
-                      <input className="orders_form_box_checkbox" type="checkbox" checked={base} onChange={(e) => setBase(e.target.checked)} />
+                      <input className="orders_form_box_checkbox" type="checkbox"  checked={listCheck()} onChange={allCheckedHandler} />
                     </div>
                   </label>
                   <span className="orders_form_box_checkbox_label_agreement_span">아래 내용에 모두 동의합니다. (필수)</span>
@@ -39,11 +73,11 @@ export default function OrdersAgreementWrap({ paytype, base, setBase }) {
           <div className='orders_sidebar_agreement_other_wrap'>
             <div className='orders_sidebar_agreement_other_container'>
               <span className='orders_sidebar_agreement_other_box'>
-                <div className={`orders_form_box_checkbox_container ${base ? 'checkbox_active' : ''}`}>
-                  <div className={`orders_form_box_checkbox_box ${base ? 'checkbox_active' : ''}`}>
+                <div className={`orders_form_box_checkbox_container ${checkedItems.includes(`agree1`) ? 'checkbox_active' : ''}`}>
+                  <div className={`orders_form_box_checkbox_box ${checkedItems.includes(`agree1`) ? 'checkbox_active' : ''}`}>
                     <FaCheck className="orders_form_box_checkbox_span" />
                   </div>
-                  <input className="orders_form_box_checkbox" type="checkbox" checked={base} onChange={(e) => setBase(e.target.checked)} />
+                  <input className="orders_form_box_checkbox" type="checkbox" id='agree1' checked={checkedItems.includes(`agree1`) ? true : false} onChange={checkHandled} />
                 </div>
                 <span className='orders_sidebar_agreement_other_box_span'  onClick={handleClick1}>
                   <span className='orders_sidebar_agreement_other_box_span_text'>개인정보 수집 이용 및 제 3자 제공 동의 (필수)</span>
@@ -77,11 +111,11 @@ export default function OrdersAgreementWrap({ paytype, base, setBase }) {
             </div>
             <div className='orders_sidebar_agreement_other_container'>
               <span className='orders_sidebar_agreement_other_box'>
-                <div className={`orders_form_box_checkbox_container ${base ? 'checkbox_active' : ''}`}>
-                  <div className={`orders_form_box_checkbox_box ${base ? 'checkbox_active' : ''}`}>
+                <div className={`orders_form_box_checkbox_container ${checkedItems.includes(`agree2`) ? 'checkbox_active' : ''}`}>
+                  <div className={`orders_form_box_checkbox_box ${checkedItems.includes(`agree2`) ? 'checkbox_active' : ''}`}>
                     <FaCheck className="orders_form_box_checkbox_span" />
                   </div>
-                  <input className="orders_form_box_checkbox" type="checkbox" checked={base} onChange={(e) => setBase(e.target.checked)} />
+                  <input className="orders_form_box_checkbox" type="checkbox" id='agree2' checked={checkedItems.includes(`agree2`) ? true : false} onChange={checkHandled} />
                 </div>
                 <span className='orders_sidebar_agreement_other_box_span' onClick={handleClick2}>
                   <span className='orders_sidebar_agreement_other_box_span_text'>결제대행 서비스 이용약관 동의 (필수)</span>

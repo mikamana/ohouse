@@ -10,14 +10,15 @@ import { useNavigate } from "react-router-dom";
 
 
 
-export default function OrderFormWrap() {
+export default function OrderFormWrap({orderList,form,setForm}) {
   const userInfo = getUser();
   const [display, setDisplay] = useState({ "mailbox": "order_invisible", "requestbox": "request_invisible" });
-  const [form, setForm] = useState({ "orderer_id": "", "orderer_mail": "", "orderer_phead": "010", "orderer_pbody": "", "pass": "", "passcheck": "", "orderer_name": "", "reciever_name": "", "reciever_place": "", "reciever_phead": "010", "reciever_pbody": "", "reciever_address_detail": "", "reciever_request": "" });
+  
   const [domain, setDomain] = useState(false);
-  const [phead, setPhead] = useState('010');
+/*   const [phead, setPhead] = useState('010'); */
   const [base, setBase] = useState(false);
   const [length, setLength] = useState(0);
+  const [paytype, setPaytype] = useState('card');
   function isFocus(e) {
     const parent = e.target.parentNode
     parent.classList.add('active')
@@ -30,25 +31,38 @@ export default function OrderFormWrap() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
+    console.log(form);
     if (e.target.name === 'reciever_request') {
       const letters = e.target.value.split("");
       setLength(letters.length < 51 ? letters.length : 50)
     }
+    console.log(form);
+    console.log(e.target.value.length);
+    if(e.target.value.length < 1){
+      const parent = e.target.parentNode
+      parent.classList.add('valcheck')
+    }else{
+      const parent = e.target.parentNode
+      parent.classList.remove('valcheck')
+    }
   }
   const selectChange = (e) => {
     let { name, value } = e.target;
+    console.log(name,value);
     setForm({ ...form, [name]: value });
     setDomain(true);
+    console.log(form);
     if (e.target.value !== 'selftype' && e.target.name === 'orderer_mail') {
       setDisplay({ ...display, mailbox: "order_invisible" })
-
+      setForm({ ...form, [name]: value,orderer_mail_self: '' })
+      e.target.classList.remove('valcheck')
     }
     else if (e.target.value !== 'selftype' && e.target.name === 'reciever_request') {
       setDisplay({ ...display, requestbox: "request_invisible" })
     }
     else if (e.target.value === 'selftype' && e.target.name === 'orderer_mail') {
       setDisplay({ ...display, mailbox: '' })
-      setForm({ ...form, orderer_mail: '' });
+      setForm({ ...form, orderer_mail_self: '' });
     }
     else if (e.target.value === 'selftype' && e.target.name === 'reciever_request') {
       setDisplay({ ...display, requestbox: '' })
@@ -56,11 +70,18 @@ export default function OrderFormWrap() {
     }
 
   }
-
-  const selectPhone = (e) => {
+  const handlePayType = (e) =>{
+    setPaytype(e.currentTarget.value)
+    console.log(e.currentTarget.parentNode.parentNode.childNodes);
+    e.currentTarget.parentNode.parentNode.childNodes.forEach((btn)=>{
+      btn.classList.remove('selected')
+    })
+    e.currentTarget.parentNode.classList.add('selected')
+  }
+/*   const selectPhone = (e) => {
     let { value } = e.target;
     setPhead(value)
-  }
+  } */
 
   const inputDomain = useRef(null);
   const navigate = useNavigate();
@@ -73,6 +94,7 @@ export default function OrderFormWrap() {
     // .then(result => 'success')
 
   },[])
+
   return (
     <div className="orders_form_wrap">
       <h1 className="orders_form_title">주문/결제</h1>
@@ -103,11 +125,11 @@ export default function OrderFormWrap() {
               </div>
               <div className="orders_form_box_input_contents_box_email_mail">
                 <div className={`orders_form_box_input_contents_box_email_mail_self_input ${display.mailbox}`}>
-                  <input className="orders_form_box_input" name="orderer_mail" value={form.orderer_mail ? form.orderer_mail : ""} maxLength={20} onChange={handleChange} onFocus={isFocus} onBlur={isBlur} />
+                  <input className="orders_form_box_input" name="orderer_mail_self" value={form.orderer_mail_self ? form.orderer_mail_self : ""} maxLength={20} onChange={handleChange} onFocus={isFocus} onBlur={isBlur} />
                 </div>
                 <div className="orders_form_box_input_contents_box_email_mail_select_box">
                   <span className="orders_form_box_input_contents_box_email_mail_select_box_downarrow"><IoMdArrowDropdown /></span>
-                  <select className="orders_form_box_input_contents_box_email_mail_select" name="orderer_mail" onChange={selectChange} ref={inputDomain}>
+                  <select className="orders_form_box_input_contents_box_email_mail_select" name="orderer_mail" id="orderer_mail" onChange={selectChange} ref={inputDomain}>
                     <option value="default">선택해주세요</option>
                     <option value="naver.com">naver.com</option>
                     <option value="hanmail.net">hanmail.net</option>
@@ -272,16 +294,20 @@ export default function OrderFormWrap() {
             </span>
           </p>
         </div>
-        <OrdersProductWrap
-          ts={'od'}
-        />
-        <OrdersProductWrap
-          ts={'td'}
-        />
+        {
+          orderList.map(list=>
+            <OrdersProductWrap
+              brand_name={list.brand_name}
+              product_image={list.product_image}
+              product_name={list.product_name}
+              sale_price={list.sale_price}
+              qty={list.qty}
+              key={list.order_id}
+              ts={list.delivery_type}
+            />
+          )
+        }
         {/* 오늘출발 시 시간제한도 출력해야함 */}
-        <OrdersProductWrap
-          ts={'fd'}
-        />
       </div>
 
       <div className="orders_form_box">
@@ -321,48 +347,48 @@ export default function OrderFormWrap() {
           <div className="orders_form_box_payment_container">
             <div className="orders_form_box_payment_box">
 
-              <div className="orders_form_box_payment">
-                <button className="orders_form_box_payment_btn" type="button" title="">
+              <div className="orders_form_box_payment selected">
+                <button className="orders_form_box_payment_btn" onClick={(e)=>handlePayType(e)} value='card' type="button" title="">
                   <span className="orders_form_box_payment_span">카드</span>
                   <img className="orders_form_box_payment_img" src="https://image.ohou.se/i/bucketplace-v2-development/pg/168311599350498640.png?w=72&h=72&c=c" alt="" />
                 </button>
               </div>
               <div className="orders_form_box_payment">
-                <button className="orders_form_box_payment_btn" type="button" title="">
+                <button className="orders_form_box_payment_btn" onClick={(e)=>handlePayType(e)} value='bankbook' type="button" title="">
                   <span className="orders_form_box_payment_span">무통장입금</span>
                   <img className="orders_form_box_payment_img" src="https://image.ohou.se/i/bucketplace-v2-development/pg/168311600677152970.png?w=72&h=72&c=c" alt="" />
                 </button>
               </div>
               <div className="orders_form_box_payment">
-                <button className="orders_form_box_payment_btn" type="button" title="">
+                <button className="orders_form_box_payment_btn" onClick={(e)=>handlePayType(e)} value='kakao' type="button" title="">
                   <span className="orders_form_box_payment_span">카카오페이</span>
                   <img className="orders_form_box_payment_img" src="https://image.ohou.se/i/bucketplace-v2-development/pg/img_kakaopay.png?w=72&h=72&c=c" alt="" />
                   <span className="orders_form_box_payment_sale_span">1천원 즉시할인</span>
                 </button>
               </div>
               <div className="orders_form_box_payment">
-                <button className="orders_form_box_payment_btn" type="button" title="">
+                <button className="orders_form_box_payment_btn" onClick={(e)=>handlePayType(e)} value='naver' type="button" title="">
                   <span className="orders_form_box_payment_span">네이버페이</span>
                   <img className="orders_form_box_payment_img" src="https://image.ohou.se/i/bucketplace-v2-development/pg/img_naver.png?w=72&h=72&c=c" alt="" />
                   <span className="orders_form_box_payment_sale_span">최대2.5%적립</span>
                 </button>
               </div>
               <div className="orders_form_box_payment">
-                <button className="orders_form_box_payment_btn" type="button" title="">
+                <button className="orders_form_box_payment_btn" onClick={(e)=>handlePayType(e)} value='payco' type="button" title="">
                   <span className="orders_form_box_payment_span">페이코</span>
                   <img className="orders_form_box_payment_img" src="https://image.ohou.se/i/bucketplace-v2-development/pg/img_payco.png?w=72&h=72&c=c" alt="" />
                   <span className="orders_form_box_payment_sale_span">최대 1%적립</span>
                 </button>
               </div>
               <div className="orders_form_box_payment">
-                <button className="orders_form_box_payment_btn" type="button" title="">
+                <button className="orders_form_box_payment_btn" onClick={(e)=>handlePayType(e)} value='toss' type="button" title="">
                   <span className="orders_form_box_payment_span">토스</span>
                   <img className="orders_form_box_payment_img" src="https://image.ohou.se/i/bucketplace-v2-development/pg/img_toss_v2.png?w=72&h=72&c=c" alt="" />
                   <span className="orders_form_box_payment_sale_span">최대2천원적립</span>
                 </button>
               </div>
               <div className="orders_form_box_payment">
-                <button className="orders_form_box_payment_btn" type="button" title="">
+                <button className="orders_form_box_payment_btn" onClick={(e)=>handlePayType(e)} value='phone' type="button" title="">
                   <span className="orders_form_box_payment_span">핸드폰</span>
                   <img className="orders_form_box_payment_img" src="https://image.ohou.se/i/bucketplace-v2-development/pg/168311602265893776.png?w=72&h=72&c=c" alt="" />
                 </button>
@@ -371,7 +397,7 @@ export default function OrderFormWrap() {
             </div>
           </div>
           <OrdersPaymentDetail
-            paytype=''
+            paytype={paytype}
           />
         </div>
       </div>

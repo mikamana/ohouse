@@ -2,7 +2,7 @@ import React from 'react';
 import { IoMdArrowDropdown } from "react-icons/io";
 export default function OrdersPaymentDetail({ paytype }) {
   function PaymentDetail(paytype) {
-    if (paytype === '') {
+    if (paytype === 'card') {
       return (
         <div className='orders_payment_type_card_wrap'>
           <div className='orders_payment_type_card_container'>

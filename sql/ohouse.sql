@@ -1,7 +1,9 @@
  -- ohouse 데이터테이블 사용
  use ohouse;
  select database();
- 
+
+drop table oh_order_save;
+drop table oh_pay; 
 drop table oh_order;
 drop table oh_cart;
 drop table oh_review;
@@ -11,12 +13,19 @@ drop table oh_product;
 drop table oh_category;
 drop table oh_member;
 
+
+
 select * from oh_review;
 select * from oh_member;
 select * from oh_product;
 select * from oh_cart;
 select * from oh_review;
 select * from oh_community;
+select * from oh_order;
+select * from oh_pay;
+
+select oo.order_id, oc.cart_id, om.mid, oo.total_price, op.pid, oc.qty, om.nickname,op.category_id, op.product_image, op.brand_name, op.product_name, op.rating_avg, op.rating_review, op.price_sale, op.price_origin, op.tag_free, op.delivery_type 
+from oh_order oo, oh_cart oc, oh_member om, oh_product op where oo.cart_id = oc.cart_id and oc.pid = op.pid and oo.mid = om.mid and om.mid = '@';
 
 drop table oh_review;
 
@@ -128,18 +137,19 @@ create table oh_cart(
 );
 create table oh_order(
 	order_id int auto_increment primary key,
-    cart_id int,
+    pid int,
+    qty int,
     mid varchar(20) not null,
     odate datetime,
     total_price int,
-    constraint order_cart_id_fk foreign key(cart_id) references oh_cart(cart_id) on update cascade on delete cascade,
+    constraint order_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
     constraint order_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
 );
 create table oh_pay(
-	pay_id int auto_increment primary key,
-	order_id int,
-	pid int,
+    common_id varchar(50) primary key,
 	mid varchar(100),
+    orderer_name varchar(20),
+    orderer_email varchar(20),
 	orderer_phone varchar(20),
 	reciever_place varchar(50),
 	reciever_name varchar(20),
@@ -149,11 +159,23 @@ create table oh_pay(
 	payment varchar(10),
 	installment varchar(20),
 	last_pay_price int,
-	constraint car_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
-	constraint car_order_id_fk foreign key(order_id) references oh_order(order_id) on update cascade on delete cascade,
+    paydate datetime,
 	constraint car_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
 );
 
+create table oh_order_save(
+	common_id varchar(50),
+    osid varchar(20),
+	pid int,
+    qty int,
+    odate datetime,
+    total_price int,
+	constraint order_save_common_id_pk primary key(common_id,osid),
+    constraint order_save_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
+    constraint order_save_common_id_fk foreign key(common_id) references oh_pay(common_id) on update cascade on delete cascade
+);
+insert into oh_order_save(common_id,osid) values(1,1);
+insert into oh_pay(common_id) values(1);
 create table oh_inquiry(
 
 	qid int auto_increment primary key not null, -- 문의id
@@ -169,9 +191,7 @@ create table oh_inquiry(
 	constraint oh_inquery_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade,
     constraint oh_inquery_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade
     
-);ifnull(format(round(price_origin - (price_origin * price_sale / 100),-2),0),format(price_origin,0)) sale_price;
-select pid,category_id,product_image,brand_name,product_name,rating_avg,rating_review,price_sale,price_origin,ifnull(round(price_origin - (price_origin * price_sale / 100),-2),0) sale_price,tag_free,coupon_percent,pdate,delivery_type from oh_product where pid = 1;
-
+);
 -- oh_category insert
 insert into oh_category (category_name) values("크리스마스");
 insert into oh_category (category_name) values("겨울용품");
