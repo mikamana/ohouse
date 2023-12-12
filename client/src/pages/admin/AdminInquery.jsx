@@ -28,7 +28,7 @@ export default function AdminInquery() {
   };
 
   useEffect(() => {
-    axios.get(`http://127.0.0.1:8000/admin/inquiry/${startindex}/${endindex}/${value}`)
+    axios.get(`http://127.0.0.1:8000/admin/inquery/${startindex}/${endindex}/${value}`)
       .then((result) => {
         if (result.data.length !== 0) {
           setList(result.data);
@@ -112,15 +112,14 @@ export default function AdminInquery() {
           <table className="admin_table">
             <thead>
               <tr>
-                <th>번호</th>
-                <th>회원이름</th>
-                <th>회원아이디</th>
-                <th>휴대폰번호</th>
-                <th>생일</th>
-                <th>가입일시</th>
-                <th>주문건수</th>
-                <th>리뷰수</th>
-                <th>비고</th>
+                <th>No.</th>
+                <th>닉네임</th>
+                <th>상품번호</th>
+                <th>문의유형</th>
+                <th>문의내용</th>
+                <th>비밀글여부</th>
+                <th>답변여부</th>
+                <th>답변하기</th>
               </tr>
             </thead>
             <tbody>

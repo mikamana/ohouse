@@ -169,10 +169,10 @@ create table oh_order(
     constraint order_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
 );
 create table oh_pay(
-	pay_id int auto_increment primary key,
-	order_id int,
-	pid int,
+    common_id varchar(50) primary key,
 	mid varchar(100),
+    orderer_name varchar(20),
+    orderer_email varchar(20),
 	orderer_phone varchar(20),
 	reciever_place varchar(50),
 	reciever_name varchar(20),
@@ -182,9 +182,37 @@ create table oh_pay(
 	payment varchar(10),
 	installment varchar(20),
 	last_pay_price int,
-	constraint car_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
-	constraint car_order_id_fk foreign key(order_id) references oh_order(order_id) on update cascade on delete cascade,
+    paydate datetime,
 	constraint car_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
+);
+
+create table oh_order_save(
+	common_id varchar(50),
+    osid varchar(20),
+	pid int,
+    qty int,
+    odate datetime,
+	unit_price int,
+    line_total int,
+	constraint order_save_common_id_pk primary key(common_id,osid),
+    constraint order_save_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
+    constraint order_save_common_id_fk foreign key(common_id) references oh_pay(common_id) on update cascade on delete cascade
+);
+create table oh_inquiry(
+
+	qid int auto_increment primary key not null, -- 문의id
+    mid varchar(100),-- 유저아이디
+	pid int, -- 상품아이디
+	qtype varchar(50), -- 문의유형
+    qdate datetime,-- 문의시간
+    qcontent varchar(500), -- 문의내용
+    adate datetime, -- 답변날짜 
+    acontent varchar(500), -- 답변내용
+    secret_check boolean, -- 비밀글여부
+    
+	constraint oh_inquery_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade,
+    constraint oh_inquery_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade
+    
 );
 
 

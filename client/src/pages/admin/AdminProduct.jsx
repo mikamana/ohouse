@@ -8,9 +8,11 @@ import ShopitemTodayStart from "../main/shopitem/components/Info/ShopitemTodaySt
 export default function AdminProduct() {
   /* get : list */
   const [list, setList] = useState([]);
+  const [cateList, setCateList] = useState([]);
 
   /* 정보수정 */
-  const [form, setForm] = useState({ pid: "", category_id:"", product_name: "", price_sale: "", price_origin: "", delivery_type:"", sale_price:"" });
+  const [form, setForm] = useState({ pid: "", category_id: "", product_name: "", product_image: "", price_sale: "", price_origin: "", tag_free: "", delivery_type: "" });
+  const [itemForm, setItemForm] = useState({ category_id: "", brand_name: "", product_name: "", product_image: "", price_origin: "", price_sale: "", tag_free: "0", delivery_type: "" });
 
   /* 페이지네이션 */
   const [currentPage, setCurrentPage] = useState(1);
@@ -29,29 +31,45 @@ export default function AdminProduct() {
     setListPerPages(Number(value));
   };
 
+  /* 정렬 */
+  const handleChangeSort = (e) => {
+    const { value } = e.target;
+    setValue(value)
+  }
+
+  /* 초기 리스트 조회 */
   useEffect(() => {
     axios.get(`http://127.0.0.1:8000/admin/product/${startindex}/${endindex}/${value}`)
       .then((result) => {
         if (result.data.length !== 0) {
           setList(result.data);
-          //console.log(result.data);
           setTotalPage(result.data[0].total);
         }
       })
       .catch(console.err);
+
+    axios.get('/data/admin/adminProductcategory.json')
+      .then((result) => {
+        setCateList(result.data);
+      })
+      .catch(console.err);
   }, [value, listPerPages, currentPage])
 
-  const [cateList, setCateList] = useState([]);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+    setItemForm({ ...itemForm, [name]: value })
+  };
 
+  /* 정보수정 팝업 생성 */
   const [toggle, setToggle] = useState(false);
   const handleToggle = (e) => {
     const pid = e.target.dataset.id;
-    //alert(`${pid}`)
     if (toggle === false) {
-      setToggle(true)
+      setToggle(true);
     } else {
-      setToggle(false)
-    }//if
+      setToggle(false);
+    };//if
 
     axios({
       method: 'get',
@@ -59,84 +77,63 @@ export default function AdminProduct() {
     })
       .then((result) => {
         setForm(result.data);
-        //console.log(result.data);
-      })
-      .catch(console.err);
-      
-    axios.get('/data/admin/adminProductcategory.json')
-      .then((result) => {
-        setCateList(result.data);
       })
       .catch(console.err);
   };//handleToggle
 
-  //console.log(form);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
-  };
-
   /* 정보수정 */
   const handleSubmit = (e) => {
     e.preventDefault();
-    //console.log(form.pid);
     axios.put(`http://127.0.0.1:8000/admin/product/update/${form.pid}`, form)
       .then((result) => {
-        alert('상품정보 수정이 완료되었습니다')
-        setToggle(false);
-        //console.log(result.data);
+        if(result.data === 'ok'){
+          alert('상품정보 수정이 완료되었습니다');
+          window.location.reload();
+        }
       })
       .catch(console.err);
   };
 
-  const handleChangeSort = (e) => {
-    const { value } = e.target;
-    setValue(value)
-
-    // axios.get(`http://127.0.0.1:8000/admin/${startindex}/${endindex}/${value}`)
-    // .then((result)=>{
-    //   setmenuList(result.data)
-    // })
-  }
-
+  /* 상품등록 */
   const [register, setRegister] = useState(false);
   const handleRegister = (e) => {
-    const pid = e.target.dataset.id;
-    //alert(`${mid}`)
     if (register === false) {
-      setRegister(true)
+      setRegister(true);
     } else {
-      setRegister(false)
+      setRegister(false);
     }//if
-
-    // axios({
-    //   method: 'post',
-    //   url: `http://127.0.0.1:8000/admin/${mid}/`
-    // })
-    //   .then((result) => {
-    //     //alert(JSON.stringify(result))
-    //     setForm(result.data);
-    //   })
-    //   .catch(console.err);
-  };//handleUpdate
+  };//handleRegister
 
   const getImage = (e) => {
     setForm({ ...form, product_image: e })
+    setItemForm({ ...itemForm, product_image: e });
   }
 
+  /* 상품등록 */
   const handleSubmitReg = (e) => {
     e.preventDefault();
-    // axios({
-    //   method: 'post',
-    //   url: 'http://127.0.0.1:8000/admin/product/register/',
-    //   body: form
-    // })
-    //   .then((result) => {
-    //   })
-    //   .catch(console.err);
+
+    axios.post('http://127.0.0.1:8000/admin/product/register/', itemForm)
+      .then((result) => {
+        if(result.data === 'ok'){
+          alert('상품 등록이 완료되었습니다.');
+          window.location.reload();
+        }
+      })
+      .catch(console.err);
   };
 
+  const handleRemove = (e) => {
+    const pid = e.target.dataset.id;
+    axios.delete(`http://127.0.0.1:8000/admin/product/remove/${pid}`)
+    .then((result)=>{
+      if(result.data === 'ok'){
+        alert('삭제 완료');
+        window.location.reload();
+      }
+    })
+    .catch(console.err);
+  };
 
   return (
     <>
@@ -148,28 +145,47 @@ export default function AdminProduct() {
             <form className="admin_register_content" onSubmit={handleSubmitReg}>
               <div className="admin_register_contentwrap">
                 <div className="admin_register_contentbox">
-                  <label>상품명</label>
-                  <input type="text" name="product_name" value={form.product_name} onChange={handleChange} />
+                  <label>카테고리</label >
+                  <select name="category_id" id="" className="admin_product_category" onChange={handleChange} value={itemForm.category_id}>
+                    <option value="default">카테고리 선택</option>
+                    {cateList.map((list) =>
+                      <option value={list.category_id} key={list.category_name}>{list.category_name}</option>
+                    )}
+                  </select>
                 </div>
                 <div className="admin_register_contentbox">
                   <label>상품명</label>
-                  <input type="text" name="product_name" value={form.product_name} onChange={handleChange} />
+                  <textarea className="admin_update_productname" name="product_name" onChange={handleChange} value={itemForm.product_name} />
                 </div>
                 <div className="admin_register_contentbox">
-                  <label>상품이미지</label>
-                  <ImageUpload getImage={getImage} />
+                  <label>브랜드명</label>
+                  <input type="text" name="brand_name" onChange={handleChange} value={itemForm.brand_name} />
                 </div>
                 <div className="admin_register_contentbox">
-                  <label>정상가</label>
-                  <input type="number" name="price_origin" value={form.price_origin} onChange={handleChange} />
+                  <label>대표이미지</label>
+                  <ImageUpload getImage={getImage} value={itemForm.product_image} />
                 </div>
                 <div className="admin_register_contentbox">
-                  <label>할인가</label>
-                  <input type="number" name="price_sale" value={form.price_sale} onChange={handleChange} />
+                  <label>정상가(원)</label>
+                  <input type="text" name="price_origin" onChange={handleChange} value={itemForm.price_origin} />
                 </div>
                 <div className="admin_register_contentbox">
-                  <label>쿠폰할인</label>
-                  <input type="number" name="coupon_percent" value={form.coupon_percent} onChange={handleChange} />
+                  <label>할인율(%)</label>
+                  <input type="text" name="price_sale" onChange={handleChange} value={itemForm.price_sale} />
+                </div>
+                <div className="admin_register_contentbox">
+                  <label>쿠폰할인가</label>
+                  <div name="sale_price">{(Math.round(Math.round(itemForm.price_origin - (itemForm.price_origin * itemForm.price_sale / 100)) / 100) * 100).toLocaleString() + "원"}</div>
+                </div>
+                <div className="admin_register_contentbox">
+                  <label>배송비</label>
+                  <input className="checkbox" type="radio" name="tag_free" value={"1"} onChange={handleChange} /><span>무료배송</span>
+                  <input className="checkbox" type="radio" name="tag_free" value={"0"} checked={itemForm.tag_free === "0" ? true : false} onChange={handleChange} /><span>배송비별도</span>
+                </div>
+                <div className="admin_register_contentbox">
+                  <label>배송유형</label>
+                  <input className="checkbox" type="radio" name="delivery_type" value={""} checked={itemForm.delivery_type === "" ? true : false} onChange={handleChange} /><span>일반배송</span>
+                  <input className="checkbox" type="radio" name="delivery_type" value={"td"} onChange={handleChange} /><span>오늘출발</span>
                 </div>
               </div>
               <button className="admin_editbtn">등록완료</button>
@@ -221,7 +237,7 @@ export default function AdminProduct() {
                   <td>{menu.category_name}</td>
                   <td>{menu.product_name}</td>
                   <td>{menu.brand_name}</td>
-                  <td><img className="admin_image" src={menu.product_image} alt="" /></td>
+                  <td><img className="admin_image" src={menu.product_image.includes("https://") ? menu.product_image : `http://127.0.0.1:8000/${menu.product_image}`} alt="" /></td>
                   <td>{menu.price_origin.toLocaleString() + "원"}</td>
                   <td>{menu.price_sale && menu.price_sale + "%"}</td>
                   <td>{menu.sale_price + "원"}</td>
@@ -229,19 +245,20 @@ export default function AdminProduct() {
                   <td>{menu.pdate}</td>
                   <td>
                     <button className="admin_update_togglebtn" type="button" onClick={handleToggle} data-id={menu.pid}>수정</button>
-                    {/* <button className="admin_update_togglebtn" type="button">삭제</button> */}
+                    <button className="admin_update_togglebtn" type="button" onClick={handleRemove} data-id={menu.pid}>삭제</button>
                   </td>
                 </tr>
               )}
             </tbody>
           </table>
 
+          {/* 상품 정보 수정 */}
           <div className={toggle ? "admin_update_popup active" : "admin_update_popup"}>
             <p>정보 수정</p>
             <form className="admin_update_content" onSubmit={handleSubmit}>
               <div className="admin_update_contentwrap">
                 <div className="admin_update_contentbox">
-                  <label key={form.product_name}>카테고리</label >
+                  <label>카테고리</label >
                   <select name="category_id" id="" className="admin_product_category" onChange={handleChange} value={form.category_id}>
                     {cateList.map((list) =>
                       <option value={list.category_id} key={list.category_id}>{list.category_name}</option>
@@ -253,6 +270,11 @@ export default function AdminProduct() {
                   <textarea className="admin_update_productname" type="text" name="product_name" value={form.product_name} onChange={handleChange} />
                 </div>
                 <div className="admin_update_contentbox">
+                  <label>대표이미지</label>
+                  <img className="admin_update_image" src={form.product_image.includes("https://") ? form.product_image : (form.product_image === "" ? "" :  `http://127.0.0.1:8000/${form.product_image}`)} alt="상품이미지" />
+                  <ImageUpload getImage={getImage} value={form.product_image} />
+                </div>
+                <div className="admin_update_contentbox">
                   <label>정상가(원)</label>
                   <input type="text" name="price_origin" value={form.price_origin.toLocaleString()} onChange={handleChange} />
                 </div>
@@ -262,12 +284,12 @@ export default function AdminProduct() {
                 </div>
                 <div className="admin_update_contentbox">
                   <label>쿠폰할인가</label>
-                  <div name="sale_price">{Math.round(form.price_origin - (form.price_origin * form.price_sale / 100)).toLocaleString() + "원"}</div>
+                  <div name="sale_price">{(Math.round(Math.round(form.price_origin - (form.price_origin * form.price_sale / 100)) / 100) * 100).toLocaleString() + "원"}</div>
                 </div>
                 <div className="admin_update_contentbox">
                   <label>배송유형</label>
-                  <input className="checkbox" type="radio" name="delivery_type" value={""} checked={form.delivery_type === '' ? true : false} onChange={handleChange}/><span>일반배송</span>
-                  <input className="checkbox" type="radio" name="delivery_type" value={"td"} checked={form.delivery_type === "td" ? true : false} onChange={handleChange}/><span>오늘출발</span>
+                  <input className="checkbox" type="radio" name="delivery_type" value={""} checked={form.delivery_type === '' ? true : false} onChange={handleChange} /><span>일반배송</span>
+                  <input className="checkbox" type="radio" name="delivery_type" value={"td"} checked={form.delivery_type === "td" ? true : false} onChange={handleChange} /><span>오늘출발</span>
                 </div>
               </div>
               <button className="admin_editbtn">수정완료</button>
