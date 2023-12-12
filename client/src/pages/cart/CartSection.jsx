@@ -129,7 +129,7 @@ export default function CartSection() {
     }
     const newData = cartList.filter(item => checkedItems.includes(`${item.cart_id}`));
     axios.post(`http://127.0.0.1:8000/orders/neworder/${userInfo.id}`, [newData, totalPrice])
-      .then(result => { navigate('/orders') });
+      .then(result => { if(result.status === 204){navigate('/orders')}});
   }
 
 

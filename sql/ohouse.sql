@@ -12,9 +12,9 @@ drop table oh_community;
 drop table oh_product;
 drop table oh_category;
 drop table oh_member;
-
-
-
+delete from oh_order;
+delete from oh_pay;
+delete from oh_order_save;
 select * from oh_review;
 select * from oh_member;
 select * from oh_product;
@@ -23,17 +23,8 @@ select * from oh_review;
 select * from oh_community;
 select * from oh_order;
 select * from oh_pay;
+select * from oh_order_save;
 
-select oo.order_id, oc.cart_id, om.mid, oo.total_price, op.pid, oc.qty, om.nickname,op.category_id, op.product_image, op.brand_name, op.product_name, op.rating_avg, op.rating_review, op.price_sale, op.price_origin, op.tag_free, op.delivery_type 
-from oh_order oo, oh_cart oc, oh_member om, oh_product op where oo.cart_id = oc.cart_id and oc.pid = op.pid and oo.mid = om.mid and om.mid = '@';
-
-drop table oh_review;
-
-select hid,SUBSTRING_INDEX(oc.mid,'@',1) as mid,om.userimg,oc.house_img,oc.house_title,oc.house_content,om.mdate from oh_community oc inner join oh_member om on oc.mid = om.mid;
-
-select count(mid) as cntid, count(phone) as cnt, any_value(phone) as phone, any_value(left(phone,3))
-                as phoneleft, any_value(right(phone,2)) as phoneright
-                from oh_member where not phone like "% %";
 
 
 
@@ -45,6 +36,10 @@ update oh_product set price_sale = null,price_origin = 58900 where pid = 59;
 update oh_product set tag_free = 1;
 -- 관리자 계정 mid = @, pass = 1234, nickname = 관리자 insert
 -- oh_product 오류 수정
+
+drop table oh_order; -- oh_order 테이블 수정
+drop table oh_pay; -- create table oh_pay 테이블 삭제 후 다시 생성
+drop table oh_order_save; -- create table oh_order_save 테이블 삭제 후 다시 생성
 
 desc oh_member;
 select * from oh_member;
@@ -149,33 +144,33 @@ create table oh_pay(
     common_id varchar(50) primary key,
 	mid varchar(100),
     orderer_name varchar(20),
-    orderer_email varchar(20),
+    orderer_email varchar(50),
 	orderer_phone varchar(20),
 	reciever_place varchar(50),
 	reciever_name varchar(20),
 	reciever_phone varchar(20),
+    reciever_postnumber varchar(10),
 	reciever_address varchar(100),
 	reciever_request varchar(100),
-	payment varchar(10),
+	payment varchar(20),
+    card_bank varchar(30),
 	installment varchar(20),
 	last_pay_price int,
     paydate datetime,
 	constraint car_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
 );
-
 create table oh_order_save(
 	common_id varchar(50),
     osid varchar(20),
 	pid int,
     qty int,
     odate datetime,
-    total_price int,
+    unit_price int,
+    line_total int,
 	constraint order_save_common_id_pk primary key(common_id,osid),
     constraint order_save_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
     constraint order_save_common_id_fk foreign key(common_id) references oh_pay(common_id) on update cascade on delete cascade
 );
-insert into oh_order_save(common_id,osid) values(1,1);
-insert into oh_pay(common_id) values(1);
 create table oh_inquiry(
 
 	qid int auto_increment primary key not null, -- 문의id

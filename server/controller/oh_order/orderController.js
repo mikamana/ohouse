@@ -10,7 +10,6 @@ export async function postOrder(req,res){
   const mid = req.params.mid
   const total_price = req.body[1];
   const orderList = req.body[0]
-  console.log(orderList);
   const result = await orderRepository.postOrder(orderList,mid,total_price);
   if(result === 'success'){
     res.status(204).send('success')

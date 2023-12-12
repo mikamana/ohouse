@@ -8,17 +8,16 @@ import axios from "axios";
 import { getUser } from "../utill/sessionStorage";
 import { useNavigate } from "react-router-dom";
 
+import OrdersAdressBtn from "./components/OrdersAdressBtn";
 
-
-export default function OrderFormWrap({orderList,form,setForm}) {
+export default function OrderFormWrap({ orderList, form, setForm }) {
   const userInfo = getUser();
   const [display, setDisplay] = useState({ "mailbox": "order_invisible", "requestbox": "request_invisible" });
-  
-  const [domain, setDomain] = useState(false);
-/*   const [phead, setPhead] = useState('010'); */
   const [base, setBase] = useState(false);
   const [length, setLength] = useState(0);
   const [paytype, setPaytype] = useState('card');
+  const zonecodeBox = useRef(null);
+  const mainAdressBox = useRef(null);
   function isFocus(e) {
     const parent = e.target.parentNode
     parent.classList.add('active')
@@ -31,30 +30,24 @@ export default function OrderFormWrap({orderList,form,setForm}) {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
-    console.log(form);
     if (e.target.name === 'reciever_request') {
       const letters = e.target.value.split("");
       setLength(letters.length < 51 ? letters.length : 50)
     }
-    console.log(form);
-    console.log(e.target.value.length);
-    if(e.target.value.length < 1){
+    if (e.target.value.length < 1) {
       const parent = e.target.parentNode
       parent.classList.add('valcheck')
-    }else{
+    } else {
       const parent = e.target.parentNode
       parent.classList.remove('valcheck')
     }
   }
   const selectChange = (e) => {
     let { name, value } = e.target;
-    console.log(name,value);
     setForm({ ...form, [name]: value });
-    setDomain(true);
-    console.log(form);
     if (e.target.value !== 'selftype' && e.target.name === 'orderer_mail') {
       setDisplay({ ...display, mailbox: "order_invisible" })
-      setForm({ ...form, [name]: value,orderer_mail_self: '' })
+      setForm({ ...form, [name]: value, orderer_mail_self: '' })
       e.target.classList.remove('valcheck')
     }
     else if (e.target.value !== 'selftype' && e.target.name === 'reciever_request') {
@@ -70,30 +63,32 @@ export default function OrderFormWrap({orderList,form,setForm}) {
     }
 
   }
-  const handlePayType = (e) =>{
+  const handlePayType = (e) => {
     setPaytype(e.currentTarget.value)
-    console.log(e.currentTarget.parentNode.parentNode.childNodes);
-    e.currentTarget.parentNode.parentNode.childNodes.forEach((btn)=>{
+    if(e.currentTarget.value === 'card'){
+      setForm({...form,payment:e.currentTarget.value})
+
+    }else{
+      setForm({...form,payment:e.currentTarget.value,card_bank:''})
+    }
+    e.currentTarget.parentNode.parentNode.childNodes.forEach((btn) => {
       btn.classList.remove('selected')
     })
     e.currentTarget.parentNode.classList.add('selected')
   }
-/*   const selectPhone = (e) => {
-    let { value } = e.target;
-    setPhead(value)
-  } */
+  /*   const selectPhone = (e) => {
+      let { value } = e.target;
+      setPhead(value)
+    } */
 
-  const inputDomain = useRef(null);
   const navigate = useNavigate();
-  
-  useEffect(()=>{
-    if(!userInfo.id){
+
+  useEffect(() => {
+    if (!userInfo.id) {
       return navigate('/login')
     }
-    // axios.get(`http://127.0.0.1:8000/orders/${userInfo.id}`)
-    // .then(result => 'success')
-
-  },[])
+  }, [])
+  
 
   return (
     <div className="orders_form_wrap">
@@ -129,7 +124,7 @@ export default function OrderFormWrap({orderList,form,setForm}) {
                 </div>
                 <div className="orders_form_box_input_contents_box_email_mail_select_box">
                   <span className="orders_form_box_input_contents_box_email_mail_select_box_downarrow"><IoMdArrowDropdown /></span>
-                  <select className="orders_form_box_input_contents_box_email_mail_select" name="orderer_mail" id="orderer_mail" onChange={selectChange} ref={inputDomain}>
+                  <select className="orders_form_box_input_contents_box_email_mail_select" name="orderer_mail" id="orderer_mail" onChange={selectChange}>
                     <option value="default">선택해주세요</option>
                     <option value="naver.com">naver.com</option>
                     <option value="hanmail.net">hanmail.net</option>
@@ -166,7 +161,7 @@ export default function OrderFormWrap({orderList,form,setForm}) {
                 </div>
               </div>
               <div className="orders_form_box_input_contents_box_phone_body_wrap">
-                <input className="orders_form_box_input_phone" name="orderer_pbody" value={form.orderer_pbody ? form.orderer_pbody : ""} maxLength={20} onChange={handleChange} onFocus={isFocus} onBlur={isBlur} />
+                <input className="orders_form_box_input_phone" name="orderer_pbody" value={form.orderer_pbody ? form.orderer_pbody : ""} maxLength={8} onChange={handleChange} onFocus={isFocus} onBlur={isBlur} />
               </div>
             </div>
           </div>
@@ -219,27 +214,32 @@ export default function OrderFormWrap({orderList,form,setForm}) {
                 </div>
               </div>
               <div className="orders_form_box_input_contents_box_phone_body_wrap">
-                <input className="orders_form_box_input_phone" name="reciever_pbody" value={form.reciever_pbody ? form.reciever_pbody : ""} maxLength={20} onChange={handleChange} onFocus={isFocus} onBlur={isBlur} />
+                <input className="orders_form_box_input_phone" name="reciever_pbody" value={form.reciever_pbody ? form.reciever_pbody : ""} maxLength={8} onChange={handleChange} onFocus={isFocus} onBlur={isBlur} />
               </div>
             </div>
           </div>
         </div>
-
         <div className="orders_form_box_input_wrap">
           <div className="orders_form_box_input_title">주소</div>
           <div className="orders_form_box_input_contents_wrap">
             <div className="orders_form_box_input_contents_address_container">
               <div className="orders_form_box_input_contents_address_number_wrap">
-                <button className="orders_form_box_input_contents_address_search_btn" type="button">주소찾기</button>
+                <OrdersAdressBtn
+                setForm={setForm}
+                form={form}
+                zonecodeBox={zonecodeBox}
+                mainAdressBox={mainAdressBox}
+                />
+                {/* <button className="orders_form_box_input_contents_address_search_btn" type="button" onClick={()=>()}>주소찾기</button> */}
                 <div className="orders_form_box_input_contents_address_number_container">
-                  <div className="orders_form_box_input_contents_address_number_box">
-                    <input disabled className="orders_form_box_input_contents_address_number" type="text" />
+                  <div className="orders_form_box_input_contents_address_number_box" ref={zonecodeBox}>
+                    <input disabled className="orders_form_box_input_contents_address_number" type="text" name="reciever_address_zonecode" id="reciever_address_zonecode" value={form.reciever_address_zonecode ? form.reciever_address_zonecode : ""}/>
                   </div>
                 </div>
               </div>
               <div className="orders_form_box_input_contents_address_title_wrap">
-                <div className="orders_form_box_input_contents_address_title_container">
-                  <input type="text" disabled className="orders_form_box_input_contents_address_title" />
+                <div className="orders_form_box_input_contents_address_title_container" ref={mainAdressBox}>
+                  <input type="text" disabled className="orders_form_box_input_contents_address_title" name="reciever_address_main" id="reciever_address_main" value={form.reciever_address_main ? form.reciever_address_main : ""}/>
                 </div>
               </div>
               <div className="orders_form_box_input_contents_address_detail_wrap">
@@ -290,12 +290,12 @@ export default function OrderFormWrap({orderList,form,setForm}) {
           <h2 className="orders_form_box_title">주문상품</h2>
           <p className="orders_form_box_title_product_count">
             <span className="orders_form_box_title_product_count_span">
-              3건
+              {orderList.length}건
             </span>
           </p>
         </div>
         {
-          orderList.map(list=>
+          orderList.map(list =>
             <OrdersProductWrap
               brand_name={list.brand_name}
               product_image={list.product_image}
@@ -348,47 +348,47 @@ export default function OrderFormWrap({orderList,form,setForm}) {
             <div className="orders_form_box_payment_box">
 
               <div className="orders_form_box_payment selected">
-                <button className="orders_form_box_payment_btn" onClick={(e)=>handlePayType(e)} value='card' type="button" title="">
+                <button className="orders_form_box_payment_btn" onClick={(e) => handlePayType(e)} value='card' type="button" title="">
                   <span className="orders_form_box_payment_span">카드</span>
                   <img className="orders_form_box_payment_img" src="https://image.ohou.se/i/bucketplace-v2-development/pg/168311599350498640.png?w=72&h=72&c=c" alt="" />
                 </button>
               </div>
               <div className="orders_form_box_payment">
-                <button className="orders_form_box_payment_btn" onClick={(e)=>handlePayType(e)} value='bankbook' type="button" title="">
+                <button className="orders_form_box_payment_btn" onClick={(e) => handlePayType(e)} value='bankbook' type="button" title="">
                   <span className="orders_form_box_payment_span">무통장입금</span>
                   <img className="orders_form_box_payment_img" src="https://image.ohou.se/i/bucketplace-v2-development/pg/168311600677152970.png?w=72&h=72&c=c" alt="" />
                 </button>
               </div>
               <div className="orders_form_box_payment">
-                <button className="orders_form_box_payment_btn" onClick={(e)=>handlePayType(e)} value='kakao' type="button" title="">
+                <button className="orders_form_box_payment_btn" onClick={(e) => handlePayType(e)} value='kakao' type="button" title="">
                   <span className="orders_form_box_payment_span">카카오페이</span>
                   <img className="orders_form_box_payment_img" src="https://image.ohou.se/i/bucketplace-v2-development/pg/img_kakaopay.png?w=72&h=72&c=c" alt="" />
                   <span className="orders_form_box_payment_sale_span">1천원 즉시할인</span>
                 </button>
               </div>
               <div className="orders_form_box_payment">
-                <button className="orders_form_box_payment_btn" onClick={(e)=>handlePayType(e)} value='naver' type="button" title="">
+                <button className="orders_form_box_payment_btn" onClick={(e) => handlePayType(e)} value='naver' type="button" title="">
                   <span className="orders_form_box_payment_span">네이버페이</span>
                   <img className="orders_form_box_payment_img" src="https://image.ohou.se/i/bucketplace-v2-development/pg/img_naver.png?w=72&h=72&c=c" alt="" />
                   <span className="orders_form_box_payment_sale_span">최대2.5%적립</span>
                 </button>
               </div>
               <div className="orders_form_box_payment">
-                <button className="orders_form_box_payment_btn" onClick={(e)=>handlePayType(e)} value='payco' type="button" title="">
+                <button className="orders_form_box_payment_btn" onClick={(e) => handlePayType(e)} value='payco' type="button" title="">
                   <span className="orders_form_box_payment_span">페이코</span>
                   <img className="orders_form_box_payment_img" src="https://image.ohou.se/i/bucketplace-v2-development/pg/img_payco.png?w=72&h=72&c=c" alt="" />
                   <span className="orders_form_box_payment_sale_span">최대 1%적립</span>
                 </button>
               </div>
               <div className="orders_form_box_payment">
-                <button className="orders_form_box_payment_btn" onClick={(e)=>handlePayType(e)} value='toss' type="button" title="">
+                <button className="orders_form_box_payment_btn" onClick={(e) => handlePayType(e)} value='toss' type="button" title="">
                   <span className="orders_form_box_payment_span">토스</span>
                   <img className="orders_form_box_payment_img" src="https://image.ohou.se/i/bucketplace-v2-development/pg/img_toss_v2.png?w=72&h=72&c=c" alt="" />
                   <span className="orders_form_box_payment_sale_span">최대2천원적립</span>
                 </button>
               </div>
               <div className="orders_form_box_payment">
-                <button className="orders_form_box_payment_btn" onClick={(e)=>handlePayType(e)} value='phone' type="button" title="">
+                <button className="orders_form_box_payment_btn" onClick={(e) => handlePayType(e)} value='phone' type="button" title="">
                   <span className="orders_form_box_payment_span">핸드폰</span>
                   <img className="orders_form_box_payment_img" src="https://image.ohou.se/i/bucketplace-v2-development/pg/168311602265893776.png?w=72&h=72&c=c" alt="" />
                 </button>
@@ -398,6 +398,7 @@ export default function OrderFormWrap({orderList,form,setForm}) {
           </div>
           <OrdersPaymentDetail
             paytype={paytype}
+            selectChange={selectChange}
           />
         </div>
       </div>

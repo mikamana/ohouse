@@ -436,6 +436,9 @@
   margin-left: 10px;
   min-width: 0px;
 }
+.orders_form_box_input_contents_address_number_box.valcheck {
+  border: 1px solid rgb(255, 119, 119);
+}
 
 .orders_form_box_input_contents_address_number {
   width: 50px;
@@ -469,6 +472,9 @@
   margin-top: 10px;
   max-width: 570px;
   width: 100%;
+}
+.orders_form_box_input_contents_address_title_container.valcheck {
+  border: 1px solid rgb(255, 119, 119);
 }
 
 .orders_form_box_input_contents_address_title {
@@ -1333,4 +1339,34 @@
 }
 .orders_sidebar_total_payment_btn:hover {
   background-color: rgb(0, 159, 206);
+}
+
+.orders_sidebar_agreement_check_validation_wrap {
+  transition: height 300ms ease 0s;
+  height: 0px;
+  overflow: hidden;
+}
+.orders_sidebar_agreement_check_validation_wrap.open {
+  height: 28px;
+}
+
+.orders_sidebar_agreement_check_validation_container {
+  margin: 0;
+  padding: 0;
+}
+
+.orders_sidebar_agreement_check_validation_box {
+  font-size: 12px;
+  line-height: 16px;
+  color: rgb(240, 86, 86);
+  margin-left: 20px;
+  padding-bottom: 10px;
+}
+
+.orders_sidebar_agreement_check_validation_icon_span {
+  display: inline-block;
+  font-size: 18px;
+  line-height: 1;
+  vertical-align: middle;
+  margin-right: 6px;
 }/*# sourceMappingURL=orders.css.map */

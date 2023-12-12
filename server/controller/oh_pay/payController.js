@@ -3,8 +3,6 @@ import * as payRepository from '../../repository/oh_pay/payRepository.js'
 
 
 export async function postPay(req,res){
-  console.log(req.body);
-  console.log(req.params);
   const 
   {
     orderer_id,
@@ -17,17 +15,20 @@ export async function postPay(req,res){
     reciever_place,
     reciever_phead,
     reciever_pbody,
+    reciever_address_zonecode,
+    reciever_address_main,
     reciever_address_detail,
-    reciever_request
+    reciever_request,
+    payment,
+    card_bank,
+    installment
   } = req.body[0]
   const orderList = req.body[1]
-  const params = [`${orderer_id}@${orderer_mail_self === "" ? orderer_mail : orderer_mail_self}`,`${orderer_phead}${orderer_pbody}`,orderer_name,reciever_name,reciever_place,`${reciever_phead}${reciever_pbody}`,reciever_address_detail,reciever_request]
-  console.log(params);
-  console.log(orderList);
+  const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E5)
   const mid = req.params.mid
-  const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
-  const result = await payRepository.postPay(params,mid,orderList,uniqueSuffix);
-  // if(result === 'success'){
-    // res.status(204).send('success')
-  // }
+  const params = [uniqueSuffix,mid,`${orderer_id}@${orderer_mail_self === "" ? orderer_mail : orderer_mail_self}`,`${orderer_phead}${orderer_pbody}`,orderer_name,reciever_name,reciever_place,`${reciever_phead}${reciever_pbody}`,reciever_address_zonecode,`${reciever_address_main} ${reciever_address_detail}`,reciever_request,payment,card_bank,installment,orderList[0].total_price]
+  const result = await payRepository.postPay(params,orderList,uniqueSuffix,mid);
+  if(result === 'success'){
+    res.status(204).send('success')
+  }
 }

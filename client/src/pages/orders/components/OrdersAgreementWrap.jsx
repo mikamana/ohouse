@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { FaCheck } from 'react-icons/fa6';
 import { IoIosArrowDown } from "react-icons/io";
-
-export default function OrdersAgreementWrap({ paytype, base, setBase, orderList }) {
+import { IoIosWarning } from "react-icons/io";
+export default function OrdersAgreementWrap({ paytype, orderList ,setValidation,checkboxVal}) {
   const [rotateBtn1,setRotateBtn1] = useState(true);
   const [rotateBtn2,setRotateBtn2] = useState(true);
   const [checkList,setCheckList] = useState([]);
@@ -30,11 +30,11 @@ export default function OrdersAgreementWrap({ paytype, base, setBase, orderList 
   const allCheckedHandler = (e) => {
     if (e.target.checked) {
       setCheckedItems(checkList.map((item) => `${item}`))
+      // checkboxVal.current.classList.remove('open')
     } else {
       setCheckedItems([]);
     }
   }
-
   function listCheck() {
     if (checkList) {
       return checkedItems.length === checkList.length ? true : false
@@ -45,6 +45,13 @@ export default function OrdersAgreementWrap({ paytype, base, setBase, orderList 
     checkedItemHandler(e.target.id, e.target.checked);
   }
 
+useEffect(()=>{
+  setValidation(listCheck())
+  if(!checkboxVal){
+    return checkboxVal.current.classList = undefined
+  }
+  checkboxVal.current.classList.remove('open')
+},[listCheck()])
 
   function agreementType(paytype) {
     if (paytype === '') {
@@ -67,8 +74,15 @@ export default function OrdersAgreementWrap({ paytype, base, setBase, orderList 
               </span>
             </div>
           </div>
-          <div className='orders_sidebar_agreement_check_validation'>
-
+          <div className={`orders_sidebar_agreement_check_validation_wrap`} ref={checkboxVal}>
+            <div className='orders_sidebar_agreement_check_validation_container'>
+              <div className='orders_sidebar_agreement_check_validation_box'>
+                <span className='orders_sidebar_agreement_check_validation_icon_span'>
+                <IoIosWarning/>
+                </span>
+                "결제 진행 필수사항을 동의해주세요"
+              </div>
+            </div>
           </div>
           <div className='orders_sidebar_agreement_other_wrap'>
             <div className='orders_sidebar_agreement_other_container'>

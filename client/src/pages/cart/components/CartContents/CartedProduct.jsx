@@ -27,7 +27,7 @@ export default function CartedProduct({checkedItemHandler,checked,delivery_type,
     }
     setEndTime(handleEnd());
   },[])
-  const [calcQty,setCalcQty] = useState(parseInt(cartList.sale_price).toLocaleString())
+  const [calcQty,setCalcQty] = useState(parseInt(cartList.sale_price*cartList.qty).toLocaleString())
   function getCalcQty(sale_price,qty){
     setCalcQty(sale_price*qty)
   }
