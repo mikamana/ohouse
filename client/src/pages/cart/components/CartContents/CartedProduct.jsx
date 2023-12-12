@@ -15,6 +15,8 @@ export default function CartedProduct({checkedItemHandler,checked,delivery_type,
   const days = ["일", "월", "화", "수", "목", "금", "토"]
   const hours = now.getHours();
   let endTimeCheck = false
+  
+  
   useEffect(()=>{
     function handleEnd(){
       if(hours >= 14){
@@ -25,7 +27,10 @@ export default function CartedProduct({checkedItemHandler,checked,delivery_type,
     }
     setEndTime(handleEnd());
   },[])
-
+  const [calcQty,setCalcQty] = useState(parseInt(cartList.sale_price*cartList.qty).toLocaleString())
+  function getCalcQty(sale_price,qty){
+    setCalcQty(sale_price*qty)
+  }
   return(
       <div className="carted_product">
         <div className="carted_product_select">
@@ -72,10 +77,12 @@ export default function CartedProduct({checkedItemHandler,checked,delivery_type,
               price_origin={cartList.price_origin}
               sale_price={cartList.sale_price}
               price_change={cartList.price_change}
+              getCalcQty={getCalcQty}
               />
               <div className="carted_product_option_list_item_price">
                 <span className="carted_product_option_list_item_price_span">
-                  {cartList.sale_price}
+                  {/* {cartList.sale_price} */}
+                  {typeof(calcQty) === 'string' ? calcQty : calcQty.toLocaleString()}
                 </span>
               </div>
             </div>
