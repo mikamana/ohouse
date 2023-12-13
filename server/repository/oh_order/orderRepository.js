@@ -5,7 +5,8 @@ import { db } from "../../data/database.js";
 export async function getOrder(mid){
   const sql = `select oo.order_id, om.mid, oo.total_price, op.pid, oo.qty, om.nickname,op.category_id, op.product_image, op.brand_name, op.product_name, op.rating_avg, op.rating_review, op.price_sale, op.price_origin, op.tag_free, op.delivery_type, ifnull(round(op.price_origin - (op.price_origin * op.price_sale / 100),-2),op.price_origin) sale_price
   from oh_order oo, oh_member om, oh_product op where oo.pid = op.pid and oo.mid = om.mid and om.mid = ?;`
-  return db
+  db.execute('delete from oh_order where mid=?',[mid])
+  return await db
   .execute(sql,[mid])
   .then(result=>result[0])
 }

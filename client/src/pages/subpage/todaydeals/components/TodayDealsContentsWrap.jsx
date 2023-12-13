@@ -34,6 +34,7 @@ export default function TodayDealsContentsWrap() {
         list.map((list, idx) =>
           <ShopitemContents
             shopitemList={list}
+            timecount={true}
             key={idx}
           />
         )
