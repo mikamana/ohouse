@@ -38,11 +38,9 @@ import Orders from './pages/orders/Orders';
 import AdminMember from "./pages/admin/AdminMember";
 import AdminProduct from "./pages/admin/AdminProduct";
 import AdminOrder from "./pages/admin/AdminOrder";
-import AdminInquery from "./pages/admin/AdminInquery";
+import AdminInquiry from './pages/admin/AdminInquiry';
 import Interior3ds from './pages/subpage/interior3ds/Interior3ds';
 import EditPassword from './pages/user/EditPassword';
-import AdminContent from "./pages/admin/component/AdminContent";
-
 import CartEmptyPage from "./pages/cart/CartEmptyPage";
 
 const router = createBrowserRouter([
@@ -194,7 +192,7 @@ const router = createBrowserRouter([
       { path : '/admin/member', element : <AdminMember />},
       { path : '/admin/product', element : <AdminProduct /> },
       { path : '/admin/order', element : <AdminOrder /> },
-      { path : '/admin/inquery', element : <AdminInquery /> }
+      { path : '/admin/inquiry', element : <AdminInquiry /> }
     ]
   }
 ])

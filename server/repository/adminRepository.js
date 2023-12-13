@@ -155,3 +155,34 @@ export async function removeProduct(pid){
   return db.execute('delete from oh_product where pid = ?', [pid])
   .then(result => 'ok')
 }
+
+/* 문의리스트 조회 */
+export async function getInquiryList({value, startindex, endindex}){
+  let sql = '';
+  console.log(value);
+  if(value == 'N'){
+    sql = `select rno, qid, mid, pid, product_name, left(qdate,10) qdate, qtype, qcontent, acontent, secret_check, left(adate,10) adate from
+    (select row_number() over(order by q.qid) rno, qid, mid, q.pid, p.product_name, qdate, qtype, qcontent, acontent, secret_check, adate
+      from (select count(*) as total from oh_inquiry) as inquirys, oh_inquiry q inner join oh_product p on q.pid = p.pid) a
+        where rno between ? and ? and adate is null order by qdate asc`;
+  }else if (value == 'Y'){
+    sql = `select rno, qid, mid, pid, product_name, left(qdate,10) qdate, qtype, qcontent, acontent, secret_check, left(adate,10) adate from
+    (select row_number() over(order by q.qid) rno, qid, mid, q.pid, p.product_name, qdate, qtype, qcontent, acontent, secret_check, adate
+      from (select count(*) as total from oh_inquiry) as inquirys, oh_inquiry q inner join oh_product p on q.pid = p.pid) a
+        where rno between ? and ? and adate is not null order by qdate asc`;
+  }else if(value == 'default'){
+    sql = `select rno, qid, mid, pid, product_name, left(qdate,10) qdate, qtype, qcontent, acontent, secret_check, left(adate,10) adate from
+    (select row_number() over(order by q.qid) rno, qid, mid, q.pid, p.product_name, qdate, qtype, qcontent, acontent, secret_check, adate
+      from (select count(*) as total from oh_inquiry) as inquirys, oh_inquiry q inner join oh_product p on q.pid = p.pid) a
+        where rno between ? and ? order by qdate asc`;
+  }
+  return db.execute(sql, [startindex, endindex])
+  .then(rows => rows[0])
+}
+
+/* 답변등록 */
+export async function updateInquiry({qid, acontent}){
+  const sql = 'update oh_inquiry set acontent = ?, adate = sysdate() where qid = ?';
+  return db.execute(sql, [acontent, qid])
+  .then(result => 'ok')
+}

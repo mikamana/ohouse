@@ -65,3 +65,19 @@ export async function removeProduct(req,res){
   const result = await repository.removeProduct(pid)
   res.json(result);
 };
+
+/* 문의리스트 조회 */
+export async function getInquiryList(req,res){
+  const {value, startindex, endindex} = req.params;
+  console.log({value, startindex, endindex});
+  const result = await repository.getInquiryList({value, startindex, endindex});
+  res.json(result)
+}
+
+/* 답변등록 */
+export async function updateInquiry(req,res){
+  const qid = req.params.qid;
+  const { acontent } = req.body;
+  const result = await repository.updateInquiry({qid, acontent})
+  res.json(result)
+}

@@ -7,7 +7,7 @@ const router = express.Router();
 router.get('/member/:startindex/:endindex/:value',controller.getMemberList);
 router.get('/product/:startindex/:endindex/:value',controller.getProductList);
 router.get('/order/:startindex/:endindex/:value',controller.getMemberList);
-router.get('/inquery/:startindex/:endindex/:value',controller.getMemberList);
+router.get('/inquiry/:startindex/:endindex/:value',controller.getInquiryList);
 
 /* 정보 조회 */
 router.get('/member/:mid',controller.getMember);
@@ -16,6 +16,7 @@ router.get('/product/:pid',controller.getProduct);
 /* 정보 수정 */
 router.put('/update',controller.updateMember);
 router.put('/product/update/:pid',controller.updateProduct);
+router.put('/inquiry/update/:qid',controller.updateInquiry);
 
 /* 정보 등록 */
 router.post('/product/register',controller.insertProduct);

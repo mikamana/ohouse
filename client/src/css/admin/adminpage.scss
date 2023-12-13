@@ -233,6 +233,15 @@ div.admin_section {
             background-color: var(--gray);
             cursor: pointer;
           }
+          &.admin_inquiry_answer{
+            display: none;
+            &.active{
+              display: table-row;
+            }
+          }
+          &.admin_inquiry_tr{
+            border-bottom: 2px solid #35c5f0;
+          }
           td {
             padding: 10px 0;
             width: 80px;
@@ -246,6 +255,39 @@ div.admin_section {
             }
             &:nth-of-type(3) {
               width: 300px;
+            }
+            &.admin_inquiry_name {
+              width: 150px;
+            }
+            &.admin_inquiry_content {
+              width: 300px;
+            }
+            &.admin_inquiry_td {
+              height: 100px;
+              span {
+                margin-right: 10px;
+                vertical-align: top;
+              }
+              textarea {
+                padding: 5px;
+                outline: none;
+                resize: none;
+                border: 1px solid rgb(218, 221, 224);
+                border-radius: 6px;
+                box-shadow: rgba(63, 71, 77, 0.2) 0px 4px 10px 0px;
+              }
+              button {
+                margin-left: 10px;
+                line-height: 55px;
+                vertical-align: top;
+                font-weight: 700;
+                font-size: 17px;
+                color: #fff;
+                background-color: #35c5f0;
+                border: none;
+                border-radius: 4px;
+                box-sizing: border-box;
+              }
             }
             img.admin_userimg {
               width: 30px;
@@ -322,7 +364,7 @@ div.admin_section {
               border: 1px solid rgb(218, 221, 224);
               border-radius: 6px;
             }
-            input:not(input[type=file]) {
+            input:not(input[type="file"]) {
               display: block;
               padding: 0 15px;
               width: 368px;
@@ -340,10 +382,10 @@ div.admin_section {
                 font-size: 10px;
               }
             }
-            input[type=file]{
+            input[type="file"] {
               width: 100px;
               font-size: 0px;
-              &::file-selector-button{
+              &::file-selector-button {
                 margin-left: 10px;
                 font-size: 15px;
               }
@@ -351,7 +393,7 @@ div.admin_section {
             span {
               margin-right: 5px;
             }
-            .admin_update_image{
+            .admin_update_image {
               width: 100px;
             }
           } //div.admin_update_contentbox

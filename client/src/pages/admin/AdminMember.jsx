@@ -127,7 +127,7 @@ export default function AdminMember() {
           <table className="admin_table">
             <thead>
               <tr>
-                <th>NO.</th>
+                <th>No.</th>
                 <th>닉네임</th>
                 <th>아이디</th>
                 <th>생일</th>
