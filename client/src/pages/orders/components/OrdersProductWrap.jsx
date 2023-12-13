@@ -27,7 +27,7 @@ export default function OrdersProductWrap(props) {
           <p className='orders_product_contents_text_title'>{props.product_name}</p>
           <p className='orders_product_contents_text_option'>단일 상품</p>
           <p className='orders_product_contents_text_price'>
-            {parseInt(props.sale_price).toLocaleString()}원
+            {parseInt(props.sale_price*props.qty).toLocaleString()}원
             <span className='orders_product_contents_text_price_span'>{props.qty}개</span>
           </p>
         </div>
