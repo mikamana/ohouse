@@ -81,3 +81,11 @@ export async function updateInquiry(req,res){
   const result = await repository.updateInquiry({qid, acontent})
   res.json(result)
 }
+
+/* 주문리스트 조회 */
+export async function getOrderList(req,res){
+  const {value, startindex, endindex} = req.params;
+  console.log({value, startindex, endindex});
+  const result = await repository.getOrderList({value, startindex, endindex})
+  res.json(result)
+}

@@ -6,7 +6,7 @@ const router = express.Router();
 /* 전체 리스트 조회 */
 router.get('/member/:startindex/:endindex/:value',controller.getMemberList);
 router.get('/product/:startindex/:endindex/:value',controller.getProductList);
-router.get('/order/:startindex/:endindex/:value',controller.getMemberList);
+router.get('/order/:startindex/:endindex/:value',controller.getOrderList);
 router.get('/inquiry/:startindex/:endindex/:value',controller.getInquiryList);
 
 /* 정보 조회 */

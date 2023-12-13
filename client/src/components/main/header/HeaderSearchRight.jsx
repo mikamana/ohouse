@@ -59,7 +59,7 @@ export default function HeaderSearchRight() {
     }
   };
   {/* 추가작업부분 끝 */ }
-  const [cartCnt, setCartCnt] = useState();
+  const [cartCnt, setCartCnt] = useState(null);
   useEffect(() => {
 
     if (userInfo) {

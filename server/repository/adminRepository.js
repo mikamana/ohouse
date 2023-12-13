@@ -186,3 +186,10 @@ export async function updateInquiry({qid, acontent}){
   return db.execute(sql, [acontent, qid])
   .then(result => 'ok')
 }
+
+/* 주문리스트 조회 */
+export async function getOrderList({value, startindex, endindex}){
+  const sql = 'select row_number() over(order by orderer_name) as rno, pay.common_id, orderer_name, orderer_phone, left(odate,10) odate, p.product_name, qty, line_total, paydate, payment, reciever_address from oh_pay pay, oh_order_save o, oh_product p where pay.common_id=o.common_id and o.pid = p.pid';
+  return db.execute(sql,[value, startindex, endindex])
+  .then(rows=>rows[0])
+}

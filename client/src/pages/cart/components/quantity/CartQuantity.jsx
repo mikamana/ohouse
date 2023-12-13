@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FiMinus, FiPlus } from "react-icons/fi";
 // 오늘의집에는 button이 클릭이 가능하고, 클릭하면 수량을 바꾸는 모달이 뜨는데 이를 구현하지는 않을 예정
-export default function CartQuantity({ cart_id, getQty, qty, price_origin, sale_price, price_change }) {
+export default function CartQuantity({ cart_id, getQty, qty, price_origin, sale_price, price_change, getCalcQty }) {
   let itemQty;
   (qty === undefined) ? itemQty = 1 : itemQty = qty;
   let [count, setCount] = useState(itemQty)
@@ -13,6 +13,7 @@ export default function CartQuantity({ cart_id, getQty, qty, price_origin, sale_
       } else {
         setCount(--count)
         qtyFlag = true;
+        getCalcQty(sale_price,count)
       }
     } else {
       if (count >= 10) {
@@ -20,6 +21,7 @@ export default function CartQuantity({ cart_id, getQty, qty, price_origin, sale_
       } else {
         setCount(++count)
         qtyFlag = true;
+        getCalcQty(sale_price,count)
       }
     }
     getQty({ qty: count, cart_id: cart_id, checkFlag: checkFlag, qtyFlag, qtyFlag, price_origin: price_origin, sale_price: sale_price, price_change: price_change });

@@ -289,6 +289,12 @@ div.admin_section {
                 box-sizing: border-box;
               }
             }
+            &.admin_order_td{
+              width: 100px;
+            }
+            &.admin_order_product{
+              width: 200px;
+            }
             img.admin_userimg {
               width: 30px;
             }

@@ -112,31 +112,28 @@ export default function AdminOrder() {
           <table className="admin_table">
             <thead>
               <tr>
-                <th>번호</th>
-                <th>회원이름</th>
-                <th>회원아이디</th>
-                <th>휴대폰번호</th>
-                <th>생일</th>
-                <th>가입일시</th>
-                <th>주문건수</th>
-                <th>리뷰수</th>
-                <th>비고</th>
+                <th>No.</th>
+                <th>주문번호</th>
+                <th>주문일</th>
+                <th>주문고객 / 연락처</th>
+                <th>상품명</th>
+                <th>총 수량</th>
+                <th>총 주문금액</th>
+                <th>배송지정보</th>
               </tr>
             </thead>
             <tbody>
-              {list.map((member) =>
-                <tr key={member.mid}>
-                  <td>{member.rno}</td>
-                  <td>{member.nickname}</td>
-                  <td>{member.mid}</td>
-                  <td>{member.phone}</td>
-                  <td>{member.birthday}</td>
-                  <td>{member.mdate}</td>
-                  <td>{member.count_order}</td>
-                  <td>{member.count_review}</td>
-                  <td>
-                    <button className="admin_update_togglebtn" type="button" onClick={handleToggle} data-id={member.mid}>정보수정</button>
-                  </td>
+                {/* select row_number() over(order by orderer_name) as rno, p.common_id, orderer_name, orderer_phone, odate, qty, line_total, paydate, payment, reciever_address from oh_pay p, oh_order_save o where p.common_id=o.common_id; */}
+              {list.map((menu) =>
+                <tr key={menu.mid}>
+                  <td>{menu.rno}</td>
+                  <td className="admin_order_td">{menu.common_id}</td>
+                  <td>{menu.odate}</td>
+                  <td className="admin_order_td2">{menu.orderer_name}<br></br> {menu.orderer_phone}</td>
+                  <td>{menu.product_name}</td>
+                  <td>{menu.qty}</td>
+                  <td>{menu.line_total}</td>
+                  <td className="admin_order_td">{menu.reciever_address}</td>
                 </tr>
               )}
             </tbody>

@@ -8,7 +8,10 @@
  show grants for 'root'@'127.0.0.1';
  commit;
  
-drop table oh_pay;
+
+
+drop table oh_order_save;
+drop table oh_pay; 
 drop table oh_order;
 drop table oh_cart;
 drop table oh_review;
@@ -17,7 +20,11 @@ drop table oh_community;
 drop table oh_product;
 drop table oh_category;
 drop table oh_member;
+drop table oh_inquiry;
 
+delete from oh_order;
+delete from oh_pay;
+delete from oh_order_save;
 
 select * from oh_review;
 select * from oh_member;
@@ -25,14 +32,10 @@ select * from oh_product;
 select * from oh_cart;
 select * from oh_review;
 select * from oh_community;
-
-drop table oh_review;
-
-select hid,SUBSTRING_INDEX(oc.mid,'@',1) as mid,om.userimg,oc.house_img,oc.house_title,oc.house_content,om.mdate from oh_community oc inner join oh_member om on oc.mid = om.mid;
-
-select count(mid) as cntid, count(phone) as cnt, any_value(phone) as phone, any_value(left(phone,3))
-                as phoneleft, any_value(right(phone,2)) as phoneright
-                from oh_member where not phone like "% %";
+select * from oh_order;
+select * from oh_pay;
+select * from oh_order_save;
+select * from oh_inquiry;
 
 /*
 	업데이트 필요한 사항들
@@ -42,6 +45,10 @@ update oh_product set price_sale = null,price_origin = 58900 where pid = 59;
 update oh_product set tag_free = 1;
 -- 관리자 계정 mid = @, pass = 1234, nickname = 관리자 insert
 -- oh_product 오류 수정
+
+drop table oh_order; -- oh_order 테이블 수정
+drop table oh_pay; -- create table oh_pay 테이블 삭제 후 다시 생성
+drop table oh_order_save; -- create table oh_order_save 테이블 삭제 후 다시 생성
 
 create view oh_member_view  as
 select rno, mid, nickname, userimg, phone, homepage, gender, birthday, left(mdate,19) as mdate, total, count_review, count_order from
@@ -69,6 +76,10 @@ select rno, pid, total, category_name, product_image, brand_name, product_name, 
     where rno between ? and ? order by product_name asc;
     
      ifnull(format(round(p.price_origin - (p.price_origin * p.price_sale / 100),-2),0),format(p.price_origin,0)) sale_price
+     
+drop table oh_order; -- oh_order 테이블 수정
+drop table oh_pay; -- create table oh_pay 테이블 삭제 후 다시 생성
+drop table oh_order_save; -- create table oh_order_save 테이블 삭제 후 다시 생성
 
 desc oh_member;
 select * from oh_member;
@@ -161,38 +172,40 @@ create table oh_cart(
 );
 create table oh_order(
 	order_id int auto_increment primary key,
-    cart_id int,
+    pid int,
+    qty int,
     mid varchar(20) not null,
     odate datetime,
     total_price int,
-    constraint order_cart_id_fk foreign key(cart_id) references oh_cart(cart_id) on update cascade on delete cascade,
+    constraint order_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
     constraint order_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
 );
 create table oh_pay(
     common_id varchar(50) primary key,
 	mid varchar(100),
     orderer_name varchar(20),
-    orderer_email varchar(20),
+    orderer_email varchar(50),
 	orderer_phone varchar(20),
 	reciever_place varchar(50),
 	reciever_name varchar(20),
 	reciever_phone varchar(20),
+    reciever_postnumber varchar(10),
 	reciever_address varchar(100),
 	reciever_request varchar(100),
-	payment varchar(10),
+	payment varchar(20),
+    card_bank varchar(30),
 	installment varchar(20),
 	last_pay_price int,
     paydate datetime,
 	constraint car_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
 );
-
 create table oh_order_save(
 	common_id varchar(50),
     osid varchar(20),
 	pid int,
     qty int,
     odate datetime,
-	unit_price int,
+    unit_price int,
     line_total int,
 	constraint order_save_common_id_pk primary key(common_id,osid),
     constraint order_save_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
@@ -214,9 +227,6 @@ create table oh_inquiry(
     constraint oh_inquery_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade
     
 );
-
-
-
 -- oh_category insert
 insert into oh_category (category_name) values("크리스마스");
 insert into oh_category (category_name) values("겨울용품");

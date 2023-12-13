@@ -288,6 +288,12 @@ div.admin_section div.admin_content table.admin_table tbody tr td.admin_inquiry_
   border-radius: 4px;
   box-sizing: border-box;
 }
+div.admin_section div.admin_content table.admin_table tbody tr td.admin_order_td {
+  width: 100px;
+}
+div.admin_section div.admin_content table.admin_table tbody tr td.admin_order_product {
+  width: 200px;
+}
 div.admin_section div.admin_content table.admin_table tbody tr td img.admin_userimg {
   width: 30px;
 }

@@ -39,6 +39,7 @@ export default function ProductionCartBtn(props) {
         if (cartClick) {
 
           navigate(`/cart/${userInfo.id}`)
+          window.location.reload()
 
         } else {
 
