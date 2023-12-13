@@ -89,6 +89,9 @@ export default function OrderFormWrap({ orderList, form, setForm }) {
     }
   }, [])
   
+  const handleClick = (e)=>{
+    setForm({...form,reciever_name:form.orderer_name,reciever_pbody:form.orderer_pbody})
+  }
 
   return (
     <div className="orders_form_wrap">
@@ -172,7 +175,7 @@ export default function OrderFormWrap({ orderList, form, setForm }) {
       <div className="orders_form_box">
         <div className="orders_form_box_title_wrap">
           <h2 className="orders_form_box_title">배송지</h2>
-          <button type="button" className="orders_form_box_same_btn">
+          <button type="button" className="orders_form_box_same_btn" onClick={(e)=>handleClick(e)}>
             위와 동일하게 채우기
           </button>
         </div>

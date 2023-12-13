@@ -1,0 +1,36 @@
+.todaydeals_wrap {
+  max-width: 1256px;
+  margin: 0px auto;
+  padding: 0px 60px;
+  box-sizing: border-box;
+  padding-bottom: 30px;
+}
+
+.todaydeals_title {
+  font-size: 32px;
+  line-height: 42px;
+  font-weight: 700;
+  color: rgb(47, 52, 56);
+  margin: 40px 0px 10px;
+}
+
+.todaydeals_span {
+  font-size: 16px;
+  line-height: 20px;
+  color: rgb(130, 140, 148);
+  margin-bottom: 30px;
+  display: block;
+}
+
+.todaydeals_contents_wrap {
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.observe_line {
+  position: absolute;
+  bottom: 0;
+}/*# sourceMappingURL=todaydeals.css.map */
