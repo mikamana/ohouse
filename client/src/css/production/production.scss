@@ -130,7 +130,7 @@ section.production_selling_wrap {
                   width: 20%;
                   display: flex;
                   justify-content: flex-end;
-                  a.production_selling_scrap_icon {
+                  button.production_selling_scrap_icon {
                     margin-left: 10px;
                     &.active svg.icon--stroke path {
                       fill: #35c5f0;
@@ -1295,3 +1295,34 @@ div.production_quiry_modal_wrap {
     }
   }
 }
+
+button.production_selling_scrap_icon {
+  border: none;
+  background: none;
+  margin-left: 10px;
+  &.active svg.icon--stroke path {
+    fill: #35c5f0;
+    stroke: none;
+  }
+  svg.icon--stroke {
+    path {
+      &:hover {
+        stroke: rgb(145, 145, 145);
+      }
+      color: rgb(0, 0, 0);
+      fill: rgb(255, 255, 255);
+    }
+  }
+  svg.icon {
+    &:hover {
+      fill: rgb(145, 145, 145);
+    }
+    color: rgb(0, 0, 0);
+    fill: rgb(117, 117, 117);
+  }
+  span {
+    display: block;
+    font-size: 12px;
+    text-align: center;
+  }
+} // 스크랩버튼

@@ -122,28 +122,28 @@ section.production_selling_wrap div.production_selling_inner div.production_sell
   display: flex;
   justify-content: flex-end;
 }
-section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div a.production_selling_scrap_icon {
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div button.production_selling_scrap_icon {
   margin-left: 10px;
 }
-section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div a.production_selling_scrap_icon.active svg.icon--stroke path {
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div button.production_selling_scrap_icon.active svg.icon--stroke path {
   fill: #35c5f0;
   stroke: none;
 }
-section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div a.production_selling_scrap_icon svg.icon--stroke path {
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div button.production_selling_scrap_icon svg.icon--stroke path {
   color: rgb(0, 0, 0);
   fill: rgb(255, 255, 255);
 }
-section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div a.production_selling_scrap_icon svg.icon--stroke path:hover {
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div button.production_selling_scrap_icon svg.icon--stroke path:hover {
   stroke: rgb(145, 145, 145);
 }
-section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div a.production_selling_scrap_icon svg.icon {
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div button.production_selling_scrap_icon svg.icon {
   color: rgb(0, 0, 0);
   fill: rgb(117, 117, 117);
 }
-section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div a.production_selling_scrap_icon svg.icon:hover {
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div button.production_selling_scrap_icon svg.icon:hover {
   fill: rgb(145, 145, 145);
 }
-section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div a.production_selling_scrap_icon span {
+section.production_selling_wrap div.production_selling_inner div.production_selling_container div.production_selling_container_right ul.production_selling_container_info_list li.production_selling_container_info_list_li:nth-child(2) h4.production_selling_info_title p.production_selling_info_title_div button.production_selling_scrap_icon span {
   display: block;
   font-size: 12px;
   text-align: center;
@@ -1224,4 +1224,33 @@ div.production_quiry_modal_wrap div.production_quiry_modal button.production_qui
   color: #fff;
   font-size: 20px;
   font-weight: bold;
+}
+
+button.production_selling_scrap_icon {
+  border: none;
+  background: none;
+  margin-left: 10px;
+}
+button.production_selling_scrap_icon.active svg.icon--stroke path {
+  fill: #35c5f0;
+  stroke: none;
+}
+button.production_selling_scrap_icon svg.icon--stroke path {
+  color: rgb(0, 0, 0);
+  fill: rgb(255, 255, 255);
+}
+button.production_selling_scrap_icon svg.icon--stroke path:hover {
+  stroke: rgb(145, 145, 145);
+}
+button.production_selling_scrap_icon svg.icon {
+  color: rgb(0, 0, 0);
+  fill: rgb(117, 117, 117);
+}
+button.production_selling_scrap_icon svg.icon:hover {
+  fill: rgb(145, 145, 145);
+}
+button.production_selling_scrap_icon span {
+  display: block;
+  font-size: 12px;
+  text-align: center;
 }/*# sourceMappingURL=production.css.map */
