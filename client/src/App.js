@@ -143,24 +143,6 @@ const router = createBrowserRouter([
             <Orders />
           </Contents>
       },
-/*       {
-        path: '/users/edit', element:
-          <Contents>
-            <Edit />
-          </Contents>
-      }, */
-/*       {
-        path: '/users/editpassword', element:
-          <Contents>
-            <EditPassword />
-          </Contents>
-      }, */
-      /* {
-        path: '/users/withdrawals', element:
-          <Contents>
-            <Withdrawals />
-          </Contents>
-      }, */
       {
         path: '/interior3ds', element:
           <Contents>
