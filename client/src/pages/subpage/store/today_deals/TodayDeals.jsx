@@ -1,9 +1,8 @@
 import React from 'react';
-import '../../../css/sub/store/todaydeals/todaydeals.css'
+import '../../../../css/sub/store/todaydeals/todaydeals.css'
 import TodayDealsContentsWrap from './components/TodayDealsContentsWrap';
 export default function TodayDeals() {
   return (
-    <>
       <div className='todaydeals_section'>
         <div className='todaydeals_wrap'>
           <h1 className='todaydeals_title'>오늘의딜</h1>
@@ -11,7 +10,6 @@ export default function TodayDeals() {
           <TodayDealsContentsWrap/>
         </div>
       </div>
-    </>
   );
 }
 

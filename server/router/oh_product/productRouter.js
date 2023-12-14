@@ -8,4 +8,6 @@ router.get("/popular/:page", controller.getPopular)
 router.get("/bestitem", controller.getBestitem)
 router.get("/bestitem/:category_id", controller.getCategoryList)
 router.get("/todaydeals/:page", controller.getInfiniteItem)
+router.get("/ranks/:best", controller.getRanksItem)
+router.get("/ranks/category/:category_id", controller.getCategoryRankItem)
 export default router;
