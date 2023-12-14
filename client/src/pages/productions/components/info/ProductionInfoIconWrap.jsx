@@ -1,8 +1,52 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { getUser } from "../../../utill/sessionStorage";
 
 export default function ProductionInfoIconWrap() {
   const [toggle, setToggle] = useState(false);
+  const params = useParams();
+  const userInfo = getUser();
+
+
+  useEffect(() => {
+
+    axios({
+
+      method: "get",
+      url: `http://127.0.0.1:8000/scrap/product/${params.pid}`
+
+    }).then((result) => {
+
+      console.log(result);
+
+    })
+
+  }, [])
+
+  useEffect(() => {
+
+
+    if (toggle === true) {
+
+      axios({
+
+        method: "post",
+        url: `http://127.0.0.1:8000/scrap/product`,
+        data: { pid: params.pid, mid: userInfo.id }
+      }).then((result) => {
+
+        console.log(result);
+
+      })
+    }
+
+
+
+  }, [toggle])
+
+
+
 
   return (
 

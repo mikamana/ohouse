@@ -1,0 +1,22 @@
+div.mypage_wrap nav.mypage_gnb {
+  border-bottom: 1px solid var(--headerBorder);
+  height: 60px;
+}
+div.mypage_wrap nav.mypage_gnb div.mypage_inner {
+  display: flex;
+  justify-content: center;
+}
+div.mypage_wrap nav.mypage_gnb div.mypage_inner ul.mypage_gnb_list {
+  display: flex;
+  align-items: center;
+}
+div.mypage_wrap nav.mypage_gnb div.mypage_inner ul.mypage_gnb_list li.mypage_gnb_li a.mypage_gnb_link {
+  font-size: 18px;
+  color: #424242;
+  font-weight: bold;
+  display: block;
+  padding: 20px;
+}
+div.mypage_wrap nav.mypage_gnb div.mypage_inner ul.mypage_gnb_list li.mypage_gnb_li a.mypage_gnb_link.active {
+  color: #00bbff;
+}/*# sourceMappingURL=mypage.css.map */

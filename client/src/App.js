@@ -41,10 +41,10 @@ import AdminOrder from "./pages/admin/AdminOrder";
 import AdminInquery from "./pages/admin/AdminInquery";
 import Interior3ds from './pages/subpage/interior3ds/Interior3ds';
 import EditPassword from './pages/user/EditPassword';
-import AdminContent from "./pages/admin/component/AdminContent";
-
 import CartEmptyPage from "./pages/cart/CartEmptyPage";
-import TodayDeals from "./pages/subpage/todaydeals/TodayDeals";
+import Users from "./pages/user/Users";
+import Profile from "./pages/user/components/Profile";
+
 
 const router = createBrowserRouter([
 
@@ -143,24 +143,24 @@ const router = createBrowserRouter([
             <Orders />
           </Contents>
       },
-      {
-        path: '/edit', element:
+/*       {
+        path: '/users/edit', element:
           <Contents>
             <Edit />
           </Contents>
-      },
-      {
-        path: '/editpassword', element:
+      }, */
+/*       {
+        path: '/users/editpassword', element:
           <Contents>
             <EditPassword />
           </Contents>
-      },
-      {
-        path: '/withdrawals', element:
+      }, */
+      /* {
+        path: '/users/withdrawals', element:
           <Contents>
             <Withdrawals />
           </Contents>
-      },
+      }, */
       {
         path: '/interior3ds', element:
           <Contents>
@@ -168,11 +168,48 @@ const router = createBrowserRouter([
           </Contents>
       },
       {
-        path: '/store/todaydeals', element:
+        path:'/users', 
+        element:
           <Contents>
-            <TodayDeals/>
+            <Users />            
           </Contents>
       },
+      {
+        path:"/users/profile",
+        element:
+        <Contents>
+          <Users>
+            <Profile/>
+          </Users>
+        </Contents>
+      },
+      {
+        path:"/users/edit",
+        element:
+        <Contents>
+          <Users>
+            <Edit/>
+          </Users>
+        </Contents>
+      },
+      {
+        path:"/users/editpassword",
+        element:
+        <Contents>
+          <Users>
+            <EditPassword />
+          </Users>
+        </Contents>
+      },
+      {
+        path:"/users/withdrawals",
+        element:
+        <Contents>
+          <Users>
+            <Withdrawals />
+          </Users>
+        </Contents>
+      }
     ]
   },
   {
@@ -197,11 +234,11 @@ const router = createBrowserRouter([
     path: '/admin', 
     element: <Adminpage />,
     children : [
-      { path : '/admin', element : <AdminContent />},
-      { path : '/admin/:category', element : <AdminContent />},
-      /*{ path : '/admin/product', element : <AdminProduct /> },
-      { path : '/admin/:category', element : <AdminOrder /> },
-      { path : '/admin/:category', element : <AdminInquery /> } */
+      { path : '/admin', element : <AdminMember />},
+      { path : '/admin/member', element : <AdminMember />},
+      { path : '/admin/product', element : <AdminProduct /> },
+      { path : '/admin/order', element : <AdminOrder /> },
+      { path : '/admin/inquiry', element : <AdminInquery /> }
     ]
   }
 ])
