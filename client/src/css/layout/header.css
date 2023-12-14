@@ -644,7 +644,7 @@ div.header_logo_searchBox_loginver input.header_logo_search::placeholder {
       width: 40px;
     }
   }
-}
+} //div.header_logo_right
  */
 /* 로그인 후 헤더 메뉴 (react-icon 설정)*/
 div.header_logo_right_loginver {
@@ -698,6 +698,8 @@ div.header_logo_right_loginver button.header_logo_profile:hover {
 }
 div.header_logo_right_loginver button.header_logo_profile img.header_logo_profile_icon {
   width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 div.header_logo_right_loginver div.header_nav_popup_profile {
   position: absolute;

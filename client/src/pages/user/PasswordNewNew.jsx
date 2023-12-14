@@ -15,40 +15,48 @@ export default function PasswordNewNew(){
   const navigate = useNavigate();
   const inputPass = useRef(null);
   const inputPassCheck = useRef(null);
+  const passRegExp = /^.*(?=^.{8,14}$)(?=.*\d)(?=.*[a-zA-Z]).*$/;
 
   const handleChange = (e) => {
     const {name, value} = e.target;
     setForm({...form, [name] : value});
+
+    if(name === "pass" && value.match(passRegExp) == null){
+      setPassText("확인을 위해 비밀번호를 한 번 더 입력해주세요.");
+      setPassValue(false)
+    }else{
+      setPassText("");
+      setPassValue(true)
+    }
+
+    if(name === "passcheck" && value.match(passRegExp) == null){
+      setPasscheckText("확인을 위해 비밀번호를 한 번 더 입력해주세요.");
+      setPassCheckValue(false)
+    }else{
+      setPasscheckText("");
+      setPassCheckValue(true)
+    }
   }
 
   const handlePass = () => {
-    const passRegExp = /^.*(?=^.{8,14}$)(?=.*\d)(?=.*[a-zA-Z]).*$/;
     if(form.pass.match(passRegExp) == null){
-      setPassText("필수 입력 항목입니다.");
-      setPassValue(false);
+      setPassText("확인을 위해 비밀번호를 한 번 더 입력해주세요.");
     }else{
       setPassText("");
-      setPassValue(true);
     }
   }
 
   const handlePassCheck = () => {
-    if(form.passcheck === ""){
+    if(form.passcheck.match(passRegExp) == null || form.pass !== form.passcheck){
       setPasscheckText("확인을 위해 비밀번호를 한 번 더 입력해주세요.");
     }else{
-      if(form.pass == form.passcheck){
-        setPasscheckText("");
-        setPassCheckValue(true);
-      }else{
-      setPasscheckText("확인을 위해 비밀번호를 한 번 더 입력해주세요.");
-      setPassCheckValue(false);
-      }
+      setPasscheckText("");
     }
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(passValue && passCheckValue){
+    if(passValue && passCheckValue && form.pass === form.passcheck){
       axios.post("http://127.0.0.1:8000/users/password/new/new", {id : id, pass : form.pass})
       .then(result => {
         if(result.data === "ok"){
@@ -56,6 +64,8 @@ export default function PasswordNewNew(){
           navigate("/");
         }
       })
+    }else{
+      alert("비밀번호가 같지 않습니다.")
     }
   }
 

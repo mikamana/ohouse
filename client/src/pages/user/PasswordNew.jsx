@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../css/user/PasswordNew.css"
 import axios from 'axios';
 import { setCookie } from './../utill/cookie';
@@ -13,10 +13,12 @@ export default function PasswordNew() {
   const [phoneInput, setPhoneInput] = useState({ first: "", middle: "", last: "" });
   const [phoneText, setPhoneText] = useState("");
   const [emailButton, setEmailButton] = useState(false);
-  const [email, setEmai] = useState([]);
+  const [email, setEmai] = useState(null);
   const [emailCode, setEmaiCode] = useState({ code: "" });
   const [emailCodeText, setEmaiCodeText] = useState("")
   const [emailPage, setEmaiPage] = useState(false);
+  const [time, setTime] = useState(180);
+  const [isActive, setIsActive] = useState(false);
   const navigate = useNavigate()
 
   const handleIdValue = (e) => {
@@ -69,7 +71,7 @@ export default function PasswordNew() {
 
   const handlePhoneCheck = () => {
     const userphone = phoneInput.first + phoneInput.middle + phoneInput.last
-    if (userphone == phone.phone) {
+    if (parseInt(userphone) === parseInt(phone.phone)) {
       alert("인증완료");
       setEmailButton(true);
     } else {
@@ -77,12 +79,43 @@ export default function PasswordNew() {
     }
   }
 
+  useEffect(() => {
+    let interval = null;
+    if (isActive) {
+      interval = setInterval(() => {
+        setTime(time => time - 1);
+        if(time === 1) {
+          setEmai(undefined);
+          setIsActive(false)
+        }
+      }, 1000);
+    } else if (!isActive && time !== 0) {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [isActive, time]);
+
+  const startCountdown = () => {
+    setIsActive(true);
+  }
+
+  const stopCountdown = () => {
+    setIsActive(false);
+  }
+
+  const resetCountdown = () => {
+    setTime(180);
+    setIsActive(false);
+  }
+
   const handleEmail = () => {
     if (emailButton) {
       axios.post("http://127.0.0.1:8000/users/password/new/email", id)
         .then(result => {
           setEmai(result.data);
-          setEmaiPage(true)
+          setEmaiPage(true);
+          resetCountdown();
+          startCountdown();
         })
     }
   }
@@ -102,9 +135,10 @@ export default function PasswordNew() {
   }
 
   const handleEmailCheck = () => {
-    if (email == emailCode.code) {
+    if (email === parseInt(emailCode.code)) {
       setCookie("ohouse-new", id.id);
-      navigate("/users/password/new1")
+      navigate("/users/password/new1");
+      stopCountdown();
     } else {
       setEmaiCodeText("이메일 코드가 같지 않습니다.");
     }
@@ -143,6 +177,7 @@ export default function PasswordNew() {
             <div className="PasswordNewEmailTitle">이메일로 전송된 인증코드를 입력해주세요.</div>
             <div>
               <input type="text" placeholder="인증코드입력" name="code" value={emailCode.code} onChange={handleEmailCode} onBlur={handleEmailCodeCheck} />
+              <div className="PasswordNewEmailCountdown">{Math.floor(time / 60)}:{time % 60 > 9 ? time % 60 : "0" + time % 60}</div>
               <div className="PasswordNewEmailText">{emailCodeText}</div>
               <span>이메일을 받지 못하셨나요? <span className="PasswordNewEmailReturn" onClick={handleEmail}>이메일 재전송하기</span></span>
               <button className="PasswordNewEmailButton" type="button" onClick={handleEmailCheck}>비밀번호 재설정하기</button>
