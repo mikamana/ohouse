@@ -49,7 +49,7 @@ export async function getRanksItem(best){
 }
 
 export async function getCategoryRankItem(category_id){
-  const sql = 'select pid,category_id,product_image,brand_name,product_name,rating_avg,rating_review,price_sale,price_origin,ifnull(round(price_origin - (price_origin * price_sale / 100),-2),price_origin) sale_price,tag_free,coupon_percent,pdate,delivery_type from oh_product where category_id = ? order by rating_avg desc limit 1,100'
+  const sql = 'select pid,category_id,product_image,brand_name,product_name,rating_avg,rating_review,price_sale,price_origin,ifnull(round(price_origin - (price_origin * price_sale / 100),-2),price_origin) sale_price,tag_free,coupon_percent,pdate,delivery_type from oh_product where category_id = ? order by rating_avg desc limit 0,100'
   return db
   .execute(sql,[category_id])
   .then(result => result[0])
