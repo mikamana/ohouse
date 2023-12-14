@@ -14,7 +14,7 @@ export default function StoreHomeTodayDealSection() {
   return (
     <>
       <SubtitleMore
-      title={'오늘의딜'}
+        title={'오늘의딜'}
       />
       <div key="store_todaydeal_section" className="store_todaydeal_section sub_inner">
         {
@@ -28,6 +28,6 @@ export default function StoreHomeTodayDealSection() {
         }
       </div>
     </>
-    );
+  );
 }
 

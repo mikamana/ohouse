@@ -36,14 +36,14 @@ export default function PasswordNew() {
 
   const handleIdCheck = () => {
     if (idCheck) {
-      axios.post("http://localhost:8000/users/password/new", id)
+      axios.post("http://127.0.0.1:8000/users/password/new", id)
         .then(result => {
           if (result.data.cntid === 1) {
             setIdValue(result.data.cntid);
             if (result.data.cnt === 1) {
               setphone(result.data);
             } else {
-              alert("인증완료");
+              alert("등록된 이메일 입니다.");
               setEmailButton(true);
             }
           } else {
@@ -70,10 +70,10 @@ export default function PasswordNew() {
   const handlePhoneCheck = () => {
     const userphone = phoneInput.first + phoneInput.middle + phoneInput.last
     if (userphone == phone.phone) {
-      alert("인증완료");
+      alert("휴대폰 인증완료");
       setEmailButton(true);
     } else {
-      alert("인증실패");
+      alert("휴대폰 인증실패");
     }
   }
 

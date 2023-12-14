@@ -1,8 +1,8 @@
-import  {useState}  from "react";
+import  {useEffect, useState}  from "react";
 import OrdersAgreementWrap from "./components/OrdersAgreementWrap";
 
-export default function OrderSidebarWrap(){
-  const [base,setBase] = useState(false);
+export default function OrderSidebarWrap({orderList,setValidation,checkboxVal}){
+
   return(
     <div className="orders_sidebar_wrap">
       <div className="orders_sidebar_container">
@@ -14,7 +14,7 @@ export default function OrderSidebarWrap(){
             <div className="orders_sidebar_total_price_summary_wrap">
               <div className="orders_sidebar_total_price_summary_container">
                 총 상품 금액
-                <span className="orders_sidebar_total_price_summary_span tp_emphasis">10000원</span>
+                <span className="orders_sidebar_total_price_summary_span tp_emphasis">{orderList.length < 1 ? 0 :orderList[0].total_price.toLocaleString()}원</span>
               </div>
               <div className="orders_sidebar_total_price_summary_container">
                 배송비
@@ -31,23 +31,24 @@ export default function OrderSidebarWrap(){
               <hr className="orders_sidebar_total_price_hr"/>
               <div className="orders_sidebar_total_price_last">
                 <span className="orders_sidebar_total_price_last_title">최종 결제 금액</span>
-                <span className="orders_sidebar_total_price_last_price">1,531,600 원</span>
+                <span className="orders_sidebar_total_price_last_price">{orderList.length < 1 ? 0 :orderList[0].total_price.toLocaleString()} 원</span>
               </div>
               <p className="orders_sidebar_total_price_point">
-                <span className="orders_sidebar_total_price_point_span">1,532 P </span>
+                <span className="orders_sidebar_total_price_point_span">0 P </span>
                 적립 예정
               </p>
             </div>
           </div>
             <OrdersAgreementWrap
-            base={base}
-            setBase={setBase}
             paytype={''}
+            orderList={orderList}
+            setValidation={setValidation}
+            checkboxVal={checkboxVal}
             />
         </div>
         <div className="orders_sidebar_total_payment_btn_wrap">
-          <button className="orders_sidebar_total_payment_btn">
-            {'1123123'}원 결제하기
+          <button className="orders_sidebar_total_payment_btn" type="submit">
+            {orderList.length < 1 ? 0 :orderList[0].total_price.toLocaleString()}원 결제하기
           </button>
         </div>
       </div>

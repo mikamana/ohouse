@@ -40,7 +40,6 @@ export default function ProductionsContainer(props) {
 
   }, [])
 
-  // console.log(list.sale_price);
 
 
   const getQty = (e) => {

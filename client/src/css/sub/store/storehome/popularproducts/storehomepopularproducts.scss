@@ -1,6 +1,7 @@
 @use "../../../../common/mixin.scss" as m;
 
 div.store_home_popularproducts_section{
+  position: relative;
   & h1{
     display: block;
     color: #000;

@@ -3,6 +3,7 @@ import axios from "axios";
 import Pagination from 'rc-pagination';
 import 'rc-pagination/assets/index.css';
 import ImageUpload from '../user/ImageUpload';
+import ShopitemTodayStart from "../main/shopitem/components/Info/ShopitemTodayStart";
 
 export default function AdminProduct() {
   /* get : list */
@@ -190,8 +191,7 @@ export default function AdminProduct() {
                 <th>대표이미지</th>
                 <th>정상가</th>
                 <th>할인율(%)</th>
-                <th>쿠폰할인(%)</th>
-                <th>무료배송</th>
+                <th>쿠폰할인가</th>
                 <th>배송유형</th>
                 <th>등록일</th>
                 <th>비고</th>
@@ -205,11 +205,10 @@ export default function AdminProduct() {
                   <td>{menu.product_name}</td>
                   <td>{menu.brand_name}</td>
                   <td><img className="admin_image" src={menu.product_image} alt="" /></td>
-                  <td>{menu.price_origin.toLocaleString()}</td>
-                  <td>{menu.price_sale}</td>
-                  <td>{menu.coupon_percent}</td>
-                  <td>{menu.tag_free}</td>
-                  <td>{menu.delivery_type}</td>
+                  <td>{menu.price_origin.toLocaleString() + "원"}</td>
+                  <td>{menu.price_sale && menu.price_sale + "%"}</td>
+                  <td>{menu.sale_price + "원"}</td>
+                  <td>{<ShopitemTodayStart ts={menu.delivery_type} />}</td>
                   <td>{menu.pdate}</td>
                   <td>
                     <button className="admin_update_togglebtn" type="button" onClick={handleToggle} data-id={menu.mid}>정보수정</button>

@@ -434,6 +434,7 @@ button.production_selling_price_coupon {
   color: #fff;
   font-size: 14px;
   border-radius: 5px;
+  cursor: pointer;
 }
 button.production_selling_price_coupon::after {
   content: "\f019";
@@ -933,6 +934,7 @@ div.production_selling_prd_title_wrap h4.production_selling_prd_title span.produ
   color: #35c5f0;
 }
 div.production_selling_prd_title_wrap button.production_selling_prd_title_span {
+  cursor: pointer;
   font-size: 22px;
   font-weight: bold;
   color: #757575;

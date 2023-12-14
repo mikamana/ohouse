@@ -21,7 +21,8 @@ export async function emailCheck(req, res){
     from : "nodetest789@gmail.com",
     to: id,
     subject: '[오늘의집] 인증코드안내',
-    text: `인증코드를 확인해주세여 ${number}`
+    text: `인증코드를 확인해주세요.
+    ${number}`
   }
   mailer.sendMail(mailOptions, (error, info) => {
     if (error) {

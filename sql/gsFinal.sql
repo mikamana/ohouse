@@ -1,6 +1,22 @@
  -- ohouse 데이터테이블 사용
  use ohouse;
  select database();
+drop table test1;
+drop table test2;
+create table test1(
+	mid varchar(100) primary key
+);
+
+create table test2(
+	mid varchar(100),
+    nid int,
+    constraint oh_review_mid_pk primary key(mid,nid),
+    constraint oh_product_mid_fk foreign key(mid) references test1(mid) on update cascade on delete cascade
+);
+
+ALTER table test2 MODIFY nid INT NOT NULL AUTO_INCREMENT;
+
+
 
 drop table oh_order;
 drop table oh_cart;
