@@ -131,6 +131,46 @@ const router = createBrowserRouter([
             <Cart />
           </Contents>
       },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       {
         path: '/cart', element:
           <Contents>
@@ -223,6 +263,9 @@ const router = createBrowserRouter([
       { path : '/admin/inquiry', element : <AdminInquery /> }
     ]
   }
+
+
+
 ])
 
 function App() {
