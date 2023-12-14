@@ -2,36 +2,36 @@ import React, { useState } from "react";
 import { getUser, removeUser } from './../utill/sessionStorage';
 import "../../css/user/Withdrawals.css"
 import { Link, useNavigate } from 'react-router-dom';
-import  axios  from 'axios';
+import axios from 'axios';
 
-export default function Withdrawals(){
+export default function Withdrawals() {
   const userinfo = getUser();
-  const [form, setForm] = useState({agree : false, lowuse : false, rejoin : false, lackOfContent : false, privacy : false, lackOfBenefits : false, etc : false});
+  const [form, setForm] = useState({ agree: false, lowuse: false, rejoin: false, lackOfContent: false, privacy: false, lackOfBenefits: false, etc: false });
   const [text, setText] = useState("");
   const [textarea, setTextarea] = useState("");
   const [length, setLength] = useState(0);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    const {name, checked} = e.target;
-    setForm({...form, [name] : checked});
+    const { name, checked } = e.target;
+    setForm({ ...form, [name]: checked });
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(form.agree){
-      if(form.lowuse || form.rejoin || form.lackOfContent || form.privacy || form.lackOfBenefits || form.etc){
+    if (form.agree) {
+      if (form.lowuse || form.rejoin || form.lackOfContent || form.privacy || form.lackOfBenefits || form.etc) {
         axios.delete(`http://127.0.0.1:8000/edit/Withdrawals/${userinfo.id}`)
-        .then(result => {
-          if(result.data === "ok"){
-            removeUser();
-            navigate("/");
-          }
-        })
-      }else{
+          .then(result => {
+            if (result.data === "ok") {
+              removeUser();
+              navigate("/");
+            }
+          })
+      } else {
         setText("필수 동의 항목입니다.");
       }
-    }else{
+    } else {
       setText("필수 동의 항목입니다.");
     }
   }
@@ -69,21 +69,21 @@ export default function Withdrawals(){
               </div>
             </div>
             <div className="WithdrawalsReadCheck">
-              <div><input type="checkbox" name="agree" checked={form.agree} onChange={handleChange}/> <span>위 내용을 모두 확인하였습니다. <span>필수</span></span></div>
+              <div><input type="checkbox" name="agree" checked={form.agree} onChange={handleChange} /> <span>위 내용을 모두 확인하였습니다. <span>필수</span></span></div>
               <div className="WithdrawalsReadTel">고객센터 <b>1670-0876</b></div>
             </div>
-            
-              <div className="WithdrawalsText">{text}</div>
+
+            <div className="WithdrawalsText">{text}</div>
 
             <div>
               <h2>오늘의집 회원에서 탈퇴하려는 이유가 무엇인가요? (복수선택 가능) <span>필수</span></h2>
               <div className="WithdrawalsCheckbox">
-                <div><input type="checkbox" name="lowuse" checked={form.lowuse} onChange={handleChange}/> <span>이용빈도 낮음</span></div>
-                <div><input type="checkbox" name="rejoin" checked={form.rejoin} onChange={handleChange}/> <span>재가입</span></div>
-                <div><input type="checkbox" name="lackOfContent" checked={form.lackOfContent} onChange={handleChange}/> <span>콘텐츠/제품정보/상품 부족</span></div>
-                <div><input type="checkbox" name="privacy" checked={form.privacy} onChange={handleChange}/> <span>개인정보보호</span></div>
-                <div><input type="checkbox" name="lackOfBenefits" checked={form.lackOfBenefits} onChange={handleChange}/> <span>회원특혜/쇼핑혜택 부족</span></div>
-                <div><input type="checkbox" name="etc" checked={form.etc} onChange={handleChange}/> <span>기타</span></div>
+                <div><input type="checkbox" name="lowuse" checked={form.lowuse} onChange={handleChange} /> <span>이용빈도 낮음</span></div>
+                <div><input type="checkbox" name="rejoin" checked={form.rejoin} onChange={handleChange} /> <span>재가입</span></div>
+                <div><input type="checkbox" name="lackOfContent" checked={form.lackOfContent} onChange={handleChange} /> <span>콘텐츠/제품정보/상품 부족</span></div>
+                <div><input type="checkbox" name="privacy" checked={form.privacy} onChange={handleChange} /> <span>개인정보보호</span></div>
+                <div><input type="checkbox" name="lackOfBenefits" checked={form.lackOfBenefits} onChange={handleChange} /> <span>회원특혜/쇼핑혜택 부족</span></div>
+                <div><input type="checkbox" name="etc" checked={form.etc} onChange={handleChange} /> <span>기타</span></div>
               </div>
 
               <div className="WithdrawalsText">{text}</div>

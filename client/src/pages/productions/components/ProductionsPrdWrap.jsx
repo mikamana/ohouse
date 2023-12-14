@@ -6,6 +6,7 @@ import PrudctionsPrdInfoRightBox from "./prd/PrudctionsPrdInfoRightBox";
 export default function ProductionsPrdWrap(props) {
 
 
+
     return (
 
         <>
@@ -15,8 +16,12 @@ export default function ProductionsPrdWrap(props) {
                         getQuiryCount={props.getQuiryCount}
                     />
                     <PrudctionsPrdInfoRightBox
+                        getPrice={props.getPrice}
                         priceOrigin={props.priceOrigin}
                         price={props.price}
+                        qty={props.qty}
+                        subTitle={props.subTitle}
+                        qtyFlag={props.qtyFlag}
                     />
                 </div>
             </div>

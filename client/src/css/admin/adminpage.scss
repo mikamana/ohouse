@@ -203,6 +203,7 @@ div.admin_section {
       tbody {
         tr {
           td {
+            vertical-align: middle;
             font-size: 15px;
             height: 35px;
             line-height: 35px;
@@ -295,6 +296,6 @@ div.admin_section {
   } //div.admin_content
 } //div.admin_section
 
-img.admin_image{
+img.admin_image {
   width: 50px;
 }

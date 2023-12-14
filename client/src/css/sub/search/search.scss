@@ -75,3 +75,14 @@
     }
   }//search_total_bttn
 }//search_total
+
+.searchResults {
+  display: flex;
+  
+  flex-wrap: wrap;
+  flex-direction: row;
+  
+  > div {
+    padding: 10px 7.5px;
+  }
+}

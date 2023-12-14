@@ -2,6 +2,16 @@
  use ohouse;
  select database();
  
+ create user 'root'@'127.0.0.1' identified by '1234';
+ grant all privileges on *.* to root@127.0.0.1;
+ flush privileges;
+ show grants for 'root'@'127.0.0.1';
+ commit;
+ 
+
+
+drop table oh_order_save;
+drop table oh_pay; 
 drop table oh_order;
 drop table oh_cart;
 drop table oh_review;
@@ -10,6 +20,11 @@ drop table oh_community;
 drop table oh_product;
 drop table oh_category;
 drop table oh_member;
+drop table oh_inquiry;
+
+delete from oh_order;
+delete from oh_pay;
+delete from oh_order_save;
 
 select * from oh_review;
 select * from oh_member;
@@ -17,15 +32,10 @@ select * from oh_product;
 select * from oh_cart;
 select * from oh_review;
 select * from oh_community;
-
-drop table oh_review;
-
-select hid,SUBSTRING_INDEX(oc.mid,'@',1) as mid,om.userimg,oc.house_img,oc.house_title,oc.house_content,om.mdate from oh_community oc inner join oh_member om on oc.mid = om.mid;
-
-select count(mid) as cntid, count(phone) as cnt, any_value(phone) as phone, any_value(left(phone,3))
-                as phoneleft, any_value(right(phone,2)) as phoneright
-                from oh_member where not phone like "% %";
-
+select * from oh_order;
+select * from oh_pay;
+select * from oh_order_save;
+select * from oh_inquiry;
 
 
 /*
@@ -33,8 +43,44 @@ select count(mid) as cntid, count(phone) as cnt, any_value(phone) as phone, any_
 */
 insert into oh_member (mid, pass, nickname) values ("@","$2a$10$TcZs4tDeBpTJNAnVHg65U.m0DsqsTj0eH1gLkulWOfnNv1H96sfwG", "관리자");
 update oh_product set price_sale = null,price_origin = 58900 where pid = 59;
+update oh_product set tag_free = 1;
 -- 관리자 계정 mid = @, pass = 1234, nickname = 관리자 insert
 -- oh_product 오류 수정
+
+drop table oh_order; -- oh_order 테이블 수정
+drop table oh_pay; -- create table oh_pay 테이블 삭제 후 다시 생성
+drop table oh_order_save; -- create table oh_order_save 테이블 삭제 후 다시 생성
+
+create view oh_member_view  as
+select rno, mid, nickname, userimg, phone, homepage, gender, birthday, left(mdate,19) as mdate, total, count_review, count_order from
+(select row_number() over(order by mid) rno,
+m.mid,
+m.nickname,
+m.userimg,
+m.phone,
+m.homepage,
+m.gender,
+m.birthday,
+left(m.mdate,19) as mdate,
+total,
+count(r.mid) as count_review,
+count(o.mid) as count_order
+from (select count(*) as total from oh_member) as member,
+oh_member m left outer join oh_review r on m.mid = r.mid  left outer join oh_order o
+on m.mid = o.mid group by m.mid, member.total, r.mid, o.mid) as memberList
+group by mid, memberList.total, count_review, count_order;
+
+
+select rno, pid, total, category_name, product_image, brand_name, product_name, price_sale, price_origin, tag_free, coupon_percent, left(pdate,10) as pdate, delivery_type,ifnull(format(round(price_origin - (price_origin * price_sale / 100),-2),0),format(price_origin,0)) sale_price from
+(select row_number() over(order by product_name asc) rno, pid, total, category_name, product_image, brand_name, product_name, price_sale, price_origin, tag_free, coupon_percent, pdate, delivery_type 
+	from (select count(*) as total from oh_product) as products, oh_product p inner join oh_category c on p.category_id=c.category_id) a 
+    where rno between ? and ? order by product_name asc;
+    
+     ifnull(format(round(p.price_origin - (p.price_origin * p.price_sale / 100),-2),0),format(p.price_origin,0)) sale_price
+     
+drop table oh_order; -- oh_order 테이블 수정
+drop table oh_pay; -- create table oh_pay 테이블 삭제 후 다시 생성
+drop table oh_order_save; -- create table oh_order_save 테이블 삭제 후 다시 생성
 
 desc oh_member;
 select * from oh_member;
@@ -122,38 +168,66 @@ create table oh_cart(
     mid varchar(100),
     qty int not null,
     cdate datetime,
-    constraint cart_pid_fk foreign key(pid) references oh_product(pid),
-    constraint cart_mid_fk foreign key(mid) references oh_member(mid)
+    constraint cart_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
+    constraint cart_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
 );
 create table oh_order(
 	order_id int auto_increment primary key,
-    cart_id int,
+    pid int,
+    qty int,
     mid varchar(20) not null,
     odate datetime,
     total_price int,
-    constraint order_cart_id_fk foreign key(cart_id) references oh_cart(cart_id) on update cascade on delete cascade,
+    constraint order_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
     constraint order_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
 );
 create table oh_pay(
-	pay_id int auto_increment primary key,
-	order_id int,
-	pid int,
+    common_id varchar(50) primary key,
 	mid varchar(100),
+    orderer_name varchar(20),
+    orderer_email varchar(50),
 	orderer_phone varchar(20),
 	reciever_place varchar(50),
 	reciever_name varchar(20),
 	reciever_phone varchar(20),
+    reciever_postnumber varchar(10),
 	reciever_address varchar(100),
 	reciever_request varchar(100),
-	payment varchar(10),
+	payment varchar(20),
+    card_bank varchar(30),
 	installment varchar(20),
 	last_pay_price int,
-	constraint car_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
-	constraint car_order_id_fk foreign key(order_id) references oh_order(order_id) on update cascade on delete cascade,
+    paydate datetime,
 	constraint car_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
 );
+create table oh_order_save(
+	common_id varchar(50),
+    osid varchar(20),
+	pid int,
+    qty int,
+    odate datetime,
+    unit_price int,
+    line_total int,
+	constraint order_save_common_id_pk primary key(common_id,osid),
+    constraint order_save_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
+    constraint order_save_common_id_fk foreign key(common_id) references oh_pay(common_id) on update cascade on delete cascade
+);
+create table oh_inquiry(
 
-
+	qid int auto_increment primary key not null, -- 문의id
+    mid varchar(100),-- 유저아이디
+	pid int, -- 상품아이디
+	qtype varchar(50), -- 문의유형
+    qdate datetime,-- 문의시간
+    qcontent varchar(500), -- 문의내용
+    adate datetime, -- 답변날짜 
+    acontent varchar(500), -- 답변내용
+    secret_check boolean, -- 비밀글여부
+    
+	constraint oh_inquery_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade,
+    constraint oh_inquery_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade
+    
+);
 -- oh_category insert
 insert into oh_category (category_name) values("크리스마스");
 insert into oh_category (category_name) values("겨울용품");

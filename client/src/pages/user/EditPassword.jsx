@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { getUser, removeUser } from "../utill/sessionStorage";
 import "../../css/user/EditPassword.css"
-import  axios  from 'axios';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-export default function EditPassword(){
+export default function EditPassword() {
   const uerinfo = getUser();
-  const [form, setForm] = useState({pass : "", newPass : "", newPassCheck : ""});
+  const [form, setForm] = useState({ pass: "", newPass: "", newPassCheck: "" });
   const [passText, setpassText] = useState("");
   const [newPassText, setNewPassText] = useState("");
   const [newPassCheckText, setNewPassCheckText] = useState("");
@@ -23,7 +23,7 @@ export default function EditPassword(){
     if(name === "pass" && value.match(passRegExp) == null){
       setpassText("필수 입력 항목입니다.");
       setPass(false)
-    }else{
+    } else {
       setpassText("");
       setPass(true)
     }
@@ -91,31 +91,31 @@ export default function EditPassword(){
     }
   }
 
-  return(
+  return (
     <div className="EditPassword">
-      {uerinfo === null ? (<div>잘못된 경로로 접속하셨습니다.</div>) : 
-      (<div className="EditPasswordMain">
-        <h2>비밀번호 변경</h2>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label>현재 비밀번호</label>
-            <input type="password" name="pass" value={form.pass} onChange={handlepass} onBlur={passCheck}/>
-            <p>{passText}</p>
-          </div>
-          <div>
-            <label>새 비밀번호</label>
-            <span>영문, 숫자를 포함한 8자 이상의 비밀번호를 입력해주세요.</span>
-            <input type="password" name="newPass" value={form.newPass} onChange={handlepass} onBlur={newPassCheck}/>
-            <p>{newPassText}</p>
-          </div>
-          <div>
-            <label>새 비밀번호확인</label>
-            <input type="password" name="newPassCheck" value={form.newPassCheck} onChange={handlepass} onBlur={newPassCheck2}/>
-            <p>{newPassCheckText}</p>
-          </div>
-          <button>비밀번호 확인</button>
-        </form>
-      </div>)}
+      {uerinfo === null ? (<div>잘못된 경로로 접속하셨습니다.</div>) :
+        (<div className="EditPasswordMain">
+          <h2>비밀번호 변경</h2>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label>현재 비밀번호</label>
+              <input type="password" name="pass" value={form.pass} onChange={handlepass} onBlur={passCheck} />
+              <p>{passText}</p>
+            </div>
+            <div>
+              <label>새 비밀번호</label>
+              <span>영문, 숫자를 포함한 8자 이상의 비밀번호를 입력해주세요.</span>
+              <input type="password" name="newPass" value={form.newPass} onChange={handlepass} onBlur={newPassCheck} />
+              <p>{newPassText}</p>
+            </div>
+            <div>
+              <label>새 비밀번호확인</label>
+              <input type="password" name="newPassCheck" value={form.newPassCheck} onChange={handlepass} onBlur={newPassCheck2} />
+              <p>{newPassCheckText}</p>
+            </div>
+            <button>비밀번호 확인</button>
+          </form>
+        </div>)}
     </div>
   );
 }

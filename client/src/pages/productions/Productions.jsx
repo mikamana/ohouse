@@ -11,11 +11,13 @@ export default function Productions() {
 
   const [count, setCount] = useState('');
   const [quiryCount, setQuiryCount] = useState('');
+  const [list, setList] = useState([]);
   const [price, setPrice] = useState(0);
   const [qty, setQty] = useState(1);
   const [priceOrigin, setPriceOrigin] = useState(0);
   const params = useParams();
-  const [list, setList] = useState([]);
+  const [qtyFlag, setQtyFlag] = useState(false);
+
   const getCount = (e) => {
 
     setCount(e.sum.sum)
@@ -30,10 +32,12 @@ export default function Productions() {
 
   const getPrice = (e) => {
 
-    setPrice(e.price)
+    setPrice(list.sale_price * e.qty)
     setQty(e.qty)
+    setQtyFlag(e.qtyFlag)
 
   }
+
 
 
 
@@ -62,6 +66,8 @@ export default function Productions() {
           <ProductionsContainer count={count}
             getPrice={getPrice}
             price={price}
+            qty={qty}
+            qtyFlag={qtyFlag}
           />
         </div>
         <ProductionsNav count={count}
@@ -72,7 +78,10 @@ export default function Productions() {
           getQuiryCount={getQuiryCount}
           price={price}
           priceOrigin={list.sale_price}
-
+          subTitle={list.product_name}
+          getPrice={getPrice}
+          qty={qty}
+          qtyFlag={qtyFlag}
         />
       </section >
     </>

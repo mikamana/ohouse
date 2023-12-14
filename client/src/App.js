@@ -44,12 +44,13 @@ import EditPassword from './pages/user/EditPassword';
 import AdminContent from "./pages/admin/component/AdminContent";
 
 import CartEmptyPage from "./pages/cart/CartEmptyPage";
+import TodayDeals from "./pages/subpage/todaydeals/TodayDeals";
 
 const router = createBrowserRouter([
 
   {
     path: "/",
-    element: <Main />,
+    element: <Main/>,
     children: [
       {
         path: '/', element:
@@ -115,7 +116,7 @@ const router = createBrowserRouter([
       {
         path: '/search', element:
           <Contents>
-            <Search />
+            <Search/>
           </Contents>
       },
       {
@@ -166,6 +167,12 @@ const router = createBrowserRouter([
             <Interior3ds/>
           </Contents>
       },
+      {
+        path: '/store/todaydeals', element:
+          <Contents>
+            <TodayDeals/>
+          </Contents>
+      },
     ]
   },
   {
@@ -190,10 +197,10 @@ const router = createBrowserRouter([
     path: '/admin', 
     element: <Adminpage />,
     children : [
-      { path : '/admin', element : <AdminMember />},
-      { path : '/admin/member', element : <AdminMember />},
-      { path : '/admin/product', element : <AdminProduct /> },
-      /*{ path : '/admin/:category', element : <AdminOrder /> },
+      { path : '/admin', element : <AdminContent />},
+      { path : '/admin/:category', element : <AdminContent />},
+      /*{ path : '/admin/product', element : <AdminProduct /> },
+      { path : '/admin/:category', element : <AdminOrder /> },
       { path : '/admin/:category', element : <AdminInquery /> } */
     ]
   }

@@ -83,6 +83,8 @@ export default function CartSection() {
   const getQty = (e) => {
     updateCart(e.cart_id, e.qty);
     setQtyCheck(!qtyCheck);
+    const obj = cartList.find((item)=> item.cart_id === parseInt(e.cart_id));
+    obj.qty = e.qty;
     if (!checkedItems.includes(`${e.cart_id}`)) {
       return
     }
@@ -99,18 +101,19 @@ export default function CartSection() {
   }
 
   function removeCart(cart_id) {
-    if (checkedItems.length === 0) {
+    if (!checkedItems.includes(cart_id)) {
       axios.post(`http://127.0.0.1:8000/cart/${userInfo.id}/remove`, { cart_id })
         .then(result => { window.location.reload() })
       return
+    }else{
+      axios.post(`http://127.0.0.1:8000/cart/${userInfo.id}/remove`, checkedItems)
+      .then(result => { window.location.reload() })
     }
-
-
   }
 
   function removeSelectCart() {
     axios.post(`http://127.0.0.1:8000/cart/${userInfo.id}/remove`, checkedItems)
-      .then(result => { window.location.reload() })
+    .then(result => { window.location.reload() })
   }
 
   const updateCart = (cart_id, qty) => {
@@ -122,10 +125,11 @@ export default function CartSection() {
 
   function handleOrder() {
     if (!checkedItems.length || checkedItems.length === 0) {
-      return alert('장바구니가 비어있습니다.')
+      return alert('선택된 상품이 없습니다.')
     }
-    axios.post(`http://127.0.0.1:8000/orders/neworder/${userInfo.id}`, [checkedItems, totalPrice])
-      .then(result => { navigate('/orders') });
+    const newData = cartList.filter(item => checkedItems.includes(`${item.cart_id}`));
+    axios.post(`http://127.0.0.1:8000/orders/neworder/${userInfo.id}`, [newData, totalPrice])
+      .then(result => { if(result.status === 204){navigate('/orders')}});
   }
 
 

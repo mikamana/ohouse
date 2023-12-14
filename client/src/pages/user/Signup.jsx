@@ -43,7 +43,7 @@ export default function Signup() {
 
     const nicknameRegExp = /^.*(?=^.{2,15}$).*$/;
     if (name === "nickname" && value.match(nicknameRegExp) != null) {
-      axios.post("http://localhost:8000/normalUsers/new/nickname", { nickname: value })
+      axios.post("http://127.0.0.1:8000/normalUsers/new/nickname", { nickname: value })
         .then(result => {
           if (result.data.cnt === 0) {
             setNickNameText("");
@@ -257,7 +257,7 @@ export default function Signup() {
                 <button className="SinupEmailClose" type="button" onClick={selectChange} disabled={mailCheck ? true : false}>x</button>
               </> :
               <select name="domain" onChange={handleChange} onBlur={handleDomain} ref={inputDomain} className={(idText === "") ? "" : "SingupNotValue"} disabled={mailCheck ? true : false}>
-                <option value="default">선택해주세여</option>
+                <option value="default">선택해주세요</option>
                 <option value="naver.com">naver.com</option>
                 <option value="hanmail.net">hanmail.net</option>
                 <option value="daum.net">daum.net</option>
