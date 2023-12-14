@@ -11,35 +11,28 @@ export default function ProductionScrapBtn() {
   const userInfo = getUser();
   const [scrapCount, setScrapCount] = useState([]);
 
-
-
   useEffect(() => {
 
+    axios({
 
-    if (userInfo) {
+      method: "get",
+      url: `http://127.0.0.1:8000/scrap/product/${params.pid}/${userInfo.id}`
 
-      axios({
+    }).then((result) => {
 
-        method: "get",
-        url: `http://127.0.0.1:8000/scrap/product/${params.pid}/${userInfo.id}`
+      if (result.data.length === 1) {
 
-      }).then((result) => {
+        setToggle(true);
 
-        if (result.data.length === 1) {
+      }
 
-          setToggle(true);
+      if (result.data.length === 0) {
 
-        }
+        setToggle(false);
 
-        if (result.data.length === 0) {
+      }
 
-          setToggle(false);
-
-        }
-
-      })
-
-    }
+    })
 
   }, []);
 
@@ -63,41 +56,37 @@ export default function ProductionScrapBtn() {
 
   function handleToggle() {
 
-    if (userInfo) {
+    if (toggle === false) {
 
-      if (toggle === false) {
+      axios({
 
-        axios({
+        method: "post",
+        url: `http://127.0.0.1:8000/scrap/product`,
+        data: { pid: params.pid, mid: userInfo.id }
 
-          method: "post",
-          url: `http://127.0.0.1:8000/scrap/product`,
-          data: { pid: params.pid, mid: userInfo.id }
+      }).then((result) => {
 
-        }).then((result) => {
+        console.log("스크랩추가성공");
 
-          console.log("스크랩추가성공");
-
-        })
-      }
-
-      if (toggle === true) {
-
-        axios({
-
-          method: "delete",
-          url: `http://127.0.0.1:8000/scrap/product`,
-          data: { pid: params.pid, mid: userInfo.id }
-
-        }).then((result) => {
-
-          console.log("삭제성공");
-
-        })
-
-      }
+      })
 
     }
 
+    if (toggle === true) {
+
+      axios({
+
+        method: "delete",
+        url: `http://127.0.0.1:8000/scrap/product`,
+        data: { pid: params.pid, mid: userInfo.id }
+
+      }).then((result) => {
+
+        console.log("삭제성공");
+
+      })
+
+    }
 
   }
 

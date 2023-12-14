@@ -75,8 +75,7 @@ select rno, pid, total, category_name, product_image, brand_name, product_name, 
 (select row_number() over(order by product_name asc) rno, pid, total, category_name, product_image, brand_name, product_name, price_sale, price_origin, tag_free, coupon_percent, pdate, delivery_type 
 	from (select count(*) as total from oh_product) as products, oh_product p inner join oh_category c on p.category_id=c.category_id) a 
     where rno between ? and ? order by product_name asc;
-    
-     ifnull(format(round(p.price_origin - (p.price_origin * p.price_sale / 100),-2),0),format(p.price_origin,0)) sale_price
+
      
 drop table oh_order; -- oh_order 테이블 수정
 drop table oh_pay; -- create table oh_pay 테이블 삭제 후 다시 생성
@@ -239,40 +238,8 @@ create table oh_scraped(
     constraint oh_scraped_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade
 );
 
-desc oh_scraped;
-select * from oh_scraped;
-select * from oh_member;
 -- om.nickname, ifnull(om.userimg,'https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/170123715614833692.png?gif=1&w=360&h=360&c=c') as userimg 
 
-select * from oh_scraped;
-drop table oh_scraped;
-
-select count(mid) as cnt, mid, nickname, ifnull(userimg,'https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/170123715614833692.png?gif=1&w=360&h=360&c=c') as userimg from
-(select om.nickname,
-os.sid,
-om.userimg,
-os.mid,
-os.pid,
-os.scraped_at,
-count(os.sid) as cnt
-from oh_scraped os 
-inner join oh_member om, oh_product op 
-where os.mid = om.mid and os.pid = op.pid
-group by os.mid, os.scraped_at, os.pid, os.sid) as m  where mid = "@" group by mid;
-
-
-select count(os.pid) as cnt from oh_scraped os inner join oh_member om, oh_product op where os.mid = om.mid and pid = 1;
-select * from oh_scraped;
-
-
-
-select * from oh_scraped;
-delete from oh_scraped;
-
-drop table oh_scraped;
-insert into oh_scraped(mid,pid,scraped_at) values("@","2",sysdate());
-insert into oh_scraped(mid,pid,scraped_at) values("@",?,sysdate());
-drop table oh_scraped;
 
 
 -- oh_category insert

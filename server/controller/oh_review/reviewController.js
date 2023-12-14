@@ -7,7 +7,7 @@ export async function createReview(req, res) {
 
     const { mid, pid, formObject } = req.body
 
-    
+
     const result = await reviewRepository.createReview(mid, pid, formObject.content, formObject.image, formObject.score);
 
     if (result === 'ok') {
@@ -42,9 +42,9 @@ export async function getReviewAvg(req, res) {
 
 export async function getReviewPage(req, res) {
 
-    const { pid, startIndex, endIndex } = req.params
+    const { pid, startIndex, endIndex, kindList } = req.params
 
-    const rows = await reviewRepository.getReviewPage(pid, startIndex, endIndex);
+    const rows = await reviewRepository.getReviewPage(pid, startIndex, endIndex, kindList);
 
     res.json(rows);
 

@@ -12,5 +12,5 @@ router.get('/product/avg/:pid', reviewController.getReviewAvg);
 // router.get('/product/:pid', reviewController.getReview);
 // router.get('/product/best/:pid/:startIndex/:endIndex', reviewController.getReviewBest);
 // router.get('/product/latest/:pid/:startIndex/:endIndex', reviewController.getReviewLatest);
-router.get('/product/:pid/:startIndex/:endIndex', reviewController.getReviewPage)
+router.get('/product/:kindList/:pid/:startIndex/:endIndex', reviewController.getReviewPage);
 export default router;

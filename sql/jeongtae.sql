@@ -127,5 +127,31 @@ create table house_scrap(
 );
 */
 
+/* 스크랩 테이블*/
+create table oh_scraped(
 
+	sid int auto_increment primary key not null, -- 스크랩 id
+    mid varchar(100), -- 유저아이디
+    pid int, -- 상품아이디
+    scraped_at timestamp default current_timestamp, -- 날짜와 시간 데이터 > 사용자가 스크랩한 날짜와 시간을 저장
+    constraint oh_scraped_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade,
+    constraint oh_scraped_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade
+);
+
+/*상세페이지 상품 스크랩 개수 쿼리*/
+select count(os.pid) as cnt from oh_scraped os inner join oh_member om, oh_product op where os.mid = om.mid and pid = 1;
+
+/*마이페이지 프로필 쿼리*/
+select count(mid) as cnt, mid, nickname, ifnull(userimg,'https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/170123715614833692.png?gif=1&w=360&h=360&c=c') as userimg from
+(select om.nickname,
+os.sid,
+om.userimg,
+os.mid,
+os.pid,
+os.scraped_at,
+count(os.sid) as cnt
+from oh_scraped os 
+inner join oh_member om, oh_product op 
+where os.mid = om.mid and os.pid = op.pid
+group by os.mid, os.scraped_at, os.pid, os.sid) as m  where mid = "@" group by mid;
 

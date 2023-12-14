@@ -51,7 +51,7 @@ const router = createBrowserRouter([
 
   {
     path: "/",
-    element: <Main/>,
+    element: <Main />,
     children: [
       {
         path: '/', element:
@@ -117,7 +117,7 @@ const router = createBrowserRouter([
       {
         path: '/search', element:
           <Contents>
-            <Search/>
+            <Search />
           </Contents>
       },
       {
@@ -147,62 +147,62 @@ const router = createBrowserRouter([
       {
         path: '/interior3ds', element:
           <Contents>
-            <Interior3ds/>
+            <Interior3ds />
           </Contents>
       },
       {
-        path:'/users', 
+        path: '/users',
         element:
           <Contents>
-            <Users />            
+            <Users />
           </Contents>
       },
       {
-        path:"/users/profile",
+        path: "/users/profile",
         element:
-        <Contents>
-          <Users>
-            <Profile/>
-          </Users>
-        </Contents>
+          <Contents>
+            <Users>
+              <Profile />
+            </Users>
+          </Contents>
       },
       {
-        path:"/users/edit",
+        path: "/users/edit",
         element:
-        <Contents>
-          <Users>
-            <Edit/>
-          </Users>
-        </Contents>
+          <Contents>
+            <Users>
+              <Edit />
+            </Users>
+          </Contents>
       },
       {
-        path:"/users/editpassword",
+        path: "/users/editpassword",
         element:
-        <Contents>
-          <Users>
-            <EditPassword />
-          </Users>
-        </Contents>
+          <Contents>
+            <Users>
+              <EditPassword />
+            </Users>
+          </Contents>
       },
       {
-        path:"/users/withdrawals",
+        path: "/users/withdrawals",
         element:
-        <Contents>
-          <Users>
-            <Withdrawals />
-          </Users>
-        </Contents>
+          <Contents>
+            <Users>
+              <Withdrawals />
+            </Users>
+          </Contents>
       },
       {
         path: '/store/todaydeals', element:
           <Contents>
-            <TodayDeals/>
+            <TodayDeals />
           </Contents>
       },
       {
         path: '/store/ranks', element:
           <Contents>
-            <Ranks/>
+            <Ranks />
           </Contents>
       }
     ]
@@ -217,7 +217,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/users/password/new1', element:
-      <PasswordNewNew/>
+      <PasswordNewNew />
   },
   {
     path: '/search', element:
@@ -226,14 +226,14 @@ const router = createBrowserRouter([
       </Contents>
   },
   {
-    path: '/admin', 
+    path: '/admin',
     element: <Adminpage />,
-    children : [
-      { path : '/admin', element : <AdminMember />},
-      { path : '/admin/member', element : <AdminMember />},
-      { path : '/admin/product', element : <AdminProduct /> },
-      { path : '/admin/order', element : <AdminOrder /> },
-      { path : '/admin/inquiry', element : <AdminInquery /> }
+    children: [
+      { path: '/admin', element: <AdminMember /> },
+      { path: '/admin/member', element: <AdminMember /> },
+      { path: '/admin/product', element: <AdminProduct /> },
+      { path: '/admin/order', element: <AdminOrder /> },
+      { path: '/admin/inquiry', element: <AdminInquery /> }
     ]
   }
 
