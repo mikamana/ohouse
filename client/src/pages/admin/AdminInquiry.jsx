@@ -8,7 +8,7 @@ export default function AdminInquiry() {
   const [list, setList] = useState([]);
 
   /* 회원정보수정 */
-  const [content, setContent] = useState({ qid:"", acontent: ""});
+  const [content, setContent] = useState({ qid: "", acontent: "" });
 
   /* 페이지네이션 */
   const [currentPage, setCurrentPage] = useState(1);
@@ -40,9 +40,9 @@ export default function AdminInquiry() {
 
   const [toggle, setToggle] = useState("");
   const handleToggle = (e, idx) => {
-    if(toggle !== idx){
+    if (toggle !== idx) {
       setToggle(idx)
-    }else{
+    } else {
       setToggle("")
     }
   };//handleToggle
@@ -58,16 +58,16 @@ export default function AdminInquiry() {
     console.log(value);
     setValue(value);
   };
-  
+
   /* 정보수정 */
   const handleRegister = (e) => {
     const qid = e.target.dataset.id;
     axios.put(`http://127.0.0.1:8000/admin/inquiry/update/${qid}`, content)
-    .then((result)=>{
-      alert('답변 등록이 완료되었습니다');
-      window.location.reload();
-    })
-    .catch(console.err);
+      .then((result) => {
+        alert('답변 등록이 완료되었습니다');
+        window.location.reload();
+      })
+      .catch(console.err);
   };
 
   return (
@@ -85,7 +85,6 @@ export default function AdminInquiry() {
               </select>
             </div>
             <div className="admin_content_sort">
-              <label htmlFor="sort">답변여부</label>
               <select name="sort" id="sort" onChange={handleChangeSort}>
                 <option value="default">답변여부</option>
                 <option value="N">미답변</option>
@@ -95,33 +94,43 @@ export default function AdminInquiry() {
           </div>
 
           <table className="admin_table">
+            <colgroup>
+              <col style={{ width: '63px'}}/>
+              <col style={{ width: '165px'}}/>
+              <col style={{ width: '125px'}}/>
+              <col style={{ width: '400px'}}/>
+              <col style={{ width: '500px'}}/>
+              <col style={{ width: '100px'}}/>
+              <col style={{ width: '128px'}}/>
+              <col style={{ width: '160px'}}/>
+            </colgroup>
             <thead>
               <tr>
                 <th>No.</th>
-                <th>닉네임</th>
-                <th>상품명</th>
                 <th>문의날짜</th>
                 <th>문의유형</th>
+                <th>상품명</th>
                 <th>문의내용</th>
+                <th>닉네임</th>
                 <th>답변여부</th>
                 <th>답변작성일</th>
               </tr>
             </thead>
             <tbody>
               {list.map((menu, idx) =>
-                <React.Fragment key={menu.qid} >
-                  <tr className="admin_inquiry_tr" onClick={(e)=>handleToggle(e,idx)} title="클릭해서 답변을 작성해주세요">
-                    <td>{menu.rno}</td> 
-                    <td>{menu.mid}</td>
-                    <td className="admin_inquiry_name">{menu.product_name}</td>
+                <React.Fragment key={menu.qid}>
+                  <tr className="admin_inquiry_tr" onClick={(e) => handleToggle(e, idx)} title="클릭해서 답변을 작성해주세요">
+                    <td>{menu.rno}</td>
                     <td>{menu.qdate}</td>
                     <td>{menu.qtype}</td>
-                    <td className="admin_inquiry_content">{menu.qcontent}</td>
+                    <td>{menu.product_name}</td>
+                    <td>{menu.qcontent}</td>
+                    <td>{menu.mid}</td>
                     {/* {menu.secret_check === "0" ? (<td>N</td>) : (<td>Y</td>)} */}
                     {menu.acontent.includes("대기중") ? (<td>N</td>) : (<td>Y</td>)}
                     {!menu.adate ? (<td>미답변</td>) : (<td>{menu.adate}</td>)}
                   </tr>
-                  <tr className={idx === toggle ? "admin_inquiry_answer active" : "admin_inquiry_answer" }>
+                  <tr className={idx === toggle ? "admin_inquiry_answer active" : "admin_inquiry_answer"}>
                     <td colSpan={8} className="admin_inquiry_td">
                       <span>답변내용</span>
                       <textarea cols="200" rows="3" name="acontent" value={content.acontent} placeholder={menu.acontent} onChange={handleChange}></textarea>

@@ -82,20 +82,20 @@ export default function AdminMember() {
   const maskingMail = (email) => {
     let id = email.split("@")
     let id2 = id[1].split(".")
-    if(id2[0] === ""){
+    if (id2[0] === "") {
       return id[0].replace(/(?<=.{1})./gi, '*') + "@" + id2[0].replace(/(?<=.{2})./gi, '*');
-    }else if(id2[2]){
-      return id[0].replace(/(?<=.{1})./gi, '*') + "@" + id2[0].replace(/(?<=.{2})./gi, '*')+ "." + id2[2] ;
-    }else if(id2[2] === undefined){
-      return id[0].replace(/(?<=.{1})./gi, '*') + "@" + id2[0].replace(/(?<=.{2})./gi, '*')+ "." + id2[1] ;
+    } else if (id2[2]) {
+      return id[0].replace(/(?<=.{1})./gi, '*') + "@" + id2[0].replace(/(?<=.{2})./gi, '*') + "." + id2[2];
+    } else if (id2[2] === undefined) {
+      return id[0].replace(/(?<=.{1})./gi, '*') + "@" + id2[0].replace(/(?<=.{2})./gi, '*') + "." + id2[1];
     }
   };
 
   const maskingBirthday = (birthday) => {
     let day = birthday.split("-")
-    if(birthday !== '미입력'){
-      return day[0].replace(/(?<=.{2})./gi, '*') + '-' + '**'+ '-' + '**';
-    }else{
+    if (birthday !== '미입력') {
+      return day[0].replace(/(?<=.{2})./gi, '*') + '-' + '**' + '-' + '**';
+    } else {
       return '미입력'
     }
   };
@@ -125,6 +125,13 @@ export default function AdminMember() {
           </div>
 
           <table className="admin_table">
+            <colgroup>
+              <col />
+              <col />
+              <col style={{ width: '600px' }} />
+              <col style={{ width: '230px' }} />
+              <col style={{ width: '230px' }} />
+            </colgroup>
             <thead>
               <tr>
                 <th>No.</th>

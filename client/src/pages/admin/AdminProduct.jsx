@@ -86,7 +86,7 @@ export default function AdminProduct() {
     e.preventDefault();
     axios.put(`http://127.0.0.1:8000/admin/product/update/${form.pid}`, form)
       .then((result) => {
-        if(result.data === 'ok'){
+        if (result.data === 'ok') {
           alert('상품정보 수정이 완료되었습니다');
           window.location.reload();
         }
@@ -115,7 +115,7 @@ export default function AdminProduct() {
 
     axios.post('http://127.0.0.1:8000/admin/product/register/', itemForm)
       .then((result) => {
-        if(result.data === 'ok'){
+        if (result.data === 'ok') {
           alert('상품 등록이 완료되었습니다.');
           window.location.reload();
         }
@@ -126,13 +126,13 @@ export default function AdminProduct() {
   const handleRemove = (e) => {
     const pid = e.target.dataset.id;
     axios.delete(`http://127.0.0.1:8000/admin/product/remove/${pid}`)
-    .then((result)=>{
-      if(result.data === 'ok'){
-        alert('삭제 완료');
-        window.location.reload();
-      }
-    })
-    .catch(console.err);
+      .then((result) => {
+        if (result.data === 'ok') {
+          alert('삭제 완료');
+          window.location.reload();
+        }
+      })
+      .catch(console.err);
   };
 
   return (
@@ -215,6 +215,17 @@ export default function AdminProduct() {
           </div>
 
           <table className="admin_table">
+            <colgroup>
+              <col />
+              <col />
+              <col style={{ width: '600px' }} />
+              <col style={{ width: '120px' }} />
+              <col />
+              <col style={{ width: '120px' }} />
+              <col />
+              <col style={{ width: '120px' }} />
+              <col style={{ width: '120px' }} />
+            </colgroup>
             <thead>
               <tr>
                 <th>No.</th>
@@ -237,7 +248,9 @@ export default function AdminProduct() {
                   <td>{menu.category_name}</td>
                   <td>{menu.product_name}</td>
                   <td>{menu.brand_name}</td>
-                  <td><img className="admin_image" src={menu.product_image.includes("https://") ? menu.product_image : `http://127.0.0.1:8000/${menu.product_image}`} alt="" /></td>
+                  <td>
+                    <img className="admin_image" src={menu.product_image.includes("https://") ? menu.product_image : `http://127.0.0.1:8000/${menu.product_image}`} alt="" />
+                  </td>
                   <td>{menu.price_origin.toLocaleString() + "원"}</td>
                   <td>{menu.price_sale && menu.price_sale + "%"}</td>
                   <td>{menu.sale_price + "원"}</td>
@@ -271,7 +284,7 @@ export default function AdminProduct() {
                 </div>
                 <div className="admin_update_contentbox">
                   <label>대표이미지</label>
-                  <img className="admin_update_image" src={form.product_image.includes("https://") ? form.product_image : (form.product_image === "" ? "" :  `http://127.0.0.1:8000/${form.product_image}`)} alt="상품이미지" />
+                  <img className="admin_update_image" src={form.product_image.includes("https://") ? form.product_image : (form.product_image === "" ? "" : `http://127.0.0.1:8000/${form.product_image}`)} alt="상품이미지" />
                   <ImageUpload getImage={getImage} value={form.product_image} />
                 </div>
                 <div className="admin_update_contentbox">

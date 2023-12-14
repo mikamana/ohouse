@@ -191,7 +191,15 @@ div.admin_section {
       justify-content: space-between;
       width: 90%;
       select {
-        margin-left: 5px;
+        padding: 5px;
+        font-size: 15px;
+        border: 1px solid #d9d9d9;
+      }
+      label{
+        margin: 0 5px;
+      }
+      input{
+        padding: 5px;
         font-size: 15px;
         border: 1px solid #d9d9d9;
       }
@@ -229,9 +237,12 @@ div.admin_section {
         tr {
           &:hover {
             color: var(--titleColor);
-            font-weight: 600;
+            font-weight: bold;
             background-color: var(--gray);
             cursor: pointer;
+            td{
+              overflow: hidden;
+            }
           }
           &.admin_inquiry_answer{
             display: none;
@@ -244,24 +255,11 @@ div.admin_section {
           }
           td {
             padding: 10px 0;
-            width: 80px;
             height: auto;
             table-layout: fixed;
             word-break: break-all;
             vertical-align: middle;
             font-size: 15px;
-            &:first-of-type {
-              width: 20px;
-            }
-            &:nth-of-type(3) {
-              width: 300px;
-            }
-            &.admin_inquiry_name {
-              width: 150px;
-            }
-            &.admin_inquiry_content {
-              width: 300px;
-            }
             &.admin_inquiry_td {
               height: 100px;
               span {
@@ -288,12 +286,6 @@ div.admin_section {
                 border-radius: 4px;
                 box-sizing: border-box;
               }
-            }
-            &.admin_order_td{
-              width: 100px;
-            }
-            &.admin_order_product{
-              width: 200px;
             }
             img.admin_userimg {
               width: 30px;

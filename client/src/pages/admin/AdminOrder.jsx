@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Pagination from 'rc-pagination';
 import 'rc-pagination/assets/index.css';
+import Login from './../user/Login';
 
 export default function AdminOrder() {
   /* get : 회원list */
@@ -77,13 +78,30 @@ export default function AdminOrder() {
 
   const handleChangeSort = (e) => {
     const { value } = e.target;
-    setValue(value)
+    setValue(value);
+    console.log(value);
+  };
 
-    // axios.get(`http://127.0.0.1:8000/admin/${startindex}/${endindex}/${value}`)
-    // .then((result)=>{
-    //   setMemberList(result.data)
-    // })
-  }
+  const maskingName = (name) => {
+    if (name.length >= 2) {
+      return name.replace(/(?<=.{1})./gi, '*');
+    } else {
+      return name;
+    }
+  };
+
+  const maskingAddress = (address) => {
+    const addressArray = address.split(" ")
+    let maskAddress = '';
+    for (let i = 0; i < addressArray.length - 1; i++) {
+      if (i > addressArray.length - 5) {
+        maskAddress += '*** ';
+      } else {
+        maskAddress += addressArray[i] + ' ';
+      }
+    }
+    return maskAddress.trim();
+  };
 
   return (
     <>
@@ -100,69 +118,55 @@ export default function AdminOrder() {
               </select>
             </div>
             <div className="admin_content_sort">
-              <label htmlFor="sort">정렬</label>
+              <label htmlFor="sort">주문일자</label>
+              <input name="odate" type="date" onChange={handleChangeSort}/>
+              {/* <label htmlFor="sort">정렬</label>
               <select name="sort" id="sort" onChange={handleChangeSort}>
                 <option value="default">이름순</option>
                 <option value="asc">오름차순</option>
                 <option value="desc">내림차순</option>
-              </select>
+              </select> */}
             </div>
           </div>
 
           <table className="admin_table">
+            <colgroup>
+              <col />
+              <col style={{ width: '230px' }} />
+              <col style={{ width: '150px' }} />
+              <col style={{ width: '130px' }} />
+              <col style={{ width: '600px' }} />
+              <col />
+              <col style={{ width: '140px' }} />
+              <col style={{ width: '230px' }} />
+            </colgroup>
             <thead>
               <tr>
                 <th>No.</th>
                 <th>주문번호</th>
                 <th>주문일</th>
-                <th>주문고객 / 연락처</th>
+                <th>주문자</th>
                 <th>상품명</th>
                 <th>총 수량</th>
-                <th>총 주문금액</th>
+                <th>총 주문금액(원)</th>
                 <th>배송지정보</th>
               </tr>
             </thead>
             <tbody>
-                {/* select row_number() over(order by orderer_name) as rno, p.common_id, orderer_name, orderer_phone, odate, qty, line_total, paydate, payment, reciever_address from oh_pay p, oh_order_save o where p.common_id=o.common_id; */}
               {list.map((menu) =>
-                <tr key={menu.mid}>
+                <tr key={menu.rno}>
                   <td>{menu.rno}</td>
-                  <td className="admin_order_td">{menu.common_id}</td>
+                  <td>{menu.common_id}</td>
                   <td>{menu.odate}</td>
-                  <td className="admin_order_td2">{menu.orderer_name}<br></br> {menu.orderer_phone}</td>
+                  <td>{maskingName(menu.orderer_name)}</td>
                   <td>{menu.product_name}</td>
                   <td>{menu.qty}</td>
-                  <td>{menu.line_total}</td>
-                  <td className="admin_order_td">{menu.reciever_address}</td>
+                  <td>{menu.line_total.toLocaleString()}</td>
+                  <td className="admin_order_address">{maskingAddress(menu.reciever_address)}</td>
                 </tr>
               )}
             </tbody>
           </table>
-
-          <div className={toggle ? "admin_update_popup active" : "admin_update_popup"}>
-            <p>회원 정보 수정</p>
-            <form className="admin_update_content" onSubmit={handleSubmit}>
-              <div className="admin_update_contentwrap">
-                <div className="admin_update_contentbox">
-                  <label htmlFor="">회원이름</label>
-                  <input type="text" name="nickname" value={form.nickname} onChange={handleChange} />
-                </div>
-                <div className="admin_update_contentbox">
-                  <label htmlFor="">회원아이디</label>
-                  <input type="text" name="mid" value={form.mid} onChange={handleChange} />
-                </div>
-                <div className="admin_update_contentbox">
-                  <label htmlFor="">휴대폰번호</label>
-                  <input type="tel" name="phone" value={form.phone} onChange={handleChange} />
-                </div>
-                <div className="admin_update_contentbox">
-                  <label htmlFor="">생일</label>
-                  <input type="date" name="birthday" value={form.birthday} onChange={handleChange} />
-                </div>
-              </div>
-              <button className="admin_editbtn">수정완료</button>
-            </form>
-          </div>
 
           <Pagination
             className="admin-pagination"
