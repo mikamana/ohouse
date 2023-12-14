@@ -16,6 +16,21 @@ export async function createReview(req, res) {
 
     }
 
+}
+
+export async function updateReview(req, res) {
+
+    const { mid, pid, formObject } = req.body
+
+    console.log(req.body);
+
+    const result = await reviewRepository.updateReview(formObject.content, formObject.score, formObject.image, mid, pid);
+
+    if (result === 'ok') {
+
+        res.status(204).send('ok')
+
+    }
 
 
 }

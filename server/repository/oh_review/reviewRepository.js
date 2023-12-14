@@ -8,6 +8,14 @@ export async function createReview(mid, pid, content, image, score) {
 
 }
 
+export async function updateReview(content, score, image, mid, pid) {
+
+    const sql = "update oh_review set review_content = ?, review_score = ?, review_img = ? where mid = ? and pid = ? ";
+    return db.execute(sql, [content, score, image, mid, pid])
+        .then((result) => 'ok')
+
+}
+
 export async function getReviewCount(pid) {
 
     const sql = "select count(review_score) as rcount, review_score from oh_review ov inner join oh_product op, oh_member om where ov.pid = op.pid and om.mid = ov.mid and op.pid = ? group by review_score order by review_score asc";

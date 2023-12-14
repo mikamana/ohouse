@@ -756,6 +756,7 @@ div.production_selling_prd_info_wrap {
               margin-bottom: 15px;
               div.production_selling_prd_review_item_box {
                 div.production_selling_prd_review_item_user {
+                  position: relative;
                   display: flex;
                   align-items: center;
                   a.production_selling_prd_review_item_user_img {
@@ -790,9 +791,18 @@ div.production_selling_prd_info_wrap {
                       margin-left: 5px;
                     }
                   }
+                  div.production_selling_prd_review_item_user_info_ud_wrap {
+                    position: absolute;
+                    right: 0px;
+                    span {
+                      margin: 10px;
+                      cursor: pointer;
+                    }
+                  }
                 } //production_selling_prd_review_item_user
                 div.production_selling_prd_review_item_detail_star {
-                  margin-top: 7px;
+                  margin: 7px 0px 15px;
+
                   span.production_selling_prd_review_item_detail_star_left_span {
                     font-size: 11px;
                     color: #757575;

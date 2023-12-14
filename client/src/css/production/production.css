@@ -748,6 +748,7 @@ div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.p
   margin-bottom: 15px;
 }
 div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li ul.production_selling_prd_review_item_list li.production_selling_prd_review_item_list_li div.production_selling_prd_review_item_box div.production_selling_prd_review_item_user {
+  position: relative;
   display: flex;
   align-items: center;
 }
@@ -779,8 +780,16 @@ div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.p
   color: #757575;
   margin-left: 5px;
 }
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li ul.production_selling_prd_review_item_list li.production_selling_prd_review_item_list_li div.production_selling_prd_review_item_box div.production_selling_prd_review_item_user div.production_selling_prd_review_item_user_info_ud_wrap {
+  position: absolute;
+  right: 0px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li ul.production_selling_prd_review_item_list li.production_selling_prd_review_item_list_li div.production_selling_prd_review_item_box div.production_selling_prd_review_item_user div.production_selling_prd_review_item_user_info_ud_wrap span {
+  margin: 10px;
+  cursor: pointer;
+}
 div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li ul.production_selling_prd_review_item_list li.production_selling_prd_review_item_list_li div.production_selling_prd_review_item_box div.production_selling_prd_review_item_detail_star {
-  margin-top: 7px;
+  margin: 7px 0px 15px;
 }
 div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li ul.production_selling_prd_review_item_list li.production_selling_prd_review_item_list_li div.production_selling_prd_review_item_box div.production_selling_prd_review_item_detail_star span.production_selling_prd_review_item_detail_star_left_span {
   font-size: 11px;
