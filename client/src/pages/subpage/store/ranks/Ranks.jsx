@@ -77,9 +77,9 @@ export default function Ranks() {
                     activeBtn={activeBtn}
                   />
                   {
-                    categoryList.map((list) =>
+                    categoryList.map((list,idx) =>
                       <ShopcateCategoryItem
-                        key={list.id}
+                        key={idx}
                         category_name={list.category_name}
                         category_id={list.category_id}
                         getCategoryItem={getCategoryItem}
