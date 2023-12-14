@@ -189,19 +189,31 @@ div.admin_section {
     div.admin_content_option {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       width: 90%;
       select {
         padding: 5px;
         font-size: 15px;
         border: 1px solid #d9d9d9;
       }
-      label{
+      label {
         margin: 0 5px;
       }
-      input{
+      input {
         padding: 5px;
         font-size: 15px;
         border: 1px solid #d9d9d9;
+      }
+      button {
+        padding: 5px;
+        margin-left: 10px;
+        vertical-align: middle;
+        background-color: #FFF;
+        border: 1px solid #d9d9d9;
+        cursor: pointer;
+        .admin_resetbtn {
+          font-size: 18px;
+        }
       }
     } //div.admin_content_count
     table.admin_table {
@@ -240,17 +252,17 @@ div.admin_section {
             font-weight: bold;
             background-color: var(--gray);
             cursor: pointer;
-            td{
+            td {
               overflow: hidden;
             }
           }
-          &.admin_inquiry_answer{
+          &.admin_inquiry_answer {
             display: none;
-            &.active{
+            &.active {
               display: table-row;
             }
           }
-          &.admin_inquiry_tr{
+          &.admin_inquiry_tr {
             border-bottom: 2px solid #35c5f0;
           }
           td {

@@ -188,6 +188,7 @@ div.admin_section div.admin_content > * {
 div.admin_section div.admin_content div.admin_content_option {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 90%;
 }
 div.admin_section div.admin_content div.admin_content_option select {
@@ -202,6 +203,17 @@ div.admin_section div.admin_content div.admin_content_option input {
   padding: 5px;
   font-size: 15px;
   border: 1px solid #d9d9d9;
+}
+div.admin_section div.admin_content div.admin_content_option button {
+  padding: 5px;
+  margin-left: 10px;
+  vertical-align: middle;
+  background-color: #FFF;
+  border: 1px solid #d9d9d9;
+  cursor: pointer;
+}
+div.admin_section div.admin_content div.admin_content_option button .admin_resetbtn {
+  font-size: 18px;
 }
 div.admin_section div.admin_content table.admin_table {
   border: 1px solid #fff;

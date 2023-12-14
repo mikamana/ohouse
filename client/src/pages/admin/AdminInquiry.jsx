@@ -117,6 +117,7 @@ export default function AdminInquiry() {
               </tr>
             </thead>
             <tbody>
+              {/* 글자수 체크 기능 넣어보기!! */}
               {list.map((menu, idx) =>
                 <React.Fragment key={menu.qid}>
                   <tr className="admin_inquiry_tr" onClick={(e) => handleToggle(e, idx)} title="클릭해서 답변을 작성해주세요">

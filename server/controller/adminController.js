@@ -84,8 +84,8 @@ export async function updateInquiry(req,res){
 
 /* 주문리스트 조회 */
 export async function getOrderList(req,res){
-  const {value, startindex, endindex} = req.params;
+  const {startindex, endindex, value} = req.params;
   console.log({value, startindex, endindex});
-  const result = await repository.getOrderList({value, startindex, endindex})
+  const result = await repository.getOrderList({startindex, endindex, value})
   res.json(result)
 }

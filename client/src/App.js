@@ -44,12 +44,13 @@ import EditPassword from './pages/user/EditPassword';
 import CartEmptyPage from "./pages/cart/CartEmptyPage";
 import TodayDeals from "./pages/subpage/store/today_deals/TodayDeals";
 import Ranks from "./pages/subpage/store/ranks/Ranks";
+import OrderList from './pages/user/OrderList';
 
 const router = createBrowserRouter([
 
   {
     path: "/",
-    element: <Main/>,
+    element: <Main />,
     children: [
       {
         path: '/', element:
@@ -115,7 +116,7 @@ const router = createBrowserRouter([
       {
         path: '/search', element:
           <Contents>
-            <Search/>
+            <Search />
           </Contents>
       },
       {
@@ -163,21 +164,27 @@ const router = createBrowserRouter([
       {
         path: '/interior3ds', element:
           <Contents>
-            <Interior3ds/>
+            <Interior3ds />
           </Contents>
       },
       {
         path: '/store/todaydeals', element:
           <Contents>
-            <TodayDeals/>
+            <TodayDeals />
           </Contents>
       },
       {
         path: '/store/ranks', element:
           <Contents>
-            <Ranks/>
+            <Ranks />
           </Contents>
       },
+      {
+        path: '/user_shopping_pages/order_list', element:
+          <Contents>
+            <OrderList />
+          </Contents>
+      }
     ]
   },
   {
@@ -190,7 +197,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/users/password/new1', element:
-      <PasswordNewNew/>
+      <PasswordNewNew />
   },
   {
     path: '/search', element:
@@ -199,14 +206,14 @@ const router = createBrowserRouter([
       </Contents>
   },
   {
-    path: '/admin', 
+    path: '/admin',
     element: <Adminpage />,
-    children : [
-      { path : '/admin', element : <AdminMember />},
-      { path : '/admin/member', element : <AdminMember />},
-      { path : '/admin/product', element : <AdminProduct /> },
-      { path : '/admin/order', element : <AdminOrder /> },
-      { path : '/admin/inquiry', element : <AdminInquiry /> }
+    children: [
+      { path: '/admin', element: <AdminMember /> },
+      { path: '/admin/member', element: <AdminMember /> },
+      { path: '/admin/product', element: <AdminProduct /> },
+      { path: '/admin/order', element: <AdminOrder /> },
+      { path: '/admin/inquiry', element: <AdminInquiry /> }
     ]
   }
 ])

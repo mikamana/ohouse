@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Pagination from 'rc-pagination';
 import 'rc-pagination/assets/index.css';
-import Login from './../user/Login';
+import { GrPowerReset } from "react-icons/gr";
 
 export default function AdminOrder() {
   /* get : 회원list */
@@ -34,11 +34,14 @@ export default function AdminOrder() {
         if (result.data.length !== 0) {
           setList(result.data);
           setTotalPage(result.data[0].total);
+        }else {
+          alert('해당하는 날짜의 주문건이 없습니다');
         }
       })
       .catch(console.err);
-  }, [value, listPerPages, currentPage])
-
+    }, [value, listPerPages, currentPage])
+    
+    console.log(list);
   const [toggle, setToggle] = useState(false);
   const handleToggle = (e) => {
     const mid = e.target.dataset.id;
@@ -79,7 +82,6 @@ export default function AdminOrder() {
   const handleChangeSort = (e) => {
     const { value } = e.target;
     setValue(value);
-    console.log(value);
   };
 
   const maskingName = (name) => {
@@ -102,6 +104,10 @@ export default function AdminOrder() {
     }
     return maskAddress.trim();
   };
+
+  const handleReset = (e) => {
+    window.location.reload();
+  }
 
   return (
     <>
@@ -126,6 +132,9 @@ export default function AdminOrder() {
                 <option value="asc">오름차순</option>
                 <option value="desc">내림차순</option>
               </select> */}
+              <button onClick={handleReset}>
+                <GrPowerReset className="admin_resetbtn"/>
+              </button>
             </div>
           </div>
 
