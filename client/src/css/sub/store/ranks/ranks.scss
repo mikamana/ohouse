@@ -1,0 +1,123 @@
+.ranks_btns_wrap{
+  padding: 30px 0;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.ranks_btns{
+  margin: 0;
+  background: none;
+  font: inherit;
+  line-height: 18px;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 44px;
+  border-radius: 4px;
+  padding: 0 16px;
+  font-weight: 400;
+  box-sizing: border-box;
+  text-align: center;
+  color: #2F3438;
+  border: 1px solid #DADDE0;
+  font-size: 16px;
+  width: 50%;
+  max-width: 171.5px;
+  cursor: pointer;
+  &:hover{background-color: #F7F9FA;}
+
+}
+
+.rank_btn_active{
+    border: none;
+    color: #FFFFFF;
+    background-color: #35C5F0;
+    &:hover{
+      background-color: #009FCE;
+    }
+}
+
+.ranks_realtime_contents_wrap{
+  max-width: 1256px;
+  margin: 0 auto;
+  padding: 0 60px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  box-sizing: border-box;
+}
+
+.ranks_alltime_contents_wrap{
+  padding-bottom: 30px;
+  padding-top: 30px;
+  max-width: 1256px;
+  margin: 0 auto;
+  padding: 0 60px;
+  box-sizing: border-box;
+}  
+
+.ranks_alltime_contents_container{
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.ranks_realtime_date{
+  line-height: 18px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.54);
+  margin-bottom: 12px;
+}
+.ranks_alltime_category_wrap{
+
+}
+
+.ranks_alltime_category_container{
+  position: relative;
+  z-index: 901;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(234, 237, 239);
+  box-sizing: border-box;
+}
+
+.ranks_alltime_category_box{
+  max-width: 1256px;
+  margin: 0px auto;
+  padding: 0px 60px;
+  box-sizing: border-box;
+}
+
+.ranks_alltime_category_nav{
+  display: flex;
+  -webkit-box-align: stretch;
+  align-items: stretch;
+  overflow-x: auto;
+  white-space: nowrap;
+  margin: 0px -5px;
+  .shopcate_category_item_container{
+    width: auto;
+    margin: 0px;
+    border: none;
+    background: none;
+    font: inherit;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    vertical-align: top;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 12px 6px;
+  }
+}
+
+.ranks_realtime_contents_container{
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+

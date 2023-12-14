@@ -42,6 +42,8 @@ import AdminInquiry from './pages/admin/AdminInquiry';
 import Interior3ds from './pages/subpage/interior3ds/Interior3ds';
 import EditPassword from './pages/user/EditPassword';
 import CartEmptyPage from "./pages/cart/CartEmptyPage";
+import TodayDeals from "./pages/subpage/store/today_deals/TodayDeals";
+import Ranks from "./pages/subpage/store/ranks/Ranks";
 
 const router = createBrowserRouter([
 
@@ -162,6 +164,18 @@ const router = createBrowserRouter([
         path: '/interior3ds', element:
           <Contents>
             <Interior3ds/>
+          </Contents>
+      },
+      {
+        path: '/store/todaydeals', element:
+          <Contents>
+            <TodayDeals/>
+          </Contents>
+      },
+      {
+        path: '/store/ranks', element:
+          <Contents>
+            <Ranks/>
           </Contents>
       },
     ]

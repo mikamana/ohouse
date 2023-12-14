@@ -59,13 +59,20 @@ export default function HeaderSearchRight() {
     }
   };
   {/* 추가작업부분 끝 */ }
-  const [cartCnt, setCartCnt] = useState(null);
+  const [cartCnt, setCartCnt] = useState();
+  const [image, setimage] = useState(null);
   useEffect(() => {
 
     if (userInfo) {
       axios.get(`http://127.0.0.1:8000/cart/${userInfo.id}/`)
         .then((result) => {
           setCartCnt(result.data.length);
+        })
+        .catch(console.err);
+
+      axios.get(`http://127.0.0.1:8000/edit/${userInfo.id}`)
+        .then((result) => {
+          setimage(result.data.userimg);
         })
         .catch(console.err);
     }
@@ -168,7 +175,7 @@ export default function HeaderSearchRight() {
               {cartCnt !== 0 ? <span className="header_logo_cart_num">{cartCnt}</span> : null}
             </Link>
             <button className="header_logo_profile" onClick={toggleProfileMenu}>
-              <img className="header_logo_profile_icon" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?w=72&h=72&c=c&webp=1" alt="프로필 사진" />
+              <img className="header_logo_profile_icon" src={image === null ? "https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?w=72&h=72&c=c&webp=1" : image} alt="프로필 사진" />
             </button>
             <div className={showProfile} >
               <HeaderProfile />

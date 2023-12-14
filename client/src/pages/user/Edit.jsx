@@ -4,6 +4,7 @@ import "../../css/user/edit.css"
 import axios from "axios";
 import ImageUpload from "./ImageUpload";
 import { Link } from "react-router-dom";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 
 export default function Edit() {
 
@@ -13,7 +14,7 @@ export default function Edit() {
   const [nicknameValue, setNickNameValue] = useState(true);
   const [nicknameText, setNickNameText] = useState("");
   useEffect(() => {
-    if (userinfo !== null) {
+    if (userinfo) {
       axios.get(`http://127.0.0.1:8000/edit/${userinfo.id}`)
         .then(result => {
           setForm(result.data);
@@ -70,6 +71,21 @@ export default function Edit() {
     }
   }
 
+  const style = {
+    none: {
+      backgroundImage: "url(https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&w=640&h=640&c=c&webp=1)",
+      backgroundColor: "#d8d8d8"
+    },
+    imge: {
+      backgroundImage: `url(http://127.0.0.1:8000/${form.userimg === null? "" : form.userimg.replace(/\\/, '/')})`,
+      backgroundColor: "#fff"
+    }
+  }
+
+  const imageremove = () => {
+    setForm({...form, userimg : null})
+  }
+
   return (
     <div className="edit">
       {userinfo === null ? (<div>잘못된 경로로 접속하셨습니다.</div>)
@@ -99,13 +115,6 @@ export default function Edit() {
                 <span className="editNicknameText">{nicknameText}</span>
               </div>
             </div>
-            <div className="editPhone">
-              <div>
-                <label>전화번호</label>
-                <input type="tel" name="phone" value={form.phone} onChange={handleChange} />
-              </div>
-              <span>하이픈은빼고적어주세요</span>
-            </div>
             <div className="editHompage">
               <label>홈페이지</label>
               <input type="text" placeholder="https://ohou.se/" name="homepage" value={form.homepage} onChange={handleChange} />
@@ -124,9 +133,9 @@ export default function Edit() {
             <div className="editImage">
               <div className="editImageinput">
                 <label>프로필이미지</label>
-                <ImageUpload getImage={getImage} />
+                <ImageUpload getImage={getImage} style={form.userimg === null ? style.none : style.imge}/>
+                {form.userimg !== null && <IoIosCloseCircleOutline onClick={imageremove}/>}
               </div>
-              {form.userimg === null ? <div></div> : <div className="editImageprofile"><img src={form.userimg === null ? "" : `http://127.0.0.1:8000/${form.userimg}`} alt="" /></div>}
             </div>
             <div className="editComment">
               <label>한줄소개</label>
