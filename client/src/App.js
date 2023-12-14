@@ -44,7 +44,8 @@ import EditPassword from './pages/user/EditPassword';
 import CartEmptyPage from "./pages/cart/CartEmptyPage";
 import Users from "./pages/user/Users";
 import Profile from "./pages/user/components/Profile";
-
+import TodayDeals from "./pages/subpage/store/today_deals/TodayDeals";
+import Ranks from "./pages/subpage/store/ranks/Ranks";
 
 const router = createBrowserRouter([
 
@@ -131,46 +132,6 @@ const router = createBrowserRouter([
             <Cart />
           </Contents>
       },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       {
         path: '/cart', element:
           <Contents>
@@ -231,6 +192,18 @@ const router = createBrowserRouter([
             <Withdrawals />
           </Users>
         </Contents>
+      },
+      {
+        path: '/store/todaydeals', element:
+          <Contents>
+            <TodayDeals/>
+          </Contents>
+      },
+      {
+        path: '/store/ranks', element:
+          <Contents>
+            <Ranks/>
+          </Contents>
       }
     ]
   },

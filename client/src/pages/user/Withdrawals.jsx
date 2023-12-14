@@ -8,6 +8,8 @@ export default function Withdrawals() {
   const userinfo = getUser();
   const [form, setForm] = useState({ agree: false, lowuse: false, rejoin: false, lackOfContent: false, privacy: false, lackOfBenefits: false, etc: false });
   const [text, setText] = useState("");
+  const [textarea, setTextarea] = useState("");
+  const [length, setLength] = useState(0);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -34,7 +36,12 @@ export default function Withdrawals() {
     }
   }
 
-  return (
+  const textlength = (e) => {
+    setLength(e.target.value.length);
+    setTextarea(e.target.value);
+  }
+
+  return(
     <div className="Withdrawals">
       {userinfo === null ? (<div>잘못된 경로로 접속하셨습니다.</div>) : (
         <form onSubmit={handleSubmit}>
@@ -69,7 +76,7 @@ export default function Withdrawals() {
             <div className="WithdrawalsText">{text}</div>
 
             <div>
-              <h2>오늘의집 회원에서 탈퇴하려는 이유가 무엇인가요? (복수선택 가능) 필수</h2>
+              <h2>오늘의집 회원에서 탈퇴하려는 이유가 무엇인가요? (복수선택 가능) <span>필수</span></h2>
               <div className="WithdrawalsCheckbox">
                 <div><input type="checkbox" name="lowuse" checked={form.lowuse} onChange={handleChange} /> <span>이용빈도 낮음</span></div>
                 <div><input type="checkbox" name="rejoin" checked={form.rejoin} onChange={handleChange} /> <span>재가입</span></div>
@@ -85,7 +92,8 @@ export default function Withdrawals() {
             <div className="WithdrawalsWrite">
               <h2>오늘의집 서비스 이용 중 어떤 부분이 불편하셨나요? <span className="WithdrawalsChoice">선택</span></h2>
               <p>오늘의집에 떠나는 이유를 자세히 알려주시겠어요? 여러분의 소중한 의견을 반영해 더 좋은 서비스로 꼭 찾아뵙겠습니다.</p>
-              <textarea name="" id="" cols="30" rows="10" maxLength={2000} placeholder="선택하신 항목에 대한 자세한 이유를 남겨주시면 서비스 개선에 큰 도움이 됩니다."></textarea>
+              <textarea name="" id="" cols="30" rows="10" maxLength={2000} placeholder="선택하신 항목에 대한 자세한 이유를 남겨주시면 서비스 개선에 큰 도움이 됩니다." onChange={textlength}></textarea>
+              <span className="length">{length}/2000</span>
             </div>
           </div>
           <div className="WithdrawalsButton">

@@ -154,6 +154,13 @@
 .Signup .SingupForm .SignupEmail div {
   position: relative;
 }
+.Signup .SingupForm .SignupEmail div .SignupEmailCountdown {
+  position: absolute;
+  color: red;
+  top: 12px;
+  right: 65px;
+  font-size: 16px;
+}
 .Signup .SingupForm .SignupEmail div .SignupEmailButton {
   position: absolute;
   white-space: pre;
@@ -232,6 +239,15 @@
   line-height: 20px;
   color: #2F3438;
   margin-bottom: 10px;
+}
+.Signup .SingupRecaptcha {
+  margin-bottom: 20px;
+}
+.Signup .SingupRecaptcha p {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 18px;
+  color: rgb(255, 119, 119);
 }
 .Signup .SignupSubmitButton {
   box-sizing: border-box;
