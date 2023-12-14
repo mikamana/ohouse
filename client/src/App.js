@@ -44,7 +44,8 @@ import EditPassword from './pages/user/EditPassword';
 import AdminContent from "./pages/admin/component/AdminContent";
 
 import CartEmptyPage from "./pages/cart/CartEmptyPage";
-import TodayDeals from "./pages/subpage/todaydeals/TodayDeals";
+import TodayDeals from "./pages/subpage/store/today_deals/TodayDeals";
+import Ranks from "./pages/subpage/store/ranks/Ranks";
 
 const router = createBrowserRouter([
 
@@ -171,6 +172,12 @@ const router = createBrowserRouter([
         path: '/store/todaydeals', element:
           <Contents>
             <TodayDeals/>
+          </Contents>
+      },
+      {
+        path: '/store/ranks', element:
+          <Contents>
+            <Ranks/>
           </Contents>
       },
     ]
