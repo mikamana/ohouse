@@ -644,7 +644,7 @@ div.header_logo_searchBox_loginver input.header_logo_search::placeholder {
       width: 40px;
     }
   }
-}
+} //div.header_logo_right
  */
 /* 로그인 후 헤더 메뉴 (react-icon 설정)*/
 div.header_logo_right_loginver {

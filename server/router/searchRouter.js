@@ -3,6 +3,6 @@ import * as searchController from '../controller/searchController.js';
 
 const router = express.Router();
 
-router.get('/:product_name', searchController.searchList);
+router.get('/:searchKeyword', searchController.searchList);
 
 export default router;

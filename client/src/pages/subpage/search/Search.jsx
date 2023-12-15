@@ -1,64 +1,71 @@
 import React, { useState, useEffect } from 'react';
-import "../../../css/sub/search/search.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import axios from 'axios';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay } from 'swiper/modules';
 import ShopitemContents from '../../main/shopitem/ShopitemContents';
 import SubtitleMore from '../../main/subtitle_more/Subtitle_more';
-import axios from 'axios';
-
+import ShopitemSection from '../../main/shopitem/ShopitemSection';
+import "../../../css/sub/search/search.css";
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 export default function Search (){
-
+  const {searchKeyword} = useParams();
   const [shopArray, setShopArray] = useState([]);
-  useEffect(() => {
-    axios('http://127.0.0.1:8000/product/shopitem')
-      .then(result => {
-        setShopArray(result.data)
-      }
-    )
-  }, [])
-
-  const [searchResults, setSearchResults] = useState([]);
-
+  const [randomShopArray, setRandomShopArray] = useState([]);
   const [searchTotal, setSearchTotal] = useState([]);
+  
+  function randomArray(array, maxItems = 12) {
+    let randomItem = array.slice(0, Math.min(maxItems, array.length)).slice();
+
+    for (let i = randomItem.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [randomItem[i], randomItem[j]] = [randomItem[j], randomItem[i]];
+    }
+  
+    return randomItem;
+  }
+
   useEffect(()=>{
+    axios.get(`http://127.0.0.1:8000/search/${searchKeyword}`)
+    .then(result => {
+      setShopArray(result.data);
+      const randomList = randomArray(result.data, 12);
+      setRandomShopArray(randomList);
+      // setShopArray(result.data)
+    })
+  }, [searchKeyword])
+
+  useEffect(() => {
     fetch(`/data/iconMenu/search.json`)
     .then((res) => res.json())
     .then((data) => setSearchTotal(data));
   }, []);
-  console.log(searchResults);
-
-  const [searchArray, setSearchArray] = useState([]);
-  useEffect(() => {
-    axios('http://127.0.0.1:8000/search')
-      .then(result => {
-        setSearchArray(result.data)
-      }
-    )
-  }, [])
+  
+  console.log(searchKeyword);
 
   return(
     <>
       <div className="search_container inner">
         <div className="search_keyword">
-          <span>연관</span>
-          <Link to={''}>크리스마스</Link>
-          <Link to={''}>소품크리스마스</Link>
-          <Link to={''}>조명오너먼트크리스마스</Link>
-          <Link to={''}>트리트리크리스마스</Link>
-          <Link to={''}>선물크리스마스</Link>
-          <Link to={''}>리스크리스마스</Link>
-          <Link to={''}>포스터크리스마스</Link>
-          <Link to={''}>식탁보크리스마스</Link>
-          <Link to={''}>장식크리스마스</Link>
-          <Link to={''}>가랜드크리스마스</Link>
-          <Link to={''}>인테리어크리스마스</Link>
-          <Link to={''}>홈파티크리스마스</Link>
-          <Link to={''}>패브릭산타인형</Link>
+          <span>추천</span>
+          <Link to={''}>{searchKeyword}</Link>
+          <Link to={''}>{searchKeyword} 선물</Link>
+          <Link to={''}>인기 {searchKeyword}</Link>
+          <Link to={''}>{searchKeyword} 감성</Link>
+          <Link to={''}>{searchKeyword} 이벤트</Link>
+          <Link to={''}>소품 {searchKeyword}</Link>
+          <Link to={''}>예쁜 {searchKeyword}</Link>
+          <Link to={''}>휴대용 {searchKeyword}</Link>
+          <Link to={''}>{searchKeyword} 선물 인기</Link>
         </div>
+
         <div className="search_total">
           <div className="search_total_style">
             <div className="search_total_sub_title">
-              <p>크리스마스 스타일링 노하우</p>
+              <p>{searchKeyword} 스타일링 노하우</p>
               <span>올해는 더 예쁜 기억을 만들어보세요.</span>
             </div>
             <ul className="search_total_image">
@@ -90,10 +97,38 @@ export default function Search (){
               ))}
             </ul>
           </div>
-          <Link className="search_total_bttn" to={''}>크리스마스 기획전 바로가기</Link>
+          <Link className="search_total_bttn" to={''}>{searchKeyword} 기획전 바로가기</Link>
         </div>
+
         <div className="searchResults">
           <SubtitleMore title={"쇼핑"} />
+          <div key="shopitem_section" className="shopitem_section">
+            <Swiper
+              slidesPerView={6}
+              slidesPerGroup={6}
+              spaceBetween={10}
+              navigation={{
+                prevEl: ".shopitem_prev_btn",
+                nextEl: ".shopitem_next_btn",
+              }}
+              modules={[Navigation]}
+              className="mySwiper">
+              {randomShopArray.map((list, i) =>
+                  <SwiperSlide key={i}>
+                    <ShopitemContents
+                      shopitemList={list}
+                      timecount={false}
+                    />
+                  </SwiperSlide>
+                )}
+            </Swiper>
+            <button className="shopitem_prev_btn prev_style_opactiy"></button>
+            <button className="shopitem_next_btn next_style_opactiy"></button>
+          </div>
+          
+
+          <SubtitleMore title={"쇼핑"} />
+          <div className="search_item">
             {shopArray.map((list, i) =>
               <ShopitemContents
                 key={i}
@@ -101,9 +136,10 @@ export default function Search (){
                 timecount={false}
               />
             )}
+          </div>
+
         </div>
       </div>
-
     </>
   );
 }

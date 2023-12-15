@@ -1,53 +1,86 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ShowMenu from "./ShowMenu";
 import HeaderSearchRight from './HeaderSearchRight';
 import HeaderLogoWrite from "./HeaderLogoWrite";
 import HeaderNavPopular from "./HeaderNavPopular";
-import axios from "axios";
+import axios from 'axios';
 
-export default function Header() {
+export default function Header({onDataChange}) {
 
   {/* 검색 추가작업 부분 */ }
-  const [searchList, setSearchList] = useState([]);
-  useEffect (() => {
-    axios
-    .get(`http://127.0.0.1:8000/search`)
-    .then((result) => {
-      setSearchList(result.data)
-      console.log(setSearchList);
-    })
-    .catch((err) => console.log(err));
-  }, []);
+  const navigate = useNavigate();
 
   const [inputValue, setInputValue] = useState('');
   const [autoKeyWord, setAutoKeyWord] = useState([]);
-
+  
+  const [isModal1Open, setIsModal1Open] = useState(false);
+  const [isModal2Open, setIsModal2Open] = useState(false);
+  const inputRef = useRef();
+  
+  //모달 외부 영역  클릭 닫기
+  const handleClickOutside = (e) => {
+    const target = e.target;
+    if (!target.classList.contains('header_search_keyword') && !target.classList.contains('header_logo_search')) {
+      setIsModal1Open(false);
+      setIsModal2Open(false);
+    }
+  };
+  
   const handleInputChange = (e) => {
-    
     const value = e.target.value;
     setInputValue(value);
+
     const autoKeyWord = ['러그', '시계', '크리스마스', '크리스마스 트리', '크리스마스 산타', '크리스마스 리스', '크리스마스 케이크', '크리스마스 장식', '크리스마스 트리 장식', '벽시계', '알람시계', '크리스마스 산타 모자', '크리스마스 순록', '크리스마스 오너먼트']
       .filter(
         autoComplete => autoComplete.toLowerCase().includes(value.toLowerCase())
       );
+      
     setAutoKeyWord(autoKeyWord);
+
+    // input입력되면 기본
+    setIsModal1Open(false);
+    setIsModal2Open(true);
+
+    onDataChange(value);
+
+    console.log(value);
+
   };
-  const handleAutoKeyWord = (inputValue) => {
-    setInputValue(inputValue);
-    window.location.href = `/search/${inputValue}`;
+
+
+  // x버튼 누르면 내용 리셋, 검색어 열기
+  
+  // 포커스 되면 검색어 모달 열기
+  const handleFocus = () => {
+    setIsModal1Open(true);
   };
+
   const handleClearClick = () => {
     setInputValue('');
+    setIsModal1Open(true);
   };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [handleClickOutside]);
+
+
+  const handleAutoKeyWord = (inputValue) => {
+    setInputValue(inputValue);
+    navigate(`/search/${inputValue}`)
+  };
+  
   const searchEnter = (e) => {
     if (e.key === 'Enter') {
-      window.location.href = `/search/${inputValue}`;
+      navigate(`/search/${inputValue}`)
     }
   };
+
   {/* 검색 추가작업부분 끝 */ }
-
-
 
 
   /* 스크롤할 때 헤더 고정 */
@@ -126,6 +159,9 @@ export default function Header() {
     }
   }
 
+
+
+
   // 헤더클릭시 글쓰기 사라지는거 나중에 추가하기
   // const headerBox = useRef();
   // ref={headerBox}
@@ -159,11 +195,28 @@ export default function Header() {
               <img className="header_logo_search_img" src="/images/headers/search.png" alt="이미지1" />            
 
               <input className="header_logo_search" type="text" placeholder="통합검색" name="header_logo_search"
+                ref={inputRef}
+                onFocus={handleFocus}
                 onChange={handleInputChange}
                 onKeyPress={searchEnter}
                 value={inputValue} />
 
-              {inputValue && (
+                {inputValue && (
+                  <button className="search_del_bttn" type="button" onClick={handleClearClick}></button>
+                )}
+
+              {isModal1Open && (
+                <div className="header_search_keyword">
+                  <div>
+                    <ul>
+                      <li>
+                        <Link to={''}>검색어</Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              )}
+              {isModal2Open && (
                 <>
                   <button className="search_del_bttn" type="button" onClick={handleClearClick}></button>
                   <div className="header_search_keyword">
@@ -178,12 +231,26 @@ export default function Header() {
                       </ul>
                     </div>
                   </div>
-                  <div>
-                    {searchList.map((list) => 
-                      <div>{list.product_name}</div>
-                    )}</div>
                 </>
               )}
+
+              {/* {inputValue && (
+                <>
+                  <button className="search_del_bttn" type="button" onClick={handleClearClick}></button>
+                  <div className="header_search_keyword">
+                    <div>
+                      <ul>
+                        <li className="header_search_keyword_cate">
+                          {inputValue} <span>카테고리</span>
+                        </li>
+                        {autoKeyWord.map((autoComplete, index) => (
+                          <li key={index} onClick={() => handleAutoKeyWord(autoComplete)}>{autoComplete}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </>
+              )} */}
             </div>
           {/* 검색창 추가작업부분 끝 */}
 

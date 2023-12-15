@@ -1,7 +1,7 @@
 import * as searchRepository from '../repository/searchRepository.js';
 
 export async function searchList (req, res) {
-  const product_name = req.params.product_name;
-  const result = await searchRepository.searchList(product_name);
+  const searchKeyword = req.params.searchKeyword;
+  const result = await searchRepository.searchList(searchKeyword);
   res.json(result);
 }

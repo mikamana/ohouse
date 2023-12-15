@@ -113,7 +113,7 @@ const router = createBrowserRouter([
           </Contents>
       },
       {
-        path: '/search', element:
+        path: '/search/:searchKeyword', element:
           <Contents>
             <Search />
           </Contents>
