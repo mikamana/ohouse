@@ -12,11 +12,12 @@ export default function ProductionsPrdReviewWrap(props) {
     const params = useParams();
     const [check, setCheck] = useState(0);
 
+    //베스트순,최신순
+    const [kindList, setKindList] = useState("best");
     //페이징 처리
     const [currentPage, setCurrentPage] = useState(1);
     const [pageSize, setPageSize] = useState(5);
     const [list, setList] = useState([]);
-
 
     useEffect(() => {
 
@@ -29,7 +30,7 @@ export default function ProductionsPrdReviewWrap(props) {
         axios({
 
             method: "get",
-            url: `http://127.0.0.1:8000/review/product/${params.pid}/${startIndex}/5`
+            url: `http://127.0.0.1:8000/review/product/${kindList}/${params.pid}/${startIndex}/5`
 
         }).then((result) => {
 
@@ -38,7 +39,9 @@ export default function ProductionsPrdReviewWrap(props) {
         })
 
 
-    }, [currentPage]);
+    }, [currentPage, kindList]);
+
+
 
     return (
 
@@ -46,20 +49,20 @@ export default function ProductionsPrdReviewWrap(props) {
             <ProductionsPrdReviewBox count={props.count} avg={props.avg} />
             {/* <ProductionsPrdReviewFeedBox /> */}
             <div className="production_selling_prd_review_feed_wrap">
-                {/* <ul className="production_selling_prd_review_feed_list">
+                <ul className="production_selling_prd_review_feed_list">
                     <li className={check === 0 ? "production_selling_prd_review_feed_list_li active" : "production_selling_prd_review_feed_list_li"} onClick={() => {
                         setCheck(0)
-                        fnBestReview('best')
+                        setKindList('best')
                     }}>
                         <span>베스트순</span>
                     </li>
                     <li className={check === 1 ? "production_selling_prd_review_feed_list_li active" : "production_selling_prd_review_feed_list_li"} onClick={() => {
                         setCheck(1)
-                        fnBestReview('latest')
+                        setKindList('latest')
                     }}>
                         <span>최신순</span>
                     </li>
-                </ul> */}
+                </ul>
                 {/* <ul className="production_selling_prd_review_feed_option_list">
                     <li className="production_selling_prd_review_feed_option_list_li">
                         <button className="production_selling_prd_review_feed_asterion_btn">별점</button>

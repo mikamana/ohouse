@@ -8,5 +8,6 @@ export async function getProduct(req,res){
 
   res.json(rows)
 
-
 }
+
+

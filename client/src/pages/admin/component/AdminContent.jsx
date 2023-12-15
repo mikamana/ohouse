@@ -8,7 +8,6 @@ import { PiCarLight } from "react-icons/pi";
 export default function AdminContent() {
 
   const { category } = useParams();
-  console.log(category);
 
   const [menuList, setMenuList] = useState([]);
 
@@ -51,14 +50,13 @@ export default function AdminContent() {
       newDataList.push(newData);
       // setNewDataList([newData])
     })
-    console.log(newDataList);
   }
 
   useEffect(() => {
-    if(category === 'member'){
+    if (category === 'member') {
       setMenuList(['No.', '회원이름', '회원아이디', '생일', '가입일시', '주문건수', '리뷰수', '비고']);
-    }else if(category === 'product'){
-      setMenuList(['No.', '카테고리명', '상품명', '브랜드명','대표이미지','정상가','할인율(%)','쿠폰할인가', '배송유형', '등록일', '비고']);
+    } else if (category === 'product') {
+      setMenuList(['No.', '카테고리명', '상품명', '브랜드명', '대표이미지', '정상가', '할인율(%)', '쿠폰할인가', '배송유형', '등록일', '비고']);
     }
     axios.get(`http://127.0.0.1:8000/admin/${category}/${startindex}/${endindex}/${value}`)
       .then((result) => {
@@ -66,7 +64,6 @@ export default function AdminContent() {
           setList(result.data);
           setTotalPage(result.data[0].total);
           createNewData(result.data);
-          console.log(result.data);
         }
       })
       .catch(console.err);
@@ -167,9 +164,9 @@ export default function AdminContent() {
               {newDataList.map((obj1) =>
                 <tr>
                   {obj1.map((person) =>
-                    person.includes("image") ? (<td key={person.rno}><img className="admin_image" src={person.replace(/"/g,"")} alt="dd" /></td>) : <td key={person.rno}>{person.replace(/"/g,"")}</td>
-                    
-                  )} 
+                    person.includes("image") ? (<td key={person.rno}><img className="admin_image" src={person.replace(/"/g, "")} alt="dd" /></td>) : <td key={person.rno}>{person.replace(/"/g, "")}</td>
+
+                  )}
                 </tr>
               )}
 

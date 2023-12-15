@@ -75,8 +75,7 @@ select rno, pid, total, category_name, product_image, brand_name, product_name, 
 (select row_number() over(order by product_name asc) rno, pid, total, category_name, product_image, brand_name, product_name, price_sale, price_origin, tag_free, coupon_percent, pdate, delivery_type 
 	from (select count(*) as total from oh_product) as products, oh_product p inner join oh_category c on p.category_id=c.category_id) a 
     where rno between ? and ? order by product_name asc;
-    
-     ifnull(format(round(p.price_origin - (p.price_origin * p.price_sale / 100),-2),0),format(p.price_origin,0)) sale_price
+
      
 drop table oh_order; -- oh_order 테이블 수정
 drop table oh_pay; -- create table oh_pay 테이블 삭제 후 다시 생성
@@ -90,6 +89,11 @@ desc oh_product;
 select * from oh_product;
 desc oh_review;
 select * from oh_review;
+select * from oh_inquiry;
+delete from oh_review where mid = "@" and pid = "1";
+
+select cart_id,pid,mid,qty,cdate from oh_cart where pid = "1" and mid = 'try226@naver.com';
+
 desc oh_community;
 select * from oh_community;
 desc oh_channel;
@@ -228,6 +232,21 @@ create table oh_inquiry(
     constraint oh_inquery_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade
     
 );
+
+create table oh_scraped(
+
+	sid int auto_increment primary key not null, -- 스크랩 id
+    mid varchar(100), -- 유저아이디
+    pid int, -- 상품아이디
+    scraped_at timestamp default current_timestamp, -- 날짜와 시간 데이터 > 사용자가 스크랩한 날짜와 시간을 저장
+    constraint oh_scraped_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade,
+    constraint oh_scraped_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade
+);
+
+-- om.nickname, ifnull(om.userimg,'https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/170123715614833692.png?gif=1&w=360&h=360&c=c') as userimg 
+
+
+
 -- oh_category insert
 insert into oh_category (category_name) values("크리스마스");
 insert into oh_category (category_name) values("겨울용품");

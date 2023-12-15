@@ -1,6 +1,6 @@
 import { useDaumPostcodePopup } from 'react-daum-postcode';
 
-export default function OrdersAdressBtn({form,setForm,zonecodeBox,mainAdressBox}){
+export default function OrdersAdressBtn({ form, setForm, zonecodeBox, mainAdressBox }) {
   const open = useDaumPostcodePopup('https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js');
 
   const handleComplete = (data) => {
@@ -18,8 +18,8 @@ export default function OrdersAdressBtn({form,setForm,zonecodeBox,mainAdressBox}
       fullAddress += extraAddress !== '' ? ` (${extraAddress})` : '';
     }
 
-    setForm({ ...form, reciever_address_main: fullAddress ,reciever_address_zonecode: zonecode})
-    
+    setForm({ ...form, reciever_address_main: fullAddress, reciever_address_zonecode: zonecode })
+
     zonecodeBox.current.classList.remove('valcheck')
     mainAdressBox.current.classList.remove('valcheck')
   };
@@ -29,6 +29,6 @@ export default function OrdersAdressBtn({form,setForm,zonecodeBox,mainAdressBox}
   };
 
   return (
-<button className="orders_form_box_input_contents_address_search_btn" type="button" onClick={handleClick}>주소찾기</button>
+    <button className="orders_form_box_input_contents_address_search_btn" type="button" onClick={handleClick}>주소찾기</button>
   );
 };
