@@ -56,8 +56,8 @@ export default function OrderList() {
               )}
             </div>
             <div className="orderlist_contentwrap">
-              <OrderListSort 
-                getSort = {getSort}
+              <OrderListSort
+                getSort={getSort}
               />
               {order.map((orders, idx) =>
                 <div key={idx} className="orderlist_content">

@@ -8,7 +8,7 @@
  show grants for 'root'@'127.0.0.1';
  commit;
  
-
+select * from oh_pay;
 
 drop table oh_order_save;
 drop table oh_pay; 

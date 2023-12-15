@@ -195,6 +195,14 @@ const router = createBrowserRouter([
           </Contents>
       },
       {
+        path: '/users/myshop', element:
+          <Contents>
+            <Users>
+              <OrderList />
+            </Users>
+          </Contents>
+      },
+      {
         path: '/store/todaydeals', element:
           <Contents>
             <TodayDeals />
@@ -204,12 +212,6 @@ const router = createBrowserRouter([
         path: '/store/ranks', element:
           <Contents>
             <Ranks />
-          </Contents>
-      },
-      {
-        path: '/user_shopping_pages/order_list', element:
-          <Contents>
-            <OrderList />
           </Contents>
       }
     ]
