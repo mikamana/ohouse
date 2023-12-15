@@ -1,6 +1,7 @@
 import React from 'react'
 
 export default function ProductionSvg() {
+
   return (
     <>
       <svg fill="#35C5F0" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">

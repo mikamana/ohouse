@@ -130,7 +130,7 @@ section.production_selling_wrap {
                   width: 20%;
                   display: flex;
                   justify-content: flex-end;
-                  a.production_selling_scrap_icon {
+                  button.production_selling_scrap_icon {
                     margin-left: 10px;
                     &.active svg.icon--stroke path {
                       fill: #35c5f0;
@@ -756,6 +756,7 @@ div.production_selling_prd_info_wrap {
               margin-bottom: 15px;
               div.production_selling_prd_review_item_box {
                 div.production_selling_prd_review_item_user {
+                  position: relative;
                   display: flex;
                   align-items: center;
                   a.production_selling_prd_review_item_user_img {
@@ -790,9 +791,18 @@ div.production_selling_prd_info_wrap {
                       margin-left: 5px;
                     }
                   }
+                  div.production_selling_prd_review_item_user_info_ud_wrap {
+                    position: absolute;
+                    right: 0px;
+                    span {
+                      margin: 10px;
+                      cursor: pointer;
+                    }
+                  }
                 } //production_selling_prd_review_item_user
                 div.production_selling_prd_review_item_detail_star {
-                  margin-top: 7px;
+                  margin: 7px 0px 15px;
+
                   span.production_selling_prd_review_item_detail_star_left_span {
                     font-size: 11px;
                     color: #757575;
@@ -869,6 +879,7 @@ div.production_selling_prd_info_wrap {
                 div.production_inquiry_list_box_purchase_check {
                   display: flex;
                   margin-bottom: 8px;
+                  position: relative;
                   span.production_inquiry_list_box_purchase_check_span {
                     color: #424242;
                     font-size: 12px;
@@ -886,7 +897,15 @@ div.production_selling_prd_info_wrap {
                       background-color: #424242;
                     }
                   }
+                  div.production_inquiry_list_box_update {
+                    position: absolute;
+                    right: 0px;
+                    > span {
+                      margin: 0px 8px;
+                    }
+                  }
                 }
+
                 div.production_inquiry_list_box_user {
                   display: flex;
                   margin-bottom: 12px;
@@ -1295,3 +1314,34 @@ div.production_quiry_modal_wrap {
     }
   }
 }
+
+button.production_selling_scrap_icon {
+  border: none;
+  background: none;
+  margin-left: 10px;
+  &.active svg.icon--stroke path {
+    fill: #35c5f0;
+    stroke: none;
+  }
+  svg.icon--stroke {
+    path {
+      &:hover {
+        stroke: rgb(145, 145, 145);
+      }
+      color: rgb(0, 0, 0);
+      fill: rgb(255, 255, 255);
+    }
+  }
+  svg.icon {
+    &:hover {
+      fill: rgb(145, 145, 145);
+    }
+    color: rgb(0, 0, 0);
+    fill: rgb(117, 117, 117);
+  }
+  span {
+    display: block;
+    font-size: 12px;
+    text-align: center;
+  }
+} // 스크랩버튼

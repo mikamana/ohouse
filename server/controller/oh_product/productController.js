@@ -5,7 +5,7 @@ export async function getTodayDeal(req, res) {
   res.json(result);
 }
 export async function getPopular(req, res) {
-  const {page} = req.params;
+  const { page } = req.params;
   let startIndex = (parseInt(page) - 1) * 12;
   const result = await productRepository.getPopular(startIndex.toString());
   res.json(result);
@@ -22,15 +22,15 @@ export async function getCategoryList(req, res) {
   res.json(result);
 }
 
-export async function getInfiniteItem(req, res){
-  const {page} = req.params;
+export async function getInfiniteItem(req, res) {
+  const { page } = req.params;
   let startIndex = (parseInt(page) - 1) * 12;
   const result = await productRepository.getInfiniteItem(startIndex.toString());
   res.json(result);
 }
 
-export async function getRanksItem(req, res){
-  const {best} = req.params;
+export async function getRanksItem(req, res) {
+  const { best } = req.params;
   const result = await productRepository.getRanksItem(best);
   res.json(result);
 }

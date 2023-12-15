@@ -6,6 +6,7 @@ import { Outlet } from 'react-router-dom';
 import "../../css/layout/banner.css";
 import "../../css/layout/footer.css";
 import "../../css/layout/header.css";
+import { UsersContext } from "../../context/UsersContext";
 
 export default function Main() {
   console.log(`
