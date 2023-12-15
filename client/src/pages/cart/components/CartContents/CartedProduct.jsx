@@ -9,10 +9,16 @@ export default function CartedProduct({checkedItemHandler,checked,delivery_type,
   const [endTime,setEndTime] = useState(false)
   const todayMonth = new Date().getMonth() + 1 ;
   const tomorrow = new Date().getDate() + 1;
+  const dat = new Date().getDate() + 2;
   const now = new Date();
   const day = new Date();
-  day.setDate(day.getDate() + +1 );
+  if(day.getDay() === 6){
+    day.setDate(day.getDate() + 2 )
+  }else{
+    day.setDate(day.getDate() + 1 )
+  }
   const days = ["일", "월", "화", "수", "목", "금", "토"]
+  console.log(day.getDay());
   const hours = now.getHours();
   let endTimeCheck = false
   
@@ -41,7 +47,7 @@ export default function CartedProduct({checkedItemHandler,checked,delivery_type,
           />
         </div>
         {delivery_type === 'td' && <span className="carted_product_today_delivery"> {endTime ? <ShopitemTodayStart ts={delivery_type} /> : ''} <span className="carted_product_today_deadline_time">{endTime ? '평일 14:00까지 결제시' : '오늘출발 마감'}</span>
-          {endTime ? '' : <span className="carted_product_today_deadline">{`${todayMonth}/${tomorrow}`} ({days[day.getDay()]}) 발송 예정</span>}
+          {endTime ? '' : <span className="carted_product_today_deadline">{`${todayMonth}/${day.getDay() === 6 ? tomorrow : dat}`} ({days[day.getDay()]}) 발송 예정</span>}
         </span>}
         <Link to={`/production/${cartList.pid}`} className="carted_product_link">
           <div className="carted_product_link_small_item_image_wrap">
