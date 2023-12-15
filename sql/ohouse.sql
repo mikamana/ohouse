@@ -37,7 +37,6 @@ select * from oh_pay;
 select * from oh_order_save;
 select * from oh_inquiry;
 
-
 /*
 	업데이트 필요한 사항들
 */

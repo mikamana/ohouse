@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FiChevronDown } from "react-icons/fi";
 
-export default function ShowMenu({ menuName, headerBox }) {
+export default function ShowMenu({ menuName, headerBox, handleClick, showHiddenMeun }) {
   const [navmenuList, setNavmenuList] = useState([]);
   useEffect((e) => {
     fetch(`/data/header/NavMenu_${menuName}.json`)
@@ -12,16 +12,6 @@ export default function ShowMenu({ menuName, headerBox }) {
       })
       .catch((err) => console.err);
   }, [menuName])
-
-  const [showHiddenMeun, setShowHiddenMeun] = useState("header_nav_popup_write_hidden");
-  //const hiddenMenu = useRef(headerBox); 푸터 합치고 헤더+바디 설정하기
-  const toggleHiddenMenu = (e) => {
-    if (showHiddenMeun === "header_nav_popup_write_hidden") {
-      setShowHiddenMeun("header_nav_popup_write_hidden active")
-    } else {
-      setShowHiddenMeun("header_nav_popup_write_hidden")
-    }
-  }
 
   const hiddenMenu = ['반려동물', '캠핑', '취미', '이벤트']
 
@@ -41,7 +31,7 @@ export default function ShowMenu({ menuName, headerBox }) {
             </Link>
           </div>
         )}
-        {menuName === "community" && <button className="header_nav_menu_btn" onClick={toggleHiddenMenu}><FiChevronDown /></button>}
+        {menuName === "community" && <button className="header_nav_menu_btn" id='hidden' onClick={handleClick}><FiChevronDown /></button>}
       </div >
       {/* "header_nav_popup_write_hidden" */}
       <div className={showHiddenMeun} >

@@ -40,7 +40,8 @@ export default function ProductionCartBtn(props) {
 
           } else {
 
-            window.location.reload()
+          navigate(`/cart/${userInfo.id}`)
+          window.location.reload()
 
           }
         } else {
