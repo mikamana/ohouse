@@ -19,8 +19,6 @@ export default function ProductionsPrdReviewWrap(props) {
     const [pageSize, setPageSize] = useState(5);
     const [list, setList] = useState([]);
 
-
-
     useEffect(() => {
 
         let startIndex = 0;
@@ -41,7 +39,9 @@ export default function ProductionsPrdReviewWrap(props) {
         })
 
 
-    }, [currentPage]);
+    }, [currentPage, kindList]);
+
+
 
     return (
 

@@ -879,6 +879,7 @@ div.production_selling_prd_info_wrap {
                 div.production_inquiry_list_box_purchase_check {
                   display: flex;
                   margin-bottom: 8px;
+                  position: relative;
                   span.production_inquiry_list_box_purchase_check_span {
                     color: #424242;
                     font-size: 12px;
@@ -896,7 +897,15 @@ div.production_selling_prd_info_wrap {
                       background-color: #424242;
                     }
                   }
+                  div.production_inquiry_list_box_update {
+                    position: absolute;
+                    right: 0px;
+                    > span {
+                      margin: 0px 8px;
+                    }
+                  }
                 }
+
                 div.production_inquiry_list_box_user {
                   display: flex;
                   margin-bottom: 12px;

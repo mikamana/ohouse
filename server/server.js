@@ -48,8 +48,6 @@ server.use('/pay', pay);
 server.use('/users', user);
 server.use('/scrap', scrap);
 
-
-
 server.listen(PORT, () => {
   console.log(`server start --->> ${PORT}`);
 })

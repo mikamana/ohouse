@@ -8,7 +8,6 @@ export default function ProductionCartBtn(props) {
   const navigate = useNavigate();
   const params = useParams();
   const userInfo = getUser();
-  const [list, setList] = useState([]);
 
   const handlerFetch = () => {
 
@@ -23,6 +22,7 @@ export default function ProductionCartBtn(props) {
         price: props.price
 
       };
+      let cartClick;
 
       axios({
 
@@ -32,23 +32,40 @@ export default function ProductionCartBtn(props) {
 
       }).then((result) => {
 
-        setList(result.data)
-        alert("장바구니에 추가되었습니다.")
-        const cartClick = window.confirm("장바구니로 이동 하시겠습니까?")
+        console.log(result.data);
+        if (result.data === "ok") {
+          alert("장바구니에 추가되었습니다.")
+          cartClick = window.confirm("장바구니로 이동 하시겠습니까?")
+          if (cartClick) {
+            navigate(`/cart/${userInfo.id}`)
 
-        if (cartClick) {
+          } else {
 
-          navigate(`/cart/${userInfo.id}`)
+            window.location.reload()
 
+          }
         } else {
 
-          window.location.reload()
+          alert("이미 추가된 상품입니다. 상품의 개수가 변경되었습니다.")
+
+          cartClick = window.confirm("장바구니로 이동 하시겠습니까?")
+
+          if (cartClick) {
+            navigate(`/cart/${userInfo.id}`)
+
+          } else {
+
+            window.location.reload()
+
+          }
+
 
         }
 
 
-
       })
+
+
 
     } else {
 
@@ -56,6 +73,7 @@ export default function ProductionCartBtn(props) {
       navigate("/login")
 
     }
+
 
 
 

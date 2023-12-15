@@ -860,6 +860,7 @@ div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.p
 div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(4) ul.production_inquiry_list_box li.production_inquiry_list_box_li div.production_inquiry_list_box_purchase_check {
   display: flex;
   margin-bottom: 8px;
+  position: relative;
 }
 div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(4) ul.production_inquiry_list_box li.production_inquiry_list_box_li div.production_inquiry_list_box_purchase_check span.production_inquiry_list_box_purchase_check_span {
   color: #424242;
@@ -875,6 +876,13 @@ div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.p
   height: 80%;
   margin: 0px 5px;
   background-color: #424242;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(4) ul.production_inquiry_list_box li.production_inquiry_list_box_li div.production_inquiry_list_box_purchase_check div.production_inquiry_list_box_update {
+  position: absolute;
+  right: 0px;
+}
+div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(4) ul.production_inquiry_list_box li.production_inquiry_list_box_li div.production_inquiry_list_box_purchase_check div.production_inquiry_list_box_update > span {
+  margin: 0px 8px;
 }
 div.production_selling_prd_info_wrap div.production_selling_prd_info_inner div.production_selling_prd_info_left ul.production_selling_prd_info_list li.production_selling_prd_info_list_li:nth-child(4) ul.production_inquiry_list_box li.production_inquiry_list_box_li div.production_inquiry_list_box_user {
   display: flex;

@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import ImageUpload from "../../../components/ImageUpload";
 import 'rc-pagination/assets/index.css';
 import Pagination from 'rc-pagination';
+import ProductionsPrdReviewUpdateBtn from "./review/ProductionsPrdReviewUpdateBtn";
 
 
 export default function ProductionsPrdInfoLeftBox(props) {
@@ -32,6 +33,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
     const [pageSize, setPageSize] = useState(5);
     const [quiryList, setQuiryList] = useState([]);
     const [totalCount, setTotalCount] = useState(0);
+    const [updateToggle, setUpdateToggle] = useState(false);
 
     useEffect(() => {
 
@@ -185,6 +187,30 @@ export default function ProductionsPrdInfoLeftBox(props) {
 
     }, [currentPage])
 
+    const fnUpdateModal = () => {
+
+        axios({
+
+            method: "put",
+            url: `http://127.0.0.1:8000/inquiry`,
+            data: { pid: params.pid, mid: userInfo.id, type, content, check }
+
+        }).then((result) => {
+
+            alert("수정이 완료되었습니다.")
+            setUpdateToggle(false);
+            window.location.reload();
+
+        })
+
+    }
+
+    const fnClick = (e) => {
+
+        setUpdateToggle(e)
+
+    }
+
     //리뷰 토탈, 평균가져오기
     useEffect(() => {
 
@@ -203,7 +229,6 @@ export default function ProductionsPrdInfoLeftBox(props) {
     }, [])
 
     return (
-
         <>
             <div className="production_selling_prd_info_left">
                 <ul className="production_selling_prd_info_list">
@@ -277,9 +302,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
                                 <div className="production_quiry_modal_wrap">
                                     <div className="production_quiry_modal">
                                         <span className="quiry_modal_close" onClick={() => {
-
                                             setQuiryToggle(false)
-
                                         }}></span>
                                         <h3 className="production_quiry_modal_title">
                                             상품 문의하기
@@ -368,6 +391,15 @@ export default function ProductionsPrdInfoLeftBox(props) {
                                         <span className="production_inquiry_list_box_purchase_check_span">구매</span>
                                         <span className="production_inquiry_list_box_purchase_check_span">{lst.qtype}</span>
                                         <span className="production_inquiry_list_box_purchase_check_span">{lst.acontent === "답변 대기중입니다." ? "대기중" : "답변완료"}</span>
+                                        {userInfo ? userInfo.id === lst.mid ?
+                                            <div className="production_inquiry_list_box_update">
+                                                <ProductionsPrdReviewUpdateBtn onClick={fnClick}
+                                                    kind={"inquiry"}
+                                                />
+                                            </div>
+                                            : null
+                                            : null
+                                        }
                                     </div>
                                     <div className="production_inquiry_list_box_user">
                                         <span className="production_inquiry_list_box_user">{lst.nickname}***</span>
@@ -394,6 +426,93 @@ export default function ProductionsPrdInfoLeftBox(props) {
                                             </div>
                                         </div>
                                     </div>
+                                    {
+                                        updateToggle ? userInfo.id === lst.mid ?
+                                            <div className="production_quiry_modal_wrap">
+                                                <div className="production_quiry_modal">
+                                                    <span className="quiry_modal_close" onClick={() => {
+                                                        setUpdateToggle(false)
+                                                    }}></span>
+                                                    <h3 className="production_quiry_modal_title">
+                                                        상품 문의하기
+                                                    </h3>
+                                                    <ul className="production_quiry_modal_list">
+                                                        <li className="production_quiry_modal_list_li">
+                                                            <p className="production_quiry_modal_list_type">
+                                                                문의유형
+                                                            </p>
+                                                            <ul className="production_quiry_modal_type_list">
+                                                                <li className={typeBtn === 0 ? "production_quiry_modal_type_list_li actvie" : "production_quiry_modal_type_list_li"} onClick={() => {
+
+                                                                    setTypeBtn(0)
+
+                                                                }}>
+                                                                    상품
+                                                                </li>
+                                                                <li className={typeBtn === 1 ? "production_quiry_modal_type_list_li actvie" : "production_quiry_modal_type_list_li"} onClick={() => {
+
+                                                                    setTypeBtn(1)
+
+                                                                }}>
+                                                                    배송
+                                                                </li>
+                                                                <li className={typeBtn === 2 ? "production_quiry_modal_type_list_li actvie" : "production_quiry_modal_type_list_li"} onClick={() => {
+
+                                                                    setTypeBtn(2)
+
+                                                                }}>
+                                                                    반품
+                                                                </li>
+                                                                <li className={typeBtn === 3 ? "production_quiry_modal_type_list_li actvie" : "production_quiry_modal_type_list_li"} onClick={() => {
+
+                                                                    setTypeBtn(3)
+
+                                                                }}>
+                                                                    교환
+                                                                </li>
+                                                                <li className={typeBtn === 4 ? "production_quiry_modal_type_list_li actvie" : "production_quiry_modal_type_list_li"} onClick={() => {
+
+                                                                    setTypeBtn(4)
+
+                                                                }}>
+                                                                    환불
+                                                                </li>
+                                                                <li className={typeBtn === 5 ? "production_quiry_modal_type_list_li actvie" : "production_quiry_modal_type_list_li"} onClick={() => {
+
+                                                                    setTypeBtn(5)
+
+                                                                }}>
+                                                                    기타
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li className="production_quiry_modal_list_li">
+                                                            <p className="production_quiry_modal_list_type">
+                                                                문의내용
+                                                            </p>
+                                                            <input className={focus ? "production_quiry_modal_list_content active" : "production_quiry_modal_list_content"} type="text" name="content" onChange={fnInputHandler} value={content} placeholder="문의 내용을 입력하세요" onFocus={() => {
+                                                                setFocus(true)
+                                                            }} onBlur={() => {
+                                                                setFocus(false)
+                                                            }} />
+                                                            <p className="production_quiry_modal_list_checkbox_wrap">
+                                                                <label id="secret">비밀글 여부 체크</label>
+                                                                <input type="checkbox" className="production_quiry_modal_list_checkbox" name="secret" onChange={() => {
+                                                                    setCheck((check) => !check);
+                                                                }} />
+                                                            </p>
+                                                        </li>
+                                                    </ul>
+                                                    <button className="production_quiry_modal_btn" onClick={() => {
+                                                        fnUpdateModal();
+                                                    }}>
+                                                        완료
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            : null
+                                            : null
+                                    }
                                 </li>
                             )}
                         </ul>
@@ -404,11 +523,9 @@ export default function ProductionsPrdInfoLeftBox(props) {
                             onChange={(page) => setCurrentPage(page)}
                         />
                     </li>
-                </ul>
+                </ul >
             </div >
-
         </>
-
     );
 
 }

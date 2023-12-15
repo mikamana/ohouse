@@ -89,6 +89,11 @@ desc oh_product;
 select * from oh_product;
 desc oh_review;
 select * from oh_review;
+select * from oh_inquiry;
+delete from oh_review where mid = "@" and pid = "1";
+
+select cart_id,pid,mid,qty,cdate from oh_cart where pid = "1" and mid = 'try226@naver.com';
+
 desc oh_community;
 select * from oh_community;
 desc oh_channel;

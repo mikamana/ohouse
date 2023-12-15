@@ -77,13 +77,13 @@ export default function Edit() {
       backgroundColor: "#d8d8d8"
     },
     imge: {
-      backgroundImage: `url(http://127.0.0.1:8000/${form.userimg === null? "" : form.userimg.replace(/\\/, '/')})`,
+      backgroundImage: `url(http://127.0.0.1:8000/${form.userimg === null ? "" : form.userimg.replace(/\\/, '/')})`,
       backgroundColor: "#fff"
     }
   }
 
   const imageremove = () => {
-    setForm({...form, userimg : null})
+    setForm({ ...form, userimg: null })
   }
 
   return (
@@ -92,7 +92,7 @@ export default function Edit() {
         : (<div>
           <div className="editTitle">
             <div className="editTitleDiv">회원정보수정</div>
-            <Link to="/withdrawals"><span className="editTitleSpan">회원탈퇴</span></Link>
+            <Link to="/users/withdrawals"><span className="editTitleSpan">회원탈퇴</span></Link>
           </div>
           <form encType="multipart/form-data" onSubmit={handleSubmit}>
             <div className="editId">
@@ -133,8 +133,8 @@ export default function Edit() {
             <div className="editImage">
               <div className="editImageinput">
                 <label>프로필이미지</label>
-                <ImageUpload getImage={getImage} style={form.userimg === null ? style.none : style.imge}/>
-                {form.userimg !== null && <IoIosCloseCircleOutline onClick={imageremove}/>}
+                <ImageUpload getImage={getImage} style={form.userimg === null ? style.none : style.imge} />
+                {form.userimg !== null && <IoIosCloseCircleOutline onClick={imageremove} />}
               </div>
             </div>
             <div className="editComment">

@@ -2,7 +2,7 @@ import {db} from "../../data/database.js";
 
 export async function getUser(mid){
 
-  const sql = `select count(mid) as cnt, mid, nickname, ifnull(userimg,'https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/170123715614833692.png?gif=1&w=360&h=360&c=c') as userimg from
+  const sql = `select count(mid) as cnt, mid, nickname, userimg from
   (select om.nickname,
   os.sid,
   om.userimg,

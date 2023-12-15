@@ -47,7 +47,7 @@ export async function password(req, res) {
   const {pass, newPass} = req.body;
   const id = req.params.id;
   const dpass = await repository.password(id);
-  let result = ""
+  let result = "";
   const comparePass = await bcript.compare(pass, dpass.pass)
     if(comparePass === true){
       const hpass = await bcript.hash(newPass,10);

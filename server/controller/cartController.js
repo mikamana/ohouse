@@ -2,16 +2,52 @@ import * as cartRepository from "../repository/cartRepository.js";
 
 export async function createCart(req, res) {
 
-  const { id, pid, qty, price } = req.body;
+  const { id, pid, qty } = req.body;
 
-  const result = await cartRepository.createCart(pid, id, qty);
+  const rows = await cartRepository.getSubCart(pid,id)
+  let count = 0;
+  let result;
 
-  if (result === 'ok') {
+  if(rows.length === 0){
 
-    res.status(204).send('ok')
+    result = await cartRepository.createCart(pid, id, qty);
+
+
+  }else{
+
+    if(rows[0].qty + req.body.qty > 9){
+
+      count = 10
+
+    }else{
+
+      count = rows[0].qty + req.body.qty
+
+    }
+
+    const params = [count,rows[0].cart_id];
+
+    console.log(params,rows[0].cart_id);
+
+    result = await cartRepository.updateCart(params);
+
 
   }
+
+
+
+  // const result = await cartRepository.createCart(pid, id, qty);
+
+
+    res.send(result)
+
+  
+  
 }
+
+
+
+
 
 export async function getCart(req,res){
   const {mid} = req.params;
@@ -44,3 +80,4 @@ export async function updateCart(req,res){
     res.status(200).send('success')
   }
 }
+

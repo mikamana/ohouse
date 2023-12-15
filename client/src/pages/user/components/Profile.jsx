@@ -23,6 +23,8 @@ export default function Profile() {
 
       setList(result.data[0]);
 
+      console.log(result.data[0]);
+
     })
 
   }, [])
@@ -33,7 +35,7 @@ export default function Profile() {
         <div className='profile_inner inner'>
           <div className="profile_info">
             <div className='profile_info_image_wrap'>
-              <img src={list.userimg} alt="#" />
+              <img src={list.userimg === null ? "https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&w=640&h=640&c=c&webp=1" : "http://127.0.0.1:8000/" + list.userimg} alt="#" />
             </div>
             <h3 className='profile_user_name'>
               {list.nickname}

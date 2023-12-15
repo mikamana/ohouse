@@ -7,11 +7,14 @@ div.profile_wrap div.profile_inner div.profile_info {
   text-align: center;
   min-width: 250px;
   margin-right: 95px;
+  border: 1px solid #e0e0e0;
 }
 div.profile_wrap div.profile_inner div.profile_info div.profile_info_image_wrap {
   margin-bottom: 20px;
 }
 div.profile_wrap div.profile_inner div.profile_info div.profile_info_image_wrap img {
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   text-align: center;
 }
