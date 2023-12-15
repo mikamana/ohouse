@@ -115,6 +115,18 @@
 
 .shopitem_contents {
   padding: 0 0 30px;
+  position: relative;
+}
+.shopitem_contents .production_selling_scrap_icon {
+  position: absolute;
+  z-index: 100;
+  width: 24px;
+  height: 24px;
+  top: 10px;
+  right: 20px;
+  background: none;
+  opacity: 0.7;
+  cursor: pointer;
 }
 
 .shopitem_contents:hover {

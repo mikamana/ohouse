@@ -104,6 +104,9 @@ div.shopcate_section{
   justify-content: space-between;
   .shopcate_contents_item_container{
     width: 33%;
+    .shopitem_contents{
+      position: relative;
+    }
     .shopitem_image_wrap{
       width: 365px;
       height: 365px;
