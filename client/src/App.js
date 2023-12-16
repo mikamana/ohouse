@@ -152,13 +152,6 @@ const router = createBrowserRouter([
           </Contents>
       },
       {
-        path: '/users',
-        element:
-          <Contents>
-            <Users />
-          </Contents>
-      },
-      {
         path: "/users/profile",
         element:
           <Contents>

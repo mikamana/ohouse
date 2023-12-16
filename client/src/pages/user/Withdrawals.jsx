@@ -41,7 +41,7 @@ export default function Withdrawals() {
     setTextarea(e.target.value);
   }
 
-  return(
+  return (
     <div className="Withdrawals">
       {userinfo === null ? (<div>잘못된 경로로 접속하셨습니다.</div>) : (
         <form onSubmit={handleSubmit}>
