@@ -34,14 +34,13 @@ export default function AdminOrder() {
         if (result.data.length !== 0) {
           setList(result.data);
           setTotalPage(result.data[0].total);
-        }else {
+        } else {
           alert('해당하는 날짜의 주문건이 없습니다');
         }
       })
       .catch(console.err);
-    }, [value, listPerPages, currentPage])
-    
-    console.log(list);
+  }, [value, listPerPages, currentPage])
+
   const [toggle, setToggle] = useState(false);
   const handleToggle = (e) => {
     const mid = e.target.dataset.id;
@@ -125,7 +124,7 @@ export default function AdminOrder() {
             </div>
             <div className="admin_content_sort">
               <label htmlFor="sort">주문일자</label>
-              <input name="odate" type="date" onChange={handleChangeSort}/>
+              <input name="odate" type="date" onChange={handleChangeSort} />
               {/* <label htmlFor="sort">정렬</label>
               <select name="sort" id="sort" onChange={handleChangeSort}>
                 <option value="default">이름순</option>
@@ -133,7 +132,7 @@ export default function AdminOrder() {
                 <option value="desc">내림차순</option>
               </select> */}
               <button onClick={handleReset}>
-                <GrPowerReset className="admin_resetbtn"/>
+                <GrPowerReset className="admin_resetbtn" />
               </button>
             </div>
           </div>

@@ -6,13 +6,12 @@ const router = express.Router();
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 
+router.get('/product/all', reviewController.getReview)
 router.post('/product', reviewController.createReview);
 router.put('/product', reviewController.updateReview);
 router.get('/product/count/:pid', reviewController.getReviewCount);
 router.get('/product/avg/:pid', reviewController.getReviewAvg);
-// router.get('/product/:pid', reviewController.getReview);
-// router.get('/product/best/:pid/:startIndex/:endIndex', reviewController.getReviewBest);
-// router.get('/product/latest/:pid/:startIndex/:endIndex', reviewController.getReviewLatest);
-router.get('/product/:kindList/:pid/:startIndex/:endIndex', reviewController.getReviewPage);
+router.get('/product/:kindList/:pid/:startIndex/:endIndex', reviewController.getBeforeReviewPage);
+router.get('/product/:kindList/:mid/:pid/:startIndex/:endIndex', reviewController.getReviewPage);
 router.delete('/product', reviewController.removeReview);
 export default router;

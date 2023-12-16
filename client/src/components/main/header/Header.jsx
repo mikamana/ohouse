@@ -91,16 +91,16 @@ export default function Header(props) {
   const [showHiddenMeun, setShowHiddenMeun] = useState("header_nav_popup_write_hidden");
 
   const handleClick = (e) => {
-    console.log(e.currentTarget); //e.target 하면 자식태그가 찍힘. 본인은 e.current.target 으로 하는것!
-    if(e.currentTarget.id === 'write'){
+    // console.log(e.currentTarget); //e.target 하면 자식태그가 찍힘. 본인은 e.current.target 으로 하는것!
+    if (e.currentTarget.id === 'write') {
       toggleWriteMenu()
       setShowProfile("header_nav_popup_profile")
       setShowHiddenMeun("header_nav_popup_write_hidden")
-    }else if(e.currentTarget.id === 'hidden'){
+    } else if (e.currentTarget.id === 'hidden') {
       toggleHiddenMenu()
       setShowWrite("header_nav_popup_write")
       setShowProfile("header_nav_popup_profile")
-    }else if(e.currentTarget.id === 'profile'){
+    } else if (e.currentTarget.id === 'profile') {
       toggleProfileMenu()
       setShowWrite("header_nav_popup_write")
       setShowHiddenMeun("header_nav_popup_write_hidden")
@@ -155,13 +155,13 @@ export default function Header(props) {
                 </li>
               </ul>
             </div>
-            <HeaderSearchRight 
-              handleClick = {handleClick}
-              showProfile = {showProfile}
+            <HeaderSearchRight
+              handleClick={handleClick}
+              showProfile={showProfile}
             />
-            <HeaderLogoWrite 
-              handleClick = {handleClick}
-              showWrite = {showWrite}
+            <HeaderLogoWrite
+              handleClick={handleClick}
+              showWrite={showWrite}
             />
           </div>
         </div>
@@ -169,9 +169,9 @@ export default function Header(props) {
         {/* <div className={isFixedDown ? "main_header_layout_down active" : "main_header_layout_down"} style={{position:isFixed ? 'fixed' : 'relative', top : isFixed ? '30px' : null, top : isFixedDown ? '81px' : null, transition: isFixed ? 'top 0.1s' : null}}> */}
         <div className={isFixed ? "main_header_layout_down active" : "main_header_layout_down"} style={{ top: isFixedDown ? '81px' : '0px' }}>
           <div className="header_nav inner">
-            {showMenu === 1 && <ShowMenu menuName="community" showHiddenMeun = {showHiddenMeun} handleClick={handleClick}/>}
-            {showMenu === 2 && <ShowMenu menuName="store" showHiddenMeun = {showHiddenMeun} handleClick={handleClick}/>}
-            {showMenu === 3 && <ShowMenu menuName="experts" showHiddenMeun = {showHiddenMeun} handleClick={handleClick}/>}
+            {showMenu === 1 && <ShowMenu menuName="community" showHiddenMeun={showHiddenMeun} handleClick={handleClick} />}
+            {showMenu === 2 && <ShowMenu menuName="store" showHiddenMeun={showHiddenMeun} handleClick={handleClick} />}
+            {showMenu === 3 && <ShowMenu menuName="experts" showHiddenMeun={showHiddenMeun} handleClick={handleClick} />}
             <HeaderNavPopular />
           </div>
         </div>
