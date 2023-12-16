@@ -216,7 +216,6 @@ create table oh_order_save(
     constraint order_save_common_id_fk foreign key(common_id) references oh_pay(common_id) on update cascade on delete cascade
 );
 create table oh_inquiry(
-
 	qid int auto_increment primary key not null, -- 문의id
     mid varchar(100),-- 유저아이디
 	pid int, -- 상품아이디
@@ -226,14 +225,10 @@ create table oh_inquiry(
     adate datetime, -- 답변날짜 
     acontent varchar(500), -- 답변내용
     secret_check boolean, -- 비밀글여부
-    
 	constraint oh_inquery_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade,
     constraint oh_inquery_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade
-    
 );
-
 create table oh_scraped(
-
 	sid int auto_increment primary key not null, -- 스크랩 id
     mid varchar(100), -- 유저아이디
     pid int, -- 상품아이디
@@ -242,7 +237,6 @@ create table oh_scraped(
     constraint oh_scraped_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade
 );
 
--- om.nickname, ifnull(om.userimg,'https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/170123715614833692.png?gif=1&w=360&h=360&c=c') as userimg 
 
 
 
