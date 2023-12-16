@@ -7,7 +7,7 @@ import { TfiSearch } from 'react-icons/tfi';
 import axios from "axios";
 import Search from "../../../pages/subpage/search/Search";
 
-export default function HeaderSearchRight({handleClick, showProfile}) {
+export default function HeaderSearchRight({ handleClick, showProfile }) {
   const userInfo = getUser();
 
   {/* 추가작업 부분 */ }
@@ -166,8 +166,8 @@ export default function HeaderSearchRight({handleClick, showProfile}) {
               <PiShoppingCartLight />
               {cartCnt !== 0 ? <span className="header_logo_cart_num">{cartCnt}</span> : null}
             </Link>
-            <button className="header_logo_profile" id='profile' onClick={(e)=>handleClick(e)} >
-              <img className="header_logo_profile_icon" src={image === null ? "https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?w=72&h=72&c=c&webp=1" : image} alt="프로필 사진" />
+            <button className="header_logo_profile" id='profile' onClick={(e) => handleClick(e)} >
+              <img className="header_logo_profile_icon" src={image === null ? "https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?w=72&h=72&c=c&webp=1" : "http://127.0.0.1:8000/" + image} alt="프로필 사진" />
             </button>
             <div className={showProfile} >
               <HeaderProfile />
