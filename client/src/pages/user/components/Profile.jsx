@@ -8,6 +8,7 @@ export default function Profile() {
 
   const userInfo = getUser();
   const [list, setList] = useState([]);
+  const [loading, setLoading] = useState(true);
 
 
 
@@ -22,11 +23,15 @@ export default function Profile() {
     }).then((result) => {
 
       setList(result.data[0]);
-
-
+      setLoading(false); // 로딩 상태 업데이트
     })
 
+
   }, [])
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
