@@ -242,9 +242,46 @@ create table oh_scraped(
     constraint oh_scraped_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade
 );
 
+<<<<<<< HEAD
 -- om.nickname, ifnull(om.userimg,'https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/170123715614833692.png?gif=1&w=360&h=360&c=c') as userimg 
+=======
+select * from oh_review;
+
+delete from oh_scraped where mid = "@";
+
+insert into oh_scraped(mid,pid,scraped_at) values("@", '4', sysdate());
+select count(mid) as cnt, mid, nickname, ifnull(userimg,'https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/170123715614833692.png?gif=1&w=360&h=360&c=c') as userimg from
+(select om.nickname,
+os.sid,
+om.userimg,
+om.mid,
+op.pid,
+os.scraped_at,
+count(os.sid) as cnt
+from oh_scraped os 
+inner join oh_member om, oh_product op 
+where os.mid = om.mid and os.pid = op.pid
+group by os.mid, os.scraped_at, os.pid, os.sid) as m  where mid = "@" group by mid;
+
+select mid,userimg,nickname from oh_member;
+select om.mid from oh_member om inner join oh_scraped os on om.mid = os.mid;
+-- inner join은 공통된 데이터를 결합하는 데 사용되는 중요한 명령어입니다. 이 명령어는 두 테이블에서 공통적으로 존재하는 행만을 반환한다.
+-- where(on)절을 사용하여 두 테이블을 결합할 기준이 되는 열(컬럼)을 지정합니다. 이 조건이 만족하는 행만 반환됩니다.
+-- 두개의 테이블을 inner join할 때 쿼리에서 선택 리스트에 있는 컬럼을 어떤 테이블을 기준으로 할 것인지 명시해주어야한다.
+
+select mid, nickname, userimg, scraped_at, count(mid) from 
+(select os.scraped_at, om.mid, om.userimg, om.nickname, count(os.mid) as cnt from (select count(mid) from oh_scraped as sc)oh_member om left join oh_scraped os on om.mid = os.mid where om.mid = "@" group by os.mid, os.scraped_at) as m
+group by mid, scraped_at;
+>>>>>>> 5005e34 (fix: 마이페이지 sql 오류수정, 스타일 일부 수정)
 
 
+
+
+
+select om.mid, om.userimg, om.nickname, count(os.mid) as cnt from oh_member om left join oh_scraped os on om.mid = os.mid where om.mid = "@" group by os.mid;
+
+
+select * from oh_scraped; 
 
 -- oh_category insert
 insert into oh_category (category_name) values("크리스마스");
@@ -306,7 +343,7 @@ insert into oh_member (mid, pass, nickname, userimg, mdate) values("backkim@d-fr
 insert into oh_member (mid, pass, nickname, userimg, mdate) values("@","1234","5조","https://images.unsplash.com/photo-1624274515979-32afb09402a2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQyfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
 
 select * from oh_member;
-
+delete from oh_member where mid = "@";
 -- oh_product insert
 -- 크리스마스
 insert into oh_product(

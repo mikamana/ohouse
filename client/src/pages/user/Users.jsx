@@ -49,7 +49,7 @@ export default function Users({ children }) {
               <ul className='mypage_gnb_list'>
                 {
                   menuList.map((menu, idx) => (
-                    <li className='mypage_gnb_li'>
+                    <li key={idx} className='mypage_gnb_li'>
                       <Link className={active === idx ? "mypage_gnb_link active" : "mypage_gnb_link"} to={"/users/" + Object.keys(menu)} onClick={() => {
                         setActive(idx)
                       }}>
