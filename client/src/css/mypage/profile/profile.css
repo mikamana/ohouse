@@ -2,37 +2,40 @@ div.profile_wrap div.profile_inner {
   display: flex;
 }
 div.profile_wrap div.profile_inner div.profile_info {
-  padding: 30px 25px 18px;
   box-sizing: border-box;
   text-align: center;
   min-width: 250px;
   margin-right: 95px;
-  border: 1px solid #e0e0e0;
 }
-div.profile_wrap div.profile_inner div.profile_info div.profile_info_image_wrap {
+div.profile_wrap div.profile_inner div.profile_info div.profile_info_wrap {
+  padding: 30px 25px 18px;
+  border: 1px solid #e0e0e0;
+  margin-top: 40px;
+}
+div.profile_wrap div.profile_inner div.profile_info div.profile_info_wrap div.profile_info_image_wrap {
   margin-bottom: 20px;
 }
-div.profile_wrap div.profile_inner div.profile_info div.profile_info_image_wrap img {
+div.profile_wrap div.profile_inner div.profile_info div.profile_info_wrap div.profile_info_image_wrap img {
   width: 120px;
   height: 120px;
   border-radius: 50%;
   text-align: center;
 }
-div.profile_wrap div.profile_inner div.profile_info h3.profile_user_name {
+div.profile_wrap div.profile_inner div.profile_info div.profile_info_wrap h3.profile_user_name {
   font-weight: bold;
   font-size: 26px;
   color: #292929;
   margin-bottom: 15px;
 }
-div.profile_wrap div.profile_inner div.profile_info p.profile_follow_wrap {
+div.profile_wrap div.profile_inner div.profile_info div.profile_info_wrap p.profile_follow_wrap {
   font-size: 13px;
   color: #828c94;
   margin-bottom: 15px;
 }
-div.profile_wrap div.profile_inner div.profile_info p.profile_follow_wrap span.profile_follower_span {
+div.profile_wrap div.profile_inner div.profile_info div.profile_info_wrap p.profile_follow_wrap span.profile_follower_span {
   position: relative;
 }
-div.profile_wrap div.profile_inner div.profile_info p.profile_follow_wrap span.profile_follower_span::after {
+div.profile_wrap div.profile_inner div.profile_info div.profile_info_wrap p.profile_follow_wrap span.profile_follower_span::after {
   content: "";
   display: inline-block;
   margin-right: 5px;
@@ -40,33 +43,46 @@ div.profile_wrap div.profile_inner div.profile_info p.profile_follow_wrap span.p
   height: 10px;
   background-color: #c9c9c9;
 }
-div.profile_wrap div.profile_inner div.profile_info div.profile_setting {
+div.profile_wrap div.profile_inner div.profile_info div.profile_info_wrap div.profile_setting {
   display: inline-block;
   padding: 5px 16px 6px;
   font-size: 12px;
   margin-bottom: 15px;
 }
-div.profile_wrap div.profile_inner div.profile_info ul.profile_scrap_list_wrap {
+div.profile_wrap div.profile_inner div.profile_info div.profile_info_wrap ul.profile_scrap_list_wrap {
   display: flex;
   justify-content: space-around;
   align-items: center;
   border-bottom: 1px solid var(--header);
   padding: 20px 0px;
 }
-div.profile_wrap div.profile_inner div.profile_info ul.profile_scrap_list_wrap li.profile_scrap_list_li > svg {
+div.profile_wrap div.profile_inner div.profile_info div.profile_info_wrap ul.profile_scrap_list_wrap li.profile_scrap_list_li > svg {
   margin-bottom: 5px;
 }
-div.profile_wrap div.profile_inner div.profile_info ul.profile_scrap_list_wrap li.profile_scrap_list_li > span {
+div.profile_wrap div.profile_inner div.profile_info div.profile_info_wrap ul.profile_scrap_list_wrap li.profile_scrap_list_li > span {
   display: block;
   font-size: 13px;
   color: #292929;
   margin-bottom: 5px;
 }
-div.profile_wrap div.profile_inner div.profile_info ul.profile_scrap_list_wrap li.profile_scrap_list_li > em {
+div.profile_wrap div.profile_inner div.profile_info div.profile_info_wrap ul.profile_scrap_list_wrap li.profile_scrap_list_li > em {
   font-size: 15px;
   font-weight: bold;
   color: #424242;
   margin-bottom: 5px;
+}
+div.profile_wrap div.profile_inner div.profile_info a.profile_info_link {
+  background-color: #e5f9ff;
+  display: block;
+  padding: 10px;
+  margin-top: 10px;
+}
+div.profile_wrap div.profile_inner div.profile_info a.profile_info_link p {
+  font-size: 14px;
+}
+div.profile_wrap div.profile_inner div.profile_info a.profile_info_link p span {
+  color: #009fce;
+  font-weight: bold;
 }
 div.profile_wrap div.profile_inner div.profile_image {
   flex-grow: 1;
