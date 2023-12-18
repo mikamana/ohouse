@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import ProductionsPrdTitleBox from "./userstyle/ProductionsPrdTitleBox";
 import ProductionsPrdUserImgBox from "./userstyle/ProductionsPrdUserImgBox";
 import ProductionsPrdReviewWrap from "./review/ProductionsPrdReviewWrap";
@@ -9,13 +9,17 @@ import ImageUpload from "../../../components/ImageUpload";
 import 'rc-pagination/assets/index.css';
 import Pagination from 'rc-pagination';
 import ProductionsPrdReviewUpdateBtn from "./review/ProductionsPrdReviewUpdateBtn";
-
-
+import { prdContext } from "../../../../context/ProductContext";
 export default function ProductionsPrdInfoLeftBox(props) {
 
     const [toggle, setToggle] = useState(false);
     const userInfo = getUser();
     let params = useParams();
+
+    
+
+    const { getOffset } = useContext(prdContext);
+    //context
 
     const [image, setImage] = useState('');
     const [list, setList] = useState([]);
@@ -27,6 +31,10 @@ export default function ProductionsPrdInfoLeftBox(props) {
     const [type, setType] = useState('');
     const [content, setContent] = useState('');
     const [check, setCheck] = useState(false);
+
+
+
+
     //문의
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPage, setTotalPage] = useState(1);
@@ -34,6 +42,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
     const [quiryList, setQuiryList] = useState([]);
     const [totalCount, setTotalCount] = useState(0);
     const [updateToggle, setUpdateToggle] = useState(false);
+    const [quiryAll, setQuiryAll] = useState([]);
 
     useEffect(() => {
 
@@ -54,6 +63,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
 
         setList(e);
 
+
     }
 
     const getReview = (e) => {
@@ -63,12 +73,34 @@ export default function ProductionsPrdInfoLeftBox(props) {
 
     }
 
+    //리뷰
+    const wrapRef = useRef(null);
+
+    useEffect(() => {
+        // console.log(wrapRef.current.offsetTop);
+
+        getOffset({ ost: wrapRef.current.offsetTop, osh: wrapRef.current.offsetHeight });
+
+    }, [])
     //리뷰파일등록
     const getImage = (e) => {
 
         setImage(e)
 
     }
+
+    let hasUserMid;
+    let hasUserInquiryMid;
+
+    if (userInfo) {
+
+        hasUserMid = list.some((val) => val.mid === userInfo.id);
+        // 리뷰가 등록되어있으면 true, 등록되어있지않으면 false
+        hasUserInquiryMid = quiryAll.some((val) => val.mid === userInfo.id);
+        // 문의가 등록되어있으면 true, 등록되어있지않으면 false
+
+    }
+
 
     //리뷰등록
     const fnReviewSubmit = (e) => {
@@ -96,6 +128,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
             if (result.status === 204) {
 
                 window.location.reload();
+
                 alert("리뷰가 등록되었습니다.")
 
             }
@@ -161,31 +194,59 @@ export default function ProductionsPrdInfoLeftBox(props) {
 
     //문의
     useEffect(() => {
-
         let startIndex = 0;
         // let endIndex = 0;
 
         startIndex = (currentPage - 1) * pageSize; //1-1*3+1 : 1, 4 .. 몇번째 데이터부터 몇개를 보여줄 것인지(데이터기준)
         // endIndex = currentPage * pageSize; //1*3 : 3, 6 ..
+        if (userInfo) {
+            axios({
+                method: 'get',
+                url: `http://127.0.0.1:8000/inquiry/${userInfo.id}/${params.pid}/${startIndex}/5`
+            }).then((result) => {
+                if (result.data.length !== 0) {
+                    setQuiryList(result.data);
+                    setTotalPage(result.data[0].cnt);
+                    props.getQuiryCount(result.data[0].cnt)
+                }
+            })
+        } else {
+            axios({
+                method: 'get',
+                url: `http://127.0.0.1:8000/inquiry/${params.pid}/${startIndex}/5`
+            }).then((result) => {
+                if (result.data.length !== 0) {
+                    setQuiryList(result.data);
+                    setTotalPage(result.data[0].cnt);
+                    props.getQuiryCount(result.data[0].cnt)
+                }
+            })
+        }
+
+
+
+    }, [currentPage])
+
+    useEffect(() => {
 
         axios({
 
             method: 'get',
-            url: `http://127.0.0.1:8000/inquiry/${params.pid}/${startIndex}/5`
+            url: `http://127.0.0.1:8000/inquiry/${params.pid}`
 
         }).then((result) => {
 
             if (result.data.length !== 0) {
-                setQuiryList(result.data);
-                setTotalPage(result.data[0].cnt);
-                props.getQuiryCount(result.data[0].cnt)
+                setQuiryAll(result.data);
 
             }
 
 
         })
 
-    }, [currentPage])
+    }, [])
+
+
 
     const fnUpdateModal = () => {
 
@@ -228,6 +289,10 @@ export default function ProductionsPrdInfoLeftBox(props) {
 
     }, [])
 
+
+
+
+
     return (
         <>
             <div className="production_selling_prd_info_left">
@@ -248,7 +313,8 @@ export default function ProductionsPrdInfoLeftBox(props) {
                     <li className="production_selling_prd_info_list_li">
                         <ProductionsPrdTitleBox title={"리뷰"}
                             count={avgList.count}
-                            more={userInfo ? "리뷰쓰기" : null}
+                            /* more={userInfo ? list.map((val) => val.mid === userInfo.mid) ? null : "리뷰쓰기" : null} */
+                            more={userInfo ? hasUserMid ? null : "리뷰쓰기" : null}
                             deck={"active"}
                             getReview={getReview}
                             kind={"review"}
@@ -284,6 +350,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
                                 : null
                         }
                         <ProductionsPrdReviewWrap
+                            ref={wrapRef}
                             avg={avgList.avg_score}
                             totCount={avgList.sum}
                             count={countList}
@@ -292,7 +359,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
                     </li>
                     <li className="production_selling_prd_info_list_li">
                         <ProductionsPrdTitleBox title={"문의"}
-                            more={userInfo ? "문의하기" : null}
+                            more={userInfo ? hasUserInquiryMid ? null : "문의하기" : null}
                             kind={"quiry"}
                             getReview={getReview}
                         />

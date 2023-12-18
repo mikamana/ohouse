@@ -55,7 +55,6 @@ export default function AdminInquiry() {
 
   const handleChangeSort = (e) => {
     const { value } = e.target;
-    console.log(value);
     setValue(value);
   };
 
@@ -95,14 +94,14 @@ export default function AdminInquiry() {
 
           <table className="admin_table">
             <colgroup>
-              <col style={{ width: '63px'}}/>
-              <col style={{ width: '165px'}}/>
-              <col style={{ width: '125px'}}/>
-              <col style={{ width: '400px'}}/>
-              <col style={{ width: '500px'}}/>
-              <col style={{ width: '100px'}}/>
-              <col style={{ width: '128px'}}/>
-              <col style={{ width: '160px'}}/>
+              <col style={{ width: '63px' }} />
+              <col style={{ width: '165px' }} />
+              <col style={{ width: '125px' }} />
+              <col style={{ width: '400px' }} />
+              <col style={{ width: '500px' }} />
+              <col style={{ width: '100px' }} />
+              <col style={{ width: '128px' }} />
+              <col style={{ width: '160px' }} />
             </colgroup>
             <thead>
               <tr>

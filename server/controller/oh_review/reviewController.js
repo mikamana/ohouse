@@ -1,12 +1,17 @@
 import * as reviewRepository from "../../repository/oh_review/reviewRepository.js";
 
 
+export async function getReview(req, res) {
 
+    const result = await reviewRepository.getReview()
+
+    res.json(result);
+
+}
 
 export async function createReview(req, res) {
 
     const { mid, pid, formObject } = req.body
-
 
     const result = await reviewRepository.createReview(mid, pid, formObject.content, formObject.image, formObject.score);
 
@@ -34,14 +39,14 @@ export async function updateReview(req, res) {
 
 }
 
-export async function removeReview(req,res){
+export async function removeReview(req, res) {
 
-    const {mid,pid} = req.body
+    const { mid, pid } = req.body
 
 
-    const result =  await reviewRepository.removeReview(mid, pid);
+    const result = await reviewRepository.removeReview(mid, pid);
 
-    if(result === "ok"){
+    if (result === "ok") {
 
         res.status(204).send('ok');
 
@@ -70,11 +75,22 @@ export async function getReviewAvg(req, res) {
 
 }
 
-export async function getReviewPage(req, res) {
+export async function getBeforeReviewPage(req, res) {
 
     const { pid, startIndex, endIndex, kindList } = req.params
 
-    const rows = await reviewRepository.getReviewPage(pid, startIndex, endIndex, kindList);
+    const rows = await reviewRepository.getBeforeReviewPage(pid, startIndex, endIndex, kindList);
+
+    res.json(rows);
+
+
+}
+
+export async function getReviewPage(req, res) {
+
+    const { pid, startIndex, mid, endIndex, kindList } = req.params
+
+    const rows = await reviewRepository.getReviewPage(pid, mid, startIndex, endIndex, kindList);
 
     res.json(rows);
 
