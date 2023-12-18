@@ -15,7 +15,7 @@ import ShopitemTodayStart from "./components/Info/ShopitemTodayStart";
 import "../../../css/main/shopitem/shopitem.css";
 import { Link } from "react-router-dom";
 
-export default function ShopitemContents({ shopitemList, index ,timecount, best}) {
+export default function ShopitemContents({ shopitemList, index, timecount, best }) {
   return (
     <div className="shopitem_contents">
       <Link to={`/production/${shopitemList.pid}`}>
@@ -47,13 +47,13 @@ export default function ShopitemContents({ shopitemList, index ,timecount, best}
           <ShopitemTag
             free={shopitemList.tag_free}
             hotprice={true}
-            />
-            {shopitemList.coupon_sale && <ShopitemCoupon/>}
-            {shopitemList.coupon_percent && <ShopitemCouponMax
+          />
+          {shopitemList.coupon_sale && <ShopitemCoupon />}
+          {shopitemList.coupon_percent && <ShopitemCouponMax
             percent={shopitemList.coupon_percent}
-            />}
-          </ShopitemInfo>
+          />}
+        </ShopitemInfo>
       </Link>
-      </div>
+    </div>
   );
 }

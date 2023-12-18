@@ -70,5 +70,4 @@ export async function updateInquiry(req, res) {
     res.status(204).send('ok');
 
   }
-
 }

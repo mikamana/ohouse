@@ -29,11 +29,11 @@ const ProductionsPrdReviewWrap = forwardRef((props, ref) => {
 
             method: "get",
             url: `http://127.0.0.1:8000/review/product/all`
-
-        }).then((result) => {
+            
+        }).then((result) =>{
 
             props.getList(result.data)
-
+            
         })
 
     }, [])

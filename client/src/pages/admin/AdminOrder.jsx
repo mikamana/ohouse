@@ -39,8 +39,9 @@ export default function AdminOrder() {
         }
       })
       .catch(console.err);
-  }, [value, listPerPages, currentPage])
-
+    }, [value, listPerPages, currentPage])
+    
+    console.log(list);
   const [toggle, setToggle] = useState(false);
   const handleToggle = (e) => {
     const mid = e.target.dataset.id;
