@@ -8,6 +8,17 @@ export async function createCart(pid,id,qty){
 
 }
 
+export async function getSubCart(pid,mid){
+
+  const sql = `select cart_id,pid,mid,qty,cdate from oh_cart where pid = ? and mid = ?`
+
+  return db.execute(sql,[pid,mid])
+  .then((rows)=>rows[0])
+
+}
+
+
+
 export async function getCart(mid){
   const sql = `select cart_id, op.pid, om.mid ,qty ,cdate,op.price_origin,op.price_sale,(op.price_origin * op.price_sale / 100) price_change, ifnull(round(op.price_origin - (op.price_origin * op.price_sale / 100),-2),op.price_origin) sale_price, ifnull((round(op.price_origin - (op.price_origin * op.price_sale / 100),-2) * oc.qty),round(op.price_origin - (op.price_origin * op.price_sale / 100),-2)) total_price 
   , op.category_id, op.product_image,op.brand_name,op.delivery_type,op.product_name,op.tag_free,cnt
@@ -29,7 +40,10 @@ export async function removeCart(mid,checkList){
 }
 
 export async function updateCart(params){
+
+
   const sql = `update oh_cart set qty = ? where cart_id = ? `;
   return db.execute(sql,params)
   .then((result)=>'success')
 }
+

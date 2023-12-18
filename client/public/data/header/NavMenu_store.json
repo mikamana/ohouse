@@ -1,7 +1,7 @@
 [
   { "url" : "/store", "menuName" : "쇼핑홈"},
   { "url" : "/store", "menuName" : "카테고리"},
-  { "url" : "/store", "menuName" : "베스트"},
+  { "url" : "/store/ranks", "menuName" : "베스트"},
   { "url" : "/store/todaydeals", "menuName" : "오늘의딜"},
   { "url" : "/store", "menuName" : "리퍼마켓"},
   { "url" : "/store", "menuName" : "오!굿즈"},

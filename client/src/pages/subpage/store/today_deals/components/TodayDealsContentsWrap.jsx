@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import axios from 'axios'
-import ShopitemContents from '../../../main/shopitem/ShopitemContents';
+import ShopitemContents from '../../../../main/shopitem/ShopitemContents';
 export default function TodayDealsContentsWrap() {
   const observeLine = useRef(null)
   const [loading, setLoading] = useState(false);

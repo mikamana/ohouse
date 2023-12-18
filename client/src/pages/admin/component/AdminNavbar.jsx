@@ -16,7 +16,7 @@ export default function AdminNavbar() {
         <Link to="/admin/member">회원관리</Link>
         <Link to="/admin/product">상품관리</Link>
         <Link to="/admin/order">주문관리</Link>
-        <Link to="/admin/inquery">문의관리</Link>
+        <Link to="/admin/inquiry">문의관리</Link>
       </nav>
     </div>
   );

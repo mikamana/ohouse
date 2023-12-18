@@ -8,6 +8,8 @@ router.use(express.urlencoded({extended:true}));
 
 router.post('/',inquiryController.createInquiry);
 router.get('/:pid/:startIndex/:endIndex',inquiryController.getInquiry);
+router.delete("/",inquiryController.removeInquiry);
+router.put("/", inquiryController.updateInquiry);
 
 export default router;
 

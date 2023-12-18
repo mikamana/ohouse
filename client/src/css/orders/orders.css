@@ -381,9 +381,6 @@
 .orders_form_box_input_contents_address_detail_wrap.active {
   border: 1px solid #35c5f0;
 }
-.orders_form_box_input_contents_address_detail_wrap.valcheck {
-  border: 1px solid rgb(255, 119, 119);
-}
 
 .orders_form_box_input_contents_address_search_btn {
   margin: 0px;

@@ -15,9 +15,13 @@ import review from "./router/oh_review/reviewRouter.js";
 import upload from "./router/uploadRouter.js";
 import channel from "./router/channelRouter.js";
 import inquiry from "./router/oh_inquiry/inquiryRouter.js";
-import order from "./router/oh_order/orderRouter.js"
+import order from "./router/oh_order/orderRouter.js";
 import search from "./router/searchRouter.js";
-import pay from "./router/oh_pay/payRouter.js"
+import pay from "./router/oh_pay/payRouter.js";
+import user from "./router/oh_member/userRouter.js";
+import scrap from "./router/oh_scrap/scrapRouter.js";
+
+import orderlist from "./router/orderlistRouter.js";
 const PORT = 8000;
 const server = express();
 
@@ -42,6 +46,9 @@ server.use('/inquiry', inquiry);
 server.use('/orders', order);
 server.use('/search', search);
 server.use('/pay', pay);
+server.use('/users', user);
+server.use('/scrap', scrap);
+server.use('/user_shopping_pages/order_list', orderlist);
 
 
 

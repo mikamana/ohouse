@@ -1,0 +1,195 @@
+@charset "UTF-8";
+div.orderlist_section {
+  margin: 30px auto;
+}
+div.orderlist_section div.orderlist_menubox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  width: 1136px;
+  height: 140px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: #dbdbdb 0px 1px 3px 0px;
+  box-sizing: border-box;
+}
+div.orderlist_section div.orderlist_menubox div {
+  position: relative;
+  padding: 20px 70px;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+div.orderlist_section div.orderlist_menubox div:not(:last-of-type)::after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 45px;
+  right: -10px;
+  width: 12px;
+  height: 12px;
+  transform: rotate(45deg);
+  border: solid #bdbdbd;
+  border-width: 2px 2px 0 0;
+}
+div.orderlist_section div.orderlist_menubox div:hover p {
+  font-weight: 600;
+}
+div.orderlist_section div.orderlist_menubox div p {
+  margin-bottom: 20px;
+}
+div.orderlist_section div.orderlist_menubox div p.orderlist_firstmenu {
+  font-weight: 600;
+}
+div.orderlist_section div.orderlist_menubox div span {
+  color: var(--sky);
+}
+div.orderlist_section div.orderlist_contentwrap {
+  margin-top: 50px;
+  padding: 30px;
+  width: 1136px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: #dbdbdb 0px 1px 3px 0px;
+  box-sizing: border-box;
+}
+div.orderlist_section div.orderlist_contentwrap ul.house_cate_list {
+  display: flex;
+}
+div.orderlist_section div.orderlist_contentwrap ul.house_cate_list li.house_cate_list_li {
+  margin-right: 5px;
+  position: relative;
+}
+div.orderlist_section div.orderlist_contentwrap ul.house_cate_list li.house_cate_list_li.active div.house_cate_list_modal {
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.2s;
+}
+div.orderlist_section div.orderlist_contentwrap ul.house_cate_list li.house_cate_list_li div.house_cate_list_box {
+  margin-top: 5px;
+  padding: 15px 0px;
+}
+div.orderlist_section div.orderlist_contentwrap ul.house_cate_list li.house_cate_list_li div.house_cate_list_box button.house_cate_list_btn {
+  color: #757575;
+  border: none;
+  padding: 7px 8px 6px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 15px;
+}
+div.orderlist_section div.orderlist_contentwrap ul.house_cate_list li.house_cate_list_li div.house_cate_list_box button.house_cate_list_btn span.house_cate_list_span::after {
+  content: "\f078";
+  font-family: "Font Awesome 6 Free"; /*폰트어썸 fas, far 글꼴 연결*/
+  font-weight: 800;
+  font-size: 14px;
+  margin-left: 5px;
+  color: #757575;
+}
+div.orderlist_section div.orderlist_contentwrap ul.house_cate_list li.house_cate_list_li div.house_cate_list_modal {
+  opacity: 0;
+  position: absolute;
+  visibility: hidden;
+  width: 200px;
+  z-index: 1;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 5px;
+  transition: all 0.2s;
+  box-shadow: 2px 2px 21px -4px rgba(0, 0, 0, 0.73);
+  -webkit-box-shadow: 2px 2px 21px -4px rgba(0, 0, 0, 0.73);
+  -moz-box-shadow: 2px 2px 21px -4px rgba(0, 0, 0, 0.73);
+}
+div.orderlist_section div.orderlist_contentwrap ul.house_cate_list li.house_cate_list_li div.house_cate_list_modal::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -10px;
+  background-color: rgb(255, 255, 255);
+  width: 10px;
+  height: 10px;
+  -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+          clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+div.orderlist_section div.orderlist_contentwrap ul.house_cate_list li.house_cate_list_li div.house_cate_list_modal ul.house_cate_list_modal_list {
+  width: 100%;
+}
+div.orderlist_section div.orderlist_contentwrap ul.house_cate_list li.house_cate_list_li div.house_cate_list_modal ul.house_cate_list_modal_list li.house_cate_list_modal_list_li {
+  width: 100%;
+}
+div.orderlist_section div.orderlist_contentwrap ul.house_cate_list li.house_cate_list_li div.house_cate_list_modal ul.house_cate_list_modal_list li.house_cate_list_modal_list_li:hover button.house_cate_list_modal_list_li_btn {
+  background: rgb(247, 247, 247);
+}
+div.orderlist_section div.orderlist_contentwrap ul.house_cate_list li.house_cate_list_li div.house_cate_list_modal ul.house_cate_list_modal_list li.house_cate_list_modal_list_li button.house_cate_list_modal_list_li_btn {
+  padding: 20px 20px;
+  width: 100%;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #fff;
+  text-align: left;
+}
+div.orderlist_section div.orderlist_contentwrap ul.house_cate_list li.house_cate_list_li div.house_cate_list_modal ul.house_cate_list_modal_list li.house_cate_list_modal_list_li button.house_cate_list_modal_list_li_btn.active {
+  color: #35c5f0;
+}
+div.orderlist_section div.orderlist_contentwrap div.orderlist_content {
+  margin: 10px 0 30px;
+}
+div.orderlist_section div.orderlist_contentwrap div.orderlist_content div.orderlist_content_title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: 2px solid rgb(237, 237, 237);
+}
+div.orderlist_section div.orderlist_contentwrap div.orderlist_content div.orderlist_content_productinfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+div.orderlist_section div.orderlist_contentwrap div.orderlist_content div.orderlist_content_productinfo img {
+  width: 100px;
+}
+div.orderlist_section div.orderlist_contentwrap div.orderlist_content div.orderlist_content_productinfo div.orderlist_content_productname {
+  width: 700px;
+  text-wrap: wrap;
+}
+div.orderlist_section div.orderlist_contentwrap div.orderlist_content div.orderlist_content_productinfo div.orderlist_content_productname p:first-of-type {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+div.orderlist_section div.orderlist_contentwrap div.orderlist_content div.orderlist_content_productinfo div.orderlist_content_productname p:last-of-type {
+  font-weight: 600;
+}
+div.orderlist_section div.orderlist_contentwrap div.orderlist_content div.orderlist_content_productinfo div.orderlist_content_productprice {
+  width: 150px;
+  text-align: right;
+}
+div.orderlist_section div.orderlist_contentwrap div.orderlist_content div.orderlist_content_productinfo div.orderlist_content_productprice span:first-of-type {
+  font-weight: 600;
+}
+div.orderlist_section div.orderlist_contentwrap div.orderlist_content div.orderlist_content_productinfo div.orderlist_content_productprice span:first-of-type::after {
+  content: "|";
+  margin: 0 5px;
+  font-size: 13px;
+  color: rgb(237, 237, 237);
+}
+div.orderlist_section div.orderlist_contentwrap div.orderlist_content div.orderlist_content_productinfo div.orderlist_content_productprice p {
+  margin-top: 20px;
+  color: var(--sky);
+}
+div.orderlist_section div.orderlist_contentwrap div.orderlist_content div.orderlist_content_totalprice {
+  text-align: center;
+  padding: 30px 0;
+  background: var(--lightGray);
+  border-radius: 5px;
+  font-weight: 600;
+}
+div.orderlist_section div.orderlist_contentwrap div.orderlist_content div.orderlist_content_totalprice span:last-of-type {
+  color: var(--sky);
+}/*# sourceMappingURL=orderlist.css.map */
