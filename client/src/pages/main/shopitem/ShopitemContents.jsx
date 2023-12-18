@@ -14,14 +14,10 @@ import ShopitemTitle from "./components/Info/ShopitemTitle";
 import ShopitemTodayStart from "./components/Info/ShopitemTodayStart";
 import "../../../css/main/shopitem/shopitem.css";
 import { Link } from "react-router-dom";
-import ProductionScrapBtn from "../../productions/components/info/ProductionScrapBtn";
 
 export default function ShopitemContents({ shopitemList, index, timecount, best }) {
   return (
     <div className="shopitem_contents">
-      <ProductionScrapBtn
-        pid={shopitemList.pid}
-      />
       <Link to={`/production/${shopitemList.pid}`}>
         <ShopitemImageWrap>
           {best && <ShopitemBest rank={index} />}
@@ -29,7 +25,7 @@ export default function ShopitemContents({ shopitemList, index, timecount, best 
           <ShopitemImage
             shopimg={shopitemList.product_image}
           />
-          {/* <ShopitemMark /> */}
+          <ShopitemMark />
         </ShopitemImageWrap>
         <ShopitemInfo>
           <ShopitemTitle
