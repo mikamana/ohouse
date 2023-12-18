@@ -8,7 +8,7 @@
  show grants for 'root'@'127.0.0.1';
  commit;
  
-
+select * from oh_pay;
 
 drop table oh_order_save;
 drop table oh_pay; 
@@ -36,7 +36,6 @@ select * from oh_order;
 select * from oh_pay;
 select * from oh_order_save;
 select * from oh_inquiry;
-
 
 /*
 	업데이트 필요한 사항들
@@ -307,7 +306,7 @@ insert into oh_member (mid, pass, nickname, userimg, mdate) values("backkim@d-fr
 insert into oh_member (mid, pass, nickname, userimg, mdate) values("@","1234","5조","https://images.unsplash.com/photo-1624274515979-32afb09402a2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQyfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",sysdate());
 
 select * from oh_member;
-
+delete from oh_member where mid = "@";
 -- oh_product insert
 -- 크리스마스
 insert into oh_product(

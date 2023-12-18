@@ -2,12 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Pagination from 'rc-pagination';
 import 'rc-pagination/assets/index.css';
-import { useParams } from 'react-router-dom';
 
 export default function AdminMember() {
-
-  //const {category} = useParams();
-
   /* get : list */
   const [list, setList] = useState([]);
 
@@ -45,7 +41,6 @@ export default function AdminMember() {
   const [toggle, setToggle] = useState(false);
   const handleToggle = (e) => {
     const mid = e.target.dataset.id;
-    //alert(`${mid}`)
     if (toggle === false) {
       setToggle(true)
     } else {
@@ -57,7 +52,6 @@ export default function AdminMember() {
       url: `http://127.0.0.1:8000/admin/member/${mid}/`
     })
       .then((result) => {
-        //alert(JSON.stringify(result))
         setForm(result.data);
       })
       .catch(console.err);
@@ -83,12 +77,28 @@ export default function AdminMember() {
   const handleChangeSort = (e) => {
     const { value } = e.target;
     setValue(value)
-
-    // axios.get(`http://127.0.0.1:8000/admin/${startindex}/${endindex}/${value}`)
-    // .then((result)=>{
-    //   setmenuList(result.data)
-    // })
   }
+
+  const maskingMail = (email) => {
+    let id = email.split("@")
+    let id2 = id[1].split(".")
+    if (id2[0] === "") {
+      return id[0].replace(/(?<=.{1})./gi, '*') + "@" + id2[0].replace(/(?<=.{2})./gi, '*');
+    } else if (id2[2]) {
+      return id[0].replace(/(?<=.{1})./gi, '*') + "@" + id2[0].replace(/(?<=.{2})./gi, '*') + "." + id2[2];
+    } else if (id2[2] === undefined) {
+      return id[0].replace(/(?<=.{1})./gi, '*') + "@" + id2[0].replace(/(?<=.{2})./gi, '*') + "." + id2[1];
+    }
+  };
+
+  const maskingBirthday = (birthday) => {
+    let day = birthday.split("-")
+    if (birthday !== '미입력') {
+      return day[0].replace(/(?<=.{2})./gi, '*') + '-' + '**' + '-' + '**';
+    } else {
+      return '미입력'
+    }
+  };
 
   return (
     <>
@@ -115,17 +125,22 @@ export default function AdminMember() {
           </div>
 
           <table className="admin_table">
+            <colgroup>
+              <col />
+              <col />
+              <col style={{ width: '600px' }} />
+              <col style={{ width: '230px' }} />
+              <col style={{ width: '230px' }} />
+            </colgroup>
             <thead>
               <tr>
-                <th>NO.</th>
-                <th>회원이름</th>
-                <th>회원아이디</th>
-                <th>휴대폰번호</th>
+                <th>No.</th>
+                <th>닉네임</th>
+                <th>아이디</th>
                 <th>생일</th>
                 <th>가입일시</th>
                 <th>주문건수</th>
                 <th>리뷰수</th>
-                <th>비고</th>
               </tr>
             </thead>
             <tbody>
@@ -133,15 +148,11 @@ export default function AdminMember() {
                 <tr key={menu.mid}>
                   <td>{menu.rno}</td>
                   <td>{menu.nickname}</td>
-                  <td>{menu.mid}</td>
-                  <td>{menu.phone}</td>
-                  <td>{menu.birthday}</td>
+                  <td>{maskingMail(menu.mid)}</td>
+                  <td>{maskingBirthday(menu.birthday)}</td>
                   <td>{menu.mdate}</td>
                   <td>{menu.count_order}</td>
                   <td>{menu.count_review}</td>
-                  <td>
-                    <button className="admin_update_togglebtn" type="button" onClick={handleToggle} data-id={menu.mid}>정보수정</button>
-                  </td>
                 </tr>
               )}
             </tbody>
