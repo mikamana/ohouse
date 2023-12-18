@@ -77,12 +77,41 @@
 }//search_total
 
 .searchResults {
-  display: flex;
-  
-  flex-wrap: wrap;
-  flex-direction: row;
-  
-  > div {
-    padding: 10px 7.5px;
-  }
-}
+  margin: 0 auto;
+  .inner {
+    width: 100%;
+    padding: 0;
+    .subtitle_more {
+      padding-bottom: 0;
+    }
+  }//inner
+  .shopitem_section {
+    width: 100%;
+    height: auto;
+    .swiper {
+      .shopitem_image_wrap {
+        width: 100%;
+        height: auto;
+      }
+      .shopitem_info_wrap {
+        width: 100%;
+      }
+    }
+  }//shopitem_section
+  .search_item {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    >div {
+      padding: 10px;
+    }
+    >div:nth-child(4n) {
+      padding-right: 0;
+    }
+    >div:nth-child(4n+1) {
+      padding-left: 0;
+    }
+
+
+  }//search_item
+}//searchResults
