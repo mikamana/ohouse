@@ -13,6 +13,8 @@ export default function Edit() {
   const [user, setUser] = useState([])
   const [nicknameValue, setNickNameValue] = useState(true);
   const [nicknameText, setNickNameText] = useState("");
+  const [reset, setReset] = useState(false);
+
   useEffect(() => {
     if (userinfo) {
       axios.get(`http://127.0.0.1:8000/edit/${userinfo.id}`)
@@ -21,7 +23,7 @@ export default function Edit() {
           setUser(result.data);
         })
     }
-  }, [])
+  }, [reset])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -64,8 +66,8 @@ export default function Edit() {
       axios.post("http://127.0.0.1:8000/edit", form)
         .then(result => {
           if (result.data === "ok") {
-            window.location.reload();
-            alert("회원정보가 수정되었습니다.")
+            alert("회원정보가 수정되었습니다.");
+            setReset(!reset)
           }
         })
     }

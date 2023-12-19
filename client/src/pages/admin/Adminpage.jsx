@@ -3,6 +3,7 @@ import "../../css/admin/adminpage.css";
 import { Outlet } from "react-router-dom";
 import { getUser } from './../utill/sessionStorage';
 import AdminNavbar from "./component/AdminNavbar";
+import Error from './../../Error';
 
 /* 
 1. && 값이 없으면 테이블 열, 행, 값이 출력이 안되게
@@ -26,9 +27,7 @@ export default function Adminpage() {
           <Outlet />
         </>
       ) : (
-        <div>
-          관리자만 접근할 수 있는 페이지입니다.
-        </div>
+        <Error />
       )}
     </>
   );

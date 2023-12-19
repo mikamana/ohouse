@@ -10,3 +10,16 @@ export async function getUser(req, res) {
 
 }
 
+export async function getUserInquiry(req,res){
+  const mid = req.params.mid;
+  const result = await repository.getUserInquiry(mid);
+  res.json(result);
+}
+
+export async function removeInquiry(req,res){
+  const qid = req.params.qid;
+  console.log(qid);
+  const result = await repository.removeInquiry(qid);
+  res.json(result);
+}
+

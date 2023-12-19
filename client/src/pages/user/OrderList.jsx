@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import OrderListSort from './OrderListSort';
 import '../../css/user/orderlist.css';
 import { getUser } from './../utill/sessionStorage';
-import ProjectsCateList from "../subpage/contents/projects/components/ProjectsCateList";
 import axios from "axios";
 
 export default function OrderList() {
@@ -44,56 +43,50 @@ export default function OrderList() {
 
   return (
     <>
-      {
-        userInfo ? (
-          <div className="orderlist_section inner">
-            <div className="orderlist_menubox">
-              {menulist.map((menu) =>
-                <div key={menu}>
-                  <p style={{ fontWeight: menu === "결제완료" ? 'bold' : 'normal' }}>{menu}</p>
-                  <span>{menu === "결제완료" ? order.length : 0}</span>
-                </div>
-              )}
+      <div className="orderlist_section inner">
+        <div className="orderlist_menubox">
+          {menulist.map((menu) =>
+            <div key={menu}>
+              <p style={{ fontWeight: menu === "결제완료" ? 'bold' : 'normal' }}>{menu}</p>
+              <span>{menu === "결제완료" ? order.length : 0}</span>
             </div>
-            <div className="orderlist_contentwrap">
-              <OrderListSort
-                getSort={getSort}
-              />
-              {order.map((orders, idx) =>
-                <div key={idx} className="orderlist_content">
-                  <div className="orderlist_content_title">
-                    <p>{orders.common_id}</p>
-                    <p>{orders.paydate}</p>
+          )}
+        </div>
+        <div className="orderlist_contentwrap">
+          <OrderListSort
+            getSort={getSort}
+          />
+          {order.map((orders, idx) =>
+            <div key={idx} className="orderlist_content">
+              <div className="orderlist_content_title">
+                <p>{orders.common_id}</p>
+                <p>{orders.paydate}</p>
+              </div>
+              {orderList.map((order, i) => {
+                if (orders.common_id === order.common_id) {
+                  return <div key={i} className="orderlist_content_productinfo">
+                    <img src={order.product_image} alt="상품이미지" />
+                    <div className="orderlist_content_productname">
+                      <p>{order.brand_name}</p>
+                      <p>{order.product_name}</p>
+                    </div>
+                    <div className="orderlist_content_productprice">
+                      <span>{order.unit_price.toLocaleString() + "원"}</span>
+                      <span>{order.qty + "개"}</span>
+                      <p>{showDeliveryType(order.delivery_type)}</p>
+                    </div>
                   </div>
-                  {orderList.map((order, i) => {
-                    if (orders.common_id === order.common_id) {
-                      return <div key={i} className="orderlist_content_productinfo">
-                        <img src={order.product_image} alt="상품이미지" />
-                        <div className="orderlist_content_productname">
-                          <p>{order.brand_name}</p>
-                          <p>{order.product_name}</p>
-                        </div>
-                        <div className="orderlist_content_productprice">
-                          <span>{order.unit_price.toLocaleString() + "원"}</span>
-                          <span>{order.qty + "개"}</span>
-                          <p>{showDeliveryType(order.delivery_type)}</p>
-                        </div>
-                      </div>
-                    }
-                  }
-                  )}
-                  <div className="orderlist_content_totalprice">
-                    <span>총 결제비용 : </span>
-                    <span>{orders.last_pay_price.toLocaleString()}원</span>
-                  </div>
-                </div >
+                }
+              }
               )}
-            </div>
-          </div >
-        ) : (
-          <div>잘못된 접근입니다</div>
-        )
-      }
+              <div className="orderlist_content_totalprice">
+                <span>총 결제비용 : </span>
+                <span>{orders.last_pay_price.toLocaleString()}원</span>
+              </div>
+            </div >
+          )}
+        </div>
+      </div >
     </>
   );
 };
