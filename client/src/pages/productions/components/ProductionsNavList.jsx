@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { prdContext } from "../../../context/ProductContext";
 
 export default function ProductionsNavList(props) {
+  const { revOst, revOsh } = useContext(prdContext)
+
   const [showList, setShowList] = useState(0);
   const [scrollList, setScrollList] = useState(0);
 
@@ -14,6 +17,7 @@ export default function ProductionsNavList(props) {
   function fnScroll(e) {
 
     let scry = window.scrollY
+
 
 
     if (scry >= 1000 && scry < 3800) {
@@ -62,7 +66,7 @@ export default function ProductionsNavList(props) {
         </li>
         <li className={showList === 1 ? 'production_selling_navigion_list_li active' : 'production_selling_navigion_list_li'} onClick={() => {
           setShowList(1)
-          handleScroll(3800)
+          handleScroll(4000)
         }}>
           <Link to="#" className="production_selling_navigion_link">
             <span className="production_selling_navigion_info_text">리뷰<span className="production_selling_navigion_point"> {props.count}</span></span>

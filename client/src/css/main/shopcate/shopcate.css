@@ -149,6 +149,9 @@ div.shopcate_section .next_btn2.swiper-button-disabled {
 .shopcate_contents .shopcate_contents_item_container {
   width: 33%;
 }
+.shopcate_contents .shopcate_contents_item_container .shopitem_contents {
+  position: relative;
+}
 .shopcate_contents .shopcate_contents_item_container .shopitem_image_wrap {
   width: 365px;
   height: 365px;

@@ -26,7 +26,7 @@ export default function HeaderProfile() {
         <Link to="/users/profile" className="header_nav_menu_list3" >마이페이지</Link>
       </li>
       <li>
-        <Link to="/user_shopping_pages/order_list" className="header_nav_menu_list3">나의 쇼핑</Link>
+        <Link to="/users/myshop" className="header_nav_menu_list3">나의 쇼핑</Link>
       </li>
       <li>
         <Link to="/users/editpassword" className="header_nav_menu_list3">비밀번호변경</Link>
