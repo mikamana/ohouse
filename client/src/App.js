@@ -47,12 +47,15 @@ import Profile from "./pages/user/components/Profile";
 import TodayDeals from "./pages/subpage/store/today_deals/TodayDeals";
 import Ranks from "./pages/subpage/store/ranks/Ranks";
 import OrderList from './pages/user/OrderList';
+import Prdinquiry from "./pages/user/Prdinquiry";
+import Error from './Error';
 
 const router = createBrowserRouter([
 
   {
     path: "/",
     element: <Main />,
+    errorElement: <Error />,
     children: [
       {
         path: '/', element:
@@ -199,6 +202,14 @@ const router = createBrowserRouter([
           <Contents>
             <Users>
               <OrderList />
+            </Users>
+          </Contents>
+      },
+      {
+        path: '/users/prdinquiry', element:
+          <Contents>
+            <Users>
+              <Prdinquiry />
             </Users>
           </Contents>
       },
