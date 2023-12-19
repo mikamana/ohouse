@@ -4,12 +4,20 @@ import { getUser } from '../utill/sessionStorage';
 import { Link } from 'react-router-dom';
 // import { useLocation } from 'react-router-dom';
 // import { userContext } from '../../context/UsersContext';
+import { useNavigate } from 'react-router-dom';
 
 export default function Users({ children }) {
 
   const userInfo = getUser();
   const [menuList, setMenuList] = useState([{ profile: "프로필" }, { myshop: "나의 쇼핑" }, { edit: "회원정보수정" }, { editpassword: "비밀번호 변경" }, { prdinquiry: "나의 문의" }, { prdreview: "나의 리뷰" }, { withdrawals: "회원탈퇴" }]);
   const [active, setActive] = useState(0);
+  const navigate = useNavigate();
+
+  useEffect(()=>{
+    if(!userInfo){
+      return navigate("/login")
+    }
+  },[])
 
   // const location = useLocation();
 

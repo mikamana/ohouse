@@ -232,7 +232,7 @@ const router = createBrowserRouter([
       <Signup />
   },
   {
-    path: 'login', element:
+    path: '/login', element:
       <Login />
   },
   {
