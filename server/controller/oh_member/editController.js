@@ -25,6 +25,7 @@ export function upload(req, res) {
     if (err) {
       console.log(err);
     } else {
+      console.log(res.req.file);
       res.json(res.req.file.path);
     }
   })

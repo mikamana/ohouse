@@ -5,7 +5,6 @@ import ImageUpload from "../../../../components/ImageUpload";
 import { getUser } from "../../../../utill/sessionStorage";
 import axios from "axios";
 import ProductionsPrdReviewUpdateBtn from "./ProductionsPrdReviewUpdateBtn";
-// import ProductionsPrdReviewUserItem from "./ProductionsPrdReviewUserItem";
 
 export default function ProductionsPrdReviewList(props) {
 
@@ -50,9 +49,6 @@ export default function ProductionsPrdReviewList(props) {
 
     }
 
-
-
-
     const fnClick = (e) => {
 
         setToggle(e)
@@ -68,7 +64,7 @@ export default function ProductionsPrdReviewList(props) {
                         <div className="production_selling_prd_review_item_box">
                             <div className="production_selling_prd_review_item_user">
                                 <Link to="#" className="production_selling_prd_review_item_user_img">
-                                    <img src={lst.userimg} alt="유저리뷰이미지" />
+                                    {<img src={lst.userimg === null ? "https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&w=640&h=640&c=c&webp=1&quot;" : "http://127.0.0.1:8000/" + lst.userimg} alt="유저리뷰이미지" />}
                                 </Link>
                                 <div className="production_selling_prd_review_item_user_info_wrap">
                                     <p className="production_selling_prd_review_item_user_info_title">

@@ -17,10 +17,10 @@ export default function EditPassword() {
   const passRegExp = /^.*(?=^.{8,14}$)(?=.*\d)(?=.*[a-zA-Z]).*$/;
 
   const handlepass = (e) => {
-    const {name, value} = e.target;
-    setForm({...form, [name] : value});
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
 
-    if(name === "pass" && value.match(passRegExp) == null){
+    if (name === "pass" && value.match(passRegExp) == null) {
       setpassText("필수 입력 항목입니다.");
       setPass(false)
     } else {
@@ -28,65 +28,65 @@ export default function EditPassword() {
       setPass(true)
     }
 
-    if(name === "newPass" && value.match(passRegExp) == null){
+    if (name === "newPass" && value.match(passRegExp) == null) {
       setNewPassText("필수 입력 항목입니다.");
       setPassValue(false)
-    }else{
+    } else {
       setNewPassText("");
       setPassValue(true)
     }
 
-    if(name === "newPassCheck" && value.match(passRegExp) == null){
+    if (name === "newPassCheck" && value.match(passRegExp) == null) {
       setNewPassCheckText("필수 입력 항목입니다.");
       setPassCheckValue(false)
-    }else{
+    } else {
       setNewPassCheckText("");
       setPassCheckValue(true)
     }
   }
 
   const passCheck = (e) => {
-    if(form.pass.match(passRegExp) == null){
+    if (form.pass.match(passRegExp) == null) {
       setpassText("확인을 위해 비밀번호를 한 번 더 입력해주세요.");
-    }else{
+    } else {
       setpassText("");
     }
   }
 
-  const newPassCheck  = () => {
-    if(form.newPass.match(passRegExp) == null){
+  const newPassCheck = () => {
+    if (form.newPass.match(passRegExp) == null) {
       setNewPassText("확인을 위해 비밀번호를 한 번 더 입력해주세요.");
-    }else{
+    } else {
       setNewPassText("");
     }
   }
 
   const newPassCheck2 = () => {
-    if(form.newPassCheck.match(passRegExp) == null || form.newPass !== form.newPassCheck){
+    if (form.newPassCheck.match(passRegExp) == null || form.newPass !== form.newPassCheck) {
       setNewPassCheckText("확인을 위해 비밀번호를 한 번 더 입력해주세요.");
-    }else{
+    } else {
       setNewPassCheckText("");
     }
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(pass && passValue && passCheckValue && form.newPass === form.newPassCheck){
-      if(form.pass === form.newPass){
+    if (pass && passValue && passCheckValue && form.newPass === form.newPassCheck) {
+      if (form.pass === form.newPass) {
         alert("현재비밀번호랑 같습니다");
-      }else{
+      } else {
         axios.post(`http://127.0.0.1:8000/edit/password/password/${uerinfo.id}`, form)
-        .then(result =>{
-          if(result.data === "ok"){
-            alert("비밀번호 변경완료 다시로그인 해주세요");
-            navigate("/");
-            removeUser();
-          }else if(result.data === "no"){
-            alert("비밀번호가 틀렸습니다.");
-          }
-        })
+          .then(result => {
+            if (result.data === "ok") {
+              alert("비밀번호 변경완료 다시로그인 해주세요");
+              navigate("/");
+              removeUser();
+            } else if (result.data === "no") {
+              alert("비밀번호가 틀렸습니다.");
+            }
+          })
       }
-    }else{
+    } else {
       alert("새비밀번호가 같지 않습니다.");
     }
   }

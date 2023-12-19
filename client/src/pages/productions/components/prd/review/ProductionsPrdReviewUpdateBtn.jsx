@@ -16,13 +16,6 @@ export default function ProductionsPrdReviewUpdateBtn(props) {
 
   }, [toggle])
 
-  // const fnDelete = (kind) => {
-
-  //   props.fnDelete('dd');
-  //   // 문의 삭제 수정을 이 컴포넌트에서 인자로 받아 해결
-
-  // }
-
   const fnDelete = (kind) => {
 
 

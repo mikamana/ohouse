@@ -2,17 +2,17 @@
   {
     "id": "1",
     "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/snapshots/169864726998635933.jpeg?gif=1&w=320&h=214&c=c",
-    "name" : "홈데코트렌드"
+    "name" : "트렌드"
   },
   {
     "id": "2",
     "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/snapshots/166809727375393062.jpeg?gif=1&w=320&h=214&c=c",
-    "name" : "트리선택"
+    "name" : "선물추천"
   },
   {
     "id": "3",
     "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/advice/169985904289266663.png?gif=1&w=320&h=214&c=c&webp=1",
-    "name" : "애인선물"
+    "name" : "인기아이템"
   },
   {
     "id": "4",
@@ -22,41 +22,41 @@
   {
     "id": "5",
     "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/169700932731120013.jpg?gif=1&w=850&h=850&c=c&webp=1",
-    "name" : "트리"
+    "name" : "이벤트"
   },
   {
     "id": "6",
     "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/deals/166615913378517416.jpg?gif=1&w=850&h=850&c=c&webp=1",
-    "name" : "오너먼트"
+    "name" : "할인상품"
   },
   {
     "id": "7",
     "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/166677081986586799.jpg?gif=1&w=850&h=850&c=c&webp=1",
-    "name" : "조명"
+    "name" : "서프라이즈아이템"
   },
   {
     "id": "8",
     "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/166858049443560508.gif?gif=1&w=850&h=850&c=c&webp=1",
-    "name" : "크리스마스선물"
+    "name" : "이번달인기"
   },
   {
     "id": "9",
     "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/166663160660034656.jpg?gif=1&w=850&h=850&c=c&webp=1",
-    "name" : "양말"
+    "name" : "이번주득템"
   },
   {
     "id": "10",
     "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/166626014244359734.jpg?gif=1&w=850&h=850&c=c&webp=1",
-    "name" : "산타인형"
+    "name" : "스테디아이템"
   },
   {
     "id": "11",
     "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/169767436029012591.jpg?gif=1&w=850&h=850&c=c&webp=1",
-    "name" : "산타모자"
+    "name" : "만족도최상아이템"
   },
   {
     "id": "12",
     "image" : "https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/163790640644842160.jpg?gif=1&w=850&h=850&c=c&webp=1",
-    "name" : "리스"
+    "name" : "오늘의핫템"
   }
 ]

@@ -47,12 +47,15 @@ import Profile from "./pages/user/components/Profile";
 import TodayDeals from "./pages/subpage/store/today_deals/TodayDeals";
 import Ranks from "./pages/subpage/store/ranks/Ranks";
 import OrderList from './pages/user/OrderList';
+import Prdinquiry from "./pages/user/Prdinquiry";
+import Error from './Error';
 
 const router = createBrowserRouter([
 
   {
     path: "/",
     element: <Main />,
+    errorElement: <Error />,
     children: [
       {
         path: '/', element:
@@ -116,7 +119,7 @@ const router = createBrowserRouter([
           </Contents>
       },
       {
-        path: '/search', element:
+        path: '/search/:searchKeyword', element:
           <Contents>
             <Search />
           </Contents>
@@ -128,13 +131,13 @@ const router = createBrowserRouter([
           </Contents>
       },
       {
-        path: '/cart/:mid', element:
+        path: '/cart', element:
           <Contents>
             <Cart />
           </Contents>
       },
       {
-        path: '/cart', element:
+        path: '/emptycart', element:
           <Contents>
             <CartEmptyPage />
           </Contents>
@@ -203,6 +206,14 @@ const router = createBrowserRouter([
           </Contents>
       },
       {
+        path: '/users/prdinquiry', element:
+          <Contents>
+            <Users>
+              <Prdinquiry />
+            </Users>
+          </Contents>
+      },
+      {
         path: '/store/todaydeals', element:
           <Contents>
             <TodayDeals />
@@ -221,7 +232,7 @@ const router = createBrowserRouter([
       <Signup />
   },
   {
-    path: 'login', element:
+    path: '/login', element:
       <Login />
   },
   {

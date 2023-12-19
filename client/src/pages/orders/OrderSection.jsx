@@ -18,6 +18,9 @@ export default function OrderSection(){
   const oi = [];
   const checkboxVal = useRef()
   useEffect(()=>{
+    if(!userInfo){
+      return navigate('/login')
+    }
     setTimeout(() => {
       axios.get(`http://127.0.0.1:8000/orders/${userInfo.id}`)
       .then(result=>
