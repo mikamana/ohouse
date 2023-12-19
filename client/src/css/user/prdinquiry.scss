@@ -1,0 +1,67 @@
+div.prdinquiry_section {
+  div.prdinquiry_content {
+    margin: 0 auto;
+    padding: 16px;
+    width: 850px;
+    height: 450px;
+    border: 1px solid red; /* 삭제---- */
+    div.prdinquiry_titlebox {
+      margin-bottom: 16px;
+      span {
+        vertical-align: middle;
+        &:first-of-type {
+          padding: 5px;
+          font-size: 12px;
+          font-weight: 600;
+          color: #fff;
+          background: var(--sky);
+          border-radius: 3px;
+          box-sizing: border-box;
+        }
+        &:nth-of-type(2) {
+          margin: 0 5px 0 10px;
+          font-size: 18px;
+          font-weight: 600;
+        }
+        &:last-of-type {
+          float: right;
+          line-height: 24px;
+          font-size: 14px;
+          color: var(--darkGray);
+        }
+        svg {
+          vertical-align: middle;
+        }
+      }
+    }
+    p {
+      margin-right: 5px;
+      font-size: 14px;
+      a {
+        color: var(--sky);
+      }
+    }
+    div.prdinquiry_question{
+      display: flex;
+      margin-bottom: 17px;
+      width: 100%;
+      line-height: 30px;
+      border: 1px solid red; /* 삭제==== */
+      span{
+        margin-right: 10px;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--sky);
+        border-radius: 100%;
+        box-shadow: #dbdbdb 1px 2px 3px 2px;
+      }
+      div{
+        font-weight: 600;
+      }
+    }
+  }
+}
