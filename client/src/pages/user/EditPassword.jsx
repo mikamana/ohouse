@@ -79,8 +79,8 @@ export default function EditPassword() {
           .then(result => {
             if (result.data === "ok") {
               alert("비밀번호 변경완료 다시로그인 해주세요");
-              navigate("/");
               removeUser();
+              navigate("/");
             } else if (result.data === "no") {
               alert("비밀번호가 틀렸습니다.");
             }

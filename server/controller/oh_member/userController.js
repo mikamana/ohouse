@@ -18,7 +18,6 @@ export async function getUserInquiry(req,res){
 
 export async function removeInquiry(req,res){
   const qid = req.params.qid;
-  console.log(qid);
   const result = await repository.removeInquiry(qid);
   res.json(result);
 }
