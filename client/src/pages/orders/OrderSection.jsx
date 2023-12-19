@@ -18,6 +18,9 @@ export default function OrderSection(){
   const oi = [];
   const checkboxVal = useRef()
   useEffect(()=>{
+    if(!userInfo){
+      return navigate('/login')
+    }
     setTimeout(() => {
       axios.get(`http://127.0.0.1:8000/orders/${userInfo.id}`)
       .then(result=>
@@ -79,7 +82,15 @@ export default function OrderSection(){
       .then(result=>{
         if(result.status === 204){
           alert('결제가 완료되었습니다.')
-          navigate('/')
+          const checkConfirm = window.confirm('주문 배송 내역 페이지로 이동하시겠습니까? 거부하신다면 홈으로 이동합니다.')
+          if(checkConfirm){
+            navigate('/users/myshop')
+          }
+          else{
+            navigate('/')
+          }
+          
+          window.location.reload();
         }
         else{
           alert('결제가 실패하였습니다.')

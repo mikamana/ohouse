@@ -3,9 +3,13 @@
 export default function CartCheckBoxWrap({ allCheckedHandler, checkedItems, checkList }) {
   function listCheck() {
     if (checkList) {
+      if(!checkList.length){
+        return false
+      }
       return checkedItems.length === checkList.length ? true : false
     }
   }
+  console.log(listCheck());
   return (
     <label className='cart_contents_header_left_checkbox_container' htmlFor="allcheck">
       <div className='cart_contents_header_left_checkbox_wrap'>

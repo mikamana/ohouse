@@ -28,7 +28,7 @@ export default function ShopcateSection() {
 
   return (
     <>
-      <SubtitleMore title={"베스트"} />
+      <SubtitleMore title={"베스트"} link={'/store/ranks'}/>
       <div className="shopcate_section inner">
         <ShopcateCategory
           catelist={catelist}

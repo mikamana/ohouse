@@ -20,12 +20,14 @@ export default function CartSection() {
   let totPrice = 0;
   let totPriceSale = 0;
   const navigate = useNavigate();
-
   useEffect(() => {
+    if(!userInfo){
+      return navigate('/login')
+    }
     axios.get(`http://127.0.0.1:8000/cart/${userInfo.id}`)
       .then(result => {
         if (!result.data.length) {
-          return navigate('/cart')
+          return navigate('/emptycart')
         }
         const countFlag = (result) => {
           if (result.data.length !== 0) {

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../../../css/main/subtitle_more/subtitle_more.css";
 
-export default function SubtitleMore({ title, subTitle }) {
+export default function SubtitleMore({ title, subTitle, link }) {
   return (
     <div className="inner">
       <div className="subtitle_more">
@@ -15,7 +15,7 @@ export default function SubtitleMore({ title, subTitle }) {
           </div>
         </div>
         <div>
-          <Link to={``}>
+          <Link to={link}>
             <button className="subtitle_more_button" type="button">더보기</button>
           </Link>
         </div>

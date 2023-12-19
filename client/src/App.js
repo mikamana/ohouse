@@ -131,13 +131,13 @@ const router = createBrowserRouter([
           </Contents>
       },
       {
-        path: '/cart/:mid', element:
+        path: '/cart', element:
           <Contents>
             <Cart />
           </Contents>
       },
       {
-        path: '/cart', element:
+        path: '/emptycart', element:
           <Contents>
             <CartEmptyPage />
           </Contents>
