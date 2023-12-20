@@ -29,13 +29,13 @@ export default function CartSection() {
         if (!result.data.length) {
           return navigate('/emptycart')
         }
-        const countFlag = (result) => {
+        /* const countFlag = (result) => {
           if (result.data.length !== 0) {
             return result.data[0].cnt
           } else {
             return undefined
           }
-        }
+        } */
         setCartList(result.data);
         result.data.map((item) => {
           cl.push(item.cart_id);

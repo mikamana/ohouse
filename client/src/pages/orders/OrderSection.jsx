@@ -27,7 +27,7 @@ export default function OrderSection(){
         {setOrderList(result.data)
       }
       )
-    }, 200);
+    }, 300);
   },[])
   if(!userInfo){
     return navigate('/login')
