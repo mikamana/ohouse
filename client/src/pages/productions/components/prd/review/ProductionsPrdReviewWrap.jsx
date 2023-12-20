@@ -28,12 +28,12 @@ const ProductionsPrdReviewWrap = forwardRef((props, ref) => {
         axios({
 
             method: "get",
-            url: `http://127.0.0.1:8000/review/product/all`
-            
-        }).then((result) =>{
+            url: `http://127.0.0.1:8000/review/product/all/${params.pid}`
+
+        }).then((result) => {
 
             props.getList(result.data)
-            
+
         })
 
     }, [])
@@ -69,7 +69,6 @@ const ProductionsPrdReviewWrap = forwardRef((props, ref) => {
 
         <div >
             <ProductionsPrdReviewBox count={props.count} avg={props.avg} />
-            {/* <ProductionsPrdReviewFeedBox /> */}
             <div className="production_selling_prd_review_feed_wrap" ref={ref}>
                 <ul className="production_selling_prd_review_feed_list">
                     <li className={check === 0 ? "production_selling_prd_review_feed_list_li active" : "production_selling_prd_review_feed_list_li"} onClick={() => {
@@ -85,14 +84,6 @@ const ProductionsPrdReviewWrap = forwardRef((props, ref) => {
                         <span>최신순</span>
                     </li>
                 </ul>
-                {/* <ul className="production_selling_prd_review_feed_option_list">
-                    <li className="production_selling_prd_review_feed_option_list_li">
-                        <button className="production_selling_prd_review_feed_asterion_btn">별점</button>
-                    </li>
-                    <li className="production_selling_prd_review_feed_option_list_li">
-                        <button className="production_selling_prd_review_feed_option_btn">옵션</button>
-                    </li>
-                </ul> */}
             </div >
             <ProductionsPrdReviewReviewList review={list} />
             <Pagination

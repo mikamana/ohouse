@@ -6,7 +6,7 @@ const router = express.Router();
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 
-router.get('/product/all', reviewController.getReview)
+router.get('/product/all/:pid', reviewController.getReview)
 router.post('/product', reviewController.createReview);
 router.put('/product', reviewController.updateReview);
 router.get('/product/count/:pid', reviewController.getReviewCount);

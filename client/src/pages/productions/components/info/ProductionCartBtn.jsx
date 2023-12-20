@@ -13,7 +13,6 @@ export default function ProductionCartBtn(props) {
 
     if (userInfo) {
 
-
       const cartProduct = {
 
         id: userInfo.id,
@@ -41,8 +40,8 @@ export default function ProductionCartBtn(props) {
 
           } else {
 
-          navigate(`/cart`)
-          window.location.reload()
+            navigate(`/cart`)
+            window.location.reload()
 
           }
         } else {

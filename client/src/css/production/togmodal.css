@@ -1,0 +1,31 @@
+div.modal_toggle_wrap {
+  width: 470px;
+  height: 50px;
+  background-color: #2f3438;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 85vh;
+  border-radius: 5px;
+  z-index: 1110;
+}
+div.modal_toggle_wrap div.modal_toggle_text_wrap {
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+div.modal_toggle_wrap div.modal_toggle_text_wrap.active {
+  justify-content: space-between;
+}
+div.modal_toggle_wrap div.modal_toggle_text_wrap span.modal_toggle_span {
+  display: block;
+  text-align: center;
+  color: #fff;
+}
+div.modal_toggle_wrap div.modal_toggle_text_wrap div.modal_toggle_text a.modal_toggle_link {
+  color: #35c5f0;
+  font-weight: bold;
+}/*# sourceMappingURL=togmodal.css.map */

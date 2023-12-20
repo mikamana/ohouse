@@ -4,12 +4,14 @@ import { useParams } from "react-router-dom";
 import { getUser } from "../../../utill/sessionStorage";
 import "../../../../css/production/production.css";
 
-export default function ProductionScrapBtn() {
+export default function ProductionScrapBtn(props) {
 
   const [toggle, setToggle] = useState(false);
   const params = useParams();
   const userInfo = getUser();
   const [scrapCount, setScrapCount] = useState([]);
+
+
 
   useEffect(() => {
 
@@ -55,6 +57,8 @@ export default function ProductionScrapBtn() {
   }, [scrapCount])
 
   function handleToggle() {
+
+    props.fnToggle(toggle);
 
     if (toggle === false) {
 
