@@ -45,6 +45,7 @@ export default function OrderFormWrap({ orderList, form, setForm }) {
   const selectChange = (e) => {
     let { name, value } = e.target;
     setForm({ ...form, [name]: value });
+
     if (e.target.value !== 'selftype' && e.target.name === 'orderer_mail') {
       setDisplay({ ...display, mailbox: "order_invisible" })
       setForm({ ...form, [name]: value, orderer_mail_self: '' })
@@ -55,7 +56,7 @@ export default function OrderFormWrap({ orderList, form, setForm }) {
     }
     else if (e.target.value === 'selftype' && e.target.name === 'orderer_mail') {
       setDisplay({ ...display, mailbox: '' })
-      setForm({ ...form, orderer_mail_self: '' });
+      setForm({ ...form, orderer_mail: 'selftype', orderer_mail_self: '' });
     }
     else if (e.target.value === 'selftype' && e.target.name === 'reciever_request') {
       setDisplay({ ...display, requestbox: '' })
