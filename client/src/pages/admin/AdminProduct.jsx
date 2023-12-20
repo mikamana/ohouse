@@ -9,6 +9,7 @@ export default function AdminProduct() {
   /* get : list */
   const [list, setList] = useState([]);
   const [cateList, setCateList] = useState([]);
+  const [cateSort, setCateSort] = useState([]);
 
   /* 정보수정 */
   const [form, setForm] = useState({ pid: "", category_id: "", product_name: "", product_image: "", price_sale: "", price_origin: "", tag_free: "", delivery_type: "" });
@@ -18,7 +19,7 @@ export default function AdminProduct() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
   const [listPerPages, setListPerPages] = useState(10);
-  const [value, setValue] = useState('asc');
+  const [value, setValue] = useState('default');
 
   let startindex = 0;
   let endindex = 0;
@@ -47,13 +48,16 @@ export default function AdminProduct() {
         }
       })
       .catch(console.err);
+  }, [value, listPerPages, currentPage])
 
+  useEffect(()=>{
     axios.get('/data/admin/adminProductcategory.json')
       .then((result) => {
         setCateList(result.data);
+        setCateSort(result.data);
       })
       .catch(console.err);
-  }, [value, listPerPages, currentPage])
+  },[])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -205,12 +209,18 @@ export default function AdminProduct() {
               </select>
             </div>
             <div className="admin_content_sort">
-              <label htmlFor="sort">정렬</label>
+              <select name="category_name" id="displaysort" className="admin_product_category" onChange={handleChangeSort} value={value}>
+                <option value="default">카테고리 선택</option>
+                {cateSort.map((list, idx) =>
+                  <option value={list.category_id} key={idx}>{list.category_name}</option>
+                )}
+              </select>
+              {/* <label htmlFor="sort">정렬</label>
               <select name="sort" id="sort" onChange={handleChangeSort}>
                 <option value="default">이름순</option>
                 <option value="asc">오름차순</option>
                 <option value="desc">내림차순</option>
-              </select>
+              </select> */}
             </div>
           </div>
 

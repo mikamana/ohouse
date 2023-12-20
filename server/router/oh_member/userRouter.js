@@ -7,5 +7,8 @@ const router = express.Router();
 router.get("/profile/:mid", userController.getUser);
 router.get("/prdinquiry/:mid", userController.getUserInquiry)
 router.delete("/prdinquiry/remove/:qid", userController.removeInquiry)
+router.delete("/prdinquiry/remove/:qid", userController.removeInquiry)
+router.get("/myshop/:id/:sortList", userController.getOrder);
+router.get("/myshop/:id", userController.getOrderList);
 
 export default router;

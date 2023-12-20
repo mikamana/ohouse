@@ -16,6 +16,7 @@ export default function AdminOrder() {
   const [totalPage, setTotalPage] = useState(0);
   const [listPerPages, setListPerPages] = useState(10);
   const [value, setValue] = useState('asc');
+  const [toggle, setToggle] = useState(false);
 
   let startindex = 0;
   let endindex = 0;
@@ -41,11 +42,8 @@ export default function AdminOrder() {
       .catch(console.err);
     }, [value, listPerPages, currentPage])
     
-    console.log(list);
-  const [toggle, setToggle] = useState(false);
   const handleToggle = (e) => {
     const mid = e.target.dataset.id;
-    //alert(`${mid}`)
     if (toggle === false) {
       setToggle(true)
     } else {
@@ -57,7 +55,6 @@ export default function AdminOrder() {
       url: `http://127.0.0.1:8000/admin/${mid}/`
     })
       .then((result) => {
-        //alert(JSON.stringify(result))
         setForm(result.data);
       })
       .catch(console.err);

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import OrderListSort from './OrderListSort';
-import '../../css/user/orderlist.css';
-import { getUser } from './../utill/sessionStorage';
 import axios from "axios";
+import OrderListSort from './OrderListSort';
+import { getUser } from './../utill/sessionStorage';
+import '../../css/user/orderlist.css';
 
 export default function OrderList() {
   const userInfo = getUser();
@@ -12,13 +12,13 @@ export default function OrderList() {
   const [sortList, setSortList] = useState('desc');
 
   useEffect(() => {
-    axios.get(`http://127.0.0.1:8000/user_shopping_pages/order_list/order/${userInfo.id}/${sortList}`)
+    axios.get(`http://127.0.0.1:8000/users/myshop/${userInfo.id}/${sortList}`)
       .then((result) => {
         setOrder(result.data);
       })
       .catch(console.err)
 
-    axios.get(`http://127.0.0.1:8000/user_shopping_pages/order_list/${userInfo.id}`)
+    axios.get(`http://127.0.0.1:8000/users/myshop/${userInfo.id}`)
       .then((result) => {
         setOrderList(result.data);
       })
