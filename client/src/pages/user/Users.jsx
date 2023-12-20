@@ -2,6 +2,7 @@ import React, { Children, useEffect, useState } from 'react';
 import "../../css/mypage/mypage.css";
 import { getUser } from '../utill/sessionStorage';
 import { Link } from 'react-router-dom';
+import Error from '../../Error';
 // import { useLocation } from 'react-router-dom';
 // import { userContext } from '../../context/UsersContext';
 import { useNavigate } from 'react-router-dom';
@@ -73,7 +74,7 @@ export default function Users({ children }) {
             {children}
           </div>
         </div >
-        : null
+        : <Error />
       }
 
     </>

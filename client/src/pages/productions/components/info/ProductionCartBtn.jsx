@@ -36,7 +36,8 @@ export default function ProductionCartBtn(props) {
           alert("장바구니에 추가되었습니다.")
           cartClick = window.confirm("장바구니로 이동 하시겠습니까?")
           if (cartClick) {
-            navigate(`/cart`)
+            navigate(`/cart/${userInfo.id}`)
+            window.location.reload()
 
           } else {
 

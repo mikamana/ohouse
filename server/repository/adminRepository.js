@@ -106,23 +106,23 @@ export async function getAscList(value, startindex, endindex) {
 
 /* 상품리스트 조회 */
 export async function getProductList({ value, startindex, endindex }) {
-  let sql = ''
-  if (value == 'asc') {
-    sql = `
-    select rno, category_name, product_name, brand_name, product_image, price_origin, price_sale, ifnull(format(round(price_origin - (price_origin * price_sale / 100),-2),0),format(price_origin,0)) sale_price, delivery_type, left(pdate,10) as pdate, total, pid from
-(select row_number() over(order by product_name asc) rno, pid, total, category_name, product_image, brand_name, product_name, price_sale, price_origin, tag_free, coupon_percent, pdate, delivery_type 
-	from (select count(*) as total from oh_product) as products, oh_product p inner join oh_category c on p.category_id=c.category_id) a 
-    where rno between ? and ? order by product_name asc`;
-  } else {
-    sql = `
-    select rno, pid, total, category_name, product_image, brand_name, product_name, price_sale, price_origin, tag_free, coupon_percent, left(pdate,10) as pdate, delivery_type, ifnull(format(round(price_origin - (price_origin * price_sale / 100),-2),0),format(price_origin,0)) sale_price from
-(select row_number() over(order by product_name desc) rno, pid, total, category_name, product_image, brand_name, product_name, price_sale, price_origin, tag_free, coupon_percent, pdate, delivery_type 
-	from (select count(*) as total from oh_product) as products, oh_product p inner join oh_category c on p.category_id=c.category_id) a 
-    where rno between ? and ? order by product_name desc`;
+  let sql = '';
+  if (value === 'default') {
+    sql = `select rno, category_id, category_name, product_name, brand_name, product_image, price_origin, price_sale, ifnull(format(round(price_origin - (price_origin * price_sale / 100),-2),0),format(price_origin,0)) sale_price, delivery_type, left(pdate,10) as pdate, total, pid from
+            (select row_number() over(order by product_name asc) rno, pid, total, p.category_id, category_name, product_image, brand_name, product_name, price_sale, price_origin, tag_free, coupon_percent, pdate, delivery_type 
+            from (select count(*) as total from oh_product) as products, oh_product p inner join oh_category c on p.category_id=c.category_id) a 
+            where rno between ? and ? order by product_name asc`
+    return db.execute(sql, [startindex, endindex])
+      .then(rows => rows[0])
+  }else{
+    sql = `select rno, category_id, category_name, product_name, brand_name, product_image, price_origin, price_sale, ifnull(format(round(price_origin - (price_origin * price_sale / 100),-2),0),format(price_origin,0)) sale_price, delivery_type, left(pdate,10) as pdate, total, pid from
+            (select row_number() over(order by product_name asc) rno, pid, total, p.category_id, category_name, product_image, brand_name, product_name, price_sale, price_origin, tag_free, coupon_percent, pdate, delivery_type 
+            from (select count(*) as total from oh_product where category_id = ?) as products, oh_product p inner join oh_category c on p.category_id=c.category_id where p.category_id = ?) a 
+            where rno between ? and ? order by product_name asc`
+    return db.execute(sql, [value, value, startindex, endindex])
+      .then(rows => rows[0])
   }
 
-  return db.execute(sql, [startindex, endindex])
-    .then(rows => rows[0])
 };
 
 /* 상품정보 조회 */
@@ -160,18 +160,18 @@ export async function removeProduct(pid) {
 export async function getInquiryList({ value, startindex, endindex }) {
   let sql = '';
   if (value == 'N') {
-    sql = `select rno, qid, mid, pid, product_name, left(qdate,10) qdate, qtype, qcontent, acontent, secret_check, left(adate,10) adate from
-    (select row_number() over(order by q.qid) rno, qid, mid, q.pid, p.product_name, qdate, qtype, qcontent, acontent, secret_check, adate
+    sql = `select rno, qid, mid, pid, product_name, left(qdate,10) qdate, qtype, qcontent, acontent, secret_check, left(adate,10) adate, total from
+    (select row_number() over(order by q.qid) rno, qid, mid, q.pid, p.product_name, qdate, qtype, qcontent, acontent, secret_check, adate, total
       from (select count(*) as total from oh_inquiry) as inquirys, oh_inquiry q inner join oh_product p on q.pid = p.pid) a
         where rno between ? and ? and adate is null order by qdate asc`;
   } else if (value == 'Y') {
-    sql = `select rno, qid, mid, pid, product_name, left(qdate,10) qdate, qtype, qcontent, acontent, secret_check, left(adate,10) adate from
-    (select row_number() over(order by q.qid) rno, qid, mid, q.pid, p.product_name, qdate, qtype, qcontent, acontent, secret_check, adate
+    sql = `select rno, qid, mid, pid, product_name, left(qdate,10) qdate, qtype, qcontent, acontent, secret_check, left(adate,10) adate, total from
+    (select row_number() over(order by q.qid) rno, qid, mid, q.pid, p.product_name, qdate, qtype, qcontent, acontent, secret_check, adate, total
       from (select count(*) as total from oh_inquiry) as inquirys, oh_inquiry q inner join oh_product p on q.pid = p.pid) a
         where rno between ? and ? and adate is not null order by qdate asc`;
   } else if (value == 'default') {
-    sql = `select rno, qid, mid, pid, product_name, left(qdate,10) qdate, qtype, qcontent, acontent, secret_check, left(adate,10) adate from
-    (select row_number() over(order by q.qid) rno, qid, mid, q.pid, p.product_name, qdate, qtype, qcontent, acontent, secret_check, adate
+    sql = `select rno, qid, mid, pid, product_name, left(qdate,10) qdate, qtype, qcontent, acontent, secret_check, left(adate,10) adate, total from
+    (select row_number() over(order by q.qid) rno, qid, mid, q.pid, p.product_name, qdate, qtype, qcontent, acontent, secret_check, adate, total
       from (select count(*) as total from oh_inquiry) as inquirys, oh_inquiry q inner join oh_product p on q.pid = p.pid) a
         where rno between ? and ? order by qdate asc`;
   }

@@ -255,6 +255,9 @@ header.main_header div.main_header_layout_up div.header_logo div.header_logo_wri
   transition: all 0.2s ease;
   z-index: 100;
 }
+header.main_header div.main_header_layout_up div.header_logo div.header_logo_write div.header_nav_popup_write ul.header_nav_popup_write_ul li:hover {
+  background-color: var(--lightGray);
+}
 header.main_header div.main_header_layout_up div.header_logo div.header_logo_write div.header_nav_popup_write ul.header_nav_popup_write_ul li a.header_nav_popup_write_ul_li_a {
   display: flex;
   align-items: center;
@@ -262,6 +265,10 @@ header.main_header div.main_header_layout_up div.header_logo div.header_logo_wri
   width: 310px;
   height: 71px;
   box-sizing: border-box;
+}
+header.main_header div.main_header_layout_up div.header_logo div.header_logo_write div.header_nav_popup_write ul.header_nav_popup_write_ul li a.header_nav_popup_write_ul_li_a img {
+  width: 35px;
+  height: 35px;
 }
 header.main_header div.main_header_layout_up div.header_logo div.header_logo_write div.header_nav_popup_write ul.header_nav_popup_write_ul li a.header_nav_popup_write_ul_li_a div.textBox {
   line-height: 100%;
@@ -508,7 +515,7 @@ header.main_header div.main_header_layout_down div.header_nav div.header_nav_pop
   box-sizing: border-box;
 }
 header.main_header div.main_header_layout_down div.header_nav div.header_nav_popular > span.arrow div.header_nav_popup a.header_nav_popular_view_popup:hover {
-  background: rgb(247, 249, 250);
+  background: var(--lightGray);
 }
 header.main_header div.main_header_layout_down div.header_nav div.header_nav_popular > span.arrow div.header_nav_popup a.header_nav_popular_view_popup div {
   display: flex;

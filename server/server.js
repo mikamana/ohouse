@@ -21,7 +21,6 @@ import pay from "./router/oh_pay/payRouter.js";
 import user from "./router/oh_member/userRouter.js";
 import scrap from "./router/oh_scrap/scrapRouter.js";
 
-import orderlist from "./router/orderlistRouter.js";
 const PORT = 8000;
 const server = express();
 
@@ -48,7 +47,6 @@ server.use('/search', search);
 server.use('/pay', pay);
 server.use('/users', user);
 server.use('/scrap', scrap);
-server.use('/user_shopping_pages/order_list', orderlist);
 
 
 

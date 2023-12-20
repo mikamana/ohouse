@@ -252,6 +252,9 @@ header.main_header {
           }
           ul.header_nav_popup_write_ul {
             li {
+              &:hover{
+                background-color: var(--lightGray);
+              }
               a.header_nav_popup_write_ul_li_a {
                 display: flex;
                 align-items: center;
@@ -259,6 +262,10 @@ header.main_header {
                 width: 310px;
                 height: 71px;
                 box-sizing: border-box;
+                img{
+                  width: 35px;
+                  height: 35px;
+                }
                 div.textBox {
                   line-height: 100%;
                   /* display: flex;
@@ -538,7 +545,7 @@ header.main_header {
               height: 40px;
               box-sizing: border-box;
               &:hover {
-                background: rgb(247, 249, 250);
+                background: var(--lightGray);
               }
               div {
                 display: flex;
@@ -754,7 +761,7 @@ div.header_logo_right_loginver {
       transition: all 0.2s ease;
       z-index: 100;
     }
-    ul {
+    ul.header_nav_popup_profile_ul {
       li {
         .header_nav_menu_list3 {
           display: inline-block;
