@@ -47,6 +47,12 @@ export default function OrderSection(){
       e.target.orderer_mail.classList.add('valcheck')
       return
     }
+    if(form.orderer_mail === 'selftype'){
+      if(form.orderer_mail_self.length < 1){
+        e.target.orderer_mail_self.parentNode.classList.add('valcheck')
+        return
+      }
+    }
     if(form.orderer_pbody.length < 1){
       e.target.orderer_pbody.parentNode.classList.add('valcheck')
       return
