@@ -16,7 +16,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
     const userInfo = getUser();
     let params = useParams();
 
-    
+
 
     const { getOffset } = useContext(prdContext);
     //context
@@ -31,9 +31,6 @@ export default function ProductionsPrdInfoLeftBox(props) {
     const [type, setType] = useState('');
     const [content, setContent] = useState('');
     const [check, setCheck] = useState(false);
-
-
-
 
     //문의
     const [currentPage, setCurrentPage] = useState(1);
@@ -99,6 +96,9 @@ export default function ProductionsPrdInfoLeftBox(props) {
         hasUserInquiryMid = quiryAll.some((val) => val.mid === userInfo.id);
         // 문의가 등록되어있으면 true, 등록되어있지않으면 false
 
+        console.log(hasUserMid);
+
+        console.log(list);
     }
 
 
@@ -314,7 +314,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
                         <ProductionsPrdTitleBox title={"리뷰"}
                             count={avgList.count}
                             /* more={userInfo ? list.map((val) => val.mid === userInfo.mid) ? null : "리뷰쓰기" : null} */
-                            more={userInfo ? hasUserMid ? null : "리뷰쓰기" : null}
+                            more={userInfo ? hasUserMid ? null : '리뷰쓰기' : '리뷰쓰기'}
                             deck={"active"}
                             getReview={getReview}
                             kind={"review"}

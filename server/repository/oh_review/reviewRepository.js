@@ -1,10 +1,10 @@
 import { db } from "../../data/database.js";
 
 
-export async function getReview() {
+export async function getReview(pid) {
 
-    const sql = "select * from oh_review";
-    return db.execute(sql)
+    const sql = "select * from oh_review where pid = ?";
+    return db.execute(sql,[pid])
         .then((rows) => rows[0])
 
 }

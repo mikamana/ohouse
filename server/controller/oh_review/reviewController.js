@@ -3,7 +3,9 @@ import * as reviewRepository from "../../repository/oh_review/reviewRepository.j
 
 export async function getReview(req, res) {
 
-    const result = await reviewRepository.getReview()
+    const pid = req.params.pid
+
+    const result = await reviewRepository.getReview(pid)
 
     res.json(result);
 

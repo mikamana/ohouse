@@ -8,7 +8,6 @@ export default function ProductionsPrdWrap(props) {
 
 
     return (
-
         <>
             <div className="production_selling_prd_info_wrap">
                 <div className="production_selling_prd_info_inner inner">
@@ -26,7 +25,6 @@ export default function ProductionsPrdWrap(props) {
                 </div>
             </div>
         </>
-
     );
 
 }

@@ -9,7 +9,6 @@ export default function ProductionsPrdTitleBox(props) {
 
     const fnCreateReview = (kind) => {
 
-
         if (kind === "review") {
 
             props.getReview({ toggle: reviewToggle });
@@ -20,11 +19,7 @@ export default function ProductionsPrdTitleBox(props) {
 
         }
 
-
-
     };
-
-
 
     return (
         <>
