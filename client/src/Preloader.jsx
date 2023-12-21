@@ -1,7 +1,7 @@
 import "./css/layout/preloader.css"
 import { useEffect } from "react"
 
-export default function Preloader(){
+export default function Preloader() {
   useEffect(() => {
     const handleLoad = () => {
       document.querySelector(".preloader").style.display = 'none';
@@ -15,15 +15,15 @@ export default function Preloader(){
     };
   }, []);
 
-  return(
+  return (
     <>
-    <div className="preloader">
-      <div className="loading-container">
-        <div className="loading"></div>
-        <div id="loading-text">loading</div>
-      <div id="link">오늘의집</div>
+      <div className="preloader">
+        <div className="loading-container">
+          <div className="loading"></div>
+          <div id="loading-text">loading</div>
+          <div id="link">오늘의집</div>
+        </div>
       </div>
-    </div>
     </>
   );
 }

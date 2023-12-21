@@ -989,7 +989,7 @@ div.production_selling_prd_info_right p.production_selling_select_info_wrap span
 }
 div.production_selling_prd_info_right div.production_selling_prd_info_right_btn_box {
   position: sticky;
-  top: 800px;
+  top: 85vh;
 }
 div.production_selling_prd_info_right div.production_selling_prd_info_right_btn_box p.production_selling_totprice_wrap {
   display: flex;
