@@ -290,9 +290,6 @@ export default function ProductionsPrdInfoLeftBox(props) {
     }, [])
 
 
-
-
-
     return (
         <>
             <div className="production_selling_prd_info_left">
@@ -314,7 +311,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
                         <ProductionsPrdTitleBox title={"리뷰"}
                             count={avgList.count}
                             /* more={userInfo ? list.map((val) => val.mid === userInfo.mid) ? null : "리뷰쓰기" : null} */
-                            more={userInfo ? hasUserMid ? null : '리뷰쓰기' : '리뷰쓰기'}
+                            more={userInfo ? hasUserMid ? null : '리뷰쓰기' : null}
                             deck={"active"}
                             getReview={getReview}
                             kind={"review"}
