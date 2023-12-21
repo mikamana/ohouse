@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 import { getUser } from './../utill/sessionStorage';
 import AdminNavbar from "./component/AdminNavbar";
 import Error from './../../Error';
+import { getCookie } from "../utill/cookie";
 
 /* 
 1. && 값이 없으면 테이블 열, 행, 값이 출력이 안되게
@@ -17,11 +18,12 @@ import Error from './../../Error';
 */
 
 export default function Adminpage() {
+  const manage = getCookie("ohouse-manager")
   const userInfo = getUser();
 
   return (
     <>
-      {userInfo ? (
+      {manage ? (
         <>
           <AdminNavbar />
           <Outlet />
