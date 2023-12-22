@@ -57,6 +57,7 @@ nav.admin_navmenu {
 
 div.admin_section {
   padding: 30px 0;
+  min-width: 1250px;
   div.admin_register {
     position: relative;
     padding-bottom: 30px;
@@ -268,7 +269,7 @@ div.admin_section {
           td {
             padding: 10px 0;
             height: auto;
-            table-layout: fixed;
+            // table-layout: fixed;
             word-break: break-all;
             vertical-align: middle;
             font-size: 15px;

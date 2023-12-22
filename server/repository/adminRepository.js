@@ -20,7 +20,7 @@ export async function getMemberList({ value, startindex, endindex }) {
 		from (select count(*) as total from oh_member) as member,
 			  oh_member m left outer join oh_review r on m.mid = r.mid  left outer join oh_order o
 			  on m.mid = o.mid group by m.mid, member.total, r.mid, o.mid) as memberList
-		  where rno between ? and ? group by mid, memberList.total, count_review, count_order order by nickname asc`;
+		  where rno between ? and ? and mid != "@" group by mid, memberList.total, count_review, count_order order by nickname asc`;
   } else {
     sql = `
     select rno, nickname, mid, ifnull(birthday,'미입력') as birthday, left(mdate,10) as mdate, total, count_review, count_order from 
@@ -39,7 +39,7 @@ export async function getMemberList({ value, startindex, endindex }) {
 		from (select count(*) as total from oh_member) as member,
 			  oh_member m left outer join oh_review r on m.mid = r.mid  left outer join oh_order o
 			  on m.mid = o.mid group by m.mid, member.total, r.mid, o.mid) as memberList
-		  where rno between ? and ? group by mid, memberList.total, count_review, count_order order by nickname desc`;
+		  where rno between ? and ? and mid != "@" group by mid, memberList.total, count_review, count_order order by nickname desc`;
   }
 
   return db.execute(sql, [startindex, endindex])
