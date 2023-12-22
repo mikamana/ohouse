@@ -123,12 +123,6 @@ export default function AdminOrder() {
             <div className="admin_content_sort">
               <label htmlFor="sort">주문일자</label>
               <input name="odate" type="date" onChange={handleChangeSort} />
-              {/* <label htmlFor="sort">정렬</label>
-              <select name="sort" id="sort" onChange={handleChangeSort}>
-                <option value="default">이름순</option>
-                <option value="asc">오름차순</option>
-                <option value="desc">내림차순</option>
-              </select> */}
               <button onClick={handleReset}>
                 <GrPowerReset className="admin_resetbtn" />
               </button>
@@ -137,14 +131,14 @@ export default function AdminOrder() {
 
           <table className="admin_table">
             <colgroup>
-              <col />
-              <col style={{ width: '230px' }} />
-              <col style={{ width: '150px' }} />
-              <col style={{ width: '130px' }} />
-              <col style={{ width: '600px' }} />
-              <col />
-              <col style={{ width: '140px' }} />
-              <col style={{ width: '230px' }} />
+              <col style={{ width: '60px' }}/>
+              <col style={{ width: '230px' }}/>
+              <col style={{ width: '150px' }}/>
+              <col style={{ width: '130px' }}/>
+              <col style={{ width: '600px' }}/>
+              <col style={{ width: '100px' }}/>
+              <col style={{ width: '140px' }}/>
+              <col style={{ width: '230px' }}/>
             </colgroup>
             <thead>
               <tr>
@@ -153,8 +147,8 @@ export default function AdminOrder() {
                 <th>주문일</th>
                 <th>주문자</th>
                 <th>상품명</th>
-                <th>총 수량</th>
-                <th>총 주문금액(원)</th>
+                <th>수량</th>
+                <th>주문금액(원)</th>
                 <th>배송지정보</th>
               </tr>
             </thead>

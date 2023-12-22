@@ -126,11 +126,13 @@ export default function AdminMember() {
 
           <table className="admin_table">
             <colgroup>
-              <col />
-              <col />
+              <col style={{ width: '95px' }} />
+              <col style={{ width: '150px' }} />
               <col style={{ width: '600px' }} />
               <col style={{ width: '230px' }} />
               <col style={{ width: '230px' }} />
+              <col style={{ width: '180px' }} />
+              <col style={{ width: '180px' }} />
             </colgroup>
             <thead>
               <tr>

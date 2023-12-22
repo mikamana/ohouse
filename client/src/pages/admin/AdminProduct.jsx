@@ -226,26 +226,28 @@ export default function AdminProduct() {
 
           <table className="admin_table">
             <colgroup>
-              <col />
-              <col />
+              <col style={{ width: '50px' }}  />
+              <col style={{ width: '100px' }}  />
               <col style={{ width: '600px' }} />
               <col style={{ width: '120px' }} />
-              <col />
+              <col style={{ width: '100px' }} />
               <col style={{ width: '120px' }} />
-              <col />
+              <col style={{ width: '70px' }} />
               <col style={{ width: '120px' }} />
-              <col style={{ width: '120px' }} />
+              <col style={{ width: '100px' }} />
+              <col style={{ width: '100px' }} />
+              <col style={{ width: '110px' }} />
             </colgroup>
             <thead>
               <tr>
                 <th>No.</th>
-                <th>카테고리명</th>
+                <th>카테고리</th>
                 <th>상품명</th>
                 <th>브랜드명</th>
                 <th>대표이미지</th>
                 <th>정상가</th>
                 <th>할인율</th>
-                <th>쿠폰할인가</th>
+                <th>할인가</th>
                 <th>배송유형</th>
                 <th>등록일</th>
                 <th>비고</th>
