@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import CartContentsWrap from './CartContentsWrap';
 import CartSidebarsWrap from './CartSidebarWrap';
 import axios from "axios";
@@ -20,7 +20,12 @@ export default function CartSection() {
   let totPrice = 0;
   let totPriceSale = 0;
   const navigate = useNavigate();
+  let initialrise = useRef(false);
   useEffect(() => {
+    if(initialrise.current){
+      return
+    }
+    initialrise.current = true
     if(!userInfo){
       return navigate('/login')
     }
@@ -29,19 +34,13 @@ export default function CartSection() {
         if (!result.data.length) {
           return navigate('/emptycart')
         }
-        /* const countFlag = (result) => {
-          if (result.data.length !== 0) {
-            return result.data[0].cnt
-          } else {
-            return undefined
-          }
-        } */
+
         setCartList(result.data);
         result.data.map((item) => {
           cl.push(item.cart_id);
         })
         setCheckList(cl);
-        // setCount(countFlag(result));
+
 
       })
   }, [])
