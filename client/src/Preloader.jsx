@@ -1,4 +1,4 @@
-import "./css/layout/preloader.css"
+/* import "./css/layout/preloader.css"
 import { useEffect } from "react"
 
 export default function Preloader(){
@@ -26,4 +26,4 @@ export default function Preloader(){
     </div>
     </>
   );
-}
+} */

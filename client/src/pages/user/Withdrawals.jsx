@@ -98,7 +98,7 @@ export default function Withdrawals() {
           </div>
           <div className="WithdrawalsButton">
             <button>탈퇴신청</button>
-            <Link to="/edit"><button type="button">취소하기</button></Link>
+            <Link to="/users/edit"><button type="button">취소하기</button></Link>
           </div>
         </form>
       )}

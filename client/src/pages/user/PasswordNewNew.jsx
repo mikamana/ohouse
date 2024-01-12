@@ -97,7 +97,7 @@ export default function PasswordNewNew() {
           </form>
 
         </div>
-      ) : (<div>잘못된 경로로 접속하셨습니다.</div>)}
+      ) : (<Error/>)}
     </>
 
   );
