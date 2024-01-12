@@ -4,6 +4,7 @@ import { getCookie } from "../utill/cookie";
 import "../../css/user/PasswordNewNew.css"
 import axios from 'axios';
 import { removeCookie } from './../utill/cookie';
+import Error from './../../Error';
 
 export default function PasswordNewNew() {
   const id = getCookie("ohouse-new");

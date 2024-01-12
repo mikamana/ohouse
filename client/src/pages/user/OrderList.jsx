@@ -3,6 +3,7 @@ import axios from "axios";
 import OrderListSort from './OrderListSort';
 import { getUser } from './../utill/sessionStorage';
 import '../../css/user/orderlist.css';
+import { Link } from 'react-router-dom';
 
 export default function OrderList() {
   const userInfo = getUser();
@@ -45,7 +46,7 @@ export default function OrderList() {
     <>
       <div className="orderlist_section inner">
         <div className="orderlist_menubox">
-          {menulist.map((menu) =>
+          {menulist && menulist.map((menu) =>
             <div key={menu}>
               <p style={{ fontWeight: menu === "결제완료" ? 'bold' : 'normal' }}>{menu}</p>
               <span>{menu === "결제완료" ? order.length : 0}</span>
@@ -56,15 +57,15 @@ export default function OrderList() {
           <OrderListSort
             getSort={getSort}
           />
-          {order.map((orders, idx) =>
+          {order && order.map((orders, idx) =>
             <div key={idx} className="orderlist_content">
               <div className="orderlist_content_title">
                 <p>{orders.common_id}</p>
                 <p>{orders.paydate}</p>
               </div>
-              {orderList.map((order, i) => {
+              {orderList && orderList.map((order, i) => {
                 if (orders.common_id === order.common_id) {
-                  return <div key={i} className="orderlist_content_productinfo">
+                  return <Link key={i} className="orderlist_content_productinfo" to={`/production/${order.pid}`}>
                     <img src={order.product_image} alt="상품이미지" />
                     <div className="orderlist_content_productname">
                       <p>{order.brand_name}</p>
@@ -75,7 +76,7 @@ export default function OrderList() {
                       <span>{order.qty + "개"}</span>
                       <p>{showDeliveryType(order.delivery_type)}</p>
                     </div>
-                  </div>
+                  </Link>
                 }
               }
               )}

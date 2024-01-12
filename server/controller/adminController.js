@@ -69,7 +69,7 @@ export async function removeProduct(req,res){
 /* 문의리스트 조회 */
 export async function getInquiryList(req,res){
   const {value, startindex, endindex} = req.params;
-  console.log({value, startindex, endindex});
+  //console.log({value, startindex, endindex});
   const result = await repository.getInquiryList({value, startindex, endindex});
   res.json(result)
 }
@@ -85,7 +85,7 @@ export async function updateInquiry(req,res){
 /* 주문리스트 조회 */
 export async function getOrderList(req,res){
   const {startindex, endindex, value} = req.params;
-  console.log({value, startindex, endindex});
+  //console.log({value, startindex, endindex});
   const result = await repository.getOrderList({startindex, endindex, value})
   res.json(result)
 }

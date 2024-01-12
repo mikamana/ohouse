@@ -35,7 +35,7 @@ export async function getOrder(sortList, id){
 }
 
 export async function getOrderList(id){
-  const sql = `select pay.mid, os.common_id, qty, left(odate,10) odate, unit_price, last_pay_price, product_image, brand_name, product_name, delivery_type 
+  const sql = `select pay.mid, os.common_id, qty, left(odate,10) odate, unit_price, last_pay_price, product_image, brand_name, product_name, delivery_type, p.pid
     from oh_order_save os, oh_product p, oh_pay pay
     where os.pid = p.pid and os.common_id = pay.common_id and mid = ? order by odate desc`;
   return db.execute(sql, [id])
