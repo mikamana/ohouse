@@ -20,7 +20,7 @@ export default function Edit() {
       axios.get(`http://127.0.0.1:8000/edit/${userinfo.id}`)
         .then(result => {
           setForm(result.data);
-          setUser(result.data.nickname);
+          setUser(result.data);
         })
     }
   }, [reset])
@@ -67,6 +67,7 @@ export default function Edit() {
         .then(result => {
           if (result.data === "ok") {
             alert("회원정보가 수정되었습니다.");
+            window.location.reload();
             setReset(!reset)
           }
         })
