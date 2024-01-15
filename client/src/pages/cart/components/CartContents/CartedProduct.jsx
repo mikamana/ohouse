@@ -18,7 +18,6 @@ export default function CartedProduct({checkedItemHandler,checked,delivery_type,
     day.setDate(day.getDate() + 1 )
   }
   const days = ["일", "월", "화", "수", "목", "금", "토"]
-  console.log(day.getDay());
   const hours = now.getHours();
   let endTimeCheck = false
   
