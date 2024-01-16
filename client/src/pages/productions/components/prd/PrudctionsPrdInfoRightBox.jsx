@@ -20,7 +20,7 @@ export default function PrudctionsPrdInfoRightBox(props) {
                 <ProductionsInfoQty subTitle={props.subTitle} price={props.price} getQty={getQty} qtyFlag={props.qtyFlag} qty={props.qty} priceOrigin={props.priceOrigin} />
                 <div className="production_selling_prd_info_right_btn_box">
                     <ProductionInfoTotPrice price={props.price} priceOrigin={props.priceOrigin} />
-                    <ProductionCartBtn />
+                    <ProductionCartBtn qty={props.qty} />
                 </div>
             </div>
         </>
