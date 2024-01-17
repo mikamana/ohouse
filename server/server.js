@@ -21,7 +21,7 @@ import pay from "./router/oh_pay/payRouter.js";
 import user from "./router/oh_member/userRouter.js";
 import scrap from "./router/oh_scrap/scrapRouter.js";
 
-const PORT = 8000;
+const PORT = 8001;
 const server = express();
 
 server.use(cors());

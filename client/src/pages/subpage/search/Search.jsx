@@ -29,7 +29,7 @@ export default function Search (){
   }
 
   useEffect(()=>{
-    axios.get(`http://127.0.0.1:8000/search/${searchKeyword}`)
+    axios.get(`http://192.168.50.31:8001/search/${searchKeyword}`)
     .then(result => {
       setShopArray(result.data);
       const randomList = randomArray(result.data, 12);

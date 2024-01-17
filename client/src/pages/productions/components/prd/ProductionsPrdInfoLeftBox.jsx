@@ -46,7 +46,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
         axios({
 
             method: 'get',
-            url: `http://127.0.0.1:8000/review/product/count/${params.pid}`
+            url: `http://192.168.50.31:8001/review/product/count/${params.pid}`
 
         }).then((result) => {
 
@@ -120,7 +120,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
         axios({
 
             method: "post",
-            url: `http://127.0.0.1:8000/review/product`,
+            url: `http://192.168.50.31:8001/review/product`,
             data: { mid: userInfo.id, pid: params.pid, formObject: formDataObject }
 
         }).then((result) => {
@@ -180,7 +180,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
         axios({
 
             method: "post",
-            url: "http://127.0.0.1:8000/inquiry",
+            url: "http://192.168.50.31:8001/inquiry",
             data: { type: type, content: content, pid: params.pid, mid: userInfo.id, check: check }
 
         }).then((result) => {
@@ -202,7 +202,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
         if (userInfo) {
             axios({
                 method: 'get',
-                url: `http://127.0.0.1:8000/inquiry/${userInfo.id}/${params.pid}/${startIndex}/5`
+                url: `http://192.168.50.31:8001/inquiry/${userInfo.id}/${params.pid}/${startIndex}/5`
             }).then((result) => {
                 if (result.data.length !== 0) {
                     setQuiryList(result.data);
@@ -213,7 +213,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
         } else {
             axios({
                 method: 'get',
-                url: `http://127.0.0.1:8000/inquiry/${params.pid}/${startIndex}/5`
+                url: `http://192.168.50.31:8001/inquiry/${params.pid}/${startIndex}/5`
             }).then((result) => {
                 if (result.data.length !== 0) {
                     setQuiryList(result.data);
@@ -232,7 +232,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
         axios({
 
             method: 'get',
-            url: `http://127.0.0.1:8000/inquiry/${params.pid}`
+            url: `http://192.168.50.31:8001/inquiry/${params.pid}`
 
         }).then((result) => {
 
@@ -253,7 +253,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
         axios({
 
             method: "put",
-            url: `http://127.0.0.1:8000/inquiry`,
+            url: `http://192.168.50.31:8001/inquiry`,
             data: { pid: params.pid, mid: userInfo.id, type, content, check }
 
         }).then((result) => {
@@ -278,7 +278,7 @@ export default function ProductionsPrdInfoLeftBox(props) {
         axios({
 
             method: 'get',
-            url: `http://127.0.0.1:8000/review/product/avg/${params.pid}`
+            url: `http://192.168.50.31:8001/review/product/avg/${params.pid}`
 
         }).then((result) => {
 

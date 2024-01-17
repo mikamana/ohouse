@@ -17,7 +17,7 @@ export default function Edit() {
 
   useEffect(() => {
     if (userinfo) {
-      axios.get(`http://127.0.0.1:8000/edit/${userinfo.id}`)
+      axios.get(`http://192.168.50.31:8001/edit/${userinfo.id}`)
         .then(result => {
           setForm(result.data);
           setUser(result.data);
@@ -31,7 +31,7 @@ export default function Edit() {
 
     const nicknameRegExp = /^.*(?=^.{2,15}$).*$/;
     if (name === "nickname" && value.match(nicknameRegExp) != null) {
-      axios.post("http://127.0.0.1:8000/normalUsers/new/nickname", { nickname: value })
+      axios.post("http://192.168.50.31:8001/normalUsers/new/nickname", { nickname: value })
         .then(result => {
           if (result.data.cnt === 0 || user.nickname == value) {
             setNickNameText("");
@@ -63,7 +63,7 @@ export default function Edit() {
       form.phone = null
     }
     if (nicknameValue) {
-      axios.post("http://127.0.0.1:8000/edit", form)
+      axios.post("http://192.168.50.31:8001/edit", form)
         .then(result => {
           if (result.data === "ok") {
             alert("회원정보가 수정되었습니다.");
@@ -80,7 +80,7 @@ export default function Edit() {
       backgroundColor: "#d8d8d8"
     },
     imge: {
-      backgroundImage: `url(http://127.0.0.1:8000/${form.userimg === null ? "" : form.userimg.replace(/\\/, '/')})`,
+      backgroundImage: `url(http://192.168.50.31:8001/${form.userimg === null ? "" : form.userimg.replace(/\\/, '/')})`,
       backgroundColor: "#fff"
     }
   }

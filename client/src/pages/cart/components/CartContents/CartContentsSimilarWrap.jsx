@@ -9,7 +9,7 @@ import axios from 'axios'
 export default function CartContentsSimilarWrap() {
   const [shopArray, setShopArray] = useState([]);
   useEffect(() => {
-    axios('http://127.0.0.1:8000/product/shopitem')
+    axios('http://192.168.50.31:8001/product/shopitem')
       .then(result => setShopArray(result.data.slice(0, 9)))
   }, [])
 

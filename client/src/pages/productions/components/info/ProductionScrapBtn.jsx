@@ -18,7 +18,7 @@ export default function ProductionScrapBtn(props) {
     axios({
 
       method: "get",
-      url: `http://127.0.0.1:8000/scrap/product/${params.pid}/${userInfo.id}`
+      url: `http://192.168.50.31:8001/scrap/product/${params.pid}/${userInfo.id}`
 
     }).then((result) => {
 
@@ -43,7 +43,7 @@ export default function ProductionScrapBtn(props) {
     axios({
 
       method: "get",
-      url: `http://127.0.0.1:8000/scrap/prdcount/${params.pid}`
+      url: `http://192.168.50.31:8001/scrap/prdcount/${params.pid}`
 
     }).then((result) => {
       if (result.data.length !== 0) {
@@ -65,7 +65,7 @@ export default function ProductionScrapBtn(props) {
       axios({
 
         method: "post",
-        url: `http://127.0.0.1:8000/scrap/product`,
+        url: `http://192.168.50.31:8001/scrap/product`,
         data: { pid: params.pid, mid: userInfo.id }
 
       }).then((result) => {
@@ -81,7 +81,7 @@ export default function ProductionScrapBtn(props) {
       axios({
 
         method: "delete",
-        url: `http://127.0.0.1:8000/scrap/product`,
+        url: `http://192.168.50.31:8001/scrap/product`,
         data: { pid: params.pid, mid: userInfo.id }
 
       }).then((result) => {

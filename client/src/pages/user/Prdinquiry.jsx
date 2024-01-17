@@ -11,7 +11,7 @@ export default function Prdinquiry() {
   const [reset, setReset] = useState(false);
 
   useEffect(() => {
-    axios.get(`http://127.0.0.1:8000/users/prdinquiry/${userInfo.id}`)
+    axios.get(`http://192.168.50.31:8001/users/prdinquiry/${userInfo.id}`)
       .then((result) => {
         setInquiryList(result.data);
       })
@@ -22,7 +22,7 @@ export default function Prdinquiry() {
     const qid = e.target.dataset.id;
     let confirm = window.confirm('정말 문의를 삭제하시겠어요?');
     if (confirm) {
-      axios.delete(`http://127.0.0.1:8000/users/prdinquiry/remove/${qid}`)
+      axios.delete(`http://192.168.50.31:8001/users/prdinquiry/remove/${qid}`)
         .then((result) => {
           if (result.data === 'ok') {
             alert('삭제가 완료되었습니다.');

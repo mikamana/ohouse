@@ -26,7 +26,7 @@ export default function ProductionCartBtn(props) {
       axios({
 
         method: "post",
-        url: `http://127.0.0.1:8000/cart/new`,
+        url: `http://192.168.50.31:8001/cart/new`,
         data: cartProduct
 
       }).then((result) => {
@@ -40,7 +40,6 @@ export default function ProductionCartBtn(props) {
 
           } else {
 
-            navigate(`/cart`)
             window.location.reload()
 
           }

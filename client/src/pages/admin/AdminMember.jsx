@@ -28,7 +28,7 @@ export default function AdminMember() {
   };
 
   useEffect(() => {
-    axios.get(`http://127.0.0.1:8000/admin/member/${startindex}/${endindex}/${value}`)
+    axios.get(`http://192.168.50.31:8001/admin/member/${startindex}/${endindex}/${value}`)
       .then((result) => {
         if (result.data.length !== 0) {
           setList(result.data);
@@ -49,7 +49,7 @@ export default function AdminMember() {
 
     axios({
       method: 'get',
-      url: `http://127.0.0.1:8000/admin/member/${mid}/`
+      url: `http://192.168.50.31:8001/admin/member/${mid}/`
     })
       .then((result) => {
         setForm(result.data);
@@ -65,7 +65,7 @@ export default function AdminMember() {
   /* 정보수정 */
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.put('http://127.0.0.1:8000/admin/update/', form)
+    axios.put('http://192.168.50.31:8001/admin/update/', form)
       .then((result) => {
         alert('회원정보 수정이 완료되었습니다')
         setToggle(false);

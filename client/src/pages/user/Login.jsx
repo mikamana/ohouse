@@ -28,7 +28,7 @@ export default function Login() {
     e.preventDefault();
     const idregExp = /^.*(?=.*[@]).*$/;
     if (form.id.match(idregExp) != null && form.pass !== "") {
-      axios.post("http://127.0.0.1:8000/login", form)
+      axios.post("http://192.168.50.31:8001/login", form)
         .then(result => {
           if (result.data.login_result) {
             setCookie("ohouse-jwt", result.data.token);
@@ -53,7 +53,7 @@ export default function Login() {
     <div className="Login">
       <div className="LoginLogo">
         <Link to={"/"}>
-          <img src="http://127.0.0.1:3000/images/user/login.png" alt="logo" />
+          <img src="http://192.168.50.31:3001/images/user/login.png" alt="logo" />
         </Link>
       </div>
       <form onSubmit={handleSubmit}>
@@ -69,9 +69,9 @@ export default function Login() {
         <Link to="/users/password/new"><span>비밀번호 재설정</span> </Link><Link to="/normalUsers/new"><span>회원가입</span></Link>
         <div className="LoginSNS">SNS계정으로 간편 로그인/회원가입</div>
         <div className="LoginSNSLogo">
-          <img src="http://127.0.0.1:3000/images/user/facebook.png" alt="facebook" />
-          <img src="http://127.0.0.1:3000/images/user/kakao.png" alt="kakao" />
-          <img src="http://127.0.0.1:3000/images/user/naver.png" alt="naver" />
+          <img src="http://192.168.50.31:3001/images/user/facebook.png" alt="facebook" />
+          <img src="http://192.168.50.31:3001/images/user/kakao.png" alt="kakao" />
+          <img src="http://192.168.50.31:3001/images/user/naver.png" alt="naver" />
         </div>
         <div className="LoginErr">로그인에 문제가 있으신가요?</div>
       </div>

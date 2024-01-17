@@ -1,12 +1,12 @@
 [
-  {"num" : 1 , "img" : "http://127.0.0.1:3000/images/headers/uparrow.png", "item" : "귀요미곰돌이"},
-  {"num" : 2 , "img" : "http://127.0.0.1:3000/images/headers/uparrow.png", "item" : "암막커튼 작은창"},
-  {"num" : 3 , "img" : "http://127.0.0.1:3000/images/headers/downarrow.png", "item" : "루씨에어"},
-  {"num" : 4 , "img" : "http://127.0.0.1:3000/images/headers/new.png", "item" : "룸앤티비"},
-  {"num" : 5 , "img" : "http://127.0.0.1:3000/images/headers/downarrow.png", "item" : "전등"},
-  {"num" : 6 , "img" : "http://127.0.0.1:3000/images/headers/new.png", "item" : "데스크데리어"},
-  {"num" : 7 , "img" : "http://127.0.0.1:3000/images/headers/new.png", "item" : "보조테이블"},
-  {"num" : 8 , "img" : "http://127.0.0.1:3000/images/headers/new.png", "item" : "반원테이블"},
-  {"num" : 9 , "img" : "http://127.0.0.1:3000/images/headers/new.png", "item" : "브라운물티슈"},
-  {"num" : 10 , "img" : "http://127.0.0.1:3000/images/headers/new.png", "item" : "마샬 스피커"}
+  {"num" : 1 , "img" : "http://192.168.50.31:3001/images/headers/uparrow.png", "item" : "귀요미곰돌이"},
+  {"num" : 2 , "img" : "http://192.168.50.31:3001/images/headers/uparrow.png", "item" : "암막커튼 작은창"},
+  {"num" : 3 , "img" : "http://192.168.50.31:3001/images/headers/downarrow.png", "item" : "루씨에어"},
+  {"num" : 4 , "img" : "http://192.168.50.31:3001/images/headers/new.png", "item" : "룸앤티비"},
+  {"num" : 5 , "img" : "http://192.168.50.31:3001/images/headers/downarrow.png", "item" : "전등"},
+  {"num" : 6 , "img" : "http://192.168.50.31:3001/images/headers/new.png", "item" : "데스크데리어"},
+  {"num" : 7 , "img" : "http://192.168.50.31:3001/images/headers/new.png", "item" : "보조테이블"},
+  {"num" : 8 , "img" : "http://192.168.50.31:3001/images/headers/new.png", "item" : "반원테이블"},
+  {"num" : 9 , "img" : "http://192.168.50.31:3001/images/headers/new.png", "item" : "브라운물티슈"},
+  {"num" : 10 , "img" : "http://192.168.50.31:3001/images/headers/new.png", "item" : "마샬 스피커"}
 ]

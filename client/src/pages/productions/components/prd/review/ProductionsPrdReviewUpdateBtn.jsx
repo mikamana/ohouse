@@ -31,7 +31,7 @@ export default function ProductionsPrdReviewUpdateBtn(props) {
       axios({
 
         method: "delete",
-        url: `http://127.0.0.1:8000/review/product`,
+        url: `http://192.168.50.31:8001/review/product`,
         data: { mid: userInfo.id, pid: params.pid }
 
       }).then((result) => {
@@ -48,7 +48,7 @@ export default function ProductionsPrdReviewUpdateBtn(props) {
       axios({
 
         method: "delete",
-        url: `http://127.0.0.1:8000/inquiry`,
+        url: `http://192.168.50.31:8001/inquiry`,
         data: { mid: userInfo.id, pid: params.pid }
 
       }).then((result) => {

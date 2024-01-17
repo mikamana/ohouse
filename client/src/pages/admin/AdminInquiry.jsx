@@ -28,7 +28,7 @@ export default function AdminInquiry() {
   };
 
   useEffect(() => {
-    axios.get(`http://127.0.0.1:8000/admin/inquiry/${startindex}/${endindex}/${value}`)
+    axios.get(`http://192.168.50.31:8001/admin/inquiry/${startindex}/${endindex}/${value}`)
       .then((result) => {
         if (result.data.length !== 0) {
           setList(result.data);
@@ -61,7 +61,7 @@ export default function AdminInquiry() {
   /* 정보수정 */
   const handleRegister = (e) => {
     const qid = e.target.dataset.id;
-    axios.put(`http://127.0.0.1:8000/admin/inquiry/update/${qid}`, content)
+    axios.put(`http://192.168.50.31:8001/admin/inquiry/update/${qid}`, content)
       .then((result) => {
         alert('답변 등록이 완료되었습니다');
         window.location.reload();

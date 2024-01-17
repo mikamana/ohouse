@@ -63,7 +63,7 @@ export default function AdminContent() {
     } else if (category === 'product') {
       setMenuList(['No.', '카테고리명', '상품명', '브랜드명', '대표이미지', '정상가', '할인율(%)', '쿠폰할인가', '배송유형', '등록일', '비고']);
     }
-    axios.get(`http://127.0.0.1:8000/admin/${category}/${startindex}/${endindex}/${value}`)
+    axios.get(`http://192.168.50.31:8001/admin/${category}/${startindex}/${endindex}/${value}`)
       .then((result) => {
         if (result.data.length !== 0) {
           setList(result.data);
@@ -87,7 +87,7 @@ export default function AdminContent() {
 
     axios({
       method: 'get',
-      url: `http://127.0.0.1:8000/admin/member/${mid}/`
+      url: `http://192.168.50.31:8001/admin/member/${mid}/`
     })
       .then((result) => {
         //alert(JSON.stringify(result))
@@ -104,7 +104,7 @@ export default function AdminContent() {
   /* 정보수정 */
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.put('http://127.0.0.1:8000/admin/update/', form)
+    axios.put('http://192.168.50.31:8001/admin/update/', form)
       .then((result) => {
         alert('회원정보 수정이 완료되었습니다')
         setToggle(false);
@@ -116,7 +116,7 @@ export default function AdminContent() {
     const { value } = e.target;
     setValue(value)
 
-    // axios.get(`http://127.0.0.1:8000/admin/${startindex}/${endindex}/${value}`)
+    // axios.get(`http://192.168.50.31:8001/admin/${startindex}/${endindex}/${value}`)
     // .then((result)=>{
     //   setmenuList(result.data)
     // })

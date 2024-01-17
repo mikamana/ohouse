@@ -17,7 +17,7 @@ export default function TodayDealsContentsWrap() {
 
   function getItem() {
     setLoading(true)
-    axios.get(`http://127.0.0.1:8000/product/todaydeals/${page.current}`)
+    axios.get(`http://192.168.50.31:8001/product/todaydeals/${page.current}`)
       .then(result => {
         setList(prev => [...prev, ...result.data])
       })

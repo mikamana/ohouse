@@ -75,7 +75,7 @@ export default function EditPassword() {
       if (form.pass === form.newPass) {
         alert("현재비밀번호랑 같습니다");
       } else {
-        axios.post(`http://127.0.0.1:8000/edit/password/password/${uerinfo.id}`, form)
+        axios.post(`http://192.168.50.31:8001/edit/password/password/${uerinfo.id}`, form)
           .then(result => {
             if (result.data === "ok") {
               alert("비밀번호 변경완료 다시로그인 해주세요");

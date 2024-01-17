@@ -43,7 +43,7 @@ export default function Signup() {
 
     const nicknameRegExp = /^.*(?=^.{2,15}$).*$/;
     if (name === "nickname" && value.match(nicknameRegExp) != null) {
-      axios.post("http://127.0.0.1:8000/normalUsers/new/nickname", { nickname: value })
+      axios.post("http://192.168.50.31:8001/normalUsers/new/nickname", { nickname: value })
         .then(result => {
           if (result.data.cnt === 0) {
             setNickNameText("");
@@ -171,7 +171,7 @@ export default function Signup() {
 
   const handelMail = (e) => {
     if (form.eid !== "" && form.domain !== "") {
-      axios.post("http://127.0.0.1:8000/normalUsers/new/email", { eid: form.eid, domain: form.domain })
+      axios.post("http://192.168.50.31:8001/normalUsers/new/email", { eid: form.eid, domain: form.domain })
         .then(result => {
           if (result.data.result.cnt === 0) {
             setMailValue(result.data.number);
@@ -200,7 +200,7 @@ export default function Signup() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (mailCheck && nickNameValue && passValue && passCheckValue && check.q && check.w && check.e && captcha) {
-      axios.post("http://localhost:8000/normalUsers/new", form)
+      axios.post("http://192.168.50.31:8001/normalUsers/new", form)
         .then(result => {
           if (result.data === "ok") {
             navigate("/");
@@ -230,7 +230,7 @@ export default function Signup() {
     <div className="Signup">
       <div className="SignupLogo">
         <Link to={"/"}>
-          <img src="http://127.0.0.1:3000/images/user/signup.png" alt="" />
+          <img src="http://192.168.50.31:3001/images/user/signup.png" alt="" />
         </Link>
       </div>
 
@@ -239,9 +239,9 @@ export default function Signup() {
       <div className="SignupSNS">
         <div className="SignupSNSText">SNS계정으로 간편하게 회원가입</div>
         <div className="SignupSNSImg">
-          <img src="http://127.0.0.1:3000/images/user/facebook.png" alt="" />
-          <img src="http://127.0.0.1:3000/images/user/kakao.png" alt="" />
-          <img src="http://127.0.0.1:3000/images/user/naver.png" alt="" />
+          <img src="http://192.168.50.31:3001/images/user/facebook.png" alt="" />
+          <img src="http://192.168.50.31:3001/images/user/kakao.png" alt="" />
+          <img src="http://192.168.50.31:3001/images/user/naver.png" alt="" />
         </div>
       </div>
 

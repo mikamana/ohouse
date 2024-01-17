@@ -6,7 +6,7 @@ export default function AdminNavbar() {
     <div className="admin_navbar inner">
       <div className="admin_logowrap">
         <Link to="/">
-          <img className="admin_logo" src="http://127.0.0.1:3000/images/user/signup.png" alt="ohouse logo" />
+          <img className="admin_logo" src="http://192.168.50.31:3001/images/user/signup.png" alt="ohouse logo" />
         </Link>
       </div>
       <h1 className="admin_title">

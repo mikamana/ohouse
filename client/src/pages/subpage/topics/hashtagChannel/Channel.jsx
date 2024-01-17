@@ -6,7 +6,7 @@ import axios from 'axios';
 export default function Channel() {
   const [channelList, setListChannel] = useState([]);
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/channel')
+    axios.get('http://192.168.50.31:8001/channel')
       .then(result => {
         const channelImg = result.data.map(channel => {
           const imageArray = channel.channel_image.split(',');
