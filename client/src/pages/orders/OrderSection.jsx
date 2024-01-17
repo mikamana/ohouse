@@ -10,13 +10,10 @@ export default function OrderSection(){
   const userInfo = getUser();
   const navigate = useNavigate();
   const [orderList, setOrderList] = useState([]);
-  const [orderItem, setOrderItem] = useState([])
-  const [payForm,setPayForm] = useState([]);
   const [validation,setValidation] = useState(false);
   const [form, setForm] = useState({ "orderer_id": "", "orderer_mail": "default","orderer_mail_self":"", "orderer_phead": "010", "orderer_pbody": "", "orderer_name": "", "reciever_name": "", "reciever_place": "", "reciever_phead": "010", "reciever_pbody": "","reciever_address_zonecode": "","reciever_address_main":"", "reciever_address_detail": "", "reciever_request": "","payment": "card","card_bank":"please select","installment":"일시불"});
-  const ol = [];
-  const oi = [];
   const checkboxVal = useRef()
+
   useEffect(()=>{
     if(!userInfo){
       return navigate('/login')
@@ -27,49 +24,57 @@ export default function OrderSection(){
         {setOrderList(result.data)
       }
       )
-    }, 300);
+    }, 400);
   },[])
-  if(!userInfo){
-    return navigate('/login')
-  }
+
+
 
   const handleSubmit = (e)=>{
     e.preventDefault();
     if(form.orderer_name.length < 1){
       e.target.orderer_name.parentNode.classList.add('valcheck')
+      alert("이름을 입력 해 주세요")
       return
     }
     if(form.orderer_id.length < 1){
       e.target.orderer_id.parentNode.classList.add('valcheck')
+      alert("아이디를 입력 해 주세요")
       return
     }
     if(form.orderer_mail === 'default'){
       e.target.orderer_mail.classList.add('valcheck')
+      alert("이메일을 선택 해 주세요")
       return
     }
     if(form.orderer_mail === 'selftype'){
       if(form.orderer_mail_self.length < 1){
+        alert("이메일을 입력 해 주세요")
         e.target.orderer_mail_self.parentNode.classList.add('valcheck')
         return
       }
     }
     if(form.orderer_pbody.length < 1){
+      alert("전화번호를 입력 해 주세요")
       e.target.orderer_pbody.parentNode.classList.add('valcheck')
       return
     }
     if(form.reciever_place.length < 1){
+      alert("배송지명을 입력 해 주세요")
       e.target.reciever_place.parentNode.classList.add('valcheck')
       return
     }
     if(form.reciever_name.length < 1){
+      alert("받는 사람을 입력 해 주세요")
       e.target.reciever_name.parentNode.classList.add('valcheck')
       return
     }
     if(form.reciever_pbody.length < 7){
+      alert("받는 사람 전화번호를 입력 해 주세요")
       e.target.reciever_pbody.parentNode.classList.add('valcheck')
       return
     }
     if(form.reciever_address_zonecode.length < 1){
+      alert("주소찾기를 진행 해 주세요")
       e.target.reciever_address_zonecode.parentNode.classList.add('valcheck')
       e.target.reciever_address_main.parentNode.classList.add('valcheck')
       return

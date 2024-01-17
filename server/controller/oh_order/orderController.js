@@ -2,14 +2,15 @@ import * as orderRepository from '../../repository/oh_order/orderRepository.js'
 
 export async function getOrder(req,res){
   const mid = req.params.mid
-  const result = await orderRepository.getOrder(mid);
-    res.json(result)
+  const rows = await orderRepository.getOrder(mid);
+    res.json(rows)
 }
 
 export async function postOrder(req,res){
   const mid = req.params.mid
   const total_price = req.body[1];
   const orderList = req.body[0]
+  const remove = await orderRepository.removeOrder(mid);
   const result = await orderRepository.postOrder(orderList,mid,total_price);
   if(result === 'success'){
     res.status(204).send('success')

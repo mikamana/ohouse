@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import CartContentsWrap from './CartContentsWrap';
 import CartSidebarsWrap from './CartSidebarWrap';
 import axios from "axios";
@@ -20,7 +20,12 @@ export default function CartSection() {
   let totPrice = 0;
   let totPriceSale = 0;
   const navigate = useNavigate();
+  let initialrise = useRef(false);
   useEffect(() => {
+    if(initialrise.current){
+      return
+    }
+    initialrise.current = true
     if(!userInfo){
       return navigate('/login')
     }
@@ -29,19 +34,13 @@ export default function CartSection() {
         if (!result.data.length) {
           return navigate('/emptycart')
         }
-        /* const countFlag = (result) => {
-          if (result.data.length !== 0) {
-            return result.data[0].cnt
-          } else {
-            return undefined
-          }
-        } */
+
         setCartList(result.data);
         result.data.map((item) => {
           cl.push(item.cart_id);
         })
         setCheckList(cl);
-        // setCount(countFlag(result));
+
 
       })
   }, [])
@@ -123,16 +122,33 @@ export default function CartSection() {
       .then(result => { })
   };
 
+  let response;
+  
+    const fetchData = async (newData)=>{
+      response = await axios.post(`http://127.0.0.1:8000/orders/neworder/${userInfo.id}`, [newData, totalPrice])
+      .then(result => {if(result.status === 204){return 'success'}});
+      return response
+    }
+    const nav =async ()=>{
+      navigate('/orders')
+    }
 
 
-  function handleOrder() {
+  const handleOrder =async ()=>{
     if (!checkedItems.length || checkedItems.length === 0) {
       return alert('선택된 상품이 없습니다.')
     }
     const newData = cartList.filter(item => checkedItems.includes(`${item.cart_id}`));
-    axios.post(`http://127.0.0.1:8000/orders/neworder/${userInfo.id}`, [newData, totalPrice])
-      .then(result => { if(result.status === 204){navigate('/orders')}});
-  }
+      await fetchData(newData)
+      
+      await nav();
+    }
+
+
+
+
+
+
 
 
   return (
