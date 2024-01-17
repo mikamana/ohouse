@@ -1,12 +1,24 @@
  -- ohouse 데이터테이블 사용
  use ohouse;
  select database();
- 
- create user 'root'@'192.168.50.31' identified by '1234';
+
+create user 'root'@'192.168.50.31' identified by '1234';
  grant all privileges on *.* to root@192.168.50.31;
  flush privileges;
  show grants for 'root'@'192.168.50.31';
  commit;
+
+insert into oh_member (mid, pass, nickname) values ("1@","$2a$10$TcZs4tDeBpTJNAnVHg65U.m0DsqsTj0eH1gLkulWOfnNv1H96sfwG", "관리자1");
+
+insert into oh_member (mid, pass, nickname) values ("2@","$2a$10$TcZs4tDeBpTJNAnVHg65U.m0DsqsTj0eH1gLkulWOfnNv1H96sfwG", "관리자2");
+
+insert into oh_member (mid, pass, nickname) values ("3@","$2a$10$TcZs4tDeBpTJNAnVHg65U.m0DsqsTj0eH1gLkulWOfnNv1H96sfwG", "관리자3");
+
+insert into oh_member (mid, pass, nickname) values ("4@","$2a$10$TcZs4tDeBpTJNAnVHg65U.m0DsqsTj0eH1gLkulWOfnNv1H96sfwG", "관리자4");
+
+insert into oh_member (mid, pass, nickname) values ("5@","$2a$10$TcZs4tDeBpTJNAnVHg65U.m0DsqsTj0eH1gLkulWOfnNv1H96sfwG", "관리자5");
+
+insert into oh_member (mid, pass, nickname) values ("6@","$2a$10$TcZs4tDeBpTJNAnVHg65U.m0DsqsTj0eH1gLkulWOfnNv1H96sfwG", "관리자6");
  
 select * from oh_pay;
 
@@ -19,9 +31,11 @@ drop table oh_channel;
 drop table oh_community;
 drop table oh_product;
 drop table oh_category;
+drop table oh_scraped;
 drop table oh_member;
 drop table oh_inquiry;
 
+commit;
 delete from oh_order;
 delete from oh_pay;
 delete from oh_order_save;
@@ -36,11 +50,12 @@ select * from oh_order;
 select * from oh_pay;
 select * from oh_order_save;
 select * from oh_inquiry;
-
+select oo.order_id, om.mid, oo.total_price, op.pid, oo.qty, om.nickname,op.category_id, op.product_image, op.brand_name, op.product_name, op.rating_avg, op.rating_review, op.price_sale, op.price_origin, op.tag_free, op.delivery_type, ifnull(round(op.price_origin - (op.price_origin * op.price_sale / 100),-2),op.price_origin) sale_price
+  from oh_order oo, oh_member om, oh_product op where oo.pid = op.pid and oo.mid = om.mid and om.mid = '@';
 /*
 	업데이트 필요한 사항들
 */
-insert into oh_member (mid, pass, nickname) values ("@","$2a$10$TcZs4tDeBpTJNAnVHg65U.m0DsqsTj0eH1gLkulWOfnNv1H96sfwG", "관리자");
+insert into oh_member (mid, pass, nickname) values ("test12345678@gmail.com","$2a$10$TcZs4tDeBpTJNAnVHg65U.m0DsqsTj0eH1gLkulWOfnNv1H96sfwG", "테스트");
 update oh_product set price_sale = null,price_origin = 58900 where pid = 59;
 update oh_product set tag_free = 1;
 -- 관리자 계정 mid = @, pass = 1234, nickname = 관리자 insert
@@ -126,7 +141,7 @@ create table oh_product(
     pid int auto_increment primary key,
     category_id int,
     product_image varchar(500),
-    brand_name varchar(20),
+    brand_name varchar(100),
     product_name varchar(100),
     rating_avg char(5),
     rating_review int,
@@ -135,7 +150,7 @@ create table oh_product(
     tag_free boolean,
     coupon_percent int,
     pdate datetime,
-    delivery_type varchar(20),
+    delivery_type varchar(100),
     constraint oh_product_cid_fk foreign key(category_id) references oh_category(category_id) on update cascade on delete cascade
 );
 create table oh_review(
@@ -178,34 +193,34 @@ create table oh_order(
 	order_id int auto_increment primary key,
     pid int,
     qty int,
-    mid varchar(20) not null,
+    mid varchar(100) not null,
     odate datetime,
     total_price int,
     constraint order_pid_fk foreign key(pid) references oh_product(pid) on update cascade on delete cascade,
     constraint order_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
 );
 create table oh_pay(
-    common_id varchar(50) primary key,
+    common_id varchar(100) primary key,
 	mid varchar(100),
-    orderer_name varchar(20),
-    orderer_email varchar(50),
-	orderer_phone varchar(20),
-	reciever_place varchar(50),
-	reciever_name varchar(20),
-	reciever_phone varchar(20),
-    reciever_postnumber varchar(10),
+    orderer_name varchar(100),
+    orderer_email varchar(100),
+	orderer_phone varchar(100),
+	reciever_place varchar(100),
+	reciever_name varchar(100),
+	reciever_phone varchar(100),
+    reciever_postnumber varchar(100),
 	reciever_address varchar(100),
 	reciever_request varchar(100),
-	payment varchar(20),
-    card_bank varchar(30),
-	installment varchar(20),
+	payment varchar(100),
+    card_bank varchar(100),
+	installment varchar(100),
 	last_pay_price int,
     paydate datetime,
 	constraint car_mid_fk foreign key(mid) references oh_member(mid) on update cascade on delete cascade
 );
 create table oh_order_save(
-	common_id varchar(50),
-    osid varchar(20),
+	common_id varchar(100),
+    osid varchar(100),
 	pid int,
     qty int,
     odate datetime,
