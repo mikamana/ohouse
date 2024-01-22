@@ -13,13 +13,13 @@ export default function OrderList() {
   const [sortList, setSortList] = useState('desc');
 
   useEffect(() => {
-    axios.get(`http://192.168.50.31:8001/users/myshop/${userInfo.id}/${sortList}`)
+    axios.get(`http://127.0.0.1:8000/users/myshop/${userInfo.id}/${sortList}`)
       .then((result) => {
         setOrder(result.data);
       })
       .catch(console.err)
 
-    axios.get(`http://192.168.50.31:8001/users/myshop/${userInfo.id}`)
+    axios.get(`http://127.0.0.1:8000/users/myshop/${userInfo.id}`)
       .then((result) => {
         setOrderList(result.data);
       })

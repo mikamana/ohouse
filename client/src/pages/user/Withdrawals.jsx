@@ -21,7 +21,7 @@ export default function Withdrawals() {
     e.preventDefault();
     if (form.agree) {
       if (form.lowuse || form.rejoin || form.lackOfContent || form.privacy || form.lackOfBenefits || form.etc) {
-        axios.delete(`http://192.168.50.31:8001/edit/Withdrawals/${userinfo.id}`)
+        axios.delete(`http://127.0.0.1:8000/edit/Withdrawals/${userinfo.id}`)
           .then(result => {
             if (result.data === "ok") {
               removeUser();

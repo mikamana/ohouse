@@ -8,7 +8,7 @@ export default function ImageUpload({ getImage }) {
 
         formData.append("file", e.target.files[0])
         for (const key of formData) console.log(`key---->>> ${JSON.stringify(key)}`);
-        axios.post('http://192.168.50.31:8001/upload/review', formData)
+        axios.post('http://127.0.0.1:8000/upload/review', formData)
             .then((result) => {
                 getImage(result.data);
             });

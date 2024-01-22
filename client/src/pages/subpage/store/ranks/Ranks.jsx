@@ -20,12 +20,12 @@ export default function Ranks() {
 
   useEffect(() => {
     if (active) {
-      axios.get('http://192.168.50.31:8001/product/ranks/realtime')
+      axios.get('http://127.0.0.1:8000/product/ranks/realtime')
         .then(result => setBestList(result.data))
     } else {
-      axios.get('http://192.168.50.31:8001/product/ranks/alltime')
+      axios.get('http://127.0.0.1:8000/product/ranks/alltime')
         .then(result => setBestList(result.data))
-      axios.get('http://192.168.50.31:8001/category')
+      axios.get('http://127.0.0.1:8000/category')
         .then(result => setCategoryList(result.data))
     }
   }, [active])
@@ -38,10 +38,10 @@ export default function Ranks() {
 
   function getCategoryItem(category_id) {
     if (category_id === 0) {
-      axios.get('http://192.168.50.31:8001/product/ranks/alltime')
+      axios.get('http://127.0.0.1:8000/product/ranks/alltime')
         .then(result => setBestList(result.data))
     } else {
-      axios.get(`http://192.168.50.31:8001/product/ranks/category/${category_id}`)
+      axios.get(`http://127.0.0.1:8000/product/ranks/category/${category_id}`)
         .then(result => setBestList(result.data))
     }
   }

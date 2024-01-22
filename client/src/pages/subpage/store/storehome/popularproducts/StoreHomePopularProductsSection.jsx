@@ -20,7 +20,7 @@ export default function StoreHomePopularProductsSection() {
 
   function getItem() {
     setLoading(true)
-    axios.get(`http://192.168.50.31:8001/product/popular/${page.current}`)
+    axios.get(`http://127.0.0.1:8000/product/popular/${page.current}`)
       .then(result => {
         setShopArray(prev => [...prev, ...result.data])
       })

@@ -17,7 +17,7 @@ export default function Profile() {
       axios({
 
         method: "get",
-        url: `http://192.168.50.31:8001/users/profile/${userInfo.id}`
+        url: `http://127.0.0.1:8000/users/profile/${userInfo.id}`
       }).then((result) => {
 
         if (result.data.length !== 0) {
@@ -47,7 +47,7 @@ export default function Profile() {
           <div className="profile_info">
             <div className='profile_info_wrap'>
               <div className='profile_info_image_wrap'>
-                <img src={list.userimg === null ? "https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&w=640&h=640&c=c&webp=1" : "http://192.168.50.31:8001/" + list.userimg} alt="#" />
+                <img src={list.userimg === null ? "https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&w=640&h=640&c=c&webp=1" : "http://127.0.0.1:8000/" + list.userimg} alt="#" />
               </div>
               <h3 className='profile_user_name'>
                 {list.nickname}

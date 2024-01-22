@@ -38,7 +38,7 @@ export default function ProductionsPrdReviewList(props) {
         axios({
 
             method: "put",
-            url: `http://192.168.50.31:8001/review/product`,
+            url: `http://127.0.0.1:8000/review/product`,
             data: { mid: userInfo.id, pid: params.pid, formObject: formDataObject }
 
         }).then((result) => {
@@ -64,7 +64,7 @@ export default function ProductionsPrdReviewList(props) {
                         <div className="production_selling_prd_review_item_box">
                             <div className="production_selling_prd_review_item_user">
                                 <Link to="#" className="production_selling_prd_review_item_user_img">
-                                    {<img src={lst.userimg === null ? "https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&w=640&h=640&c=c&webp=1&quot;" : "http://192.168.50.31:8001/" + lst.userimg} alt="유저리뷰이미지" />}
+                                    {<img src={lst.userimg === null ? "https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&w=640&h=640&c=c&webp=1&quot;" : "http://127.0.0.1:8000/" + lst.userimg} alt="유저리뷰이미지" />}
                                 </Link>
                                 <div className="production_selling_prd_review_item_user_info_wrap">
                                     <p className="production_selling_prd_review_item_user_info_title">
@@ -96,7 +96,7 @@ export default function ProductionsPrdReviewList(props) {
                                     단품
                                 </p>
                                 <button className="production_selling_prd_review_item_btn_img">
-                                    <img src={`http://192.168.50.31:8001/${lst.review_img}`} alt="유저리뷰사진" />
+                                    <img src={`http://127.0.0.1:8000/${lst.review_img}`} alt="유저리뷰사진" />
                                 </button>
                                 <p className="production_selling_prd_review_item_text">
                                     {lst.review_content}

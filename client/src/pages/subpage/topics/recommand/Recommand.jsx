@@ -11,7 +11,7 @@ export default function Recommand() {
     fetch('/data/topics/recommandMenu.json')
       .then(res => res.json())
       .then(data => setCatelist(data))
-    /* axios.get('http://192.168.50.31:8001/community/')
+    /* axios.get('http://127.0.0.1:8000/community/')
     .then((result)=>{
     })
     .catch(console.err); */

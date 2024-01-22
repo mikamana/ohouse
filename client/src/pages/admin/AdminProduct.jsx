@@ -40,7 +40,7 @@ export default function AdminProduct() {
 
   /* 초기 리스트 조회 */
   useEffect(() => {
-    axios.get(`http://192.168.50.31:8001/admin/product/${startindex}/${endindex}/${value}`)
+    axios.get(`http://127.0.0.1:8000/admin/product/${startindex}/${endindex}/${value}`)
       .then((result) => {
         if (result.data.length !== 0) {
           setList(result.data);
@@ -77,7 +77,7 @@ export default function AdminProduct() {
 
     axios({
       method: 'get',
-      url: `http://192.168.50.31:8001/admin/product/${pid}/`
+      url: `http://127.0.0.1:8000/admin/product/${pid}/`
     })
       .then((result) => {
         setForm(result.data);
@@ -88,7 +88,7 @@ export default function AdminProduct() {
   /* 정보수정 */
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.put(`http://192.168.50.31:8001/admin/product/update/${form.pid}`, form)
+    axios.put(`http://127.0.0.1:8000/admin/product/update/${form.pid}`, form)
       .then((result) => {
         if (result.data === 'ok') {
           alert('상품정보 수정이 완료되었습니다');
@@ -117,7 +117,7 @@ export default function AdminProduct() {
   const handleSubmitReg = (e) => {
     e.preventDefault();
 
-    axios.post('http://192.168.50.31:8001/admin/product/register/', itemForm)
+    axios.post('http://127.0.0.1:8000/admin/product/register/', itemForm)
       .then((result) => {
         if (result.data === 'ok') {
           alert('상품 등록이 완료되었습니다.');
@@ -129,7 +129,7 @@ export default function AdminProduct() {
 
   const handleRemove = (e) => {
     const pid = e.target.dataset.id;
-    axios.delete(`http://192.168.50.31:8001/admin/product/remove/${pid}`)
+    axios.delete(`http://127.0.0.1:8000/admin/product/remove/${pid}`)
       .then((result) => {
         if (result.data === 'ok') {
           alert('삭제 완료');
@@ -261,7 +261,7 @@ export default function AdminProduct() {
                   <td>{menu.product_name}</td>
                   <td>{menu.brand_name}</td>
                   <td>
-                    <img className="admin_image" src={menu.product_image.includes("https://") ? menu.product_image : `http://192.168.50.31:8001/${menu.product_image}`} alt="" />
+                    <img className="admin_image" src={menu.product_image.includes("https://") ? menu.product_image : `http://127.0.0.1:8000/${menu.product_image}`} alt="" />
                   </td>
                   <td>{menu.price_origin.toLocaleString() + "원"}</td>
                   <td>{menu.price_sale && menu.price_sale + "%"}</td>
@@ -296,7 +296,7 @@ export default function AdminProduct() {
                 </div>
                 <div className="admin_update_contentbox">
                   <label>대표이미지</label>
-                  <img className="admin_update_image" src={form.product_image.includes("https://") ? form.product_image : (form.product_image === "" ? "" : `http://192.168.50.31:8001/${form.product_image}`)} alt="상품이미지" />
+                  <img className="admin_update_image" src={form.product_image.includes("https://") ? form.product_image : (form.product_image === "" ? "" : `http://127.0.0.1:8000/${form.product_image}`)} alt="상품이미지" />
                   <ImageUpload getImage={getImage} value={form.product_image} />
                 </div>
                 <div className="admin_update_contentbox">

@@ -47,7 +47,7 @@ export default function Productions() {
     axios({
 
       method: "get",
-      url: `http://192.168.50.31:8001/production/${params.pid}`
+      url: `http://127.0.0.1:8000/production/${params.pid}`
 
     }).then((result) => {
 

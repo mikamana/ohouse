@@ -8,7 +8,7 @@ import SubtitleMore from '../../../../main/subtitle_more/Subtitle_more';
 export default function StoreHomeTodayDealSection() {
   const [shopArray, setShopArray] = useState([]);
   useEffect(() => {
-    axios('http://192.168.50.31:8001/product/shopitem')
+    axios('http://127.0.0.1:8000/product/shopitem')
       .then(result => setShopArray(result.data))
   }, [])
   return (

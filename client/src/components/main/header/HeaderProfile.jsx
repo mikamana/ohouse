@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { removeUser } from "../../../pages/utill/sessionStorage";
+import { getManager, removeUser } from "../../../pages/utill/sessionStorage";
 import { getCookie } from "../../../pages/utill/cookie";
 import { userContext } from '../../../context/UsersContext';
 
@@ -18,7 +18,8 @@ export default function HeaderProfile() {
 
 
 
-  const manager = getCookie("ohouse-manager")
+  //const manager = getCookie("ohouse-manager")
+  const manager = getManager();
 
   return (
     <ul className="header_nav_popup_profile_ul">
@@ -43,7 +44,7 @@ export default function HeaderProfile() {
       <li>
         <div className="header_nav_menu_list3" onClick={handleLogout}>로그아웃</div>
       </li>
-      {manager !== undefined &&
+      {manager !== null &&
         <li>
           <Link to="/admin/member" className="header_nav_menu_list3">관리자페이지</Link>
         </li>

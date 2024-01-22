@@ -29,7 +29,7 @@ export default function CartSection() {
     if(!userInfo){
       return navigate('/login')
     }
-    axios.get(`http://192.168.50.31:8001/cart/${userInfo.id}`)
+    axios.get(`http://127.0.0.1:8000/cart/${userInfo.id}`)
       .then(result => {
         if (!result.data.length) {
           return navigate('/emptycart')
@@ -103,29 +103,29 @@ export default function CartSection() {
 
   function removeCart(cart_id) {
     if (!checkedItems.includes(cart_id)) {
-      axios.post(`http://192.168.50.31:8001/cart/${userInfo.id}/remove`, { cart_id })
+      axios.post(`http://127.0.0.1:8000/cart/${userInfo.id}/remove`, { cart_id })
         .then(result => { window.location.reload() })
       return
     }else{
-      axios.post(`http://192.168.50.31:8001/cart/${userInfo.id}/remove`, checkedItems)
+      axios.post(`http://127.0.0.1:8000/cart/${userInfo.id}/remove`, checkedItems)
       .then(result => { window.location.reload() })
     }
   }
 
   function removeSelectCart() {
-    axios.post(`http://192.168.50.31:8001/cart/${userInfo.id}/remove`, checkedItems)
+    axios.post(`http://127.0.0.1:8000/cart/${userInfo.id}/remove`, checkedItems)
     .then(result => { window.location.reload() })
   }
 
   const updateCart = (cart_id, qty) => {
-    axios.put(`http://192.168.50.31:8001/cart/update/${cart_id}/${qty}`)
+    axios.put(`http://127.0.0.1:8000/cart/update/${cart_id}/${qty}`)
       .then(result => { })
   };
 
   let response;
   
     const fetchData = async (newData)=>{
-      response = await axios.post(`http://192.168.50.31:8001/orders/neworder/${userInfo.id}`, [newData, totalPrice])
+      response = await axios.post(`http://127.0.0.1:8000/orders/neworder/${userInfo.id}`, [newData, totalPrice])
       .then(result => {if(result.status === 204){return 'success'}});
       return response
     }

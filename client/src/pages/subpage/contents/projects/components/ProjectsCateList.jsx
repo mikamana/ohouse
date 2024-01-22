@@ -39,7 +39,7 @@ export default function ProjectsCateList(props) {
             axios({
 
                 method: "get",
-                url: "http://192.168.50.31:8001/house/first"
+                url: "http://127.0.0.1:8000/house/first"
 
             }).then((res) => {
 
@@ -64,7 +64,7 @@ export default function ProjectsCateList(props) {
             axios({
 
                 method: "get",
-                url: "http://192.168.50.31:8001/house/last"
+                url: "http://127.0.0.1:8000/house/last"
 
             }).then((res) => {
 

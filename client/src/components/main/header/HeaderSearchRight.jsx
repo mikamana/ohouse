@@ -12,13 +12,13 @@ export default function HeaderSearchRight({showProfile, handleClick}) {
   useEffect(() => {
 
     if (userInfo) {
-      axios.get(`http://192.168.50.31:8001/cart/${userInfo.id}/`)
+      axios.get(`http://127.0.0.1:8000/cart/${userInfo.id}/`)
         .then((result) => {
           setCartCnt(result.data.length);
         })
         .catch(console.err);
 
-      axios.get(`http://192.168.50.31:8001/edit/${userInfo.id}`)
+      axios.get(`http://127.0.0.1:8000/edit/${userInfo.id}`)
         .then((result) => {
           setimage(result.data.userimg);
         })
@@ -49,7 +49,7 @@ export default function HeaderSearchRight({showProfile, handleClick}) {
               {cartCnt !== 0 ? <span className="header_logo_cart_num">{cartCnt}</span> : null}
             </Link>
             <button className="header_logo_profile" id='profile' onClick={(e) => handleClick(e)} >
-              <img className="header_logo_profile_icon" src={image === null ? "https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?w=72&h=72&c=c&webp=1" : "http://192.168.50.31:8001/" + image} alt="프로필 사진" />
+              <img className="header_logo_profile_icon" src={image === null ? "https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?w=72&h=72&c=c&webp=1" : "http://127.0.0.1:8000/" + image} alt="프로필 사진" />
             </button>
             <div className={showProfile} >
               <HeaderProfile />

@@ -1,7 +1,7 @@
 import React from "react";
 import "../../css/admin/adminpage.css";
 import { Outlet } from "react-router-dom";
-import { getUser } from './../utill/sessionStorage';
+import { getManager, getUser } from './../utill/sessionStorage';
 import AdminNavbar from "./component/AdminNavbar";
 import Error from './../../Error';
 import { getCookie } from "../utill/cookie";
@@ -18,8 +18,9 @@ import { getCookie } from "../utill/cookie";
 */
 
 export default function Adminpage() {
-  const manage = getCookie("ohouse-manager")
+  //const manage = getCookie("ohouse-manager")
   const userInfo = getUser();
+  const manage = getManager();
 
   return (
     <>

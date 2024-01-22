@@ -19,7 +19,7 @@ export default function OrderSection(){
       return navigate('/login')
     }
     setTimeout(() => {
-      axios.get(`http://192.168.50.31:8001/orders/${userInfo.id}`)
+      axios.get(`http://127.0.0.1:8000/orders/${userInfo.id}`)
       .then(result=>
         {setOrderList(result.data)
       }
@@ -89,7 +89,7 @@ export default function OrderSection(){
       checkboxVal.current.classList.add('open')
       return
     }
-      axios.post(`http://192.168.50.31:8001/pay/${userInfo.id}`,[form,orderList])
+      axios.post(`http://127.0.0.1:8000/pay/${userInfo.id}`,[form,orderList])
       .then(result=>{
         if(result.status === 204){
           alert('결제가 완료되었습니다.')

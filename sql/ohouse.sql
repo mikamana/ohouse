@@ -2,10 +2,10 @@
  use ohouse;
  select database();
 
-create user 'root'@'192.168.50.31' identified by '1234';
- grant all privileges on *.* to root@192.168.50.31;
+create user 'root'@'현재아이피' identified by '1234';
+ grant all privileges on *.* to root@현재아이피;
  flush privileges;
- show grants for 'root'@'192.168.50.31';
+ show grants for 'root'@'현재아이피';
  commit;
 
 insert into oh_member (mid, pass, nickname) values ("1@","$2a$10$TcZs4tDeBpTJNAnVHg65U.m0DsqsTj0eH1gLkulWOfnNv1H96sfwG", "관리자1");

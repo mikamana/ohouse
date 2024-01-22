@@ -12,7 +12,7 @@ export default function Interior3ds() {
   const [modal, setModal] = useState(false);
 
   useEffect(() => {
-    axios.get("http://192.168.50.31:8001/house")
+    axios.get("http://127.0.0.1:8000/house")
       .then(result => setInteriorList(result.data))
   }, [])
 
@@ -25,12 +25,12 @@ export default function Interior3ds() {
   }
 
   const asc = () => {
-    axios.get("http://192.168.50.31:8001/house/first")
+    axios.get("http://127.0.0.1:8000/house/first")
       .then(result => setInteriorList(result.data))
   }
 
   const dsc = () => {
-    axios.get("http://192.168.50.31:8001/house/last")
+    axios.get("http://127.0.0.1:8000/house/last")
       .then(result => setInteriorList(result.data))
   }
 

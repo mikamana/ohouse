@@ -9,7 +9,7 @@ export default function ImageUpload({ getImage, style }) {
 
         formData.append("file", e.target.files[0])
         for (const key of formData)
-        axios.post('http://192.168.50.31:8001/edit/upload', formData)
+        axios.post('http://127.0.0.1:8000/edit/upload', formData)
             .then((result) => {
                 getImage(result.data);
             });

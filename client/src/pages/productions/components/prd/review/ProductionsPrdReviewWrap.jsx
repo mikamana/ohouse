@@ -28,7 +28,7 @@ const ProductionsPrdReviewWrap = forwardRef((props, ref) => {
         axios({
 
             method: "get",
-            url: `http://192.168.50.31:8001/review/product/all/${params.pid}`
+            url: `http://127.0.0.1:8000/review/product/all/${params.pid}`
 
         }).then((result) => {
 
@@ -47,14 +47,14 @@ const ProductionsPrdReviewWrap = forwardRef((props, ref) => {
         if (userInfo) {
             axios({
                 method: "get",
-                url: `http://192.168.50.31:8001/review/product/${kindList}/${userInfo.id}/${params.pid}/${startIndex}/5`
+                url: `http://127.0.0.1:8000/review/product/${kindList}/${userInfo.id}/${params.pid}/${startIndex}/5`
             }).then((result) => {
                 setList(result.data);
             })
         } else {
             axios({
                 method: "get",
-                url: `http://192.168.50.31:8001/review/product/${kindList}/${params.pid}/${startIndex}/5`
+                url: `http://127.0.0.1:8000/review/product/${kindList}/${params.pid}/${startIndex}/5`
             }).then((result) => {
                 setList(result.data);
             })
