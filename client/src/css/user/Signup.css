@@ -1,0 +1,274 @@
+@charset "UTF-8";
+.Signup {
+  padding-top: 40px;
+  padding-bottom: 60px;
+  margin: 0 auto;
+  width: 360px;
+}
+.Signup .SignupLogo {
+  position: absolute;
+  left: 15px;
+}
+.Signup .SignupTitle {
+  padding-top: 95px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.Signup .SignupSNS {
+  padding: 15px 0 30px 0;
+  overflow: hidden;
+  border-bottom: 1px solid #eee;
+}
+.Signup .SignupSNS .SignupSNSText {
+  font-size: 12px;
+  text-align: center;
+  margin: 15px 0;
+  color: #757575;
+}
+.Signup .SignupSNS .SignupSNSImg {
+  text-align: center;
+}
+.Signup .SignupSNS .SignupSNSImg img {
+  cursor: pointer;
+  margin: 0 10px;
+}
+.Signup .SingupForm {
+  padding-top: 30px;
+}
+.Signup .SingupForm label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+  color: #2F3438;
+  letter-spacing: -0.3px;
+  word-break: keep-all;
+}
+.Signup .SingupForm input:not(input[type=checkbox]), .Signup .SingupForm select {
+  padding: 0;
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  padding: 8px 15px 9px;
+  border: 1px solid #dbdbdb;
+  background-color: #fff;
+  color: #000;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: Noto Sans KR, Noto Sans CJK KR, 맑은 고딕, Malgun Gothic, sans-serif;
+  font-size: 15px;
+  line-height: 21px;
+  transition: border-color 0.1s, background-color 0.1s;
+  resize: none;
+}
+.Signup .SingupForm input:not(input[type=checkbox]):focus, .Signup .SingupForm select:focus {
+  outline: none;
+}
+.Signup .SingupForm .SingupNotValue {
+  border-color: #f77 !important;
+}
+.Signup .SingupForm .SingupLabelNotValue {
+  color: #f77 !important;
+}
+.Signup .SingupForm button:not(.SinupEmailClose, .SignupEmailButton) {
+  margin-top: 10px;
+  width: 100%;
+  height: 45px;
+  padding: 0px;
+  line-height: 20px;
+  font-size: 17px;
+  min-height: 50px;
+}
+.Signup .SingupForm .SignupText {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #828C94;
+  letter-spacing: -0.3px;
+}
+.Signup .SingupForm .SingupId {
+  margin-bottom: 30px;
+}
+.Signup .SingupForm .SingupId .SingupIdInput {
+  position: relative;
+  display: flex;
+}
+.Signup .SingupForm .SingupId .SingupIdInput:focus {
+  outline: none;
+}
+.Signup .SingupForm .SingupId .SingupIdspan {
+  font-size: 15px;
+  -moz-flex: 0 0 20px;
+  flex: 0 0 20px;
+  text-align: center;
+  line-height: 40px;
+  color: #dbdbdb;
+}
+.Signup .SingupForm .SingupId .SinupEmailClose {
+  position: absolute;
+  width: 20px;
+  height: 100%;
+  top: -3px;
+  right: 10px;
+  padding: 5px;
+  background: none;
+  border: none;
+  font-size: 25px;
+  cursor: default;
+  color: rgba(0, 0, 0, 0.3);
+}
+.Signup .SingupForm .SingupText {
+  display: block;
+  padding-top: 10px;
+  font-size: 14px;
+  line-height: 18px;
+  color: rgb(255, 119, 119);
+}
+.Signup .SingupForm .SignupIdButton {
+  background: rgb(247, 248, 250);
+  color: rgb(194, 200, 204);
+  border: 1px solid transparent;
+  border-color: rgb(218, 220, 224);
+  border-radius: 4px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.Signup .SingupForm .SignupIdButtonActive {
+  background-color: #fff;
+  border: 1px solid #35c5f0;
+  color: #35c5f0;
+}
+.Signup .SingupForm .SignupEmail {
+  min-height: 143px;
+  box-sizing: border-box;
+  background: rgb(247, 248, 250);
+  padding: 20px 16px;
+}
+.Signup .SingupForm .SignupEmail .SignupEmailTitle {
+  margin-bottom: 12px;
+  font-size: 13px;
+  line-height: 20px;
+}
+.Signup .SingupForm .SignupEmail div {
+  position: relative;
+}
+.Signup .SingupForm .SignupEmail div .SignupEmailCountdown {
+  position: absolute;
+  color: red;
+  top: 12px;
+  right: 65px;
+  font-size: 16px;
+}
+.Signup .SingupForm .SignupEmail div .SignupEmailButton {
+  position: absolute;
+  white-space: pre;
+  width: 47.7px;
+  min-height: 31px;
+  right: 10px;
+  top: 5px;
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 17px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #35c5f0;
+  color: #35c5f0;
+}
+.Signup .SingupForm .SignupEmail span {
+  display: inline-block;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  line-height: 20px;
+}
+.Signup .SingupForm .SignupEmail span .SignupEmailReturn {
+  cursor: pointer;
+}
+.Signup .SingupForm .SignupPass {
+  margin-bottom: 30px;
+}
+.Signup .SingupForm .SignupPassCheck {
+  margin-bottom: 30px;
+}
+.Signup .SingupForm .SignupNickName {
+  margin-bottom: 30px;
+}
+.Signup .SingupForm .SignupAgree {
+  margin-bottom: 30px;
+  padding: 18px;
+  border: 1px solid #EAEDEF;
+}
+.Signup .SingupForm .SignupAgree input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+}
+.Signup .SingupForm .SignupAgree hr {
+  padding: 0;
+  height: 1px;
+  border: none;
+  background-color: #EAEDEF;
+  margin: 18px 0;
+}
+.Signup .SingupForm .SignupAgree .SingupAgreeCheckbox {
+  font-size: 14px;
+  line-height: 20px;
+  color: #2F3438;
+  margin-bottom: 10px;
+}
+.Signup .SignupAgreeNotValue {
+  margin-bottom: 30px;
+  padding: 18px;
+  border: 1px solid #f77;
+}
+.Signup .SignupAgreeNotValue input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+}
+.Signup .SignupAgreeNotValue hr {
+  padding: 0;
+  height: 1px;
+  border: none;
+  background-color: #EAEDEF;
+  margin: 18px 0;
+}
+.Signup .SignupAgreeNotValue .SingupAgreeCheckbox {
+  font-size: 14px;
+  line-height: 20px;
+  color: #2F3438;
+  margin-bottom: 10px;
+}
+.Signup .SingupRecaptcha {
+  padding-left: 30px;
+  margin-bottom: 20px;
+}
+.Signup .SingupRecaptcha p {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 18px;
+  color: rgb(255, 119, 119);
+}
+.Signup .SignupSubmitButton {
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  background: none;
+  font-family: Noto Sans KR, Noto Sans CJK KR, 맑은 고딕, Malgun Gothic, sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  transition: color 0.1s, background-color 0.1s, border-color 0.1s;
+  border-radius: 4px;
+  cursor: pointer;
+  border-color: #09addb;
+  background-color: #09addb;
+  color: #fff;
+}
+.Signup .SinupLogin {
+  display: block;
+  color: #424242;
+  font-size: 15px;
+  text-align: center;
+  margin-top: 30px;
+}/*# sourceMappingURL=Signup.css.map */

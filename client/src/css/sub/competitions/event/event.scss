@@ -1,0 +1,44 @@
+@use "../../../common/mixin.scss" as m;
+
+ul.event_container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 40px;
+  li.event_content {
+    width: 50%;
+    margin-bottom: 20px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    a {
+      &:hover img {
+        transform: scale(1.1);
+      }
+      .event_image {
+        border-radius: 6px;
+        overflow: hidden;
+        img {
+          width: 100%;
+          display: block;
+          margin: 0 auto;
+          transition: linear 0.2s;
+        } //li img
+      } //event_image
+      .event_title {
+        display: flex;
+        justify-content: space-between;
+        color: #bdbdbd;
+        font-size: 15px;
+        font-weight: 700;
+        padding: 20px 15px;
+        .event_title_now {
+          color: var(--sky);
+        } //event_title_now
+        .event_title_date {
+          font-size: 13px;
+          font-weight: normal;
+        } //event_title_date
+      } //event_title
+    } // li a
+  } //li
+} //ul.event_container

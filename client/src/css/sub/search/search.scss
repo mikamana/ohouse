@@ -1,0 +1,117 @@
+@use "../../common/mixin.scss" as m;
+
+.search_keyword {
+  width: 100%;
+  border-bottom: 1px solid var(--gray);
+  font-size: 15px;
+  line-height: 23px;
+  padding: 8px 16px 9px 16px;
+  span {margin-right: 12px;}
+  a {
+    color: var(--sky);
+    font-weight: 600;
+    margin-right: 10px;
+    &:hover {
+      color: var(--lightSky)
+    }
+  }
+}//search_keyword
+
+.search_total {
+  width: 100%;
+  border: 1px solid var(--borderColor);
+  border-radius: 8px;
+  margin: 40px 0;
+  > div {
+    font-size: 14px;
+    .search_total_sub_title {
+      line-height: 20px;
+      margin: 20px;
+      p {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+      span {color: #828c94;}
+    } //search_total_sub_title    
+  }//search_total_style, search_total_item
+  ul.search_total_image {
+    display: flex;
+    margin: 20px 16px;
+    text-align: center;
+    li {
+      a {
+        display: block;
+        line-height: 18px;
+        margin: 12px 20px 0 0;
+        figure {
+          width: 72px;
+          height: 72px;
+          border-radius: 24px;
+          overflow: hidden;
+          background-position: 50% center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          box-sizing: border-box;
+          margin: 0 auto 10px;
+          &:hover {
+            border: 2px solid var(--sky);
+          }
+        } // figure
+      } // a
+    }//search_total_iteml li
+  }// search_total_item ul
+  .search_total_bttn {
+    display: block;
+    text-align: center;
+    border: 1px solid var(--borderColor);
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 16px 0;
+    margin: 20px;
+    &:hover {
+      background: var(--lightGray);
+    }
+  }//search_total_bttn
+}//search_total
+
+.searchResults {
+  margin: 0 auto;
+  .inner {
+    width: 100%;
+    padding: 0;
+    .subtitle_more {
+      padding-bottom: 0;
+    }
+  }//inner
+  .shopitem_section {
+    width: 100%;
+    height: auto;
+    .swiper {
+      .shopitem_image_wrap {
+        width: 100%;
+        height: auto;
+      }
+      .shopitem_info_wrap {
+        width: 100%;
+      }
+    }
+  }//shopitem_section
+  .search_item {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    >div {
+      padding: 10px;
+    }
+    >div:nth-child(4n) {
+      padding-right: 0;
+    }
+    >div:nth-child(4n+1) {
+      padding-left: 0;
+    }
+
+
+  }//search_item
+}//searchResults

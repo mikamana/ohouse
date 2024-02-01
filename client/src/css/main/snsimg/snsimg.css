@@ -1,1 +1,182 @@
-/*# sourceMappingURL=snsimg.css.map */
+@charset "UTF-8";
+section.snsimg_wrap {
+  margin: 40px 0px;
+}
+section.snsimg_wrap div.snsimg_inner {
+  position: relative;
+}
+section.snsimg_wrap div.snsimg_inner button.sns_prev_btn {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  background: #fff;
+  border-radius: 100%;
+  box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  top: 50%;
+  transform: translateX(50%);
+  z-index: 10;
+  left: 12px;
+  border: none;
+  top: 40%;
+}
+section.snsimg_wrap div.snsimg_inner button.sns_prev_btn::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+section.snsimg_wrap div.snsimg_inner button.sns_prev_btn:hover {
+  background: var(--lightGray);
+}
+section.snsimg_wrap div.snsimg_inner button.sns_prev_btn::after {
+  content: "\f053";
+  font-family: "Font Awesome 6 Free"; /*폰트어썸 fas, far 글꼴 연결*/
+  font-weight: 900;
+  font-size: 24px;
+}
+section.snsimg_wrap div.snsimg_inner button.sns_next_btn {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  background: #fff;
+  border-radius: 100%;
+  box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  top: 50%;
+  transform: translateX(50%);
+  z-index: 10;
+  right: 60px;
+  border: none;
+  top: 40%;
+}
+section.snsimg_wrap div.snsimg_inner button.sns_next_btn::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+section.snsimg_wrap div.snsimg_inner button.sns_next_btn:hover {
+  background: var(--lightGray);
+}
+section.snsimg_wrap div.snsimg_inner button.sns_next_btn::after {
+  content: "\f054";
+  font-family: "Font Awesome 6 Free"; /*폰트어썸 fas, far 글꼴 연결*/
+  font-weight: 900;
+  font-size: 24px;
+}
+section.snsimg_wrap div.snsimg_inner div.snsimg_title_wrap {
+  padding: 20px 0px;
+  box-sizing: border-box;
+}
+section.snsimg_wrap div.snsimg_inner div.snsimg_title_wrap p.snsimg_title_text strong.snsimg_title_text {
+  font-weight: 700;
+  font-size: 20px;
+  color: rgb(47, 52, 56);
+  line-height: 28px;
+}
+section.snsimg_wrap div.snsimg_inner div.snsimg_title_wrap p.snsimg_title_text_bold span.snsimg_title_info {
+  display: inline-block;
+  font-size: 14px;
+  color: rgb(47, 52, 56);
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: 400;
+  line-height: 28px;
+}
+section.snsimg_wrap div.snsimg_inner div.swiper-slide {
+  display: flex;
+}
+section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div {
+  width: calc((100% - 100px) / 6);
+  margin-right: 20px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fieldset.snsimg_img_fieldset {
+  position: relative;
+}
+section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fieldset.snsimg_img_fieldset .snsimg_img_list_link img {
+  width: 100%;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fieldset.snsimg_img_fieldset .snsimg_img_list_link img:hover {
+  transform: scale(1.1);
+}
+section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fieldset.snsimg_img_fieldset .snsimg_img_list_link p.snsimg_img_list_user {
+  position: absolute;
+  left: 10px;
+  bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fieldset.snsimg_img_fieldset .snsimg_img_list_link p.snsimg_img_list_user svg {
+  position: absolute;
+  right: -20px;
+  bottom: 0px;
+}
+section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fieldset.snsimg_img_fieldset .snsimg_img_list_link p.snsimg_img_list_user span.snsimg_img_list_user_img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fieldset.snsimg_img_fieldset .snsimg_img_list_link p.snsimg_img_list_user span.snsimg_img_list_user_img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+section.snsimg_wrap div.snsimg_inner div.swiper-slide div.snsimg_img_list_div fieldset.snsimg_img_fieldset .snsimg_img_list_link p.snsimg_img_list_user span.snsimg_img_list_user_text {
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  margin-right: 65px;
+}
+section.snsimg_wrap div.snsimg_inner div.snsimg_img_list_button_wrap {
+  position: absolute;
+  right: 80px;
+  top: 50%;
+}
+section.snsimg_wrap div.snsimg_inner div.snsimg_img_list_button_wrap button.snsimg_img_list_button {
+  background-color: red;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgb(234, 237, 239);
+  border: none;
+  transform: translateY(-50%);
+}
+section.snsimg_wrap div.snsimg_inner div.snsimg_img_list_button_wrap button.snsimg_img_list_button::after {
+  content: "\f054";
+  font-family: "Font Awesome 6 Free"; /*폰트어썸 fas, far 글꼴 연결*/
+  font-weight: 600;
+  font-size: 16px;
+  color: #000;
+}
+section.snsimg_wrap div.snsimg_inner div.snsimg_img_list_button_wrap span.snsimg_img_list_button_span {
+  display: block;
+  margin-top: -15px;
+  margin-left: 3px;
+}
+
+.sns_next_btn.swiper-button-disabled {
+  opacity: 0 !important;
+  display: none;
+}
+
+.sns_prev_btn.swiper-button-disabled {
+  opacity: 0 !important;
+  display: none;
+}/*# sourceMappingURL=snsimg.css.map */

@@ -1,0 +1,18 @@
+[
+  { "url" : "/", "menuName" : "홈"},
+  { "url" : "/topics/recommand", "menuName" : "추천"},
+  { "url" : "/topics/hashtagChannel", "menuName" : "#채널"},
+  { "url" : "/content/projects", "menuName" : "집들이"},
+  { "url" : "/content/cardCollections", "menuName" : "집사진"},
+  { "url" : "/interior3ds", "menuName" : "3D인테리어"},
+  { "url" : "/topics/recommand", "menuName" : "살림수납"},
+  { "url" : "/topics/hashtagChannel", "menuName" : "콜렉터블"},
+  { "url" : "/content/projects", "menuName" : "홈스토랑"},
+  { "url" : "/content/cardCollections", "menuName" : "핫플레이스"},
+  { "url" : "/interior3ds", "menuName" : "육아"},
+  { "url" : "/topics/recommand", "menuName" : "플랜테리어"},
+  { "url" : "/topics/hashtagChannel", "menuName" : "반려동물"},
+  { "url" : "/content/projects", "menuName" : "캠핑"},
+  { "url" : "/topics/recommand", "menuName" : "취미"},
+  { "url" : "/feed/event", "menuName" : "이벤트"}
+]

@@ -1,0 +1,154 @@
+@charset "UTF-8";
+.Withdrawals form {
+  width: 700px;
+  margin-top: 20px;
+  margin: 50px auto 0 auto;
+  min-height: 1400px;
+}
+.Withdrawals form h1 {
+  margin-bottom: 40px;
+  font-size: 24px;
+  line-height: 32px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+.Withdrawals form h2 {
+  color: rgb(66, 66, 66);
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 24px;
+  margin-bottom: 20px;
+}
+.Withdrawals form h2 span {
+  font-weight: bold;
+  color: rgb(255, 119, 119);
+}
+.Withdrawals form .WithdrawalsChoice {
+  color: #bdbdbd;
+}
+.Withdrawals form .WithdrawalsText {
+  color: rgb(255, 119, 119);
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+.Withdrawals form .WithdrawalsRead {
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  border: 1px solid rgb(219, 219, 219);
+  font-size: 15px;
+  line-height: 21px;
+  color: rgb(66, 66, 66);
+  border-radius: 4px;
+}
+.Withdrawals form .WithdrawalsRead h3 {
+  margin: 10px 0px;
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 23px;
+  color: rgb(66, 66, 66);
+}
+.Withdrawals form .WithdrawalsRead .WithdrawalsRead1 {
+  margin-bottom: 5px;
+}
+.Withdrawals form .WithdrawalsRead .WithdrawalsRead1 li {
+  margin: 0px 0px 10px 30px;
+  list-style: initial;
+}
+.Withdrawals form .WithdrawalsReadCheck {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+.Withdrawals form .WithdrawalsReadCheck div input {
+  width: 20px;
+  height: 20px;
+}
+.Withdrawals form .WithdrawalsReadCheck div span {
+  font-size: 15px;
+}
+.Withdrawals form .WithdrawalsReadCheck div span span {
+  font-weight: bold;
+  color: #ff7777;
+}
+.Withdrawals form .WithdrawalsReadCheck .WithdrawalsReadTel {
+  margin-top: 8px;
+}
+.Withdrawals form .WithdrawalsReadCheck .WithdrawalsReadTel b {
+  font-weight: 600;
+}
+.Withdrawals form .WithdrawalsCheckbox {
+  padding: 20px;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+.Withdrawals form .WithdrawalsCheckbox div {
+  margin-bottom: 15px;
+}
+.Withdrawals form .WithdrawalsCheckbox div input {
+  width: 20px;
+  height: 20px;
+}
+.Withdrawals form .WithdrawalsCheckbox div span {
+  margin-left: 8px;
+  font-size: 15px;
+}
+.Withdrawals form .WithdrawalsWrite {
+  position: relative;
+}
+.Withdrawals form .WithdrawalsWrite p {
+  font-size: 15px;
+  line-height: 21px;
+  margin-bottom: 20px;
+}
+.Withdrawals form .WithdrawalsWrite textarea {
+  width: 678px;
+  min-height: 200px;
+  padding-bottom: 30px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  height: 200px;
+  resize: none;
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #dbdbdb;
+}
+.Withdrawals form .WithdrawalsWrite textarea:focus {
+  outline: none;
+}
+.Withdrawals form .WithdrawalsWrite .length {
+  position: absolute;
+  font-size: 12px;
+  line-height: 16px;
+  color: #9e9e9e;
+  pointer-events: none;
+  bottom: 10px;
+  right: 10px;
+}
+.Withdrawals form .WithdrawalsButton {
+  margin-top: 30px;
+}
+.Withdrawals form .WithdrawalsButton button {
+  display: inline-block;
+  width: 138px;
+  height: 50px;
+  margin: 0 5px;
+  padding: 11px 10px;
+  box-sizing: border-box;
+  border: 1px solid #bdbdbd;
+  font-family: Noto Sans KR, Noto Sans CJK KR, 맑은 고딕, Malgun Gothic, sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #bdbdbd;
+  cursor: pointer;
+}
+.Withdrawals form .WithdrawalsButton button:last-child {
+  border-color: #09addb;
+  background-color: #09addb;
+}/*# sourceMappingURL=Withdrawals.css.map */

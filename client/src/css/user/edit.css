@@ -1,0 +1,162 @@
+.edit {
+  width: 1000px;
+  min-height: 800px;
+  margin: 50px auto;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  padding: 50px;
+  color: #292929;
+}
+.edit .editTitle {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+}
+.edit .editTitle .editTitleDiv {
+  font-size: 24px;
+  font-weight: 700;
+}
+.edit .editTitle .editTitleSpan {
+  font-size: 14px;
+  color: #f05656;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.edit input:not(input[type=radio], input[type=file]) {
+  width: 368px;
+  font-size: 15px;
+  border-radius: 6px;
+  display: block;
+  box-sizing: border-box;
+  height: 40px;
+  padding: 0 15px;
+  line-height: 40px;
+  border: 1px solid #dbdbdb;
+  background-color: #fff;
+  color: #424242;
+}
+.edit input:not(input[type=radio], input[type=file]):focus {
+  outline: none;
+}
+.edit label {
+  display: block;
+  padding-top: 15px;
+  width: 100px;
+}
+.edit form .editId, .edit form .editNickname {
+  display: flex;
+  margin-bottom: 40px;
+}
+.edit form .editId .editIdTitle, .edit form .editId .editNicknameTitle, .edit form .editNickname .editIdTitle, .edit form .editNickname .editNicknameTitle {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100px;
+}
+.edit form .editId .editIdTitle .editIdspan, .edit form .editId .editIdTitle .editNicknamespan, .edit form .editId .editNicknameTitle .editIdspan, .edit form .editId .editNicknameTitle .editNicknamespan, .edit form .editNickname .editIdTitle .editIdspan, .edit form .editNickname .editIdTitle .editNicknamespan, .edit form .editNickname .editNicknameTitle .editIdspan, .edit form .editNickname .editNicknameTitle .editNicknamespan {
+  display: block;
+  margin-top: 5px;
+  font-size: 13px;
+  color: #757575;
+}
+.edit form .editId .editIdinput .editIdinputText, .edit form .editId .editNicknameinput .editIdinputText, .edit form .editNickname .editIdinput .editIdinputText, .edit form .editNickname .editNicknameinput .editIdinputText {
+  display: block;
+  margin-top: 10px;
+  color: #9e9e9e;
+  font-size: 13px;
+  font-weight: 700;
+}
+.edit form .editNicknameText {
+  display: block;
+  margin-top: 10px;
+  color: rgb(255, 119, 119);
+  font-size: 13px;
+  font-weight: 700;
+}
+.edit form .editHompage, .edit form .editGender, .edit form .editBirthday, .edit form .editImage, .edit form .editComment, .edit form .editPhone {
+  display: flex;
+  margin-bottom: 40px;
+}
+.edit form .editPhone {
+  flex-direction: column;
+}
+.edit form .editPhone div {
+  display: flex;
+  margin-bottom: 10px;
+}
+.edit form .editPhone span {
+  margin-left: 100px;
+  display: block;
+  color: #9e9e9e;
+  font-size: 13px;
+  font-weight: 700;
+}
+.edit form .editGender input[type=radio] {
+  width: 20px;
+  height: 20px;
+}
+.edit form .editGender .editGenderINput {
+  display: flex;
+  margin-top: 5px;
+}
+.edit form .editGender .editGenderINput span {
+  display: block;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.edit form .editImage {
+  flex-direction: column;
+}
+.edit form .editImage .editImageinput {
+  display: flex;
+  position: relative;
+}
+.edit form .editImage .editImageinput input {
+  padding: 100px;
+  font-size: 0px;
+  background-size: cover;
+  cursor: pointer;
+}
+.edit form .editImage .editImageinput input::file-selector-button {
+  display: none;
+}
+.edit form .editImage .editImageinput svg {
+  position: absolute;
+  color: #35c5f0;
+  font-size: 30px;
+  cursor: pointer;
+  left: 270px;
+  z-index: 30;
+}
+.edit form .editImage .editImageprofile {
+  margin-top: 20px;
+  margin-left: 160px;
+  width: 150px;
+  height: 150px;
+}
+.edit form .editImage .editImageprofile img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.edit form .editButton {
+  display: inline-block;
+  width: 290px;
+  margin-top: 60px;
+  margin-left: 100px;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  background: none;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 17px;
+  text-decoration: none;
+  text-align: center;
+  transition: color 0.1s, background-color 0.1s, border-color 0.1s;
+  border-radius: 4px;
+  background-color: #35c5f0;
+  border-color: #35c5f0;
+  color: #fff;
+  padding: 11px 10px;
+  line-height: 26px;
+  cursor: pointer;
+}/*# sourceMappingURL=edit.css.map */
